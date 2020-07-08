@@ -1,0 +1,14 @@
+/* pages/SentNotice/SendNotice.wxss */
+.checkbox{
+  margin-left: 8em;
+}
+
+.textarea{
+  height: 300;
+}
+
+.button{
+  position: fixed;
+  top: 450px;
+  left: 70px;
+}

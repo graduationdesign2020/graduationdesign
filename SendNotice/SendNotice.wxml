@@ -1,0 +1,57 @@
+<!--pages/SentNotice/SendNotice.wxml-->
+<view>
+  <van-cell-group>
+    <van-field
+      value="{{ title }}"
+      label="标题"
+      placeholder="请输入标题"
+      input-align="right"
+    />
+    <van-cell
+    title="发送对象"
+    value="选择学生"
+    is-link
+    bind:click="showBottom"
+    />
+    <van-cell title="正文"/>
+    <van-field
+      value="{{ content }}"
+      type="textarea"
+      center
+      size="large"
+      custom-style="textarea"
+      placeholder="请输入正文"
+      autosize
+    />
+  </van-cell-group>
+  <view class="button">
+    <van-button type="info" round bindtap="sendNotice">发送通知</van-button>
+  </view>
+  
+
+  <van-popup
+    show="{{ show }}"
+    position="bottom"
+    custom-style="height: 50%"
+    bind:close="hideBottom"
+  >
+    <van-checkbox-group value="{{ result }}" data-key="result" bind:change="onChange">
+      <van-cell-group >
+        <van-cell
+          wx:for="{{ list }}"
+          wx:key="*this"
+          title="学生 {{ item }}"
+          value-class="value-class"
+          clickable
+          data-index="{{ index }}"
+          bind:click="toggle"
+        >
+          <view class="checkbox">
+            <van-checkbox catch:tap="noop" class="checkboxes-{{ index }}" name="{{ item }}" />
+          </view>
+        </van-cell>
+      </van-cell-group>
+  </van-checkbox-group>
+  </van-popup>
+</view> 
+
