@@ -1,0 +1,20 @@
+/* pages/PostTask/PostTask.wxss */
+.PostTask-text {
+  width: 500rpx
+}
+.PostTask-container {
+  display: flex;
+  flex-direction: column;
+}
+.PostTask-buttons {
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.PostTask-button {
+  margin-top: 20rpx;
+  width: 500rpx;
+  height: fit-content;
+}
