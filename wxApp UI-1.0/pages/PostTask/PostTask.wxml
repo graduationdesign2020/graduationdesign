@@ -1,0 +1,52 @@
+<!--pages/PostTask/PostTask.wxml-->
+<view class="PostTask-container"> 
+<view >
+<van-cell-group>
+  <van-field
+    value="{{ title }}"
+    label="任务名称"
+    placeholder="请输入任务名称"
+    border="{{ true }}"
+    input-align="right"
+    bind:change="onTitleChange"
+  />
+  <van-cell 
+    title="通知发布时间" 
+    value="{{currentDateString}}"
+    is-link 
+    bind:click="showPopup"
+  />
+  <van-popup
+  show="{{ show }}"
+  position="bottom"
+  bind:close="onClose"
+  >
+  <van-datetime-picker
+  type="date"
+  value="{{ currentDate }}"
+  bind:confirm="onChooseTime"
+  bind:cancel="onClose"
+  min-date="{{ minDate }}"
+  formatter="{{ formatter }}"
+  />
+  </van-popup>
+  <van-cell title="编辑备注" value="最多可以输入150个字" />
+    <van-field
+    value="{{ value }}"
+    placeholder="请输入备注"
+    center
+    type="textarea"
+    bind:change="onChange"
+    custom-style="textarea"
+    autosize = "{maxHeight: 500px, minHeight: 100px}"
+  />
+</van-cell-group>
+</view>
+<view class="PostTask-buttons">
+<van-uploader class="PostTask-uploader" bind:after-read="afterRead">
+  <van-button icon="add" round size="large" class="PostTask-upload" type="default">上传文件</van-button>
+</van-uploader>
+<van-button type="info" round size="large" class="PostTask-submit" bind:click="onSubmit">提交任务</van-button>
+</view>
+<van-dialog id="van-dialog" />
+</view>

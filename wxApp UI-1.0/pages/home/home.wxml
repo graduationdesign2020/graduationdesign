@@ -1,0 +1,59 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="searchBar" style="width:100%"> 
+    <van-search
+      model:value="{{ searchValue }}"
+      placeholder="快速搜索通知"
+      bind:search="onSearch"
+    />
+  </view>
+  <view class="common-app" style="width:100%">
+    <van-cell-group>
+      <van-cell title="常用功能" size="large" />
+      <van-grid>
+        <van-grid-item 
+          wx:for="{{ commonAPPs }}" 
+          icon="{{ item.icon }}" 
+          text="{{ item.text }}" 
+          link-type="navigateTo" 
+          url="{{ item.url }}" 
+        />
+      </van-grid>
+    </van-cell-group>
+  </view>
+  <view class="notice" style="width:100%">
+    <van-cell-group>
+      <van-cell title="通知公告" size="large" value="更多" is-link url="/pages/index/index" />
+      <van-cell
+        wx:for="{{ notices }}" 
+        title="{{ item.title }}" 
+        value="{{ item.value }}" 
+        label="{{ item.label }}" 
+        is-link url="{{ item.url }}" 
+      />
+    </van-cell-group>
+  </view>
+  <view class="message" style="width:100%">
+    <van-cell-group>
+      <van-cell title="我的消息" size="large"  value="更多" is-link url="/pages/index/index"  />
+      <van-cell wx:for="{{ messages }}" label="{{ item.label }}" is-link url="{{ item.url }}" >
+        <view slot="title">
+          <view class="title">{{ item.title }}</view>
+          <van-tag wx:if="{{item.isRead}}" type="success">已读</van-tag>
+          <van-tag wx:else type="danger">未读</van-tag>
+        </view>
+      </van-cell>
+    </van-cell-group>
+  </view>
+  <view>
+    <van-tabbar active="{{ active }}" bind:change="onChange">
+      <van-tabbar-item name="home" icon="home-o">首页</van-tabbar-item>
+      <van-tabbar-item wx:if="{{user.auth}}" name="procedure" icon="todo-list-o">流程</van-tabbar-item>
+      <van-tabbar-item wx:if="{{!user.auth}}" name="studentFinished" icon="todo-list-o">学生流程</van-tabbar-item>
+      <van-tabbar-item name="QA" icon="question-o" info="20">答疑</van-tabbar-item>
+      <van-tabbar-item name="myprofile" icon="user-o" >我的</van-tabbar-item>
+      
+    </van-tabbar>
+  </view>
+</view>
+

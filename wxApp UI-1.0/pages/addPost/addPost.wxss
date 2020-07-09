@@ -1,0 +1,7 @@
+/* pages/addPost/addPost.wxss */
+.button {
+  position: absolute;
+  top: 450px;
+  left: 80px;
+  width: 150px;
+}

@@ -1,0 +1,14 @@
+<!--pages/noticeDetial/noticeDetail.wxml-->
+<view class="page">
+    <view>
+        <wux-white-space size="default" />
+        <wux-wing-blank size="default">
+            <wux-card bindtap="detail" title="{{notice.title}}" extra="{{notice.author}} {{notice.time}}">
+                <view slot="body">{{notice.content}}</view>
+                <view slot="footer"><wux-icon type="ios-eye" size="16"/> {{notice.reading}}</view>
+            </wux-card>
+        </wux-wing-blank>
+    </view>
+</view>
+
+
