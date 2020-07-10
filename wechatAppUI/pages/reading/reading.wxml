@@ -1,0 +1,23 @@
+<!--pages/reading/reading.wxml-->
+<van-cell-group>
+<van-cell title="{{notice.title}}" value="{{notice.time}}" size="large" />
+<van-cell title="只显示未读">
+  <van-switch checked="{{ checked }}" bind:change="onChange" size="20px" />
+</van-cell>
+<block wx:for="{{students}}" wx:for-item="student">
+<block wx:if="{{student.reading==0}}">
+  <van-cell title="{{student.name}}" bind:click="showPopup">
+  <van-tag type="danger" size="medium">未读</van-tag>
+</van-cell>
+</block>
+<block wx:else>
+<block wx:if="{{checked==false}}">
+   <van-cell title="{{student.name}}" bind:click="showPopup">
+  <van-tag type="success" size="medium">已读</van-tag>
+</van-cell>
+</block>
+</block>
+</block>
+</van-cell-group>
+
+
