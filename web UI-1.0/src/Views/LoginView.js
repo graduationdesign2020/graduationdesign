@@ -69,21 +69,23 @@ export default function LoginView() {
     const [validp, setValidp] = useState(true);
 
     function checkandlog() {
-        if(id == null && password == null){
-            setValidid(false);
+        setValidp(true);
+        setValidid(true);
+        if(id && password){
+            authedSuccess();
+            history.push('/');
+            return;
+        }
+        if(id){
             setValidp(false);
             return;
         }
-        if(id == null){
+        if(password){
             setValidid(false);
             return;
         }
-        if(password == null){
-            setValidp(false);
-            return;
-        }
-        authedSuccess();
-        history.push('/');
+        setValidid(false);
+        setValidp(false);
         return;
     }
 
@@ -124,7 +126,7 @@ export default function LoginView() {
                             type="password"
                             id="password"
                             autoComplete="current-password"
-                            onChange={event => {setPassword(event.target.value);}}
+                            onChange={event => {console.log(event.target.value);setPassword(event.target.value);}}
                             error={!validp}
                             helperText={!validp?"密码不可为空":null}
                         />
