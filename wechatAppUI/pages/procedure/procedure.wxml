@@ -1,0 +1,30 @@
+<!--pages/procedure/procedure.wxml-->
+<van-cell-group>
+<block wx:for="{{procedures}}" wx:for-item="procedure">
+<block wx:if="{{procedure.state==2}}">
+  <van-cell title="{{procedure.name}}" is-link>
+  <van-tag plain type="danger" size="medium">已结束</van-tag>
+</van-cell>
+</block>
+<block wx:if="{{procedure.state==1}}">
+  <van-cell title="{{procedure.name}}" is-link>
+  <van-tag  plain type="success" size="medium">进行中</van-tag>
+</van-cell>
+</block>
+<block wx:if="{{procedure.state==0}}">
+  <van-cell title="{{procedure.name}}" is-link>
+  <van-tag plain size="medium">未开始</van-tag>
+</van-cell>
+</block>
+</block>
+</van-cell-group>
+<view>
+    <van-tabbar active="{{ active }}" bind:change="onChange">
+      <van-tabbar-item name="home" icon="home-o">首页</van-tabbar-item>
+      <van-tabbar-item wx:if="{{user.auth}}" name="procedure" icon="todo-list-o">流程</van-tabbar-item>
+      <van-tabbar-item wx:if="{{!user.auth}}" name="studentFinished" icon="todo-list-o">学生流程</van-tabbar-item>
+      <van-tabbar-item name="QA" icon="question-o" info="20">答疑</van-tabbar-item>
+      <van-tabbar-item name="myprofile" icon="user-o" >我的</van-tabbar-item>
+      
+    </van-tabbar>
+  </view>

@@ -1,0 +1,38 @@
+<!--pages/QA/QA.wxml-->
+<van-cell-group>
+  <van-cell label="描述信息" is-link>
+  <view slot="title">
+    <view class="van-cell-text">
+    <van-tag type="danger">1</van-tag>
+    单元格
+    </view>
+  </view>
+  </van-cell>
+  <van-cell label="描述信息" is-link>
+  <view slot="title">
+    <view class="van-cell-text">
+    <van-tag type="warning">2</van-tag>
+    单元格
+    </view>
+  </view>
+  </van-cell>
+  <van-cell label="描述信息" is-link>
+  <view slot="title">
+    <view class="van-cell-text">
+    <van-tag type="primary">3</van-tag>
+    单元格
+    </view>
+  </view>
+  </van-cell>
+  <van-cell center title="单元格" label="描述信息" is-link/>
+</van-cell-group>
+<view>
+    <van-tabbar active="{{ active }}" bind:change="onChange">
+      <van-tabbar-item name="home" icon="home-o">首页</van-tabbar-item>
+      <van-tabbar-item wx:if="{{user.auth}}" name="procedure" icon="todo-list-o">流程</van-tabbar-item>
+      <van-tabbar-item wx:if="{{!user.auth}}" name="studentFinished" icon="todo-list-o">学生流程</van-tabbar-item>
+      <van-tabbar-item name="QA" icon="question-o" info="20">答疑</van-tabbar-item>
+      <van-tabbar-item name="myprofile" icon="user-o" >我的</van-tabbar-item>
+      
+    </van-tabbar>
+  </view>
