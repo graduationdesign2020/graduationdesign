@@ -10,11 +10,33 @@ const { Header, Content, Sider } = Layout;
 class ProcessDetail extends React.Component {
     state = {
         collapsed: false,
+        choose: 1,
     };
 
     onCollapse = collapsed => {
         console.log(collapsed);
         this.setState({ collapsed });
+    };
+
+    title = () => {
+        if(this.state.choose == 1){
+            return "选题确认"
+        }
+        if(this.state.choose == 2){
+            return "开题报告"
+        }
+        if(this.state.choose == 3){
+            return "第一阶段检查"
+        }
+        if(this.state.choose == 4){
+            return "中期检查"
+        }
+        if(this.state.choose == 5){
+            return "设计（论文）定稿"
+        }
+        if(this.state.choose == 6){
+            return "用户管理"
+        }
     };
 
     render() {
@@ -36,20 +58,32 @@ class ProcessDetail extends React.Component {
             <Layout style={{ minHeight: '100vh' }}>
                 <Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
                     <div className="logo" />
-                    <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-                        <Menu.Item key="1" icon={<BarsOutlined />}>
-                            毕业设计流程学生情况
+                    <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" onClick={(e)=>{this.setState({choose: e.key})}}>
+                        <Menu.Item key="1" icon={<BarsOutlined />} >
+                            选题确认
                         </Menu.Item>
                         <Menu.Item key="2" icon={<DesktopOutlined />}>
-                            管理学生
+                            开题报告
+                        </Menu.Item>
+                        <Menu.Item key="3" icon={<DesktopOutlined />}>
+                            第一阶段检查
+                        </Menu.Item>
+                        <Menu.Item key="4" icon={<DesktopOutlined />}>
+                            中期检查
+                        </Menu.Item>
+                        <Menu.Item key="5" icon={<DesktopOutlined />}>
+                            设计（论文）定稿
+                        </Menu.Item>
+                        <Menu.Item key="6" icon={<DesktopOutlined />}>
+                            用户管理
                         </Menu.Item>
                     </Menu>
                 </Sider>
                 <Layout className="site-layout">
-                    <Header className="site-layout-background" style={{ padding: 0 }} />
+                    {/*<Header className="site-layout-background" style={{ padding: 0 }} />*/}
                     <Content style={{ margin: '0 16px' }}>
-                        <div>
-                            <h1>中期检查</h1>
+                        <div style={{ marginTop: '25px' }}>
+                            <h1>{this.title()}</h1>
                         </div>
                         <Table dataSource={students} columns={columns}/>
                     </Content>
