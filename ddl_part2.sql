@@ -33,7 +33,7 @@ CREATE TABLE message(
     id          int not null auto_increment,
     title       varchar(50) NOT NULL,
     teacher_id  varchar(5) NOT NULL,
-    read_number		int not null,
+    read_number	int not null,
     time        datetime not null,
     PRIMARY KEY (id),
     FOREIGN KEY (teacher_id) REFERENCES teacher (id) on delete cascade
@@ -45,18 +45,18 @@ CREATE TABLE message(
 -- 2:专业管理人
 CREATE TABLE users 
 (
-	wechat_id varchar(20),
-    student_id varchar(12) NOT NULL UNIQUE,
-    auth int NOT NULL,
+	wechat_id 	varchar(20),
+    student_id 	varchar(12) NOT NULL UNIQUE,
+    auth 		int NOT NULL,
     PRIMARY KEY (wechat_id),
     FOREIGN KEY (student_id) REFERENCES student(id) on delete cascade
 );
 
 CREATE TABLE reading_state 
 (
-	message_id int,
-    student_id varchar(12) NOT NULL,
-    is_read tinyint(1) NOT NULL,
+	message_id 	int,
+    student_id 	varchar(12) NOT NULL,
+    is_read 	tinyint(1) NOT NULL,
     PRIMARY KEY (message_id,student_id),
     FOREIGN KEY (student_id) REFERENCES student(id) on delete cascade,
     FOREIGN KEY (message_id) REFERENCES message(id) on delete cascade
@@ -70,11 +70,11 @@ CREATE TABLE reading_state
 -- 4:论文定稿
 CREATE TABLE project
 (
-	id varchar(12) NOT NULL,
-    teacher_id varchar(5) NOT NULL,
+	id 			varchar(12) NOT NULL,
+    teacher_id 	varchar(5) NOT NULL,
     project_name varchar(255),
     project_type varchar(20),
-    state int NOT NULL,
+    state 		int NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (id) REFERENCES student(id) on delete cascade,
     FOREIGN KEY (teacher_id) REFERENCES teacher(id) on delete cascade
@@ -87,12 +87,13 @@ CREATE TABLE project
 -- 3:审核未通过
 CREATE TABLE state
 (
-	project_id varchar(12) NOT NULL,
-    state int NOT NULL,
-    submit int NOT NULL,
-    time datetime,
-    place varchar(255),
-    grade varchar(2),
+	project_id 	varchar(12) NOT NULL,
+    state 		int NOT NULL,
+    submit 		int NOT NULL,
+    start_time 	datetime,
+    end_time	datetime,
+    place 		varchar(255),
+    grade 		varchar(2),
     PRIMARY KEY (project_id,state),
     FOREIGN KEY (project_id) REFERENCES project(id) on delete cascade
 );
