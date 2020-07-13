@@ -33,6 +33,7 @@ CREATE TABLE message(
     id          int not null auto_increment,
     title       varchar(50) NOT NULL,
     teacher_id  varchar(5) NOT NULL,
+    read_number		int not null,
     time        datetime not null,
     PRIMARY KEY (id),
     FOREIGN KEY (teacher_id) REFERENCES teacher (id) on delete cascade
@@ -72,6 +73,7 @@ CREATE TABLE project
 	id varchar(12) NOT NULL,
     teacher_id varchar(5) NOT NULL,
     project_name varchar(255),
+    project_type varchar(20),
     state int NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (id) REFERENCES student(id) on delete cascade,
