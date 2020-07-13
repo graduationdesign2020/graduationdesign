@@ -1,22 +1,64 @@
+DROP TABLE IF EXISTS teacher;
+DROP TABLE IF EXISTS student;
+DROP TABLE IF EXISTS notice;
+DROP TABLE IF EXISTS message;
 DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS reading_state;
+DROP TABLE IF EXISTS project;
+DROP TABLE IF EXISTS state;
+
+CREATE TABLE teacher(
+    id          varchar(5) NOT NULL,
+    name        varchar(20) NOT NULL,
+    major       varchar(12) NOT NULL,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE student(
+    id          varchar(12) NOT NULL,
+    name        varchar(20) NOT NULL,
+    major       varchar(12) NOT NULL,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE notice(
+    id          int not null auto_increment,
+    title       varchar(50) NOT NULL,
+    time        datetime not null,
+    top         tinyint(1) not null,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE message(
+    id          int not null auto_increment,
+    title       varchar(50) NOT NULL,
+    teacher_id  varchar(5) NOT NULL,
+    time        datetime not null,
+    PRIMARY KEY (id),
+    FOREIGN KEY (teacher_id) REFERENCES teacher (id) on delete cascade
+);
+
+-- auth:
+-- 0:学生
+-- 1:老师
+-- 2:专业管理人
 CREATE TABLE users 
 (
 	wechat_id varchar(20),
     student_id varchar(12) NOT NULL UNIQUE,
     auth int NOT NULL,
     PRIMARY KEY (wechat_id),
-    FOREIGN KEY (student_id) REFERENCES student(id)
+    FOREIGN KEY (student_id) REFERENCES student(id) on delete cascade
 );
 
-DROP TABLE IF EXISTS reading_state;
 CREATE TABLE reading_state 
 (
 	message_id int,
     student_id varchar(12) NOT NULL,
-    is_read INT NOT NULL DEFAULT 0,
+    is_read tinyint(1) NOT NULL,
     PRIMARY KEY (message_id,student_id),
-    FOREIGN KEY (student_id) REFERENCES student(id),
-    FOREIGN KEY (message_id) REFERENCES message(id)
+    FOREIGN KEY (student_id) REFERENCES student(id) on delete cascade,
+    FOREIGN KEY (message_id) REFERENCES message(id) on delete cascade
 );
 
 -- state:
@@ -25,7 +67,6 @@ CREATE TABLE reading_state
 -- 2:中期检查
 -- 3:答辩
 -- 4:论文定稿
-DROP TABLE IF EXISTS project;
 CREATE TABLE project
 (
 	id varchar(12) NOT NULL,
@@ -33,8 +74,8 @@ CREATE TABLE project
     project_name varchar(255),
     state int NOT NULL,
     PRIMARY KEY (id),
-    FOREIGN KEY (id) REFERENCES student(id),
-    FOREIGN KEY (teacher_id) REFERENCES teacher(id)
+    FOREIGN KEY (id) REFERENCES student(id) on delete cascade,
+    FOREIGN KEY (teacher_id) REFERENCES teacher(id) on delete cascade
 );
 
 -- submit:
@@ -42,18 +83,16 @@ CREATE TABLE project
 -- 1:审核中
 -- 2:审核通过
 -- 3:审核未通过
-DROP TABLE IF EXISTS state;
 CREATE TABLE state
 (
-	project_id int NOT NULL,
+	project_id varchar(12) NOT NULL,
     state int NOT NULL,
     submit int NOT NULL,
     time datetime,
     place varchar(255),
     grade varchar(2),
     PRIMARY KEY (project_id,state),
-    FOREIGN KEY (project_id) REFERENCES project(id),
-    FOREIGN KEY (state) REFERENCES project(state)
+    FOREIGN KEY (project_id) REFERENCES project(id) on delete cascade
 );
     
     
