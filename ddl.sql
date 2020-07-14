@@ -1,3 +1,4 @@
+set foreign_key_checks=0;
 DROP TABLE IF EXISTS teacher;
 DROP TABLE IF EXISTS student;
 DROP TABLE IF EXISTS notice;
@@ -10,7 +11,7 @@ DROP TABLE IF EXISTS state;
 CREATE TABLE teacher(
     id          varchar(10) NOT NULL,
     name        varchar(50) NOT NULL,
-    major       varchar(50) NOT NULL,
+    major       varchar(50),
     PRIMARY KEY (id)
 );
 
@@ -18,6 +19,7 @@ CREATE TABLE student(
     id          varchar(12) NOT NULL,
     name        varchar(50) NOT NULL,
     major       varchar(50) NOT NULL,
+	project_name varchar(255),
     PRIMARY KEY (id)
 );
 
@@ -26,6 +28,7 @@ CREATE TABLE notice(
     title       varchar(50) NOT NULL,
     time        datetime not null,
     top         tinyint(1) not null,
+    read_number	int not null,
     PRIMARY KEY (id)
 );
 
@@ -33,7 +36,6 @@ CREATE TABLE message(
     id          int not null auto_increment,
     title       varchar(50) NOT NULL,
     teacher_id  varchar(5) NOT NULL,
-    read_number	int not null,
     time        datetime not null,
     PRIMARY KEY (id),
     FOREIGN KEY (teacher_id) REFERENCES teacher (id) on delete cascade
@@ -72,8 +74,6 @@ CREATE TABLE project
 (
 	id 			varchar(12) NOT NULL,
     teacher_id 	varchar(10) NOT NULL,
-    project_name varchar(255),
-    project_type varchar(20),
     state 		int NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (id) REFERENCES student(id) on delete cascade,
