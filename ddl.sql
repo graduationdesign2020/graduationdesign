@@ -1,4 +1,3 @@
-set foreign_key_checks=0;
 DROP TABLE IF EXISTS teacher;
 DROP TABLE IF EXISTS student;
 DROP TABLE IF EXISTS notice;
@@ -36,7 +35,7 @@ CREATE TABLE message(
     id          int not null auto_increment,
     title       varchar(50) NOT NULL,
     teacher_id  varchar(5) NOT NULL,
-    time        datetime not null,
+    time        datetime not null DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id),
     FOREIGN KEY (teacher_id) REFERENCES teacher (id) on delete cascade
 );
@@ -58,7 +57,7 @@ CREATE TABLE reading
 (
 	message_id 	int,
     student_id 	varchar(12) NOT NULL,
-    is_read 	tinyint(1) NOT NULL,
+    is_read 	tinyint(1) NOT NULL default 0,
     PRIMARY KEY (message_id,student_id),
     FOREIGN KEY (student_id) REFERENCES student(id) on delete cascade,
     FOREIGN KEY (message_id) REFERENCES message(id) on delete cascade
