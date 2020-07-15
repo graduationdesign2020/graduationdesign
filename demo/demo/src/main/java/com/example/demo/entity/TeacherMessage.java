@@ -11,22 +11,21 @@ import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Data
-@Table(name = "message",schema = "bysj")
+@Table(name = "teachermessage",schema = "bysj")
 @JsonIgnoreProperties(value = {"handler","hibernateLazyInitializer","fieldHandler"})
 @JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "messageId")
-public class Message {
+        property = "id")
+public class TeacherMessage {
     @Id
-    @Column(name = "id")
     @GeneratedValue(strategy = IDENTITY)
-    private int messageId;
+    private int id;
 
-    public void setMessageId(int messageId){
-        this.messageId=messageId;
+    public void setId(int id){
+        this.id=id;
     }
-    public int getMessageId(){
-        return messageId;
+    public int getId(){
+        return id;
     }
 
     @Basic
@@ -35,20 +34,33 @@ public class Message {
     public void setTitle(String title){
         this.title=title;
     }
-    public String getTitle(){
-        return title;
-    }
+    public String getTitle(){return title;}
 
     @Basic
-    @Column(name = "teacher_id")
-    private String teacherId;
+    private String teacher_id;
 
-    public void setTeacherId(String teacherId) {
-        this.teacherId = teacherId;
+    public void setTeacher_id(String teacher_id) {
+        this.teacher_id = teacher_id;
+    }
+    public String getTeacher_id(){ return teacher_id;}
+
+    @Basic
+    private String student_id;
+
+    public void setStudent_id(String student_id) {
+        this.student_id = student_id;
+    }
+    public String getStudent_id(){return student_id;}
+
+    @Basic
+    private boolean is_read;
+
+    public void setIs_read(boolean is_read) {
+        this.is_read = is_read;
     }
 
-    public String getTeacherId() {
-        return teacherId;
+    public boolean getIs_read() {
+        return is_read;
     }
 
     @Basic

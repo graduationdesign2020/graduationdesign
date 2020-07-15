@@ -11,38 +11,49 @@ import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Data
-@Table(name = "notice",schema = "bysj")
+@Table(name = "schoolnotice",schema = "bysj")
 @JsonIgnoreProperties(value = {"handler","hibernateLazyInitializer","fieldHandler"})
 @JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "noticeId")
-public class Notice {
+        property = "id")
+public class SchoolNotice {
     @Id
-    @Column(name = "id")
     @GeneratedValue(strategy = IDENTITY)
-    private int noticeId;
+    private int id;
 
-    public int getNoticeId(){
-        return noticeId;
+    public int getId() {
+        return id;
     }
 
     @Basic
     private String title;
 
-    @Basic
-    private boolean top;
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getTitle() {
+        return title;
+    }
 
     @Basic
     private String time;
+    public void setTime(String time) {
+        this.time = time;
+    }
 
-    @Basic
-    @Column(name = "read_number")
-    private int reads;
+    public String getTime() {
+        return time;
+    }
 
     @Transient
     private String content;
     @Transient
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public String getContent() {
+        return content;
     }
 }

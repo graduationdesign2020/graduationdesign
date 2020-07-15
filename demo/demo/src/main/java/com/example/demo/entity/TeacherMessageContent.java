@@ -4,17 +4,18 @@ import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.Column;
-
 @Data
-@Document(collection = "messageContent")
-public class MessageContent {
+@Document(collection = "teachermessagecontent")
+public class TeacherMessageContent {
     @Id
-    @Column(name = "id")
-    private int messageId;
+    private int id;
 
-    public void setMessageId(int messageId){
-        this.messageId=messageId;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
     }
 
     private String content;
@@ -25,8 +26,8 @@ public class MessageContent {
     public void setContent(String content){
         this.content=content;
     }
-    public MessageContent(int messageId,String content){
-        this.messageId=messageId;
+    public TeacherMessageContent(int id, String content){
+        this.id=id;
         this.content=content;
     }
 
