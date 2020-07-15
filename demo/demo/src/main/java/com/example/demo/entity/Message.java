@@ -22,16 +22,45 @@ public class Message {
     @GeneratedValue(strategy = IDENTITY)
     private int messageId;
 
+    public void setMessageId(int messageId){
+        this.messageId=messageId;
+    }
     public int getMessageId(){
         return messageId;
     }
 
+    @Basic
     private String title;
 
+    public void setTitle(String title){
+        this.title=title;
+    }
+    public String getTitle(){
+        return title;
+    }
+
+    @Basic
     @Column(name = "teacher_id")
     private String teacherId;
 
+    public void setTeacherId(String teacherId) {
+        this.teacherId = teacherId;
+    }
+
+    public String getTeacherId() {
+        return teacherId;
+    }
+
+    @Basic
     private String time;
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
 
     @Transient
     private String content;
@@ -39,4 +68,5 @@ public class Message {
     public void setContent(String content) {
         this.content = content;
     }
+    public String getContent(){return content;}
 }

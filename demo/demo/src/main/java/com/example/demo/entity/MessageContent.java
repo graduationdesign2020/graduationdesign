@@ -12,9 +12,22 @@ public class MessageContent {
     @Id
     @Column(name = "id")
     private int messageId;
+
+    public void setMessageId(int messageId){
+        this.messageId=messageId;
+    }
+
     private String content;
 
     public String getContent() {
         return content;
     }
+    public void setContent(String content){
+        this.content=content;
+    }
+    public MessageContent(int messageId,String content){
+        this.messageId=messageId;
+        this.content=content;
+    }
+
 }

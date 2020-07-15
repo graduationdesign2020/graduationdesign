@@ -6,7 +6,6 @@ import org.springframework.data.repository.query.Param;
 
 public interface MessageContentRepository extends MongoRepository<MessageContent,Integer>{
     MessageContent findByMessageId(@Param("id")int id);
-
 }
 
 

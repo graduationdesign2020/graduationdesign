@@ -4,6 +4,7 @@ import com.example.demo.dao.MessageDao;
 import com.example.demo.entity.Message;
 import com.example.demo.entity.MessageContent;
 import com.example.demo.entity.NoticeContent;
+import com.example.demo.entity.Reading;
 import com.example.demo.repository.MessageContentRepository;
 import com.example.demo.repository.MessageRepository;
 import com.example.demo.repository.ReadingRepository;
@@ -31,19 +32,14 @@ public class MessageDaoImpl implements MessageDao {
 
     @Override
     public List<Message> getMessages(){
-        List<Message> messages=messageRepository.getMessages();
-        for(int i=0;i<messages.size();i++)
-        {
-            int index= messages.get(i).getMessageId();
-            MessageContent messageContent=messageContentRepository.findByMessageId(index);
-            messages.get(i).setContent(messageContent.getContent());
-        }
-        return messages;
+        return messageRepository.getMessages();
     }
 
     @Override
-    public int sentMessage(String title,String content,String teacherId){
-        return messageRepository.sentMessage(title, teacherId);
+    public void sentMessage(Message message){
+        messageRepository.save(message);
+        MessageContent messageContent=new MessageContent(message.getMessageId(),message.getContent());
+        messageContentRepository.save(messageContent);
     }
 
     @Override
@@ -52,8 +48,8 @@ public class MessageDaoImpl implements MessageDao {
     }
 
     @Override
-    public int addReader(int messageId,String studentId){
-        return readingRepository.addReader(messageId, studentId);
+    public void addReader(Reading reading){
+        readingRepository.save(reading);
     }
 
 }

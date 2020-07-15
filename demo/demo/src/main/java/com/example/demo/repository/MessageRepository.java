@@ -12,9 +12,4 @@ public interface MessageRepository extends JpaRepository<Message,Integer> {
     @Query("from Message")
     List<Message> getMessages();
 
-    @Transactional
-    @Modifying
-    @Query(value = "insert into message(title,teacher_id) values(?,?)",nativeQuery = true)
-    int sentMessage(String title,String teacherId);
-
 }

@@ -27,14 +27,7 @@ public class NoticeDaoImpl implements NoticeDao {
 
     @Override
     public List<Notice> getNotices(){
-        List<Notice> notices = noticeRepository.getNotices();
-        for(int i=0;i<notices.size();i++)
-        {
-            int index= notices.get(i).getNoticeId();
-            NoticeContent noticeContent=noticeContentRepository.findByNoticeId(index);
-            notices.get(i).setContent(noticeContent.getContent());
-        }
-        return notices;
+        return noticeRepository.getNotices();
     }
     @Override
     public int addReads(int id){

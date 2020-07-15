@@ -25,12 +25,17 @@ public class Notice {
     public int getNoticeId(){
         return noticeId;
     }
+
+    @Basic
     private String title;
 
+    @Basic
     private boolean top;
 
+    @Basic
     private String time;
 
+    @Basic
     @Column(name = "read_number")
     private int reads;
 
