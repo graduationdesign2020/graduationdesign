@@ -81,4 +81,13 @@ public class TeacherMessage {
         this.content = content;
     }
     public String getContent(){return content;}
+
+    public TeacherMessage(String title,String teacher_id,String student_id,String time,String content){
+        this.title=title;
+        this.teacher_id=teacher_id;
+        this.student_id=student_id;
+        this.is_read=false;
+        this.time=time;
+        this.content=content;
+    }
 }
