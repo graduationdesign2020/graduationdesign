@@ -1,11 +1,15 @@
+set foreign_key_checks=0;
 DROP TABLE IF EXISTS teacher;
 DROP TABLE IF EXISTS student;
-DROP TABLE IF EXISTS notice;
-DROP TABLE IF EXISTS message;
+DROP TABLE IF EXISTS schoolnotice;
+DROP TABLE IF EXISTS deptnotice;
+DROP TABLE IF EXISTS teachermessage;
+DROP TABLE IF EXISTS sysmessage;
 DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS reading;
+drop table if exists principleusers;
 DROP TABLE IF EXISTS project;
 DROP TABLE IF EXISTS state;
+drop table if exists grade;
 
 CREATE TABLE teacher(
     id          varchar(20) NOT NULL,
@@ -41,7 +45,7 @@ CREATE TABLE teacherMessage(
     title       varchar(50) NOT NULL,
     teacher_id  varchar(50) NOT NULL,
     student_id 	varchar(12) NOT NULL,
-    is_read 	tinyint(1) NOT NULL default 0,
+    is_read 	boolean NOT NULL default 0,
     time        datetime not null,
     PRIMARY KEY (id),
     FOREIGN KEY (student_id) REFERENCES student (id) on delete cascade
@@ -49,9 +53,10 @@ CREATE TABLE teacherMessage(
 
 CREATE TABLE sysMessage(
     id          int not null auto_increment,
+    title       varchar(50) NOT NULL,
     type		int not null,
     student_id 	varchar(12) NOT NULL,
-    is_read 	tinyint(1) NOT NULL default 0,
+    is_read 	boolean NOT NULL default 0,
     time        datetime not null,
     PRIMARY KEY (id),
     FOREIGN KEY (student_id) REFERENCES student (id) on delete cascade
@@ -75,7 +80,7 @@ CREATE TABLE principleUsers
     password    varchar(50),
     department	varchar(50),
     name		varchar(50),
-    PRIMARY KEY (username)
+    PRIMARY KEY (teacher_id)
 );
 
 
