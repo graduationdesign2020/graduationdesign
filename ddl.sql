@@ -1,16 +1,21 @@
+set foreign_key_checks=0;
 DROP TABLE IF EXISTS teacher;
 DROP TABLE IF EXISTS student;
-DROP TABLE IF EXISTS notice;
-DROP TABLE IF EXISTS message;
+DROP TABLE IF EXISTS schoolnotice;
+DROP TABLE IF EXISTS deptnotice;
+DROP TABLE IF EXISTS teachermessage;
+DROP TABLE IF EXISTS sysmessage;
 DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS reading;
+drop table if exists principleusers;
 DROP TABLE IF EXISTS project;
 DROP TABLE IF EXISTS state;
+drop table if exists grade;
+set foreign_key_checks=1;
 
 CREATE TABLE teacher(
-    id          varchar(10) NOT NULL,
+    id          varchar(20) NOT NULL,
     name        varchar(50) NOT NULL,
-    major       varchar(50),
+    department 	varchar(50),
     PRIMARY KEY (id)
 );
 
@@ -18,26 +23,44 @@ CREATE TABLE student(
     id          varchar(12) NOT NULL,
     name        varchar(50) NOT NULL,
     major       varchar(50) NOT NULL,
-	project_name varchar(255),
     PRIMARY KEY (id)
 );
 
-CREATE TABLE notice(
+CREATE TABLE deptnotice(
+    id          int not null auto_increment,
+    department 	varchar(50) NOT NULL,
+    title       varchar(50) NOT NULL,
+    time        datetime not null,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE schoolnotice(
     id          int not null auto_increment,
     title       varchar(50) NOT NULL,
     time        datetime not null,
-    top         tinyint(1) not null,
-    read_number	int not null,
     PRIMARY KEY (id)
 );
 
-CREATE TABLE message(
+CREATE TABLE teachermessage(
     id          int not null auto_increment,
     title       varchar(50) NOT NULL,
-    teacher_id  varchar(5) NOT NULL,
-    time        datetime not null DEFAULT CURRENT_TIMESTAMP,
+    teacher_id  varchar(50) NOT NULL,
+    student_id 	varchar(12) NOT NULL,
+    is_read 	boolean NOT NULL default 0,
+    time        datetime not null,
     PRIMARY KEY (id),
-    FOREIGN KEY (teacher_id) REFERENCES teacher (id) on delete cascade
+    FOREIGN KEY (student_id) REFERENCES student (id) on delete cascade
+);
+
+CREATE TABLE sysmessage(
+    id          int not null auto_increment,
+    title       varchar(50) NOT NULL,
+    type		int not null,
+    student_id 	varchar(12) NOT NULL,
+    is_read 	boolean NOT NULL default 0,
+    time        datetime not null,
+    PRIMARY KEY (id),
+    FOREIGN KEY (student_id) REFERENCES student (id) on delete cascade
 );
 
 -- auth:
@@ -47,21 +70,20 @@ CREATE TABLE message(
 CREATE TABLE users 
 (
 	wechat_id 	varchar(20),
-    student_id 	varchar(12) NOT NULL UNIQUE,
+    id 			varchar(50) NOT NULL UNIQUE,
     auth 		int NOT NULL,
-    PRIMARY KEY (wechat_id),
-    FOREIGN KEY (student_id) REFERENCES student(id) on delete cascade
+    PRIMARY KEY (wechat_id)
 );
 
-CREATE TABLE reading 
+CREATE TABLE principleusers 
 (
-	message_id 	int,
-    student_id 	varchar(12) NOT NULL,
-    is_read 	tinyint(1) NOT NULL default 0,
-    PRIMARY KEY (message_id,student_id),
-    FOREIGN KEY (student_id) REFERENCES student(id) on delete cascade,
-    FOREIGN KEY (message_id) REFERENCES message(id) on delete cascade
+	teacher_id	varchar(50),
+    password    varchar(50),
+    department	varchar(50),
+    name		varchar(50),
+    PRIMARY KEY (teacher_id)
 );
+
 
 -- state:
 -- 0:开题报告
@@ -72,7 +94,8 @@ CREATE TABLE reading
 CREATE TABLE project
 (
 	id 			varchar(12) NOT NULL,
-    teacher_id 	varchar(10) NOT NULL,
+	project_name varchar(255),
+    teacher_id 	varchar(50) NOT NULL,
     state 		int NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (id) REFERENCES student(id) on delete cascade,
@@ -86,15 +109,25 @@ CREATE TABLE project
 -- 3:审核未通过
 CREATE TABLE state
 (
+	id     		int NOT NULL auto_increment,
 	project_id 	varchar(12) NOT NULL,
     state 		int NOT NULL,
     submit 		int NOT NULL,
     start_time 	datetime,
     end_time	datetime,
-    place 		varchar(255),
-    grade 		varchar(2),
-    PRIMARY KEY (project_id,state),
+    PRIMARY KEY (id),
     FOREIGN KEY (project_id) REFERENCES project(id) on delete cascade
 );
+
+CREATE TABLE grade
+(
+	id				varchar(12) NOT NULL,
+	teacher_grade 	varchar(5),
+    reply_grade		varchar(5),
+    total_grade		varchar(5),
+    PRIMARY KEY (id),
+    FOREIGN KEY (id) REFERENCES student(id) on delete cascade
+);
+    
     
     
