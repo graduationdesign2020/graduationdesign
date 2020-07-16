@@ -16,35 +16,34 @@ import javax.persistence.Table;
 @JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,
         property = "id")
-public class Student {
+public class Users {
     @Id
-    private String id;
+    private String wechat_id;
 
-    public void setId(String id) {
-        this.id = id;
+    public String getWechat_id() {
+        return wechat_id;
     }
+
+    public void setWechat_id(String wechat_id) {
+        this.wechat_id = wechat_id;
+    }
+
+    private String id;
 
     public String getId() {
         return id;
     }
 
-    private String name;
+    public void setId(String id) {
+        this.id = id;
+    }
+    private  int auth;
 
-    public void setName(String name) {
-        this.name = name;
+    public int getAuth() {
+        return auth;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    private String major;
-
-    public void setMajor(String major) {
-        this.major = major;
-    }
-
-    public String getMajor() {
-        return major;
+    public void setAuth(int auth) {
+        this.auth = auth;
     }
 }

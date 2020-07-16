@@ -109,12 +109,13 @@ CREATE TABLE project
 -- 3:审核未通过
 CREATE TABLE state
 (
+	id     		int NOT NULL auto_increment,
 	project_id 	varchar(12) NOT NULL,
     state 		int NOT NULL,
     submit 		int NOT NULL,
     start_time 	datetime,
     end_time	datetime,
-    PRIMARY KEY (project_id,state),
+    PRIMARY KEY (id),
     FOREIGN KEY (project_id) REFERENCES project(id) on delete cascade
 );
 

@@ -9,14 +9,15 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
 @Entity
 @Data
-@Table(name = "student",schema = "GDMS")
+@Table(name = "project",schema = "GDMS")
 @JsonIgnoreProperties(value = {"handler","hibernateLazyInitializer","fieldHandler"})
 @JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,
         property = "id")
-public class Student {
+public class Project {
     @Id
     private String id;
 
@@ -28,23 +29,32 @@ public class Student {
         return id;
     }
 
-    private String name;
+    private String project_name;
 
-    public void setName(String name) {
-        this.name = name;
+    public String getProject_name() {
+        return project_name;
     }
 
-    public String getName() {
-        return name;
+    public void setProject_name(String project_name) {
+        this.project_name = project_name;
     }
 
-    private String major;
+    private String teacher_id;
 
-    public void setMajor(String major) {
-        this.major = major;
+    public void setTeacher_id(String teacher_id) {
+        this.teacher_id = teacher_id;
     }
 
-    public String getMajor() {
-        return major;
+    public String getTeacher_id() {
+        return teacher_id;
+    }
+    private  int state;
+
+    public int getState() {
+        return state;
+    }
+
+    public void setState(int state) {
+        this.state = state;
     }
 }

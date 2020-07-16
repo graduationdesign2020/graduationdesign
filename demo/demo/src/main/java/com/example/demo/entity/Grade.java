@@ -11,12 +11,12 @@ import javax.persistence.Table;
 
 @Entity
 @Data
-@Table(name = "student",schema = "GDMS")
+@Table(name = "grade",schema = "GDMS")
 @JsonIgnoreProperties(value = {"handler","hibernateLazyInitializer","fieldHandler"})
 @JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,
         property = "id")
-public class Student {
+public class Grade {
     @Id
     private String id;
 
@@ -28,23 +28,33 @@ public class Student {
         return id;
     }
 
-    private String name;
+    private String teacher_grade;
 
-    public void setName(String name) {
-        this.name = name;
+    public String getTeacher_grade() {
+        return teacher_grade;
     }
 
-    public String getName() {
-        return name;
+    public void setTeacher_grade(String teacher_grade) {
+        this.teacher_grade = teacher_grade;
     }
 
-    private String major;
+    private String reply_grade;
 
-    public void setMajor(String major) {
-        this.major = major;
+    public String getReply_grade() {
+        return reply_grade;
     }
 
-    public String getMajor() {
-        return major;
+    public void setReply_grade(String reply_grade) {
+        this.reply_grade = reply_grade;
+    }
+
+    private String total_grade;
+
+    public String getTotal_grade() {
+        return total_grade;
+    }
+
+    public void setTotal_grade(String total_grade) {
+        this.total_grade = total_grade;
     }
 }
