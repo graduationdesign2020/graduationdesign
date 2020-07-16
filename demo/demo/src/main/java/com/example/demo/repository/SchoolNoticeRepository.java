@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface SchoolNoticeRepository extends JpaRepository<SchoolNotice,Integer> {
-    @Query("from SchoolNotice ")
+    @Query("from SchoolNotice order by time desc")
     List<SchoolNotice> getSchoolNotices();
 
     @Query(value="select * from schoolnotice order by time desc limit 3",nativeQuery=true)

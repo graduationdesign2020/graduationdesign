@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 public interface TeacherMessageRepository extends JpaRepository<TeacherMessage,Integer> {
-    @Query("from TeacherMessage where student_id=:stu_id")
+    @Query("from TeacherMessage where student_id=:stu_id order by time desc")
     List<TeacherMessage> getTeacherMessagesByStudent_id(String stu_id);
 
 

@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 public interface SysMessageRepository extends JpaRepository<SysMessage,Integer> {
-    @Query("from SysMessage where student_id=:stu_id")
+    @Query("from SysMessage where student_id=:stu_id order by time desc")
     List<SysMessage> getSysMessagesByStudent_id(String stu_id);
 
 
