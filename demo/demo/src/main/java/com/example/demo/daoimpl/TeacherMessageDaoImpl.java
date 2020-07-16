@@ -2,6 +2,7 @@ package com.example.demo.daoimpl;
 
 import com.example.demo.dao.TeacherMessageDao;
 import com.example.demo.entity.SysMessage;
+import com.example.demo.entity.Teacher;
 import com.example.demo.entity.TeacherMessage;
 import com.example.demo.entity.TeacherMessageContent;
 import com.example.demo.repository.SysMessageRepository;
@@ -37,6 +38,11 @@ public class TeacherMessageDaoImpl implements TeacherMessageDao {
     @Override
     public List<TeacherMessage> getTeacherMessages(String stu_id){
         return teacherMessageRepository.getTeacherMessagesByStudent_id(stu_id);
+    }
+
+    @Override
+    public List<TeacherMessage> getTeacherMessagesByTeacher(String teacher_id) {
+        return teacherMessageRepository.findAllByTeacher_id(teacher_id);
     }
 
     @Override
