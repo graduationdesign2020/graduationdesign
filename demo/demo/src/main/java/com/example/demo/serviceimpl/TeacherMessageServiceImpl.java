@@ -29,7 +29,13 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
     public void sentTeacherMessage(String title,String teacher_id,String student_id,String content){
         Timestamp d=new Timestamp(System.currentTimeMillis());
         String time=d.toString();
-        TeacherMessage teacherMessage=new TeacherMessage(title,teacher_id,student_id,time,content);
+        TeacherMessage teacherMessage=new TeacherMessage();
+        teacherMessage.setTitle(title);
+        teacherMessage.setStudent_id(student_id);
+        teacherMessage.setTime(time);
+        teacherMessage.setTeacher_id(teacher_id);
+        teacherMessage.setIs_read(false);
+        teacherMessage.setContent(content);
         teacherMessageDao.sentTeacherMessage(teacherMessage);
     }
 

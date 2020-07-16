@@ -6,10 +6,7 @@ import com.example.demo.entity.TeacherMessage;
 import com.example.demo.service.NoticeService;
 import com.example.demo.service.TeacherMessageService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,6 +15,8 @@ import java.util.List;
 public class NoticeController {
     @Autowired
     NoticeService noticeService;
+    @Autowired
+    TeacherMessageService teacherMessageService;
 
     @RequestMapping(path = "/getSchoolNotices")
     List<SchoolNotice> getSchoolNotices()
@@ -39,6 +38,21 @@ public class NoticeController {
     @RequestMapping(path = "/getDepartmentNotice")
     public DeptNotice getDeptNotice(@RequestParam("id") Integer id) {
         return noticeService.getDeptNoticeById(id);
+    }
+
+    @RequestMapping(path = "/getTeacherMessage")
+    public TeacherMessage getTeacherMessage(@RequestParam("id") Integer id) {
+        return teacherMessageService.getTeacherMessageById(id);
+    }
+
+    @RequestMapping(path = "/getTeacherMessages")
+    public List<TeacherMessage> getDeptNotice(@RequestParam("id") String stu_id) {
+        return teacherMessageService.getTeacherMessages(stu_id);
+    }
+
+    @RequestMapping(path = "/sentMessage",method= RequestMethod.POST)
+    public void sentMessage(@RequestParam("title") String title,@RequestParam("teacher_id") String teacher_id,@RequestParam("student_id") String student_id,@RequestParam("content") String content) {
+        teacherMessageService.sentTeacherMessage(title, teacher_id, student_id, content);
     }
 
 

@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class TeacherMessageDaoImpl implements TeacherMessageDao {
@@ -20,10 +21,16 @@ public class TeacherMessageDaoImpl implements TeacherMessageDao {
     private TeacherMessageContentRepository teacherMessageContentRepository;
 
     @Override
-    public TeacherMessage getTeacherMessageById(int id){
+    public TeacherMessage getTeacherMessageById(Integer id){
         TeacherMessage teacherMessage= teacherMessageRepository.getOne(id);
-        TeacherMessageContent teacherMessageContent=teacherMessageContentRepository.findById(id);
-        teacherMessage.setContent(teacherMessageContent.getContent());
+        Optional<TeacherMessageContent> teacherMessageContent=teacherMessageContentRepository.findById(id);
+        if (teacherMessageContent.isPresent()){
+            TeacherMessageContent s=teacherMessageContent.get();
+            teacherMessage.setContent(s.getContent());
+        }
+        else{
+            teacherMessage.setContent(null);
+        }
         return teacherMessage;
     }
 

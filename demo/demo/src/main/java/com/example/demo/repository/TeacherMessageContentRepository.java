@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.repository.query.Param;
 
 public interface TeacherMessageContentRepository extends MongoRepository<TeacherMessageContent,Integer>{
-    TeacherMessageContent findById(@Param("id")int id);
+    TeacherMessageContent findById(@Param("_id")int id);
 }
 
 

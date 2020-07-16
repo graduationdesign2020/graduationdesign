@@ -5,7 +5,7 @@ import com.example.demo.entity.TeacherMessage;
 import java.util.List;
 
 public interface TeacherMessageDao {
-    TeacherMessage getTeacherMessageById(int id);
+    TeacherMessage getTeacherMessageById(Integer id);
 
     List<TeacherMessage> getTeacherMessages(String stu_id);
 
