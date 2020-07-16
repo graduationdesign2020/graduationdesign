@@ -8,4 +8,6 @@ public interface DeptNoticeDao {
     List<DeptNotice> getDeptNoticesByDept(String department);
 
     DeptNotice getDeptNoticeById(int id);
+
+    List<DeptNotice> getThreeDeptNoticesByDepartment(String dept);
 }

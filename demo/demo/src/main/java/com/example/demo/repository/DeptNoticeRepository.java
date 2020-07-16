@@ -12,6 +12,6 @@ public interface DeptNoticeRepository extends JpaRepository<DeptNotice,Integer>{
     @Query("from DeptNotice where department=:dept")
     List<DeptNotice> getDeptNoticesByDepartment(String dept);
 
-    @Query("from DeptNotice where department=:dept order by time desc")
+    @Query(value="select * from deptnotice where department=? order by time desc limit 3",nativeQuery=true)
     List<DeptNotice> getThreeDeptNoticesByDepartment(String dept);
 }

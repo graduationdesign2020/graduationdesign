@@ -11,7 +11,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Data
-@Table(name = "teachermessage",schema = "bysj")
+@Table(name = "teachermessage",schema = "GDMS")
 @JsonIgnoreProperties(value = {"handler","hibernateLazyInitializer","fieldHandler"})
 @JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,

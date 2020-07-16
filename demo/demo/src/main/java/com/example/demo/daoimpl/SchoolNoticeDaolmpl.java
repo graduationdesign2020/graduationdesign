@@ -30,4 +30,9 @@ public class SchoolNoticeDaolmpl implements SchoolNoticeDao {
         schoolNotice.setContent(schoolNoticeContent.getContent());
         return schoolNotice;
     }
+
+    @Override
+    public List<SchoolNotice> getThreeSchoolNotices(){
+        return schoolNoticeRepository.getThreeSchoolNotices();
+    }
 }

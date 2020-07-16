@@ -30,6 +30,11 @@ public class DeptNoticeDaoImpl implements DeptNoticeDao {
         return deptNotice;
     }
 
+    @Override
+    public List<DeptNotice> getThreeDeptNoticesByDepartment(String dept){
+        return deptNoticeRepository.getThreeDeptNoticesByDepartment(dept);
+    }
+
 
 
 }

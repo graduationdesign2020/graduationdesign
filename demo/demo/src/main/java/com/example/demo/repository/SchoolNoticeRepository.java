@@ -11,6 +11,6 @@ public interface SchoolNoticeRepository extends JpaRepository<SchoolNotice,Integ
     @Query("from SchoolNotice ")
     List<SchoolNotice> getSchoolNotices();
 
-    @Query("from SchoolNotice order by time desc")
-    List<SchoolNotice> getThreeSchoolNoticesByDepartment();
+    @Query(value="select * from schoolnotice order by time desc limit 3",nativeQuery=true)
+    List<SchoolNotice> getThreeSchoolNotices();
 }

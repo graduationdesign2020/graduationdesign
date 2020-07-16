@@ -9,4 +9,6 @@ public interface SchoolNoticeDao {
 
     List<SchoolNotice> getSchoolNotices();
 
+    List<SchoolNotice> getThreeSchoolNotices();
+
 }

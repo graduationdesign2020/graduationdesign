@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @CrossOrigin(origins = "*",maxAge = 3600)
@@ -24,34 +25,56 @@ public class NoticeController {
         return noticeService.getSchoolNotices();
     }
 
-    @RequestMapping(path = "/getDepartmentNotices")
-    List<DeptNotice> getDeptNotices(@RequestParam("dept") String dept)
+    @RequestMapping(path = "/getThreeSchoolNotices")
+    List<SchoolNotice> getThreeSchoolNotices()
     {
-        return noticeService.getDeptNoticesByDept(dept);
+        return noticeService.getThreeSchoolNotices();
     }
 
     @RequestMapping(path = "/getSchoolNotice")
-    public SchoolNotice getSchoolNotice(@RequestParam("id") Integer id) {
+    public SchoolNotice getSchoolNotice(@RequestBody Map<String,Integer> params) {
+        Integer id=params.get("id");
         return noticeService.getSchoolNoticeById(id);
     }
 
+    @RequestMapping(path = "/getDepartmentNotices")
+    public List<DeptNotice> getDeptNotices(@RequestBody Map<String,String> params)
+    {
+        String dept=params.get("dept");
+        return noticeService.getDeptNoticesByDept(dept);
+    }
+
+    @RequestMapping(path = "/getThreeDepartmentNotice")
+    public List<DeptNotice> getThreeDeptNoticesByDepartment(@RequestBody Map<String,String> params)
+    {
+        String dept=params.get("dept");
+        return noticeService.getThreeDeptNoticesByDepartment(dept);
+    }
+
     @RequestMapping(path = "/getDepartmentNotice")
-    public DeptNotice getDeptNotice(@RequestParam("id") Integer id) {
+    public DeptNotice getDeptNotice(@RequestBody Map<String,Integer> params) {
+        Integer id=params.get("id");
         return noticeService.getDeptNoticeById(id);
     }
 
     @RequestMapping(path = "/getTeacherMessage")
-    public TeacherMessage getTeacherMessage(@RequestParam("id") Integer id) {
+    public TeacherMessage getTeacherMessage(@RequestBody Map<String,Integer> params) {
+        Integer id=params.get("id");
         return teacherMessageService.getTeacherMessageById(id);
     }
 
     @RequestMapping(path = "/getTeacherMessages")
-    public List<TeacherMessage> getDeptNotice(@RequestParam("id") String stu_id) {
+    public List<TeacherMessage> getTeacherMessages(@RequestBody Map<String,String> params) {
+        String stu_id=params.get("student_id");
         return teacherMessageService.getTeacherMessages(stu_id);
     }
 
     @RequestMapping(path = "/sentMessage",method= RequestMethod.POST)
-    public void sentMessage(@RequestParam("title") String title,@RequestParam("teacher_id") String teacher_id,@RequestParam("student_id") String student_id,@RequestParam("content") String content) {
+    public void sentMessage(@RequestBody Map<String,String> params) {
+        String title= String.valueOf(params.get("title"));
+        String teacher_id= String.valueOf(params.get("teacher_id"));
+        String student_id= String.valueOf(params.get("student_id"));
+        String content= String.valueOf(params.get("content"));
         teacherMessageService.sentTeacherMessage(title, teacher_id, student_id, content);
     }
 
