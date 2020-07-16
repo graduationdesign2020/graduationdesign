@@ -12,6 +12,7 @@ public interface TeacherMessageRepository extends JpaRepository<TeacherMessage,I
     @Query("from TeacherMessage where student_id=:stu_id order by time desc")
     List<TeacherMessage> getTeacherMessagesByStudent_id(String stu_id);
 
+    List<TeacherMessage> findAllByTeacher_id(String teacher_id);
 
     @Transactional
     @Modifying

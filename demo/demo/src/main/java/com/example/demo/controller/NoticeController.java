@@ -1,8 +1,7 @@
 package com.example.demo.controller;
 
-import com.example.demo.entity.DeptNotice;
-import com.example.demo.entity.SchoolNotice;
-import com.example.demo.entity.TeacherMessage;
+import com.alibaba.fastjson.JSONObject;
+import com.example.demo.entity.*;
 import com.example.demo.service.NoticeService;
 import com.example.demo.service.TeacherMessageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,6 +66,12 @@ public class NoticeController {
     public List<TeacherMessage> getTeacherMessages(@RequestBody Map<String,String> params) {
         String stu_id=params.get("student_id");
         return teacherMessageService.getTeacherMessages(stu_id);
+    }
+
+    @RequestMapping(path = "/getTeacherMessageRead")
+    @ResponseBody
+    public ReadInfo getTeacherMessageRead(@RequestBody String teacher_id) {
+        return teacherMessageService.getTeacherMessageRead(teacher_id);
     }
 
     @RequestMapping(path = "/sentMessage",method= RequestMethod.POST)
