@@ -10,6 +10,7 @@ drop table if exists principleusers;
 DROP TABLE IF EXISTS project;
 DROP TABLE IF EXISTS state;
 drop table if exists grade;
+set foreign_key_checks=1;
 
 CREATE TABLE teacher(
     id          varchar(20) NOT NULL,
@@ -25,7 +26,7 @@ CREATE TABLE student(
     PRIMARY KEY (id)
 );
 
-CREATE TABLE deptNotice(
+CREATE TABLE deptnotice(
     id          int not null auto_increment,
     department 	varchar(50) NOT NULL,
     title       varchar(50) NOT NULL,
@@ -33,14 +34,14 @@ CREATE TABLE deptNotice(
     PRIMARY KEY (id)
 );
 
-CREATE TABLE schoolNotice(
+CREATE TABLE schoolnotice(
     id          int not null auto_increment,
     title       varchar(50) NOT NULL,
     time        datetime not null,
     PRIMARY KEY (id)
 );
 
-CREATE TABLE teacherMessage(
+CREATE TABLE teachermessage(
     id          int not null auto_increment,
     title       varchar(50) NOT NULL,
     teacher_id  varchar(50) NOT NULL,
@@ -51,7 +52,7 @@ CREATE TABLE teacherMessage(
     FOREIGN KEY (student_id) REFERENCES student (id) on delete cascade
 );
 
-CREATE TABLE sysMessage(
+CREATE TABLE sysmessage(
     id          int not null auto_increment,
     title       varchar(50) NOT NULL,
     type		int not null,
@@ -74,7 +75,7 @@ CREATE TABLE users
     PRIMARY KEY (wechat_id)
 );
 
-CREATE TABLE principleUsers 
+CREATE TABLE principleusers 
 (
 	teacher_id	varchar(50),
     password    varchar(50),
