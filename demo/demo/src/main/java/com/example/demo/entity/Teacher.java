@@ -38,6 +38,16 @@ public class Teacher {
         return name;
     }
 
+    private String major;
+
+    public String getMajor() {
+        return major;
+    }
+
+    public void setMajor(String major) {
+        this.major = major;
+    }
+
     private String department;
 
     public void setDepartment(String department) {

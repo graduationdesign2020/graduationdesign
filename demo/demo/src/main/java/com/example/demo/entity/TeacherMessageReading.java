@@ -11,12 +11,12 @@ import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Data
-@Table(name = "teachermessage",schema = "GDMS")
+@Table(name = "teachermessagereading",schema = "GDMS")
 @JsonIgnoreProperties(value = {"handler","hibernateLazyInitializer","fieldHandler"})
 @JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,
         property = "id")
-public class TeacherMessage {
+public class TeacherMessageReading {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private int id;
@@ -29,38 +29,32 @@ public class TeacherMessage {
     }
 
     @Basic
-    private String title;
+    private int message_id;
 
-    public void setTitle(String title){
-        this.title=title;
+    public int getMessage_id() {
+        return message_id;
     }
-    public String getTitle(){return title;}
+
+    public void setMessage_id(int message_id) {
+        this.message_id = message_id;
+    }
 
     @Basic
-    private String teacher_id;
+    private String student_id;
 
-    public void setTeacher_id(String teacher_id) {
-        this.teacher_id = teacher_id;
+    public void setStudent_id(String student_id) {
+        this.student_id = student_id;
     }
-    public String getTeacher_id(){ return teacher_id;}
+    public String getStudent_id(){return student_id;}
 
     @Basic
-    private String time;
+    private boolean is_read;
 
-    public String getTime() {
-        return time;
+    public void setIs_read(boolean is_read) {
+        this.is_read = is_read;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public boolean getIs_read() {
+        return is_read;
     }
-
-    @Transient
-    private String content;
-    @Transient
-    public void setContent(String content) {
-        this.content = content;
-    }
-    public String getContent(){return content;}
-
 }

@@ -1,9 +1,10 @@
 package com.example.demo.controller;
 
-import com.alibaba.fastjson.JSONObject;
-import com.example.demo.entity.*;
+import com.example.demo.entity.DeptNotice;
+import com.example.demo.entity.SchoolNotice;
 import com.example.demo.service.NoticeService;
 import com.example.demo.service.TeacherMessageService;
+import com.example.demo.utils.MessageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,18 +15,18 @@ import java.util.Map;
 @CrossOrigin(origins = "*",maxAge = 3600)
 public class NoticeController {
     @Autowired
-    NoticeService noticeService;
+    private NoticeService noticeService;
     @Autowired
-    TeacherMessageService teacherMessageService;
+    private TeacherMessageService teacherMessageService;
 
     @RequestMapping(path = "/getSchoolNotices")
-    List<SchoolNotice> getSchoolNotices()
+    public List<SchoolNotice> getSchoolNotices()
     {
         return noticeService.getSchoolNotices();
     }
 
     @RequestMapping(path = "/getThreeSchoolNotices")
-    List<SchoolNotice> getThreeSchoolNotices()
+    public List<SchoolNotice> getThreeSchoolNotices()
     {
         return noticeService.getThreeSchoolNotices();
     }
@@ -43,7 +44,7 @@ public class NoticeController {
         return noticeService.getDeptNoticesByDept(dept);
     }
 
-    @RequestMapping(path = "/getThreeDepartmentNotice")
+    @RequestMapping(path = "/getThreeDepartmentNotices")
     public List<DeptNotice> getThreeDeptNoticesByDepartment(@RequestBody Map<String,String> params)
     {
         String dept=params.get("dept");
@@ -55,33 +56,4 @@ public class NoticeController {
         Integer id=params.get("id");
         return noticeService.getDeptNoticeById(id);
     }
-
-    @RequestMapping(path = "/getTeacherMessage")
-    public TeacherMessage getTeacherMessage(@RequestBody Map<String,Integer> params) {
-        Integer id=params.get("id");
-        return teacherMessageService.getTeacherMessageById(id);
-    }
-
-    @RequestMapping(path = "/getTeacherMessages")
-    public List<TeacherMessage> getTeacherMessages(@RequestBody Map<String,String> params) {
-        String stu_id=params.get("student_id");
-        return teacherMessageService.getTeacherMessages(stu_id);
-    }
-
-    @RequestMapping(path = "/getTeacherMessageRead")
-    @ResponseBody
-    public ReadInfo getTeacherMessageRead(@RequestBody String teacher_id) {
-        return teacherMessageService.getTeacherMessageRead(teacher_id);
-    }
-
-    @RequestMapping(path = "/sentMessage",method= RequestMethod.POST)
-    public void sentMessage(@RequestBody Map<String,String> params) {
-        String title= String.valueOf(params.get("title"));
-        String teacher_id= String.valueOf(params.get("teacher_id"));
-        String student_id= String.valueOf(params.get("student_id"));
-        String content= String.valueOf(params.get("content"));
-        teacherMessageService.sentTeacherMessage(title, teacher_id, student_id, content);
-    }
-
-
 }

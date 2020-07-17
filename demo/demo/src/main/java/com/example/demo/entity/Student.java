@@ -48,9 +48,18 @@ public class Student {
         return major;
     }
 
-    public Student(String id, String name, String major) {
-        this.id = id;
-        this.name = name;
-        this.major = major;
+    private String department;
+
+    public void setDepartment(String department) {
+        this.department = department;
     }
-}
+
+    public String getDepartment() {
+        return department;
+    }
+    public Student(String id, String name, String major) {
+            this.id = id;
+            this.name = name;
+            this.major = major;
+        }
+    }
