@@ -1,6 +1,6 @@
 //index.js
 //获取应用实例
-const app = getApp()
+const app = getApp();
 
 Page({
   data: {
@@ -20,36 +20,31 @@ Page({
       {title: '老师私发的消息', label: '内容', url: '/pages/home/home', isRead: true}
     ],
     user: {auth: true, name: "小明"},
-    active: "home"
+    active: "home",
+    userData: "",
   },
   onSearch() {
 
   },
-
-  onChange(e) {
-    console.log(e.detail);
-    switch (e.detail) {
-      case "myprofile": {
-        console.log(e.detail)
-        wx.navigateTo({
-          url: '../myProfile/Center',
-        })
-      }
-      case "QA": {
-        wx.navigateTo({
-          url: '../QA/QA',
-        })
-      }
-      case "studentFinished": {
-        wx.navigateTo({
-          url: '../processList/processList',
-        })
-      }
-      case "procedure": {
-        wx.navigateTo({
-          url: '../procedure/procedure',
-        })
+  onLoad: function() {
+    if(app.globalData.login == 2){
+      wx.redirectTo({
+        url: '../register/index',
+      })
+    }else{
+      if(app.globalData.login == 0){
+        app.dataCallback = (data) => {
+          if(data.msg == "FAIL"){
+            wx.redirectTo({
+              url: '../register/index',
+            })
+          }else{
+            this.setData({userData: data.userData})
+          }
+        }
+      }else{
+        this.setData({userData: app.globalData.userData});
       }
     }
-  }
+  },
 })

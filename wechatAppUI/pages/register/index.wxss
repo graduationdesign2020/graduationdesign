@@ -1,17 +1,10 @@
-/* pages/SentNotice/SendNotice.wxss */
-.checkbox{
-  margin-left: 85%;
-}
-
-.textarea{
-  height: 300;
-}
-
-.button{
-  margin-top: 1rem;
-  width: 60%;
-  margin-left: 20%;
-  height: fit-content;
+.container {
+  align-items: center;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+.login-button {
+  margin-top: 120px;
 }
 .wrapper {
   display: flex;
@@ -19,7 +12,6 @@
   justify-content: center;
   height: 100%;
 }
-
 .block {
   width: 120px;
   height: 120px;
