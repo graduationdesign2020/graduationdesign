@@ -1,0 +1,36 @@
+<!--pages/studentScore/studentScore.wxml-->
+<van-collapse value="{{ activeNames }}" bind:change="onChange">
+  <van-collapse-item 
+    wx:for="{{grades}}"
+    wx:key="id" 
+    title="学号:{{ item.id }}" 
+    label=" 姓名:{{ item.name }}"
+    name="{{ item.id }}">
+    <van-cell-group>
+<block > 
+  <van-cell title="教师成绩">
+  <van-tag wx:if="{{!item.teachergrade}}" size="medium">未发布</van-tag>
+  <van-tag wx:if="{{item.teachergrade}}" type="success" size="medium">{{item.teachergrade}}</van-tag>
+  </van-cell>
+</block>
+<block > 
+  <van-cell title="评阅成绩">
+  <van-tag wx:if="{{!item.reviewgrade}}" size="medium">未发布</van-tag>
+  <van-tag wx:if="{{item.reviewgrade}}" type="success" size="medium">{{item.reviewgrade}}</van-tag>
+  </van-cell>
+</block>
+<block > 
+  <van-cell title="答辩成绩">
+  <van-tag wx:if="{{!item.thesisgrade}}" size="medium">未发布</van-tag>
+  <van-tag wx:if="{{item.thesisgrade}}" type="success" size="medium">{{item.thesisgrade}}</van-tag>
+  </van-cell>
+</block>
+<block > 
+  <van-cell title="总评成绩">
+  <van-tag wx:if="{{!item.allgrade}}" size="medium">未发布</van-tag>
+  <van-tag wx:if="{{item.allgrade}}" type="success" size="medium">{{item.allgrade}}</van-tag>
+  </van-cell>
+</block>
+</van-cell-group>
+  </van-collapse-item>
+</van-collapse>

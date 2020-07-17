@@ -1,32 +1,27 @@
 <!--pages/myScore/myScore.wxml-->
 <van-cell-group>
-<block wx:for="{{procedures}}" wx:for-item="procedure">
-<block wx:if="{{procedure.state==3}}">
-  <van-cell title="{{procedure.name}}">
-  <van-tag plain type="success" size="medium">已通过</van-tag>
-</van-cell>
+<block > 
+  <van-cell title="教师成绩">
+  <van-tag wx:if="{{!teachergrade}}" size="medium">未发布</van-tag>
+  <van-tag wx:if="{{teachergrade}}" type="success" size="medium">{{teachergrade}}</van-tag>
+  </van-cell>
 </block>
-<block wx:if="{{procedure.state==2}}">
-  <van-cell title="{{procedure.name}}">
-  <van-tag plain type="danger" size="medium">未通过</van-tag>
-</van-cell>
+<block > 
+  <van-cell title="评阅成绩">
+  <van-tag wx:if="{{!reviewgrade}}" size="medium">未发布</van-tag>
+  <van-tag wx:if="{{reviewgrade}}" type="success" size="medium">{{reviewgrade}}</van-tag>
+  </van-cell>
 </block>
-<block wx:if="{{procedure.state==1}}">
-  <van-cell title="{{procedure.name}}">
-  <van-tag  plain type="warning" size="medium">审核中</van-tag>
-</van-cell>
+<block > 
+  <van-cell title="答辩成绩">
+  <van-tag wx:if="{{!thesisgrade}}" size="medium">未发布</van-tag>
+  <van-tag wx:if="{{thesisgrade}}" type="success" size="medium">{{thesisgrade}}</van-tag>
+  </van-cell>
 </block>
-<block wx:if="{{procedure.state==0}}">
-  <van-cell title="{{procedure.name}}" value="未开始">
-</van-cell>
-</block>
-<block wx:if="{{procedure.state==4}}">
-  <van-cell title="{{procedure.name}}" value="{{procedure.score}}">
-</van-cell>
-</block>
-<block wx:if="{{procedure.state==5}}">
-  <van-cell title="{{procedure.name}}" value="未评分">
-</van-cell>
-</block>
+<block > 
+  <van-cell title="总评成绩">
+  <van-tag wx:if="{{!allgrade}}" size="medium">未发布</van-tag>
+  <van-tag wx:if="{{allgrade}}" type="success" size="medium">{{allgrade}}</van-tag>
+  </van-cell>
 </block>
 </van-cell-group>
