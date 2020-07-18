@@ -32,8 +32,8 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.11.3",
-	"appid": "wx19b7eb8e43f64ebb",
-	"projectname": "GDMS",
+	"appid": "touristappid",
+	"projectname": "wechatAppUI",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},

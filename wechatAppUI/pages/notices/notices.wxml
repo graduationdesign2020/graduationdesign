@@ -2,10 +2,32 @@
 <view class="page">
     <view>
         <wux-white-space size="default" />
-        <wux-wing-blank size="default">
-            <wux-card bindtap="detail" title="{{notice.title}}" extra="{{notice.author}} {{notice.time}}">
-                <view slot="body">{{notice.content}}</view>
-                <view slot="footer"><wux-icon type="ios-eye" size="16"/> {{notice.reading}}</view>
+        <wux-wing-blank wx:if="{{type==0}}" size="default">
+            <wux-card wx:for="{{ notices }}" bindtap="detail" data-id="{{item.id}}" title="{{item.title}}" extra="{{item.time}}">
+                <view slot="body">{{item.content}}</view>
+            </wux-card>
+        </wux-wing-blank>
+        <wux-wing-blank wx:if="{{type==1}}" size="default">
+            <wux-card wx:for="{{ notices }}" bindtap="detail" data-id="{{item.id}}" title="{{item.title}}" extra="{{item.time}}">
+                <view slot="body">{{item.content}}</view>
+            </wux-card>
+        </wux-wing-blank>
+        <wux-wing-blank wx:if="{{type==2 && app.globalData.user.auth}}" size="default">
+            <wux-card wx:for="{{ notices }}" bindtap="detail" data-id="{{item.id}}" title="{{item.title}}" extra="{{item.teachername}} {{item.time}}">
+                <view slot="body">{{item.content}}</view>
+                <view wx:if="{{!item.is_read}}" slot="footer"><van-tag type="danger">未读</van-tag></view>
+            </wux-card>
+        </wux-wing-blank>
+        <wux-wing-blank wx:if="{{type==2 && !app.globalData.user.auth}}" size="default">
+            <wux-card wx:for="{{ notices }}" bindtap="detail" data-id="{{item.id}}" title="{{item.title}}" extra="{{item.time}}">
+                <view slot="body">{{item.content}}</view>
+                <view slot="footer">未读 {{item.unread}} 已读 {{item.read}}</view>
+            </wux-card>
+        </wux-wing-blank>
+        <wux-wing-blank wx:if="{{type==3}}" size="default">
+            <wux-card wx:for="{{ notices }}" bindtap="detail" data-id="{{item.id}}" title="{{item.title}}" extra="{{item.time}}">
+                <view slot="body">{{item.content}}</view>
+                <view wx:if="{{!item.is_read}}" slot="footer"><van-tag type="danger">未读</van-tag></view>
             </wux-card>
         </wux-wing-blank>
     </view>

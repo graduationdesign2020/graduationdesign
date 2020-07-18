@@ -6,10 +6,7 @@
         </view>
         <view class="article__desc">
             <text class="article__time">{{ notice.time }}</text>
-            <view class="article__count" bindtap="checkReading">
-                <wux-icon type="ios-eye" size="16"/>
-                <text>{{ notice.read }}</text>
-            </view>
+            <text wx:if="{{type==2}}" class="article__teacher">{{ notice.teachername }}</text>
         </view>
         <van-divider/>
         <textarea>{{notice.content}}</textarea>

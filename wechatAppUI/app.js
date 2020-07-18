@@ -34,6 +34,8 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    userLogged: true,
+    user: {auth: true, name: "小明", id: "12345", dept: "软工"}
   }
 })

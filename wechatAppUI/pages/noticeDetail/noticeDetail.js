@@ -1,12 +1,16 @@
 // pages/noticeDetail/noticeDetail.js
+//获取应用实例
+const app = getApp()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    type: 0,
     notice: {
-      title: "通知一", time: "2020-07-10", content: "这是通知正文部分balabala.......", read: 23
+      title: '标题', id: 1, is_read: false, teacher_id: '12345', student_id: '11111', time: '07-01', content: '内容'
     }
   },
 
@@ -14,7 +18,110 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this;
+    if (!app.globalData.userLogged){
+      wx.redirectTo({
+        url: '../index/index'
+      })
+    }else{
+      that.setData({
+        type: options.type
+      })
+      switch (options.type) {
+        case 0:{
+          wx.request({
+            url: 'http://localhost:8080/getSchoolNotice',
+            data: {
+              id: options.id
+            },
+            header: {
+              'content-type': 'application/json', // 默认值
+              'cookie': wx.getStorageSync("sessionid") //cookie
+            },
+            success(res) {
+              console.log(res);
+              that.setData({
+                notice: res.data
+              })
+            }
+          });
+        }
+        case 1:{
+          wx.request({
+            url: 'http://localhost:8080/getDepartmentNotice',
+            data: {
+              id: options.id
+            },
+            header: {
+              'content-type': 'application/json', // 默认值
+              'cookie': wx.getStorageSync("sessionid") //cookie
+            },
+            success(res) {
+              console.log(res);
+              that.setData({
+                notice: res.data
+              })
+            }
+          });
+        }
+        case 2:{
+          wx.request({
+            url: 'http://localhost:8080/getTeacherMessage',
+            data: {
+              id: options.id
+            },
+            header: {
+              'content-type': 'application/json', // 默认值
+              'cookie': wx.getStorageSync("sessionid") //cookie
+            },
+            success(res) {
+              console.log(res);
+              that.setData({
+                notice: res.data
+              })
+            }
+          });
+        }
+        case 3:{
+          if(!app.globalData.user.auth) {
+            wx.request({
+              url: 'http://localhost:8080/getSystemMessageByTeacher',
+              data: {
+                id: options.id
+              },
+              header: {
+                'content-type': 'application/json', // 默认值
+                'cookie': wx.getStorageSync("sessionid") //cookie
+              },
+              success(res) {
+                console.log(res);
+                that.setData({
+                  notice: res.data
+                })
+              }
+            });
+          }
+          else {
+            wx.request({
+              url: 'http://localhost:8080/getSystemMessage',
+              data: {
+                id: options.id
+              },
+              header: {
+                'content-type': 'application/json', // 默认值
+                'cookie': wx.getStorageSync("sessionid") //cookie
+              },
+              success(res) {
+                console.log(res);
+                that.setData({
+                  notice: res.data
+                })
+              }
+            });
+          }
+        }
+      }
+    }
   },
 
   /**
@@ -64,11 +171,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-
-  checkReading: function() {
-    wx.navigateTo({
-      url: '../reading/reading',
-    })
   }
 })
