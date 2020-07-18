@@ -1,23 +1,33 @@
 <!--pages/procedure/procedure.wxml-->
 <van-cell-group>
-<block wx:for="{{procedures}}" wx:for-item="procedure">
-<block wx:if="{{procedure.state==2}}">
-  <van-cell title="{{procedure.name}}" is-link>
-  <van-tag plain type="danger" size="medium">已结束</van-tag>
+<block wx:for="{{states}}" wx:for-item="procedure">
+<block wx:if="{{procedure.submit==0}}">
+  <van-cell title="{{procedure.state}}" label="{{procedure.end_time}}">
+  <van-tag plain type="danger" size="medium">未提交</van-tag>
 </van-cell>
 </block>
-<block wx:if="{{procedure.state==1}}">
-  <van-cell title="{{procedure.name}}" is-link>
-  <van-tag  plain type="success" size="medium">进行中</van-tag>
+<block wx:if="{{procedure.submit==3}}">
+  <van-cell title="{{procedure.state}}" label="{{procedure.end_time}}">
+  <van-tag plain type="danger" size="medium">审核未通过</van-tag>
 </van-cell>
 </block>
-<block wx:if="{{procedure.state==0}}">
-  <van-cell title="{{procedure.name}}" is-link>
+<block wx:if="{{procedure.submit==2}}">
+  <van-cell title="{{procedure.state}}" label="{{procedure.end_time}}">
+  <van-tag  plain type="success" size="medium">审核通过</van-tag>
+</van-cell>
+</block>
+<block wx:if="{{procedure.submit==1}}">
+  <van-cell title="{{procedure.state}}" label="{{procedure.end_time}}">
+  <van-tag  plain type="success" size="medium">审核中</van-tag>
+</van-cell>
+</block>
+<block wx:if="{{procedure.submit==4}}">
+  <van-cell title="{{procedure.state}}" label="{{procedure.end_time}}">
   <van-tag plain size="medium">未开始</van-tag>
 </van-cell>
 </block>
 </block>
 </van-cell-group>
 <view>
-    <navBar active="produre" auth="{{app.globalData.isTeacher}}"/>
-  </view>
+  <navBar active="procedure" auth="{{userData.auth}}"/>
+</view>
