@@ -1,89 +1,47 @@
 // pages/myScore/myScore.js
+import {PostRequest} from "../../utils/ajax";
+const app = getApp();
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-    procedures:[
-      {
-        name:"选题确认",
-        state:3,
-      },
-      {
-        name:"开题报告",
-        state:1,
-      },
-      {
-        name:"第一阶段检查",
-        state:4,
-        score:90
-      },
-      {
-        name:"中期检查",
-        state:4,
-        score:90
-      },
-      {
-        name:"设计(论文)定稿",
-        state:5
+    teachergrade: "",
+    reviewgrade: "",
+    thesisgrade: "",
+    allgrade: "",
+    userData: {},
+  },
+  
+  onLoad: function(){
+    if(app.globalData.login == 2){
+      wx.redirectTo({
+        url: '../register/index',
+      })
+    }else{
+      if(app.globalData.login == 0){
+        app.dataCallback = (data) => {
+          if(data.msg == "FAIL"){
+            wx.redirectTo({
+              url: '../register/index',
+            })
+          }else{
+            var that = this;
+            this.setData({userData: data.userData})
+            PostRequest('/studentGetGrades', {id: this.data.userData.id}, that.getGrade);
+          }
+        }
+      }else{
+        this.setData({userData: app.globalData.userData});
+        PostRequest('/studentGetGrades', {id: this.data.userData.id}, that.getGrade);
       }
-    ]
+    }
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  getGrade: function(data) {
+    this.setData({
+    teachergrade: data.teachergrade,
+    reviewgrade: data.reviewgrade,
+    thesisgrade: data.thesisgrade,
+    allgrade: data.allgrade,
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

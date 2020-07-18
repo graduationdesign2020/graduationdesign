@@ -9,14 +9,15 @@ Page({
    */
   data: {
     notice: {title: '毕业设计选题公告', id: 1, time: '07-01', content: '内容'},
+    userData: {name: "小明", dept: "SE", auth: 1, id: 12345},
     checked: true,
     ReadInfo: {
       studentsRead: [
-        {name: "小明"}
+        {name: "夏目贵志"}
       ],
       studentsUnread: [
-        {name: "小红"},
-        {name: "李华"}
+        {name: "夏目玲子"},
+        {name: "名取周一"}
       ],
       Read: 1,
       unRead: 2
@@ -26,96 +27,41 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     var that = this;
-    if (!app.globalData.userLogged){
+    if(app.globalData.login == 2){
       wx.redirectTo({
-        url: '../index/index'
+        url: '../register/index',
       })
     }else{
-      wx.request({
-        url: 'http://localhost:8080/teacherGetTeacherMessage',
-        data: {
-          id: options.id
-        },
-        header: {
-          'content-type': 'application/json', // 默认值
-          'cookie': wx.getStorageSync("sessionid") //cookie
-        },
-        success(res) {
-          console.log(res);
-          that.setData({
-            notice: res.data
-          })
+      if(app.globalData.login == 0){
+        app.dataCallback = (data) => {
+          if(data.msg == "FAIL"){
+            wx.redirectTo({
+              url: '../register/index',
+            })
+          }else{
+            this.setData({userData: data.userData})
+            PostRequest('/teacherGetTeacherMessage', {id: options.id}, that.setNotice);
+            PostRequest('/getTeacherMessageRead', {id: options.id}, that.setReadInfo);
+          }
         }
-      });
-      wx.request({
-        url: 'http://localhost:8080/getTeacherMessageRead',
-        data: {
-          id: options.id
-        },
-        header: {
-          'content-type': 'application/json', // 默认值
-          'cookie': wx.getStorageSync("sessionid") //cookie
-        },
-        success(res) {
-          console.log(res);
-          that.setData({
-            ReadInfo: res.data
-          })
-        }
-      });
+      }else{
+        this.setData({userData: app.globalData.userData});
+        PostRequest('/teacherGetTeacherMessage', {id: options.id}, that.setNotice);
+        PostRequest('/getTeacherMessageRead', {id: options.id}, that.setReadInfo);
+      }
     }
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  setNotice: function(data){
+    this.setData({notice: data});
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  setReadInfo: function(data){
+    this.setData({ReadInfo: data});
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  },
   onChange({ detail }) {
     // 需要手动对 checked 状态进行更新
     this.setData({ checked: detail });

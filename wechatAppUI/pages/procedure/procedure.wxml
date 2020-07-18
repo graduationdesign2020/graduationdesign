@@ -19,12 +19,5 @@
 </block>
 </van-cell-group>
 <view>
-    <van-tabbar active="{{ active }}" bind:change="onChange">
-      <van-tabbar-item name="home" icon="home-o">首页</van-tabbar-item>
-      <van-tabbar-item wx:if="{{user.auth}}" name="procedure" icon="todo-list-o">流程</van-tabbar-item>
-      <van-tabbar-item wx:if="{{!user.auth}}" name="studentFinished" icon="todo-list-o">学生流程</van-tabbar-item>
-      <van-tabbar-item name="QA" icon="question-o" info="20">答疑</van-tabbar-item>
-      <van-tabbar-item name="myprofile" icon="user-o" >我的</van-tabbar-item>
-      
-    </van-tabbar>
+    <navBar active="produre" auth="{{app.globalData.isTeacher}}"/>
   </view>

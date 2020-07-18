@@ -1,6 +1,6 @@
 //index.js
 //获取应用实例
-const app = getApp()
+const app = getApp();
 
 Page({
   data: {
@@ -8,7 +8,7 @@ Page({
     teacherCommonAPPs: [
       {icon: 'comment-o', text: '发送', url: '/pages/SendNotice/SendNotice'},
       {icon: 'chat-o', text: '消息', url: '/pages/notices/notices?type=2'},
-      {icon: 'records', text: '成绩', url: '/pages/myScore/myScore'}
+      {icon: 'records', text: '成绩', url: '/pages/studentScore/studentScore'}
     ],
     studentCommonAPPs: [
       {icon: 'records', text: '成绩', url: '/pages/myScore/myScore'}
@@ -26,196 +26,73 @@ Page({
     sysMessages: [
       {title: '标题', id: 1, is_read: false, type: 1, student_id: '11111', time: '07-01', content: '内容'}
     ],
-    active: "home"
+    active: "home",
+    userData: {name: "小明", dept: "SE", auth: 1, id: 12345}
   },
-  
-  /**
+
+   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function() {
     var that = this;
-    if (!app.globalData.userLogged){
+    if(app.globalData.login == 2){
       wx.redirectTo({
-        url: '../index/index'
+        url: '../register/index',
       })
     }else{
-      wx.request({
-        url: 'http://localhost:8080/getSchoolNotices',
-        header: {
-          'content-type': 'application/json', // 默认值
-          'cookie': wx.getStorageSync("sessionid") //cookie
-        },
-        success(res) {
-          console.log(res);
-          that.setData({
-            schoolNotices: res.data
-          })
+      if(app.globalData.login == 0){
+        app.dataCallback = (data) => {
+          if(data.msg == "FAIL"){
+            wx.redirectTo({
+              url: '../register/index',
+            })
+          }else{
+            this.setData({userData: data.userData})
+            PostRequest('/getThreeSchoolNotices', {}, that.setSchoolNotices);
+            PostRequest('/getThreeDepartmentNotices', {dept: this.data.userData.dept}, that.setDeptNotices);
+            if(this.data.userData.auth) {
+              PostRequest('/teacherGetTeacherMessages', {teacher_id: this.data.userData.id}, that.setTeacherMessages);
+              PostRequest('/teacherGetSystemMessages', {teacher_id: this.data.userData.id}, that.setSysMessages);
+            }
+            else {
+              PostRequest('/getTeacherMessages', {student_id: this.data.userData.id}, that.setTeacherMessages);
+              PostRequest('/getSystemMessages', {student_id: this.data.userData.id}, that.setSysMessages);
+            }
+          }
         }
-      });
-      wx.request({
-        url: 'http://localhost:8080/getDepartmentNotices',
-        data: {
-          dept: app.globalData.user.dept
-        },
-        header: {
-          'content-type': 'application/json', // 默认值
-          'cookie': wx.getStorageSync("sessionid") //cookie
-        },
-        success(res) {
-          console.log(res);
-          that.setData({
-            deptNotices: res.data
-          })
+      }else{
+        this.setData({userData: app.globalData.userData});
+        PostRequest('/getThreeSchoolNotices', {}, that.setSchoolNotices);
+        PostRequest('/getThreeDepartmentNotices', {dept: this.data.userData.dept}, that.setDeptNotices);
+        if(this.data.userData.auth) {
+          PostRequest('/teacherGetTeacherMessages', {teacher_id: this.data.userData.id}, that.setTeacherMessages);
+          PostRequest('/teacherGetSystemMessages', {teacher_id: this.data.userData.id}, that.setSysMessages);
         }
-      });
-      if(!app.globalData.user.auth) {
-        wx.request({
-          url: 'http://localhost:8080/getTeacherMessagesByTeacher',
-          data: {
-            teacher_id: app.globalData.user.id
-          },
-          header: {
-            'content-type': 'application/json', // 默认值
-            'cookie': wx.getStorageSync("sessionid") //cookie
-          },
-          success(res) {
-            console.log(res);
-            that.setData({
-              teacherMessages: res.data
-            })
-          }
-        });
-        wx.request({
-          url: 'http://localhost:8080/getSystemMessagesByTeacher',
-          data: {
-            id: app.globalData.user.id
-          },
-          header: {
-            'content-type': 'application/json', // 默认值
-            'cookie': wx.getStorageSync("sessionid") //cookie
-          },
-          success(res) {
-            console.log(res);
-            that.setData({
-              sysMessages: res.data
-            })
-          }
-        });
-      }
-      else {
-        wx.request({
-          url: 'http://localhost:8080/getTeacherMessages',
-          data: {
-            id: app.globalData.user.id
-          },
-          header: {
-            'content-type': 'application/json', // 默认值
-            'cookie': wx.getStorageSync("sessionid") //cookie
-          },
-          success(res) {
-            console.log(res);
-            that.setData({
-              teacherMessages: res.data
-            })
-          }
-        });
-        wx.request({
-          url: 'http://localhost:8080/getSystemMessages',
-          data: {
-            id: app.globalData.user.id
-          },
-          header: {
-            'content-type': 'application/json', // 默认值
-            'cookie': wx.getStorageSync("sessionid") //cookie
-          },
-          success(res) {
-            console.log(res);
-            that.setData({
-              sysMessages: res.data
-            })
-          }
-        });
+        else {
+          PostRequest('/getTeacherMessages', {student_id: this.data.userData.id}, that.setTeacherMessages);
+          PostRequest('/getSystemMessages', {student_id: this.data.userData.id}, that.setSysMessages);
+        }
       }
     }
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  setSchoolNotices: function(data){
+    this.setData({schoolNotices: data});
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  setDeptNotices: function(data){
+    this.setData({deptNotices: data});
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  setTeacherMessages: function(data){
+    this.setData({teacherMessages: data});
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
+  setSysMessages: function(data){
+    this.setData({sysMessages: data});
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  },
-
+    
   onSearch() {
 
-  },
-
-  onChange(e) {
-    console.log(e.detail);
-    switch (e.detail) {
-      case "myprofile": {
-        console.log(e.detail)
-        wx.navigateTo({
-          url: '../myProfile/Center',
-        })
-      }
-      case "QA": {
-        wx.navigateTo({
-          url: '../QA/QA',
-        })
-      }
-      case "studentFinished": {
-        wx.navigateTo({
-          url: '../processList/processList',
-        })
-      }
-      case "procedure": {
-        wx.navigateTo({
-          url: '../procedure/procedure',
-        })
-      }
-    }
   }
 })

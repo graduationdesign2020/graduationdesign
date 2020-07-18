@@ -1,16 +1,13 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/SendNotice/SendNotice",
+    "pages/home/home",
+    "pages/studentScore/studentScore",
+    "pages/myScore/myScore",
+    "pages/sendNotice/SendNotice",
+    "pages/register/index",
     "pages/noticeDetail/noticeDetail",
     "pages/reading/reading",
-    "pages/PostTask/PostTask",
-    "pages/addPost/addPost",
-    "pages/home/home",
-    "pages/sentNotice/sentNotice",
     "pages/myProfile/Center",
-    "pages/QA/QA",
-    "pages/myScore/myScore",
     "pages/procedure/procedure",
     "pages/studentFinished/studentFinished",
     "pages/processList/processList"
