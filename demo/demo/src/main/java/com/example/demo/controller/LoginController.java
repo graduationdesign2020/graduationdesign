@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.entity.TeacherMessage;
 import com.example.demo.service.LoginService;
+import com.example.demo.utils.ReturnInfo;
 import com.example.demo.utils.UserInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -18,23 +19,23 @@ public class LoginController {
     LoginService loginService;
 
     @RequestMapping(path = "/register")
-    public String register(@RequestBody Map<String,String> params) {
+    public ReturnInfo register(@RequestBody Map<String,String> params) {
         String wechat_id= String.valueOf(params.get("wechat_id"));
         String id= String.valueOf(params.get("id"));
         String name=String.valueOf(params.get("name"));
-        int teacher= Integer.parseInt(params.get("teacher"));
+        int teacher= Integer.parseInt(params.get("auth"));
         return loginService.register(wechat_id,id,name,teacher);
     }
 
     @RequestMapping(path = "/logout")
-    public String logoff(@RequestBody Map<String,String> params) {
-        String wechat_id=params.get("wechat_id");
+    public ReturnInfo logoff(@RequestBody Map<String,String> params) {
+        String wechat_id=params.get("code");
         return loginService.logout(wechat_id);
     }
 
     @RequestMapping(path = "/login")
-    public UserInfo login(@RequestBody Map<String,String> params){
-        String wechat_id=params.get("wechat_id");
+    public ReturnInfo login(@RequestBody Map<String,String> params){
+        String wechat_id=params.get("code");
         return loginService.login(wechat_id);
     }
 

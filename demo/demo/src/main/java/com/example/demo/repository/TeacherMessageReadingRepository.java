@@ -16,4 +16,10 @@ public interface TeacherMessageReadingRepository extends JpaRepository<TeacherMe
     @Modifying
     @Query(value = "update teachermessagereading set is_read=1 where id=?",nativeQuery=true)
     int setRead(int id);
+
+    @Query("select count (id) from TeacherMessageReading where message_id=:message_id and is_read=true ")
+    int getTeacherMessageReadingsByMessage_id(int message_id);
+
+    @Query("select count (id) from TeacherMessageReading where message_id=:message_id and is_read=false ")
+    int getUnReadingsByMessage_id(int message_id);
 }

@@ -4,6 +4,7 @@ import com.example.demo.entity.Student;
 import com.example.demo.entity.TeacherMessage;
 import com.example.demo.service.TeacherMessageService;
 import com.example.demo.utils.MessageInfo;
+import com.example.demo.utils.ReturnInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,7 +35,7 @@ public class MessageController {
     }
 
     @RequestMapping(path = "/teacherGetTeacherMessages")
-    public List<TeacherMessage> getTeacherMessagesByTeacher(@RequestBody Map<String,String> params) {
+    public List<MessageInfo> getTeacherMessagesByTeacher(@RequestBody Map<String,String> params) {
         String teacher_id=params.get("teacher_id");
         return teacherMessageService.getTeacherMessagesByTeacher_id(teacher_id);
     }
@@ -46,10 +47,10 @@ public class MessageController {
     }
 
     @RequestMapping(path = "/sentMessage",method= RequestMethod.POST)
-    public String sentMessage(@RequestBody Map<String,String> params) {
+    public ReturnInfo sentMessage(@RequestBody Map<String,String> params) {
         String title= String.valueOf(params.get("title"));
         String teacher_id= String.valueOf(params.get("teacher_id"));
-        String student_id= String.valueOf(params.get("student_id"));
+        List<String> student_id= List.of(params.get("student_id"));
         String content= String.valueOf(params.get("content"));
         return teacherMessageService.sentTeacherMessage(title, teacher_id, student_id, content);
     }

@@ -24,5 +24,8 @@ public interface TeacherMessageDao {
 
     List<TeacherMessageReading> getReading(String stu_id);
 
+    int getTeacherMessageReadingsByMessage_id(int message_id);
+
+    int getUnReadingsByMessage_id(int message_id);
 
 }
