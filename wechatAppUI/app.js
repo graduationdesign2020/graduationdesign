@@ -49,7 +49,6 @@ App({
     })
   },
   globalData: {
-    code: "",
     userInfo: "",
     userData: "",
     login: 0, // 0: unchecked 1: success 2: fail 
