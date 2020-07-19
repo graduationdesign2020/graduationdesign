@@ -23,14 +23,24 @@ public class UserInfo {
 
     private String dept;
 
-    private String major;
+    private String project;
 
-    public void setMajor(String major) {
-        this.major = major;
+    public String getProject() {
+        return project;
     }
 
-    public String getMajor() {
-        return major;
+    public void setProject(String project) {
+        this.project = project;
+    }
+
+    private String teacher;
+
+    public String getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(String teacher) {
+        this.teacher = teacher;
     }
 
     public void setDept(String dept) {
@@ -49,16 +59,6 @@ public class UserInfo {
 
     public int getAuth() {
         return auth;
-    }
-
-    private String msg;
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
     }
 }
 

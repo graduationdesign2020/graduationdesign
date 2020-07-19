@@ -76,4 +76,14 @@ public class TeacherMessageDaoImpl implements TeacherMessageDao {
         return projectRepository.getIdByTeacher_id(t_id);
     }
 
+    @Override
+    public int getTeacherMessageReadingsByMessage_id(int message_id){
+        return teacherMessageReadingRepository.getTeacherMessageReadingsByMessage_id(message_id);
+    }
+
+    @Override
+    public int getUnReadingsByMessage_id(int message_id){
+        return teacherMessageReadingRepository.getUnReadingsByMessage_id(message_id);
+    }
+
 }

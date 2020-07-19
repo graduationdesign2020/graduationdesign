@@ -61,6 +61,26 @@ public class MessageInfo {
         return is_read;
     }
 
+    private int reading;
+
+    public int getReading() {
+        return reading;
+    }
+
+    public void setReading(int reading) {
+        this.reading = reading;
+    }
+
+    private int unread;
+
+    public int getUnread() {
+        return unread;
+    }
+
+    public void setUnread(int unread) {
+        this.unread = unread;
+    }
+
     private String time;
 
     public void setTime(String time) {

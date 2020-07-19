@@ -7,6 +7,7 @@ import com.example.demo.dao.TeacherMessageDao;
 import com.example.demo.entity.*;
 import com.example.demo.service.TeacherMessageService;
 import com.example.demo.utils.MessageInfo;
+import com.example.demo.utils.ReturnInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -61,8 +62,10 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
     }
 
     @Override
-    public String sentTeacherMessage(String title, String teacher_id, String student_id, String content){
+    public ReturnInfo sentTeacherMessage(String title, String teacher_id, List<String> student_id, String content){
         Timestamp d=new Timestamp(System.currentTimeMillis());
+        ReturnInfo returnInfo=new ReturnInfo();
+        TeacherMessageReading s=new TeacherMessageReading();
         String time=d.toString();
         TeacherMessage teacherMessage=new TeacherMessage();
         teacherMessage.setTitle(title);
@@ -72,12 +75,16 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
         teacherMessageDao.sentTeacherMessage(teacherMessage);
         TeacherMessageReading teacherMessageReading=new TeacherMessageReading();
         teacherMessageReading.setMessage_id(teacherMessage.getId());
-        teacherMessageReading.setStudent_id(student_id);
         teacherMessageReading.setIs_read(false);
-        TeacherMessageReading s=teacherMessageDao.addReader(teacherMessageReading);
+        for (String value : student_id) {
+            teacherMessageReading.setStudent_id(value);
+            s=teacherMessageDao.addReader(teacherMessageReading);
+        }
         if (s!=null)
-            return sendingMsg1;
-        else return sendingMsg0;
+            returnInfo.setMsg(sendingMsg1);
+        else returnInfo.setMsg(sendingMsg0);
+
+        return returnInfo;
     }
 
     @Override
@@ -116,8 +123,19 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
     }
 
     @Override
-    public List<TeacherMessage> getTeacherMessagesByTeacher_id(String t_id){
-        return teacherMessageDao.getTeacherMessagesByTeacher(t_id);
+    public List<MessageInfo> getTeacherMessagesByTeacher_id(String t_id){
+        List<TeacherMessage> list=teacherMessageDao.getTeacherMessagesByTeacher(t_id);
+        List<MessageInfo> messageInfos=new ArrayList<>();
+        for (TeacherMessage teacherMessage : list) {
+            MessageInfo messageInfo = new MessageInfo();
+            messageInfo.setTitle(teacherMessage.getTitle());
+            messageInfo.setId(teacherMessage.getId());
+            messageInfo.setReading(teacherMessageDao.getTeacherMessageReadingsByMessage_id(teacherMessage.getId()));
+            messageInfo.setUnread(teacherMessageDao.getUnReadingsByMessage_id(teacherMessage.getId()));
+            messageInfo.setTime(teacherMessage.getTime());
+            messageInfos.add(messageInfo);
+        }
+        return messageInfos;
     }
 
     @Override
