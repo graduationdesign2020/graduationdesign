@@ -28,7 +28,7 @@ Page({
       {title: '标题', id: 1, is_read: false, type: 1, student_id: '11111', time: '07-01', content: '内容'}
     ],
     active: "home",
-    userData: {name: "小明", dept: "SE", auth: 0, id: 12345}
+    userData: {name: "小明", dept: "SE", auth: 1, id: 12345}
   },
 
    /**
