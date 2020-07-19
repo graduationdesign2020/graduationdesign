@@ -21,7 +21,7 @@
         <wux-wing-blank wx:if="{{type==2 && userData.auth}}" size="default">
             <wux-card wx:for="{{ notices }}" bindtap="detail" data-id="{{item.id}}" title="{{item.title}}" extra="{{item.time}}">
                 <view slot="body">{{item.content}}</view>
-                <view slot="footer">未读 {{item.unread}} 已读 {{item.read}}</view>
+                <view slot="footer">未读 {{item.unread}} 已读 {{item.reading}}</view>
             </wux-card>
         </wux-wing-blank>
         <wux-wing-blank wx:if="{{type==3}}" size="default">

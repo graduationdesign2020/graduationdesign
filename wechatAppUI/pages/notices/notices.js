@@ -6,8 +6,8 @@ Page({
   data: {
     type: 2,
     notices: [
-      {title: '标题', id: 1, is_read: false, read: 10, unread: 2, teachername: '娘口三三', time: '07-01', content: '内容'},
-      {title: '标题', id: 1, is_read: false, read: 10, unread: 2, teachername: '猫咪老师', time: '07-01', content: '内容'}
+      {title: '标题', id: 1, is_read: false, reading: 10, unread: 2, teachername: '娘口三三', time: '07-01', content: '内容'},
+      {title: '标题', id: 1, is_read: false, reading: 10, unread: 2, teachername: '猫咪老师', time: '07-01', content: '内容'}
     ],
     userData: {name: "小明", dept: "SE", auth: 0, id: 12345}
   },
