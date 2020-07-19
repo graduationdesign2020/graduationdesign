@@ -53,11 +53,11 @@ public class MessageController {
         return teacherMessageService.teacherGetTeacherMessageById(id);
     }
 
-    @RequestMapping(path = "/sentMessage",method= RequestMethod.POST)
+    @RequestMapping(path = "/sendMessages",method= RequestMethod.POST)
     public ReturnInfo sentMessage(@RequestBody Map<String,String> params) {
         String title= String.valueOf(params.get("title"));
-        String teacher_id= String.valueOf(params.get("teacher_id"));
-        List<String> student_id= List.of(params.get("student_id"));
+        String teacher_id= String.valueOf(params.get("id"));
+        List<String> student_id= List.of(params.get("students"));
         String content= String.valueOf(params.get("content"));
         return teacherMessageService.sentTeacherMessage(title, teacher_id, student_id, content);
     }

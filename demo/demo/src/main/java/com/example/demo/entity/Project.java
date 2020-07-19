@@ -48,13 +48,4 @@ public class Project {
     public String getTeacher_id() {
         return teacher_id;
     }
-    private  int state;
-
-    public int getState() {
-        return state;
-    }
-
-    public void setState(int state) {
-        this.state = state;
-    }
 }

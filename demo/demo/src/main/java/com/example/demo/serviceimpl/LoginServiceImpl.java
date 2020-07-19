@@ -47,6 +47,8 @@ public class LoginServiceImpl implements LoginService {
                 flag = true;
             }
         } else {
+            System.out.print(id);
+            System.out.print(name);
             Student student = loginDao.getStudentByIdAndName(id, name);
             if (student != null) {
                 userInfo.setId(id);
@@ -114,9 +116,12 @@ public class LoginServiceImpl implements LoginService {
                 userInfo.setProject(project.getProject_name());
                 Teacher teacher=loginDao.getTeacherById(project.getTeacher_id());
                 userInfo.setTeacher(teacher.getName());
+                returnInfo.setUserData(userInfo);
             }
         }
         else {
+            userInfo.setOpenid(wechat_id);
+            returnInfo.setUserData(userInfo);
             returnInfo.setMsg(loginMsg0);
         }
         return returnInfo;
