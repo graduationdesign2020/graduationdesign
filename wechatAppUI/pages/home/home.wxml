@@ -70,7 +70,7 @@
         wx:for="{{ teacherMessages }}" 
         wx:key="index"
         title="{{ item.title }}"
-        value="未读 {{item.unread}} 已读 {{item.read}}"
+        value="未读 {{item.unread}} 已读 {{item.reading}}"
         is-link url="/pages/reading/reading?id={{ item.id }}"  
       />
     </van-cell-group>

@@ -68,6 +68,7 @@ public class LoginController {
     @RequestMapping(path = "/login")
     public ReturnInfo login(@RequestBody Map<String,String> params) throws JsonProcessingException {
         String code=params.get("code");
+        System.out.print(code);
         String result = "";
         try {//请求微信服务器，用code换取openid。HttpUtil是工具类，后面会给出实现，Configure类是小程序配置信息，后面会给出代码
             result = HttpClient.doGet(

@@ -21,14 +21,14 @@ Page({
       {title: '毕业设计选题公告', id: 1, time: '07-01', content: '内容', department: '专业'}
     ],
     teacherMessages: [
-      {title: '标题', id: 1, is_read: false, read: 10, unread: 2, teacher_id: '12345', student_id: '11111', time: '07-01', content: '内容'},
-      {title: '标题', id: 1, is_read: false, read: 10, unread: 2, teacher_id: '12345', student_id: '11111', time: '07-01', content: '内容'}  
+      {title: '标题', id: 1, is_read: false, reading: 10, unread: 2, teacher_id: '12345', student_id: '11111', time: '07-01', content: '内容'},
+      {title: '标题', id: 1, is_read: false, reading: 10, unread: 2, teacher_id: '12345', student_id: '11111', time: '07-01', content: '内容'}  
     ],
     sysMessages: [
       {title: '标题', id: 1, is_read: false, type: 1, student_id: '11111', time: '07-01', content: '内容'}
     ],
     active: "home",
-    userData: {name: "小明", dept: "SE", auth: 0, id: 12345}
+    userData: {name: "小明", dept: "SE", auth: 1, id: 12345}
   },
 
    /**
