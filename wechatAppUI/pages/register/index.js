@@ -27,16 +27,17 @@ Page({
   },
   onClickButton() {
     this.setData({errorMessage1: "", errorMessage2: ""})
-    if(!name){
+    if(!this.data.name){
       this.setData({errorMessage1: "姓名不能为空"})
     }
-    if(!id){
-      this.setData({errorMessage2: "姓名不能为空"})
+    if(!this.data.id){
+      this.setData({errorMessage2: "号码不能为空"})
     }
-    if(id && name){
+    if(this.data.id && this.data.name){
       this.setData({show: true});
-      PostRequest('/register', {name: this.data.name, id: this.data.id, auth: this.data.tab, code: app.globalData.code}, handleData)
+      PostRequest('/register', {name: this.data.name, id: this.data.id, auth: this.data.tab, openid: app.globalData.userData.openid}, this.handleMsg)
     }
+    console.log(this.data);
   },
 
   handleMsg: function(data) {
@@ -68,4 +69,8 @@ Page({
   bindGetUserInfo (event) {
     this.onClickButton();
   },
+
+  onClickTab (event) {
+    this.setData({tab: event.detail.name})
+  }
 })
