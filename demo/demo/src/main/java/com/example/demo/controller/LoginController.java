@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
 
-import com.example.demo.service.HttpClient;
+import com.example.demo.utils.HttpClient;
 import com.example.demo.service.LoginService;
 import com.example.demo.utils.CodeReturn;
 import com.example.demo.utils.ReturnInfo;
