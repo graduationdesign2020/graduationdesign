@@ -29,5 +29,5 @@
 </block>
 </van-cell-group>
 <view>
-  <navBar active="procedure" auth="{{userData.auth}}"/>
+  <navBar active="process" auth="{{userData.auth}}"/>
 </view>

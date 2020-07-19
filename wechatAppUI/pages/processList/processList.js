@@ -1,110 +1,70 @@
 // pages/processList/processList.js
+import {PostRequest} from "../../utils/ajax";
+var app = getApp();
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-    process: [
-      {title: "提交开题报告", time: "2020-01-01", content: "无", finished: 12, notfinished: 2 },
-      {title: "中期检查", time: "2020-03-09", content: "无", finished: 12, notfinished: 0 },
-      {title: "答辩", time: "2020-06-09", content: "无", finished: 11, notfinished: 1 }
+    processes: [
+      {name: "提交开题报告", time: "2020-01-01", finished: 12, unfinished: 2,
+      unfinishedStu:[{id: 1, name: "董思成"},{id: 2, name: "李马克"},{id: 3, name: "李东赫"}],
+      finishedStu:[{id: 4, name: "中本悠太"},{id: 5, name: "罗哉民"},{id: 6, name: "李帝努"}],
+      },
+      {name: "中期检查", time: "2020-03-09", finished: 12, unfinished: 0,
+      unfinishedStu:[{id: 1, name: "董思成"},{id: 2, name: "李马克"},{id: 3, name: "李东赫"}],
+      finishedStu:[{id: 4, name: "中本悠太"},{id: 5, name: "罗哉民"},{id: 6, name: "李帝努"}],
+      },
+      {name: "答辩", time: "2020-06-09", finished: 11, unfinished: 1,
+      unfinishedStu:[{id: 1, name: "董思成"},{id: 2, name: "李马克"},{id: 3, name: "李东赫"}],
+      finishedStu:[{id: 4, name: "中本悠太"},{id: 5, name: "罗哉民"},{id: 6, name: "李帝努"}],
+      }
     ],
-    user: {auth: false, name: "小明"},
-    active: "studentFinished"
+    switch: [false, false, false],
+    userData: {},
+    activeNames: [],
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  },
-
-  procedure: function() {
-    wx.navigateTo({
-      url: '../studentFinished/studentFinished',
-    })
-  },
-
-  onChange(e) {
-    console.log(e.detail);
-    switch (e.detail) {
-      case "myprofile": {
-        console.log(e.detail)
-        wx.navigateTo({
-          url: '../myProfile/Center',
-        })
-      }
-      case "QA": {
-        wx.navigateTo({
-          url: '../QA/QA',
-        })
-      }
-      case "studentFinished": {
-        wx.navigateTo({
-          url: '../processList/processList',
-        })
-      }
-      case "procedure": {
-        wx.navigateTo({
-          url: '../procedure/procedure',
-        })
-      }
-      case "home": {
-        wx.navigateTo({
-          url: '../home/home',
-        })
+    var that = this;
+    if(app.globalData.login == 2){
+      wx.redirectTo({
+        url: '../register/index',
+      })
+    }else{
+      if(app.globalData.login == 0){
+        app.dataCallback = (data) => {
+          if(data.msg == "FAIL"){
+            wx.redirectTo({
+              url: '../register/index',
+            })
+          }else{
+            that.setData({userData: data.userData})
+            PostRequest('/checkProcess', {id: data.userData.id}, that.setProcesses)
+          }
+        }
+      }else{
+        that.setData({userData: app.globalData.userData});
+        PostRequest('/checkProcess', {id: app.globalData.userData.id}, that.setProcesses);
       }
     }
+  },
+
+  setProcesses: function(data) {
+    this.setData({processes: data});
+    let initial = new Array(data.length);
+    initial.fill(false);
+    this.setData({switch: initial});
+  },
+
+  onChange(event) {
+    this.setData({
+      activeNames: event.detail,
+    });
+  },
+
+  onSwitch(event) {
+    const { index } = event.currentTarget.dataset;
+    let past = this.data.switch;
+    past[index] = !past[index];
+    this.setData({switch: past});
   }
 })

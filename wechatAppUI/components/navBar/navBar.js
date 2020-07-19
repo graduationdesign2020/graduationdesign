@@ -22,7 +22,7 @@ Component({
     onChange(e) {
       switch (e.detail) {
         case "home": {
-          if(this.properties.active == 0) return;
+          if(this.properties.active == "home") return;
           else{
             wx.redirectTo({
               url: '../home/home',
@@ -30,26 +30,26 @@ Component({
           }
         }
         case "myprofile": {
-          if(this.properties.active == 2) return;
+          if(this.properties.active == "myprofile") return;
           else{
             wx.redirectTo({
               url: '../myProfile/Center',
             })
           }
         }
-        case "studentFinished": {
-          if(this.properties.active == 1) return;
+        case "processList": {
+          if(this.properties.active == "processList") return;
           else{
             wx.redirectTo({
               url: '../processList/processList',
             })
           }
         }
-        case "procedure": {
-          if(this.properties.active == 1) return;
+        case "process": {
+          if(this.properties.active == "process") return;
           else{
             wx.redirectTo({
-              url: '../procedure/procedure',
+              url: '../process/procedure',
             })
           }
         }

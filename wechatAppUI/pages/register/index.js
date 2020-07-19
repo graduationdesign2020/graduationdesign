@@ -35,7 +35,7 @@ Page({
     }
     if(id && name){
       this.setData({show: true});
-      PostRequest('/register', {name: this.data.name, id: this.data.id, auth: this.data.tab}, handleData)
+      PostRequest('/register', {name: this.data.name, id: this.data.id, auth: this.data.tab, code: app.globalData.code}, handleData)
     }
   },
 
