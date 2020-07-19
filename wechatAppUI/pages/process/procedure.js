@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userData: {name: "小明", dept: "SE", auth: 1, id: 12345},
+    userData: {name: "小明", dept: "SE", auth: 0, id: 12345},
     states: [
       {state: "任务书", submit:0, end_time:"07-01 00:00"},
       {state: "开题报告", submit:1, end_time:"07-10 00:00"},
@@ -35,8 +35,8 @@ Page({
               url: '../register/index',
             })
           }else{
-            this.setData({userData: data.userData})
-            PostRequest('/checkSelfProcess', {stu_id: this.data.userData.id}, that.setStates);
+            that.setData({userData: data.userData})
+            PostRequest('/checkSelfProcess', {stu_id: data.userData.id}, that.setStates);
           }
         }
       }else{

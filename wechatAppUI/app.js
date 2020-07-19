@@ -15,6 +15,7 @@ App({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         var code = res.code;
+        this.globalData.code = res.code;
         PostRequest("/login", {code: code}, (data)=>{
           if(data.msg == "SUCCESS"){
             this.globalData.login = 1;
@@ -47,6 +48,7 @@ App({
     })
   },
   globalData: {
+    code: "",
     userInfo: "",
     userData: "",
     login: 0, // 0: unchecked 1: success 2: fail 

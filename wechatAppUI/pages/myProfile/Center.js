@@ -46,7 +46,7 @@ Page({
 
   logout: function() {
     this.setData({show: true});
-    PostRequest('/unregister', {id: this.data.userData.id, auth: this.data.auth}, (data)=>{
+    PostRequest('/logout', {id: this.data.userData.id, auth: this.data.auth, code: app.globalData.code}, (data)=>{
       if(data.msg == 'SUCCESS'){
         this.setData({msg: "注销成功", dialog: true, show: false});
         app.globalData.userInfo = {};

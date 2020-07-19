@@ -3,10 +3,6 @@
 const app = getApp()
 
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     type: 2,
     notices: [
@@ -16,9 +12,6 @@ Page({
     userData: {name: "小明", dept: "SE", auth: 0, id: 12345}
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function(options) {
     var that = this;
     if(app.globalData.login == 2){
