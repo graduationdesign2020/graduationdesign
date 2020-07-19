@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @CrossOrigin(origins = "*",maxAge = 3600)
@@ -16,13 +17,16 @@ public class ProcessController {
 
     @RequestMapping(path = "/checkSelfProcess")
     @ResponseBody
-    public List<StateInfo> checkSelfProcess(@RequestBody String stu_id){
-        return processService.checkSelfProcess(stu_id);
+    public List<StateInfo> checkSelfProcess(@RequestBody Map<String, String> params){
+        System.out.println("self process stu_id");
+        System.out.println(params.get("stu_id"));
+        return processService.checkSelfProcess(params.get("stu_id"));
     }
 
     @RequestMapping(path = "/checkProcess")
     @ResponseBody
-    public List<ProcessInfo> checkProcess(String tea_id){
-        return processService.checkProcess(tea_id);
+    public List<ProcessInfo> checkProcess(@RequestBody Map<String,String> params){
+
+        return processService.checkProcess(params.get("tea_id"));
     }
 }

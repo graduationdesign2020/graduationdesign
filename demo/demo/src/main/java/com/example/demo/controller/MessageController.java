@@ -35,10 +35,10 @@ public class MessageController {
         return teacherMessageService.getTeacherMessages(stu_id);
     }
 
-    @RequestMapping(path = "getTeacherMessageRead")
+    @RequestMapping(path = "/getTeacherMessageRead")
     @ResponseBody
-    public ReadInfo getTeacherMessageRead(@RequestBody int id) {
-        return teacherMessageService.getTeacherMessageRead(id);
+    public ReadInfo getTeacherMessageRead(@RequestBody Map<String,Integer> params) {
+        return teacherMessageService.getTeacherMessageRead(params.get("id"));
     }
 
     @RequestMapping(path = "/teacherGetTeacherMessages")

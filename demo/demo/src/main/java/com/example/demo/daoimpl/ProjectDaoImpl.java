@@ -20,6 +20,6 @@ public class ProjectDaoImpl implements ProjectDao {
 
     @Override
     public List<Project> findByTeacher(String tea_id) {
-        return projectRepository.findAllByTeacher_id(tea_id);
+        return projectRepository.findAllByTeacher(tea_id);
     }
 }
