@@ -7,6 +7,6 @@ import com.example.demo.entity.StateInfo;
 import java.util.List;
 
 public interface ProcessService {
-    StateInfo checkSelfProcess(String stu_id);
+    List<StateInfo> checkSelfProcess(String stu_id);
     List<ProcessInfo> checkProcess(String tea_id);
 }
