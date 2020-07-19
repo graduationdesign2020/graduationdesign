@@ -10,7 +10,7 @@ public interface TeacherMessageDao {
 
     TeacherMessage getTeacherMessage(Integer id);
 
-    List<TeacherMessage> getTeacherMessages(String stu_id);
+    //List<TeacherMessage> getTeacherMessages(String stu_id);
 
     List<TeacherMessage> getTeacherMessagesByTeacher(String teacher_id);
 
@@ -28,4 +28,5 @@ public interface TeacherMessageDao {
 
     int getUnReadingsByMessage_id(int message_id);
 
+    List<TeacherMessageReading> findAllByMessage(int message_id);
 }

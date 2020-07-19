@@ -5,6 +5,7 @@ import com.example.demo.dao.LoginDao;
 import com.example.demo.dao.StudentDao;
 import com.example.demo.dao.TeacherMessageDao;
 import com.example.demo.entity.*;
+import com.example.demo.repository.TeacherMessageReadingRepository;
 import com.example.demo.service.TeacherMessageService;
 import com.example.demo.utils.MessageInfo;
 import com.example.demo.utils.ReturnInfo;
@@ -26,6 +27,8 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
     private StudentDao studentDao;
     @Autowired
     private LoginDao loginDao;
+    @Autowired
+    private TeacherMessageReadingRepository teacherMessageReadingRepository;
 
     @Override
     public MessageInfo getTeacherMessageById(int id, int reading_id){
@@ -88,20 +91,21 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
     }
 
     @Override
-    public ReadInfo getTeacherMessageRead(String teacher_id) {
+    public ReadInfo getTeacherMessageRead(int id) {
         ReadInfo readInfo = new ReadInfo();
-        List<TeacherMessage> teacherMessages = teacherMessageDao.getTeacherMessagesByTeacher(teacher_id);
+        //TeacherMessage teacherMessage = teacherMessageDao.getTeacherMessage(id);
         int read = 0, unread = 0;
+        List<TeacherMessageReading> readings = teacherMessageReadingRepository.findAllByMessage_id(id);
         List<Student> studentsRead = new ArrayList<>();
         List<Student> studentsUnread = new ArrayList<>();
-        for (TeacherMessage teacherMessage : teacherMessages) {
-            if (teacherMessage.getIs_read()) {
+        for (TeacherMessageReading teacherMessageReading : readings) {
+            if (teacherMessageReading.getIs_read()) {
                 read++;
-                studentsRead.add(studentDao.getOne(teacherMessage.getStudent_id()));
+                studentsRead.add(studentDao.getOne(teacherMessageReading.getStudent_id()));
             }
             else {
                 unread++;
-                studentsUnread.add(studentDao.getOne(teacherMessage.getStudent_id()));
+                studentsUnread.add(studentDao.getOne(teacherMessageReading.getStudent_id()));
             }
         }
         readInfo.setRead(read);
