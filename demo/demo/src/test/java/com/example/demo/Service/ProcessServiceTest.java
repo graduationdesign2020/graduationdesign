@@ -35,6 +35,10 @@ public class ProcessServiceTest extends DemoApplicationTests {
     private StudentDao studentDao;
 
     @Test
+    public void contextLoads() {
+    }
+
+    @Test
     public void checkSelfProcess() {
         List<StateInfo> result = processService.checkSelfProcess("1");
         List<StateInfo> compare = new ArrayList<>();

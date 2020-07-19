@@ -46,6 +46,10 @@ public class NoticeControllerTest extends DemoApplicationTests {
     }
 
     @Test
+    public void contextLoads() {
+    }
+
+    @Test
     public void getTeacherMessageRead() throws Exception {
         MvcResult result = mockMvc.perform(post("/getTeacherMessageRead").content("101").contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(status().isOk()).andReturn();
