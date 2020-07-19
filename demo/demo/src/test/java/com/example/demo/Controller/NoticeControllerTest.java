@@ -52,6 +52,6 @@ public class NoticeControllerTest extends DemoApplicationTests {
         String resultContent = result.getResponse().getContentAsString();
         ReadInfo readInfo = om.readValue(resultContent, new TypeReference<ReadInfo>() { });
 
-        assertEquals(teacherMessageService.getTeacherMessageRead("101"), readInfo);
+        assertEquals(teacherMessageService.getTeacherMessageRead(101), readInfo);
     }
 }

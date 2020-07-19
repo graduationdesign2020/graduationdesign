@@ -15,11 +15,11 @@ public class StateDaoImpl implements StateDao {
 
     @Override
     public State getOneByProjAndState(String proj_id, Integer state) {
-        return stateRepository.findByProject_idAndState(proj_id, state);
+        return stateRepository.findByProjectAndState(proj_id, state);
     }
 
     @Override
     public List<State> getStates(String proj_id) {
-        return stateRepository.findAllByProject_id(proj_id);
+        return stateRepository.findAllByProject(proj_id);
     }
 }
