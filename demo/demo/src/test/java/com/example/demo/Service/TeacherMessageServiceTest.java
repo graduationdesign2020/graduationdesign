@@ -31,7 +31,7 @@ public class TeacherMessageServiceTest extends DemoApplicationTests {
 
     @Test
     public void getTeacherMessageRead() {
-        ReadInfo result = teacherMessageService.getTeacherMessageRead("101");
+        ReadInfo result = teacherMessageService.getTeacherMessageRead(101);
         ReadInfo compare = new ReadInfo();
         Student student1 = new Student("1", "stu1", "SE");
         Student student2 = new Student("2", "stu2", "SE");
