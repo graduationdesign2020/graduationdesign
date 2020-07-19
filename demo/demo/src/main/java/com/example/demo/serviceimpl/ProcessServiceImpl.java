@@ -67,12 +67,12 @@ public class ProcessServiceImpl implements ProcessService {
             int finished = 0;
             for (Project project : projects) {
                 State state = stateDao.getOneByProjAndState(project.getId(), i);
-                if (state.getSubmit() == 1) {
+                if (state == null || state.getSubmit() != 1) {
+                    studentsUnfinished.add(studentDao.getOne(project.getId()));
+                }
+                else if (state.getSubmit() == 1) {
                     finished++;
                     studentsFinished.add(studentDao.getOne(project.getId()));
-                }
-                else {
-                    studentsUnfinished.add(studentDao.getOne(project.getId()));
                 }
             }
             int unfinished = stuNum - finished;

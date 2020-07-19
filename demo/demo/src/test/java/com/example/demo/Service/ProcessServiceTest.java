@@ -75,6 +75,6 @@ public class ProcessServiceTest extends DemoApplicationTests {
         List<ProcessInfo> compare = new ArrayList<>();
 
 
-        assertEquals(compare, result);
+        assertEquals(result, compare);
     }
 }
