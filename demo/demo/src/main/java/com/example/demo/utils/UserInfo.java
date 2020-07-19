@@ -11,6 +11,16 @@ public class UserInfo {
         return id;
     }
 
+    private String openid;
+
+    public void setOpenid(String openid) {
+        this.openid = openid;
+    }
+
+    public String getOpenid() {
+        return openid;
+    }
+
     private String name;
 
     public void setName(String name) {
