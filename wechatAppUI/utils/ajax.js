@@ -5,6 +5,7 @@ export const PostRequest = (url, postdata, callback) => {
     data: postdata,
     success(res) {
       callback(res.data);
-    }
+    },
+    method:"POST"
   });
 }

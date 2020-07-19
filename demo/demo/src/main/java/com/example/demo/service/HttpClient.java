@@ -43,6 +43,7 @@ public class HttpClient {
 
         if (conn.getResponseCode() == HttpStatus.SC_OK) {// HttpStatus.SC_OK ==
             // 200
+            System.out.print("200\n");
             BufferedReader reader = new BufferedReader(new InputStreamReader(
                     conn.getInputStream()));
             StringBuilder sbs = new StringBuilder();
@@ -50,6 +51,7 @@ public class HttpClient {
             while ((line = reader.readLine()) != null) {
                 sbs.append(line);
             }
+            System.out.print(sbs.toString());
             return sbs.toString();
         }
         return null;
