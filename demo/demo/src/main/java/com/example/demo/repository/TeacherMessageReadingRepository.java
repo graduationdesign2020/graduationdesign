@@ -22,4 +22,6 @@ public interface TeacherMessageReadingRepository extends JpaRepository<TeacherMe
 
     @Query("select count (id) from TeacherMessageReading where message_id=:message_id and is_read=false ")
     int getUnReadingsByMessage_id(int message_id);
+
+    List<TeacherMessageReading> findAllByMessage_id(int id);
 }

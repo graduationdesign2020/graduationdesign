@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.entity.ReadInfo;
 import com.example.demo.entity.Student;
 import com.example.demo.entity.TeacherMessage;
 import com.example.demo.service.TeacherMessageService;
@@ -32,6 +33,12 @@ public class MessageController {
     public List<MessageInfo> getTeacherMessages(@RequestBody Map<String,String> params) {
         String stu_id=params.get("student_id");
         return teacherMessageService.getTeacherMessages(stu_id);
+    }
+
+    @RequestMapping(path = "getTeacherMessageRead")
+    @ResponseBody
+    public ReadInfo getTeacherMessageRead(@RequestBody int id) {
+        return teacherMessageService.getTeacherMessageRead(id);
     }
 
     @RequestMapping(path = "/teacherGetTeacherMessages")
