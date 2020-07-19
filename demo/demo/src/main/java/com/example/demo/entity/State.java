@@ -78,4 +78,12 @@ public class State {
         this.end_time = end_time;
     }
 
+    public void init(int id, String project_id, int state, int submit, String start_time, String end_time) {
+        this.id = id;
+        this.project_id = project_id;
+        this.state = state;
+        this.submit = submit;
+        this.start_time = start_time;
+        this.end_time = end_time;
+    }
 }
