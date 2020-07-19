@@ -44,10 +44,10 @@ public class TeacherMessageDaoImpl implements TeacherMessageDao {
         return teacherMessageReadingRepository.getTeacherMessagesByStudent_id(stu_id);
     }
 
-    @Override
-    public List<TeacherMessage> getTeacherMessages(String stu_id){
-        return teacherMessageRepository.getTeacherMessagesByStudent_id(stu_id);
-    }
+//    @Override
+//    public List<TeacherMessage> getTeacherMessages(String stu_id){
+//        return teacherMessageRepository.getTeacherMessagesByStudent_id(stu_id);
+//    }
 
     @Override
     public List<TeacherMessage> getTeacherMessagesByTeacher(String teacher_id) {
@@ -85,5 +85,11 @@ public class TeacherMessageDaoImpl implements TeacherMessageDao {
     public int getUnReadingsByMessage_id(int message_id){
         return teacherMessageReadingRepository.getUnReadingsByMessage_id(message_id);
     }
+
+    @Override
+    public List<TeacherMessageReading> findAllByMessage(int message_id) {
+        return teacherMessageReadingRepository.findAllByMessage_id(message_id);
+    }
+
 
 }

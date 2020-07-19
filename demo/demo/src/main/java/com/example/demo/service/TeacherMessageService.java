@@ -18,7 +18,7 @@ public interface TeacherMessageService {
 
     ReturnInfo sentTeacherMessage(String title, String teacher_id, List<String> student_id, String content);//将(title,content,teacherId)插入到message表
 
-    ReadInfo getTeacherMessageRead(String teacher_id);
+    ReadInfo getTeacherMessageRead(int id);
 
     List<Student> getStudentsByTeacher_id(String teacher_id);
 
