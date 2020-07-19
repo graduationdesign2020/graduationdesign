@@ -21,11 +21,23 @@ public class ProcessServiceImpl implements ProcessService {
     private StudentDao studentDao;
 
     @Override
-    public StateInfo checkSelfProcess(String stu_id) {
-        StateInfo stateInfo = new StateInfo();
-        stateInfo.setStates(stateDao.getStates(stu_id));
-        stateInfo.setCurrentState(stateDao.getOneByProjAndState(stu_id, projectDao.getOne(stu_id).getState()));
-        return stateInfo;
+    public List<StateInfo> checkSelfProcess(String stu_id) {
+        List<StateInfo> stateInfos = new ArrayList<>();
+        List<State> states = stateDao.getStates(stu_id);
+        for (State state : states) {
+            StateInfo stateInfo = new StateInfo();
+            stateInfo.setSta(state);
+            stateInfo.transfer();
+            stateInfos.add(stateInfo);
+        }
+        int num = states.size();
+        for (int i = num - 1; i < 5; i++) {
+            StateInfo stateInfo = new StateInfo();
+            stateInfo.init(i);
+            stateInfo.transfer();
+            stateInfos.add(stateInfo);
+        }
+        return stateInfos;
     }
 
     @Override
@@ -33,9 +45,18 @@ public class ProcessServiceImpl implements ProcessService {
         List<ProcessInfo> processInfos = new ArrayList<>();
         List<Project> projects = projectDao.findByTeacher(tea_id);
         int stuNum = projectDao.findByTeacher(tea_id).size();
-        for (int i = 1; i <= 5; i++) {
+        for (int i = 0; i < 5; i++) {
             ProcessInfo processInfo = new ProcessInfo();
-            processInfo.setName("process"+i);
+
+            String name = "";
+            switch (i) {
+                case 0: name = "任务书";
+                case 1: name = "开题报告";
+                case 2: name = "中期检查";
+                case 3: name = "论文定稿";
+                case 4: name = "论文最终稿";
+            }
+            processInfo.setName(name);
             List<Student> studentsFinished = new ArrayList<>();
             List<Student> studentsUnfinished = new ArrayList<>();
             int finished = 0;

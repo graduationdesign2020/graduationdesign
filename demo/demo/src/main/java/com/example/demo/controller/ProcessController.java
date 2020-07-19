@@ -16,7 +16,7 @@ public class ProcessController {
 
     @RequestMapping(path = "/checkSelfProcess")
     @ResponseBody
-    public StateInfo checkSelfProcess(@RequestBody String stu_id){
+    public List<StateInfo> checkSelfProcess(@RequestBody String stu_id){
         return processService.checkSelfProcess(stu_id);
     }
 
