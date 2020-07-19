@@ -17,13 +17,13 @@
   />
   </view>
   <van-cell-group>
-    <van-cell wx:if="{{userData.auth}}" title="学号" value="{{userData.id}}" />
-    <van-cell wx:if="{{!userData.auth}}" title="工号" value="{{userData.id}}" />
+    <van-cell wx:if="{{!userData.auth}}" title="学号" value="{{userData.id}}" />
+    <van-cell wx:if="{{userData.auth}}" title="工号" value="{{userData.id}}" />
     <van-cell title="姓名" value="{{userData.name}}" />
-    <van-cell wx:if="{{userData.auth}}" title="导师" value="{{userData.teacher}}" />
-    <van-cell wx:if="{{userData.auth}}" title="项目名称" value="{{userData.project}}" />
+    <van-cell wx:if="{{!userData.auth}}" title="导师" value="{{userData.teacher}}" />
+    <van-cell wx:if="{{!userData.auth}}" title="项目名称" value="{{userData.project}}" />
     <van-cell title="用户手册" is-link />
-    <van-cell wx:if="{{userData.auth}}" title="成绩查询" is-link />
+    <van-cell wx:if="{{!userData.auth}}" title="成绩查询" is-link />
   </van-cell-group>
   <view class="button">
     <van-button bindtap="logout" type="danger" size="large">注销用户</van-button>
