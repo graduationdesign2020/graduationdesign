@@ -1,14 +1,11 @@
 package com.example.demo.utils;
 
+import lombok.Data;
+
+@Data
 public class CodeReturn {
     private String openid;
-
-    public String getOpenid() {
-        return openid;
-    }
-
     private String session_key;
-    private String unionid;
-    private Number errcode;
+    private String errcode;
     private String errmsg;
 }

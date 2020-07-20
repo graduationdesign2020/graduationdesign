@@ -9,6 +9,7 @@
               value="{{ name }}"
               label="姓名"
               placeholder="请输入姓名"
+              error-message="{{ errorMessage1 }}"
               required
             />
             <van-field
@@ -17,7 +18,7 @@
               label="学号"
               placeholder="请输入学号"
               required
-              error-message="{{ errorMessage1 }}"
+              error-message="{{ errorMessage2 }}"
               border="{{ true }}"
             />
           </van-cell-group>
@@ -31,6 +32,7 @@
               value="{{ name }}"
               label="姓名"
               placeholder="请输入姓名"
+              error-message="{{ errorMessage1 }}"
               required
             />
             <van-field

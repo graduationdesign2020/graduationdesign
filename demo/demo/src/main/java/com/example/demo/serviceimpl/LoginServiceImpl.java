@@ -40,15 +40,19 @@ public class LoginServiceImpl implements LoginService {
             Teacher t = loginDao.getTeacherByIdAndName(id, name);
             if (t != null) {
                 userInfo.setId(id);
+                userInfo.setOpenid(wechat_id);
                 userInfo.setName(t.getName());
                 userInfo.setDept(t.getDepartment());
                 userInfo.setAuth(1);
                 flag = true;
             }
         } else {
+            System.out.print(id);
+            System.out.print(name);
             Student student = loginDao.getStudentByIdAndName(id, name);
             if (student != null) {
                 userInfo.setId(id);
+                userInfo.setOpenid(wechat_id);
                 userInfo.setName(student.getName());
                 userInfo.setDept(student.getDepartment());
                 userInfo.setAuth(0);
@@ -93,6 +97,7 @@ public class LoginServiceImpl implements LoginService {
         if(users!=null){
             String id=users.getId();
             userInfo.setId(id);
+            userInfo.setOpenid(wechat_id);
             returnInfo.setMsg(loginMsg1);
             if(users.getAuth()==1){
                 Teacher t=loginDao.getTeacherById(id);
@@ -111,9 +116,12 @@ public class LoginServiceImpl implements LoginService {
                 userInfo.setProject(project.getProject_name());
                 Teacher teacher=loginDao.getTeacherById(project.getTeacher_id());
                 userInfo.setTeacher(teacher.getName());
+                returnInfo.setUserData(userInfo);
             }
         }
         else {
+            userInfo.setOpenid(wechat_id);
+            returnInfo.setUserData(userInfo);
             returnInfo.setMsg(loginMsg0);
         }
         return returnInfo;

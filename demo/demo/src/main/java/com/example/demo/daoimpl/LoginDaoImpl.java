@@ -47,7 +47,8 @@ public class LoginDaoImpl implements LoginDao {
 
     @Override
     public Student getStudentByIdAndName(String id,String name){
-        return studentRepository.getByIdAndName(id, name);
+        Student student = studentRepository.getByIdAndName(id, name);
+        return student;
     }
 
     @Override
