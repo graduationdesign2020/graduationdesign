@@ -1,9 +1,6 @@
 package com.example.demo.serviceimpl;
 
-import com.alibaba.fastjson.JSONObject;
-import com.example.demo.dao.LoginDao;
-import com.example.demo.dao.StudentDao;
-import com.example.demo.dao.TeacherMessageDao;
+import com.example.demo.dao.*;
 import com.example.demo.entity.*;
 import com.example.demo.repository.TeacherMessageReadingRepository;
 import com.example.demo.service.TeacherMessageService;
@@ -26,9 +23,13 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
     @Autowired
     private StudentDao studentDao;
     @Autowired
-    private LoginDao loginDao;
+    private UsersDao usersDao;
     @Autowired
-    private TeacherMessageReadingRepository teacherMessageReadingRepository;
+    private TeacherDao teacherDao;
+    @Autowired
+    private TeacherMessageReadingDao teacherMessageReadingDao;
+    @Autowired
+    private ProjectDao projectDao;
 
     @Override
     public MessageInfo getTeacherMessageById(int id, int reading_id){
@@ -39,15 +40,15 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
         messageInfo.setContent(teacherMessage.getContent());
         messageInfo.setTime(teacherMessage.getTime());
         messageInfo.setReading_id(reading_id);
-        Teacher teacher=loginDao.getTeacherById(teacherMessage.getTeacher_id());
+        Teacher teacher= teacherDao.getTeacherById(teacherMessage.getTeacher_id());
         messageInfo.setTeachername(teacher.getName());
-        teacherMessageDao.setRead(reading_id);
+        teacherMessageReadingDao.setRead(reading_id);
         return messageInfo;
     }
 
     @Override
     public List<MessageInfo> getTeacherMessages(String stu_id){
-        List<TeacherMessageReading> list=teacherMessageDao.getReading(stu_id);
+        List<TeacherMessageReading> list=teacherMessageReadingDao.getReading(stu_id);
         List<MessageInfo> messageInfos=new ArrayList<>();
         for (TeacherMessageReading teacherMessageReading : list) {
             MessageInfo messageInfo = new MessageInfo();
@@ -57,7 +58,7 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
             messageInfo.setTitle(teacherMessage.getTitle());
             messageInfo.setTime(teacherMessage.getTime());
             messageInfo.setIs_read(teacherMessageReading.getIs_read());
-            Teacher teacher = loginDao.getTeacherById(teacherMessage.getTeacher_id());
+            Teacher teacher = teacherDao.getTeacherById(teacherMessage.getTeacher_id());
             messageInfo.setTeachername(teacher.getName());
             messageInfos.add(messageInfo);
         }
@@ -76,17 +77,20 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
         teacherMessage.setTeacher_id(teacher_id);
         teacherMessage.setContent(content);
         teacherMessageDao.sentTeacherMessage(teacherMessage);
-        TeacherMessageReading teacherMessageReading=new TeacherMessageReading();
-        teacherMessageReading.setMessage_id(teacherMessage.getId());
-        teacherMessageReading.setIs_read(false);
+        List<TeacherMessageReading> teacherMessageReadings=new ArrayList<>();
         for (String value : student_id) {
+            TeacherMessageReading teacherMessageReading=new TeacherMessageReading();
+            teacherMessageReading.setMessage_id(teacherMessage.getId());
+            teacherMessageReading.setIs_read(false);
             teacherMessageReading.setStudent_id(value);
-            s=teacherMessageDao.addReader(teacherMessageReading);
+            teacherMessageReadings.add(teacherMessageReading);
+        }
+        for (TeacherMessageReading value:teacherMessageReadings){
+            s=teacherMessageReadingDao.addReader(value);
         }
         if (s!=null)
             returnInfo.setMsg(sendingMsg1);
         else returnInfo.setMsg(sendingMsg0);
-
         return returnInfo;
     }
 
@@ -95,7 +99,7 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
         ReadInfo readInfo = new ReadInfo();
         //TeacherMessage teacherMessage = teacherMessageDao.getTeacherMessage(id);
         int read = 0, unread = 0;
-        List<TeacherMessageReading> readings = teacherMessageReadingRepository.findAllByMessage_id(id);
+        List<TeacherMessageReading> readings = teacherMessageReadingDao.findAllByMessage_id(id);
         List<Student> studentsRead = new ArrayList<>();
         List<Student> studentsUnread = new ArrayList<>();
         for (TeacherMessageReading teacherMessageReading : readings) {
@@ -117,10 +121,10 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
 
     @Override
     public List<Student> getStudentsByTeacher_id(String teacher_id){
-        List<String> list=teacherMessageDao.getIdByTeacher_id(teacher_id);
+        List<String> list=projectDao.getIdByTeacher_id(teacher_id);
         List<Student> students=new ArrayList<>();
         for (String s : list) {
-            Student student = loginDao.getStudentById(s);
+            Student student = studentDao.getOne(s);
             students.add(student);
         }
         return students;
@@ -134,8 +138,8 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
             MessageInfo messageInfo = new MessageInfo();
             messageInfo.setTitle(teacherMessage.getTitle());
             messageInfo.setId(teacherMessage.getId());
-            messageInfo.setReading(teacherMessageDao.getTeacherMessageReadingsByMessage_id(teacherMessage.getId()));
-            messageInfo.setUnread(teacherMessageDao.getUnReadingsByMessage_id(teacherMessage.getId()));
+            messageInfo.setReading(teacherMessageReadingDao.getTeacherMessageReadingsByMessage_id(teacherMessage.getId()));
+            messageInfo.setUnread(teacherMessageReadingDao.getUnReadingsByMessage_id(teacherMessage.getId()));
             messageInfo.setTime(teacherMessage.getTime());
             messageInfos.add(messageInfo);
         }
@@ -150,7 +154,7 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
         messageInfo.setTitle(teacherMessage.getTitle());
         messageInfo.setContent(teacherMessage.getContent());
         messageInfo.setTime(teacherMessage.getTime());
-        Teacher teacher=loginDao.getTeacherById(teacherMessage.getTeacher_id());
+        Teacher teacher= teacherDao.getTeacherById(teacherMessage.getTeacher_id());
         messageInfo.setTeachername(teacher.getName());
         return messageInfo;
     }

@@ -10,23 +10,8 @@ public interface TeacherMessageDao {
 
     TeacherMessage getTeacherMessage(Integer id);
 
-    //List<TeacherMessage> getTeacherMessages(String stu_id);
 
     List<TeacherMessage> getTeacherMessagesByTeacher(String teacher_id);
 
     void sentTeacherMessage(TeacherMessage teacherMessage);//将(title,content,teacherId)插入到message表
-
-    int setRead(int id);//将is_read改成1
-
-    List<String> getIdByTeacher_id(String t_id);
-
-    TeacherMessageReading addReader(TeacherMessageReading teacherMessageReading);
-
-    List<TeacherMessageReading> getReading(String stu_id);
-
-    int getTeacherMessageReadingsByMessage_id(int message_id);
-
-    int getUnReadingsByMessage_id(int message_id);
-
-    List<TeacherMessageReading> findAllByMessage(int message_id);
 }
