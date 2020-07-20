@@ -22,4 +22,10 @@ public class ProjectDaoImpl implements ProjectDao {
     public List<Project> findByTeacher(String tea_id) {
         return projectRepository.findAllByTeacher(tea_id);
     }
+
+    @Override
+    public List<String> getIdByTeacher_id(String t_id){
+        return projectRepository.getIdByTeacher_id(t_id);
+    }
+
 }

@@ -4,4 +4,7 @@ import com.example.demo.entity.Student;
 
 public interface StudentDao {
     Student getOne(String stu_id);
+
+    Student getStudentByIdAndName(String id,String name);
+
 }

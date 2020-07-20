@@ -51,6 +51,10 @@ public class MessageControllerTest {
     }
 
     @Test
+    public void contextLoads() {
+    }
+
+    @Test
     public void checkTeacherGetStudents() throws Exception {
         MvcResult result = mockMvc.perform(get("/teacherGetStudents").content("{\"id\":\"1\"}").contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(status().isOk()).andReturn();

@@ -1,6 +1,6 @@
 package com.example.demo.daoimpl;
 
-import com.example.demo.dao.LoginDao;
+import com.example.demo.dao.UsersDao;
 import com.example.demo.entity.Student;
 import com.example.demo.entity.Teacher;
 import com.example.demo.entity.Users;
@@ -11,13 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class LoginDaoImpl implements LoginDao {
+public class UsersDaoImpl implements UsersDao {
     @Autowired
     private UsersRepository usersRepository;
-    @Autowired
-    private StudentRepository studentRepository;
-    @Autowired
-    private TeacherRepository teacherRepository;
+
 
     @Override
     public Users getUserByWechat_id(String wechat_id){
@@ -31,29 +28,8 @@ public class LoginDaoImpl implements LoginDao {
 
     @Override
     public int deleteUsers(String wechat_id){
-        usersRepository.deleteById(wechat_id);
-        return 1;
-    }
-
-    @Override
-    public Student getStudentById(String id){
-        return studentRepository.getOne(id);
-    }
-
-    @Override
-    public Teacher getTeacherById(String id){
-        return teacherRepository.getOne(id);
-    }
-
-    @Override
-    public Student getStudentByIdAndName(String id,String name){
-        Student student = studentRepository.getByIdAndName(id, name);
-        return student;
-    }
-
-    @Override
-    public Teacher getTeacherByIdAndName(String id,String name){
-        return teacherRepository.getByIdAndName(id, name);
+        int check=usersRepository.deleteByWechat_id(wechat_id);
+        return check;
     }
 
     @Override
