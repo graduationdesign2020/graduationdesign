@@ -2,7 +2,7 @@
 <van-cell-group>
 <van-cell title="{{notice.title}}" value="{{notice.time}}" size="large" />
 <textarea class="content">{{notice.content}}</textarea>
-<van-cell title="未读 {{ReadInfo.unRead}} 已读 {{ReadInfo.Read}}" />
+<van-cell title="未读 {{ReadInfo.unRead}} 已读 {{ReadInfo.read}}" />
 <van-cell title="只显示未读">
   <van-switch checked="{{ checked }}" bind:change="onChange" size="20px" />
 </van-cell>

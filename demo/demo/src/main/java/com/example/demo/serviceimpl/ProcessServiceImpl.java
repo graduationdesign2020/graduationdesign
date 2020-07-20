@@ -68,6 +68,7 @@ public class ProcessServiceImpl implements ProcessService {
             for (Project project : projects) {
                 State state = stateDao.getOneByProjAndState(project.getId(), i);
                 if (state == null || state.getSubmit() != 1) {
+                    //System.out.println(studentDao.getOne(project.getId()));
                     studentsUnfinished.add(studentDao.getOne(project.getId()));
                 }
                 else if (state.getSubmit() == 1) {
@@ -76,11 +77,14 @@ public class ProcessServiceImpl implements ProcessService {
                 }
             }
             int unfinished = stuNum - finished;
+            //System.out.println(studentsUnfinished);
             processInfo.setFinished(finished);
             processInfo.setUnfinished(unfinished);
             processInfo.setFinishedStu(studentsFinished);
             processInfo.setUnfinishedStu(studentsUnfinished);
+            //System.out.println(processInfo);
             processInfos.add(processInfo);
+            //System.out.println(processInfos);
         }
         return processInfos;
     }

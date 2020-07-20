@@ -7,4 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 public interface StudentRepository extends JpaRepository<Student, String> {
     @Query("from Student where id=:id and name=:name")
     Student getByIdAndName(String id,String name);
+
+    Student findDistinctByName(String name);
 }

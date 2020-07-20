@@ -15,23 +15,11 @@ public class TeacherMessageDaoImpl implements TeacherMessageDao {
     private TeacherMessageRepository teacherMessageRepository;
     @Autowired
     private TeacherMessageContentRepository teacherMessageContentRepository;
-    @Autowired
-    private ProjectRepository projectRepository;
-    @Autowired
-    private TeacherMessageReadingRepository teacherMessageReadingRepository;
 
     @Override
-    public TeacherMessage getTeacherMessageById(Integer id){
-        TeacherMessage teacherMessage= teacherMessageRepository.getOne(id);
-        Optional<TeacherMessageContent> teacherMessageContent=teacherMessageContentRepository.findById(id);
-        if (teacherMessageContent.isPresent()){
-            TeacherMessageContent s=teacherMessageContent.get();
-            teacherMessage.setContent(s.getContent());
-        }
-        else{
-            teacherMessage.setContent(null);
-        }
-        return teacherMessage;
+    public Optional<TeacherMessage> getTeacherMessageById(Integer id){
+       return teacherMessageRepository.getById(id);
+
     }
 
     @Override
@@ -39,15 +27,7 @@ public class TeacherMessageDaoImpl implements TeacherMessageDao {
         return teacherMessageRepository.getOne(id);
     }
 
-    @Override
-    public List<TeacherMessageReading> getReading(String stu_id){
-        return teacherMessageReadingRepository.getTeacherMessagesByStudent_id(stu_id);
-    }
 
-//    @Override
-//    public List<TeacherMessage> getTeacherMessages(String stu_id){
-//        return teacherMessageRepository.getTeacherMessagesByStudent_id(stu_id);
-//    }
 
     @Override
     public List<TeacherMessage> getTeacherMessagesByTeacher(String teacher_id) {
@@ -60,36 +40,4 @@ public class TeacherMessageDaoImpl implements TeacherMessageDao {
         TeacherMessageContent teacherMessageContent=new TeacherMessageContent(teacherMessage.getId(),teacherMessage.getContent());
         teacherMessageContentRepository.save(teacherMessageContent);
     }
-    @Override
-    public TeacherMessageReading addReader(TeacherMessageReading teacherMessageReading)
-    {
-        return teacherMessageReadingRepository.save(teacherMessageReading);
-    }
-
-    @Override
-    public int setRead(int id){
-        return teacherMessageReadingRepository.setRead(id);
-    }
-
-    @Override
-    public List<String> getIdByTeacher_id(String t_id){
-        return projectRepository.getIdByTeacher_id(t_id);
-    }
-
-    @Override
-    public int getTeacherMessageReadingsByMessage_id(int message_id){
-        return teacherMessageReadingRepository.getTeacherMessageReadingsByMessage_id(message_id);
-    }
-
-    @Override
-    public int getUnReadingsByMessage_id(int message_id){
-        return teacherMessageReadingRepository.getUnReadingsByMessage_id(message_id);
-    }
-
-    @Override
-    public List<TeacherMessageReading> findAllByMessage(int message_id) {
-        return teacherMessageReadingRepository.findAllByMessage_id(message_id);
-    }
-
-
 }

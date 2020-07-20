@@ -15,8 +15,6 @@ import java.util.Optional;
 public class SchoolNoticeDaolmpl implements SchoolNoticeDao {
     @Autowired
     private SchoolNoticeRepository schoolNoticeRepository;
-    @Autowired
-    private SchoolNoticeContentRepository schoolNoticeContentRepository;
 
     @Override
     public List<SchoolNotice> getSchoolNotices(){
@@ -24,11 +22,8 @@ public class SchoolNoticeDaolmpl implements SchoolNoticeDao {
     }
 
     @Override
-    public SchoolNotice getSchoolNoticeById(int id){
-        SchoolNotice schoolNotice= schoolNoticeRepository.getOne(id);
-        SchoolNoticeContent schoolNoticeContent=schoolNoticeContentRepository.findById(id);
-        schoolNotice.setContent(schoolNoticeContent.getContent());
-        return schoolNotice;
+    public Optional<SchoolNotice> getSchoolNoticeById(int id){
+        return schoolNoticeRepository.getById(id);
     }
 
     @Override

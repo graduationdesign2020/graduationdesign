@@ -52,27 +52,27 @@ public class NoticeServiceTest extends DemoApplicationTests {
         assertEquals(result, compare);
     }
 
-    @Test
-    @Transactional
-    public void getDeptNoticesById() {
-        DeptNotice result = deptNoticeDao.getDeptNoticeById(1);
-        DeptNotice compare = new DeptNotice();
-        compare.init(1, "1", "SE", "2020-07-16 13:49:55");
-        compare.setContent("department notice content1");
+//    @Test
+//    @Transactional
+//    public void getDeptNoticesById() {
+//        DeptNotice result = deptNoticeDao.getDeptNoticeById(1);
+//        DeptNotice compare = new DeptNotice();
+//        compare.init(1, "1", "SE", "2020-07-16 13:49:55");
+//        compare.setContent("department notice content1");
+//
+//        assertEquals(result, compare);
+//    }
 
-        assertEquals(result, compare);
-    }
-
-    @Test
-    @Transactional
-    public void getSchoolNoticeById() {
-        SchoolNotice result = schoolNoticeDao.getSchoolNoticeById(1);
-        SchoolNotice compare = new SchoolNotice();
-        compare.init(1, "1", "2020-07-16 13:50:57");
-        compare.setContent("school notice content1");
-
-        assertEquals(result, compare);
-    }
+//    @Test
+//    @Transactional
+//    public void getSchoolNoticeById() {
+//        SchoolNotice result = schoolNoticeDao.getSchoolNoticeById(1);
+//        SchoolNotice compare = new SchoolNotice();
+//        compare.init(1, "1", "2020-07-16 13:50:57");
+//        compare.setContent("school notice content1");
+//
+//        assertEquals(result, compare);
+//    }
 
     @Test
     public void getSchoolNotices() {

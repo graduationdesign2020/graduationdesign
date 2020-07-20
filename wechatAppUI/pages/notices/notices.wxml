@@ -13,7 +13,7 @@
             </wux-card>
         </wux-wing-blank>
         <wux-wing-blank wx:if="{{type==2 && !userData.auth}}" size="default">
-            <wux-card wx:for="{{ notices }}" bindtap="detail" data-id="{{item.id}}" title="{{item.title}}" extra="{{item.teachername}} {{item.time}}">
+            <wux-card wx:for="{{ notices }}" bindtap="detail" data-id="{{item.id}}" data-reading_id="{{item.reading_id}}" title="{{item.title}}" extra="{{item.teachername}} {{item.time}}">
                 <view slot="body">{{item.content}}</view>
                 <view wx:if="{{!item.is_read}}" slot="footer"><van-tag type="danger">未读</van-tag></view>
             </wux-card>
