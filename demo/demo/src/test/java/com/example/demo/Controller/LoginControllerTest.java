@@ -45,13 +45,17 @@ public class LoginControllerTest extends DemoApplicationTests {
     }
 
     @Test
+    public void contextLoads() {
+    }
+
+    @Test
     public void checkLogin() throws Exception {
         MvcResult result = mockMvc.perform(post("/login").content("{\"openid\":\"1\"}").contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(status().isOk()).andReturn();
         String resultContent = result.getResponse().getContentAsString();
-        ReadInfo readInfo = om.readValue(resultContent, new TypeReference<ReadInfo>() { });
+        ReturnInfo returnInfo = om.readValue(resultContent, new TypeReference<ReturnInfo>() { });
 
-        assertEquals(loginService.login("1"), readInfo);
+        assertEquals(loginService.login("1"), returnInfo);
     }
 
     @Test

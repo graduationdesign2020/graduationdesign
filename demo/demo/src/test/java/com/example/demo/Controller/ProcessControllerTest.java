@@ -17,6 +17,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.WebApplicationContext;
 
 import java.util.List;
@@ -54,24 +55,25 @@ public class ProcessControllerTest extends DemoApplicationTests {
     }
 
     @Test
+    @Transactional
     public void checkSelfProcess() throws Exception {
         MvcResult result = mockMvc.perform(post("/checkSelfProcess").content("{\"stu_id\": \"1\"}").contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(status().isOk()).andReturn();
         String resultContent = result.getResponse().getContentAsString();
         System.out.println("result content: ");
         System.out.println(resultContent);
-        List<StateInfo> stateInfos = null;//om.readValue(resultContent, new TypeReference<List<StateInfo> >() {});
+        List<StateInfo> stateInfos = om.readValue(resultContent, new TypeReference<List<StateInfo> >() {});
 
         assertEquals(stateInfos, processService.checkSelfProcess("1"));
     }
 
     @Test
     public void checkProcess() throws Exception {
-        MvcResult result = mockMvc.perform(post("/checkProcess").content("{\"tea_id\": \"101\"}").contentType(MediaType.APPLICATION_JSON_VALUE))
+        MvcResult result = mockMvc.perform(post("/checkProcess").content("{\"tea_id\": \"1\"}").contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(status().isOk()).andReturn();
         String resultContent = result.getResponse().getContentAsString();
         List<ProcessInfo> processInfos = om.readValue(resultContent, new TypeReference<List<ProcessInfo>>() {} );
 
-        assertEquals(processInfos, processService.checkProcess("101"));
+        assertEquals(processInfos, processService.checkProcess("1"));
     }
 }

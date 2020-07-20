@@ -1,6 +1,5 @@
 package com.example.demo.Controller;
 
-import com.example.demo.entity.StateInfo;
 import com.example.demo.entity.Student;
 import com.example.demo.entity.TeacherMessage;
 import com.example.demo.service.LoginService;
@@ -20,6 +19,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.WebApplicationContext;
 
 import java.util.ArrayList;
@@ -51,6 +51,11 @@ public class MessageControllerTest {
     }
 
     @Test
+    public void contextLoads() {
+    }
+
+    @Test
+    @Transactional
     public void checkTeacherGetStudents() throws Exception {
         MvcResult result = mockMvc.perform(get("/teacherGetStudents").content("{\"id\":\"1\"}").contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(status().isOk()).andReturn();
@@ -61,6 +66,7 @@ public class MessageControllerTest {
     }
 
     @Test
+    @Transactional
     public void getTeacherMessage() throws Exception {
         MvcResult result = mockMvc.perform(get("/getTeacherMessage").content("{\"id\":1,\"reading_id\":1}").contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(status().isOk()).andReturn();
@@ -70,6 +76,7 @@ public class MessageControllerTest {
     }
 
     @Test
+    @Transactional
     public void getTeacherMessages() throws Exception {
         MvcResult result = mockMvc.perform(get("/teacherGetStudents").content("{\"student_id\":\"1\"}").contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(status().isOk()).andReturn();
@@ -80,6 +87,7 @@ public class MessageControllerTest {
     }
 
     @Test
+    @Transactional
     public void getTeacherMessagesByTeacher() throws Exception {
         MvcResult result = mockMvc.perform(get("/teacherGetTeacherMessages").content("{\"teacher_id\":\"1\"}").contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(status().isOk()).andReturn();
@@ -89,6 +97,7 @@ public class MessageControllerTest {
     }
 
     @Test
+    @Transactional
     public void getTeacherMessageByTeacher() throws Exception {
         MvcResult result = mockMvc.perform(get("/teacherGetTeacherMessage").content("{\"id\":1}").contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(status().isOk()).andReturn();
@@ -98,6 +107,7 @@ public class MessageControllerTest {
     }
 
     @Test
+    @Transactional
     public void sentMessage() throws Exception {
         MvcResult result = mockMvc.perform(get("/teacherGetTeacherMessage").content("{\"title\":\"1\",\"teacher_id\":\"1\",\"student_id\":[\"1\",\"3\"],\"content\":\"content2020\"}").contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(status().isOk()).andReturn();

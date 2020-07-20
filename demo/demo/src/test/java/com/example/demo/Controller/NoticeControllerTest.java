@@ -20,6 +20,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.WebApplicationContext;
 
 import java.util.List;
@@ -56,6 +57,7 @@ public class NoticeControllerTest extends DemoApplicationTests {
     }
 
     @Test
+    @Transactional
     public void getTeacherMessageRead() throws Exception {
         MvcResult result = mockMvc.perform(post("/getTeacherMessageRead").content("{\"id\":101}").contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(status().isOk()).andReturn();
@@ -66,6 +68,7 @@ public class NoticeControllerTest extends DemoApplicationTests {
     }
 
     @Test
+    @Transactional
     public void getSchoolNotices() throws Exception {
         MvcResult result = mockMvc.perform(post("/getSchoolNotices").contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(status().isOk()).andReturn();
@@ -76,6 +79,7 @@ public class NoticeControllerTest extends DemoApplicationTests {
     }
 
     @Test
+    @Transactional
     public void getThreeSchoolNotices() throws Exception {
         MvcResult result = mockMvc.perform(post("/getThreeSchoolNotices").contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(status().isOk()).andReturn();
@@ -86,6 +90,7 @@ public class NoticeControllerTest extends DemoApplicationTests {
     }
 
     @Test
+    @Transactional
     public void getSchoolNotice() throws Exception {
         MvcResult result = mockMvc.perform(post("/getSchoolNotice").contentType(MediaType.APPLICATION_JSON_VALUE).content("{\"id\":1}"))
                 .andExpect(status().isOk()).andReturn();
@@ -96,6 +101,7 @@ public class NoticeControllerTest extends DemoApplicationTests {
     }
 
     @Test
+    @Transactional
     public void getDeptNotices() throws Exception {
         MvcResult result = mockMvc.perform(post("/getDepartmentNotices").contentType(MediaType.APPLICATION_JSON_VALUE).content("{\"dept\":\"SE\"}"))
                 .andExpect(status().isOk()).andReturn();
@@ -106,6 +112,7 @@ public class NoticeControllerTest extends DemoApplicationTests {
     }
 
     @Test
+    @Transactional
     public void getThreeDeptNoticesByDepartment() throws Exception {
         MvcResult result = mockMvc.perform(post("/getThreeDepartmentNotices").contentType(MediaType.APPLICATION_JSON_VALUE).content("{\"dept\":\"SE\"}"))
                 .andExpect(status().isOk()).andReturn();
@@ -116,6 +123,7 @@ public class NoticeControllerTest extends DemoApplicationTests {
     }
 
     @Test
+    @Transactional
     public void getDeptNotice() throws Exception {
         MvcResult result = mockMvc.perform(post("/getDepartmentNotice").contentType(MediaType.APPLICATION_JSON_VALUE).content("{\"id\":1}"))
                 .andExpect(status().isOk()).andReturn();
