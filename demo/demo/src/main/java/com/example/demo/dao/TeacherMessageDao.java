@@ -4,9 +4,10 @@ import com.example.demo.entity.TeacherMessage;
 import com.example.demo.entity.TeacherMessageReading;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface TeacherMessageDao {
-    TeacherMessage getTeacherMessageById(Integer id);
+    Optional<TeacherMessage> getTeacherMessageById(Integer id);
 
     TeacherMessage getTeacherMessage(Integer id);
 

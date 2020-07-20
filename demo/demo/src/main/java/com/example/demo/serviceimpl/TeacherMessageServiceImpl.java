@@ -2,6 +2,7 @@ package com.example.demo.serviceimpl;
 
 import com.example.demo.dao.*;
 import com.example.demo.entity.*;
+import com.example.demo.repository.TeacherMessageContentRepository;
 import com.example.demo.repository.TeacherMessageReadingRepository;
 import com.example.demo.service.TeacherMessageService;
 import com.example.demo.utils.MessageInfo;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static com.example.demo.constant.ReturnMsg.sendingMsg0;
 import static com.example.demo.constant.ReturnMsg.sendingMsg1;
@@ -23,7 +25,7 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
     @Autowired
     private StudentDao studentDao;
     @Autowired
-    private UsersDao usersDao;
+    private TeacherMessageContentRepository teacherMessageContentRepository;
     @Autowired
     private TeacherDao teacherDao;
     @Autowired
@@ -33,17 +35,32 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
 
     @Override
     public MessageInfo getTeacherMessageById(int id, int reading_id){
-        TeacherMessage teacherMessage=teacherMessageDao.getTeacherMessageById(id);
-        MessageInfo messageInfo=new MessageInfo();
-        messageInfo.setId(teacherMessage.getId());
-        messageInfo.setTitle(teacherMessage.getTitle());
-        messageInfo.setContent(teacherMessage.getContent());
-        messageInfo.setTime(teacherMessage.getTime());
-        messageInfo.setReading_id(reading_id);
-        Teacher teacher= teacherDao.getTeacherById(teacherMessage.getTeacher_id());
-        messageInfo.setTeachername(teacher.getName());
-        teacherMessageReadingDao.setRead(reading_id);
-        return messageInfo;
+        Optional<TeacherMessage> teacherMessage=teacherMessageDao.getTeacherMessageById(id);
+        if(teacherMessage.isPresent())
+        {
+            TeacherMessage t=teacherMessage.get();
+            Optional<TeacherMessageContent> teacherMessageContent = teacherMessageContentRepository.findById(id);
+            if (teacherMessageContent.isPresent()) {
+                TeacherMessageContent s = teacherMessageContent.get();
+                t.setContent(s.getContent());
+            } else {
+                t.setContent(null);
+            }
+            MessageInfo messageInfo=new MessageInfo();
+            messageInfo.setId(t.getId());
+            messageInfo.setTitle(t.getTitle());
+            messageInfo.setContent(t.getContent());
+            messageInfo.setTime(t.getTime());
+            messageInfo.setReading_id(reading_id);
+            Teacher teacher= teacherDao.getTeacherById(t.getTeacher_id());
+            messageInfo.setTeachername(teacher.getName());
+            teacherMessageReadingDao.setRead(reading_id);
+            return messageInfo;
+        }
+        else {
+            MessageInfo messageInfo1=new MessageInfo();
+            return messageInfo1;
+        }
     }
 
     @Override
@@ -148,15 +165,23 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
 
     @Override
     public MessageInfo teacherGetTeacherMessageById(int id){
-        TeacherMessage teacherMessage=teacherMessageDao.getTeacherMessageById(id);
-        MessageInfo messageInfo=new MessageInfo();
-        messageInfo.setId(teacherMessage.getId());
-        messageInfo.setTitle(teacherMessage.getTitle());
-        messageInfo.setContent(teacherMessage.getContent());
-        messageInfo.setTime(teacherMessage.getTime());
-        Teacher teacher= teacherDao.getTeacherById(teacherMessage.getTeacher_id());
-        messageInfo.setTeachername(teacher.getName());
-        return messageInfo;
+        Optional<TeacherMessage> teacherMessage=teacherMessageDao.getTeacherMessageById(id);
+        if(teacherMessage.isPresent())
+        {
+            TeacherMessage t=teacherMessage.get();
+            MessageInfo messageInfo = new MessageInfo();
+            messageInfo.setId(t.getId());
+            messageInfo.setTitle(t.getTitle());
+            messageInfo.setContent(t.getContent());
+            messageInfo.setTime(t.getTime());
+            Teacher teacher = teacherDao.getTeacherById(t.getTeacher_id());
+            messageInfo.setTeachername(teacher.getName());
+            return messageInfo;
+        }
+        else {
+            MessageInfo messageInfo=new MessageInfo();
+            return messageInfo;
+        }
     }
 
 }
