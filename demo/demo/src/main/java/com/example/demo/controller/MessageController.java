@@ -56,11 +56,11 @@ public class MessageController {
     }
 
 
-    @RequestMapping(path = "/sentMessage",method= RequestMethod.POST)
+    @RequestMapping(path = "/sendMessages",method= RequestMethod.POST)
     public ReturnInfo sentMessage(@RequestBody Map<String,Object> params) {
         String title= String.valueOf(params.get("title"));
-        String teacher_id= String.valueOf(params.get("teacher_id"));
-        List list= JSONObject.parseObject(params.get("student_id").toString(),List.class);
+        String teacher_id= String.valueOf(params.get("id"));
+        List list= JSONObject.parseObject(params.get("students").toString(),List.class);
         List<String> student_id = new ArrayList<>();
         for (int i = 0; i < list.size(); i++){
             student_id.add(JSONObject.parseObject(list.get(i).toString(),String.class));
