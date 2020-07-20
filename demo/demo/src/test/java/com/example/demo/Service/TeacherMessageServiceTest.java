@@ -14,6 +14,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -43,21 +44,25 @@ public class TeacherMessageServiceTest extends DemoApplicationTests {
     }
 
     @Test
+    @Transactional
     public void getTeacherMessageRead() {
-        ReadInfo result = teacherMessageService.getTeacherMessageRead(101);
+        ReadInfo result = teacherMessageService.getTeacherMessageRead(1);
         ReadInfo compare = new ReadInfo();
-//        Student student1 = new Student("1", "stu1", "SE");
-//        Student student2 = new Student("2", "stu2", "SE");
-//        Student student3 = new Student("3", "stu3", "SE");
+        Student student1 = new Student();
+        Student student2 = new Student();
+        Student student3 = new Student();
+        student1.init("1", "111", "SE", "SE");
+        student2.init("2", "222", "SE", "SE");
+        student3.init("3", "333", "SE", "SE");
         List<Student> studentsRead = new ArrayList<>();
         List<Student> studentsUnread = new ArrayList<>();
-//        studentsRead.add(student1);
-//        studentsRead.add(student2);
-//        studentsUnread.add(student3);
+        studentsRead.add(student1);
+        studentsUnread.add(student2);
+        studentsUnread.add(student3);
         compare.setStudentsRead(studentsRead);
         compare.setStudentsUnread(studentsUnread);
-        compare.setRead(0);
-        compare.setUnRead(0);
+        compare.setRead(1);
+        compare.setUnRead(2);
 
         assertEquals(compare, result);
     }

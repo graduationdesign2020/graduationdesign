@@ -1,7 +1,9 @@
 package com.example.demo.Controller;
 
 import com.example.demo.DemoApplicationTests;
+import com.example.demo.entity.DeptNotice;
 import com.example.demo.entity.ReadInfo;
+import com.example.demo.entity.SchoolNotice;
 import com.example.demo.service.NoticeService;
 import com.example.demo.service.ProcessService;
 import com.example.demo.service.TeacherMessageService;
@@ -20,6 +22,8 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -29,6 +33,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class NoticeControllerTest extends DemoApplicationTests {
     @Autowired
     private TeacherMessageService teacherMessageService;
+    @Autowired
+    private NoticeService noticeService;
 
     private MockMvc mockMvc;
     private ObjectMapper om = new ObjectMapper();
@@ -51,11 +57,71 @@ public class NoticeControllerTest extends DemoApplicationTests {
 
     @Test
     public void getTeacherMessageRead() throws Exception {
-        MvcResult result = mockMvc.perform(post("/getTeacherMessageRead").content("101").contentType(MediaType.APPLICATION_JSON_VALUE))
+        MvcResult result = mockMvc.perform(post("/getTeacherMessageRead").content("{\"id\":101}").contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(status().isOk()).andReturn();
         String resultContent = result.getResponse().getContentAsString();
         ReadInfo readInfo = om.readValue(resultContent, new TypeReference<ReadInfo>() { });
 
         assertEquals(teacherMessageService.getTeacherMessageRead(101), readInfo);
+    }
+
+    @Test
+    public void getSchoolNotices() throws Exception {
+        MvcResult result = mockMvc.perform(post("/getSchoolNotices").contentType(MediaType.APPLICATION_JSON_VALUE))
+                .andExpect(status().isOk()).andReturn();
+        String resultContent = result.getResponse().getContentAsString();
+        List<SchoolNotice> schoolNotices = om.readValue(resultContent, new TypeReference<List<SchoolNotice>>() {});
+
+        assertEquals(noticeService.getSchoolNotices(), schoolNotices);
+    }
+
+    @Test
+    public void getThreeSchoolNotices() throws Exception {
+        MvcResult result = mockMvc.perform(post("/getThreeSchoolNotices").contentType(MediaType.APPLICATION_JSON_VALUE))
+                .andExpect(status().isOk()).andReturn();
+        String resultContent = result.getResponse().getContentAsString();
+        List<SchoolNotice> schoolNotices = om.readValue(resultContent, new TypeReference<List<SchoolNotice>>() {});
+
+        assertEquals(noticeService.getThreeSchoolNotices(), schoolNotices);
+    }
+
+    @Test
+    public void getSchoolNotice() throws Exception {
+        MvcResult result = mockMvc.perform(post("/getSchoolNotice").contentType(MediaType.APPLICATION_JSON_VALUE).content("{\"id\":1}"))
+                .andExpect(status().isOk()).andReturn();
+        String resultContent = result.getResponse().getContentAsString();
+        SchoolNotice schoolNotice = om.readValue(resultContent, new TypeReference<SchoolNotice>() {});
+
+        assertEquals(noticeService.getSchoolNoticeById(1), schoolNotice);
+    }
+
+    @Test
+    public void getDeptNotices() throws Exception {
+        MvcResult result = mockMvc.perform(post("/getDepartmentNotices").contentType(MediaType.APPLICATION_JSON_VALUE).content("{\"dept\":\"SE\"}"))
+                .andExpect(status().isOk()).andReturn();
+        String resultContent = result.getResponse().getContentAsString();
+        List<DeptNotice> deptNotices = om.readValue(resultContent, new TypeReference<List<DeptNotice> >() {});
+
+        assertEquals(noticeService.getDeptNoticesByDept("SE"), deptNotices);
+    }
+
+    @Test
+    public void getThreeDeptNoticesByDepartment() throws Exception {
+        MvcResult result = mockMvc.perform(post("/getThreeDepartmentNotices").contentType(MediaType.APPLICATION_JSON_VALUE).content("{\"dept\":\"SE\"}"))
+                .andExpect(status().isOk()).andReturn();
+        String resultContent = result.getResponse().getContentAsString();
+        List<DeptNotice> deptNotices = om.readValue(resultContent, new TypeReference<List<DeptNotice> >() {});
+
+        assertEquals(noticeService.getThreeDeptNoticesByDepartment("SE"), deptNotices);
+    }
+
+    @Test
+    public void getDeptNotice() throws Exception {
+        MvcResult result = mockMvc.perform(post("/getDepartmentNotice").contentType(MediaType.APPLICATION_JSON_VALUE).content("{\"id\":1}"))
+                .andExpect(status().isOk()).andReturn();
+        String resultContent = result.getResponse().getContentAsString();
+        DeptNotice deptNotice = om.readValue(resultContent, new TypeReference<DeptNotice>() {});
+
+        assertEquals(noticeService.getDeptNoticeById(1), deptNotice);
     }
 }

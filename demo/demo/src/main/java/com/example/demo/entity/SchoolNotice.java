@@ -56,4 +56,10 @@ public class SchoolNotice {
     public String getContent() {
         return content;
     }
+
+    public void init(int id, String title, String time) {
+        this.id = id;
+        this.title = title;
+        this.time = time;
+    }
 }
