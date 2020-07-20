@@ -1,5 +1,6 @@
 package com.example.demo.Controller;
 
+import com.example.demo.entity.ReadInfo;
 import com.example.demo.entity.Student;
 import com.example.demo.entity.TeacherMessage;
 import com.example.demo.service.LoginService;
@@ -27,6 +28,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
@@ -104,6 +106,17 @@ public class MessageControllerTest {
         String resultContent = result.getResponse().getContentAsString();
         MessageInfo messageInfo = om.readValue(resultContent, new TypeReference<MessageInfo>() {});
         assertEquals(messageInfo, teacherMessageService.teacherGetTeacherMessageById(1));
+    }
+
+    @Test
+    @Transactional
+    public void getTeacherMessageRead() throws Exception {
+        MvcResult result = mockMvc.perform(post("/getTeacherMessageRead").content("{\"id\":1}").contentType(MediaType.APPLICATION_JSON_VALUE))
+                .andExpect(status().isOk()).andReturn();
+        String resultContent = result.getResponse().getContentAsString();
+        ReadInfo readInfo = om.readValue(resultContent, new TypeReference<ReadInfo>() { });
+
+        assertEquals(teacherMessageService.getTeacherMessageRead(1), readInfo);
     }
 
     @Test

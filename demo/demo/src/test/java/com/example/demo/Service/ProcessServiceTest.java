@@ -63,6 +63,9 @@ public class ProcessServiceTest extends DemoApplicationTests {
         compare.add(stateInfo4);
         compare.add(stateInfo5);
 
+        System.out.println(compare);
+        System.out.println(result);
+
         assertEquals(result, compare);
     }
 
@@ -106,6 +109,8 @@ public class ProcessServiceTest extends DemoApplicationTests {
             compare.add(processInfo);
         }
 
+        System.out.println(compare);
+        System.out.println(result);
         assertEquals(result, compare);
     }
 }

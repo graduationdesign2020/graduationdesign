@@ -33,8 +33,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 public class NoticeControllerTest extends DemoApplicationTests {
     @Autowired
-    private TeacherMessageService teacherMessageService;
-    @Autowired
     private NoticeService noticeService;
 
     private MockMvc mockMvc;
@@ -54,17 +52,6 @@ public class NoticeControllerTest extends DemoApplicationTests {
 
     @Test
     public void contextLoads() {
-    }
-
-    @Test
-    @Transactional
-    public void getTeacherMessageRead() throws Exception {
-        MvcResult result = mockMvc.perform(post("/getTeacherMessageRead").content("{\"id\":101}").contentType(MediaType.APPLICATION_JSON_VALUE))
-                .andExpect(status().isOk()).andReturn();
-        String resultContent = result.getResponse().getContentAsString();
-        ReadInfo readInfo = om.readValue(resultContent, new TypeReference<ReadInfo>() { });
-
-        assertEquals(teacherMessageService.getTeacherMessageRead(101), readInfo);
     }
 
     @Test
