@@ -58,6 +58,7 @@ public class Student {
         return department;
     }
 
+
     public void init(String id, String name, String major, String department) {
             this.id = id;
             this.name = name;

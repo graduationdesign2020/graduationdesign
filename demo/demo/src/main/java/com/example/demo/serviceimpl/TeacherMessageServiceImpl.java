@@ -76,17 +76,20 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
         teacherMessage.setTeacher_id(teacher_id);
         teacherMessage.setContent(content);
         teacherMessageDao.sentTeacherMessage(teacherMessage);
-        TeacherMessageReading teacherMessageReading=new TeacherMessageReading();
-        teacherMessageReading.setMessage_id(teacherMessage.getId());
-        teacherMessageReading.setIs_read(false);
+        List<TeacherMessageReading> teacherMessageReadings=new ArrayList<>();
         for (String value : student_id) {
+            TeacherMessageReading teacherMessageReading=new TeacherMessageReading();
+            teacherMessageReading.setMessage_id(teacherMessage.getId());
+            teacherMessageReading.setIs_read(false);
             teacherMessageReading.setStudent_id(value);
-            s=teacherMessageDao.addReader(teacherMessageReading);
+            teacherMessageReadings.add(teacherMessageReading);
+        }
+        for (TeacherMessageReading value:teacherMessageReadings){
+            s=teacherMessageDao.addReader(value);
         }
         if (s!=null)
             returnInfo.setMsg(sendingMsg1);
         else returnInfo.setMsg(sendingMsg0);
-
         return returnInfo;
     }
 

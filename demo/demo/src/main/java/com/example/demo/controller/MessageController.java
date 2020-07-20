@@ -1,14 +1,16 @@
 package com.example.demo.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.example.demo.entity.ReadInfo;
 import com.example.demo.entity.Student;
-import com.example.demo.entity.TeacherMessage;
 import com.example.demo.service.TeacherMessageService;
 import com.example.demo.utils.MessageInfo;
 import com.example.demo.utils.ReturnInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -53,11 +55,16 @@ public class MessageController {
         return teacherMessageService.teacherGetTeacherMessageById(id);
     }
 
-    @RequestMapping(path = "/sendMessages",method= RequestMethod.POST)
-    public ReturnInfo sentMessage(@RequestBody Map<String,String> params) {
+
+    @RequestMapping(path = "/sentMessage",method= RequestMethod.POST)
+    public ReturnInfo sentMessage(@RequestBody Map<String,Object> params) {
         String title= String.valueOf(params.get("title"));
-        String teacher_id= String.valueOf(params.get("id"));
-        List<String> student_id= List.of(params.get("students"));
+        String teacher_id= String.valueOf(params.get("teacher_id"));
+        List list= JSONObject.parseObject(params.get("student_id").toString(),List.class);
+        List<String> student_id = new ArrayList<>();
+        for (int i = 0; i < list.size(); i++){
+            student_id.add(JSONObject.parseObject(list.get(i).toString(),String.class));
+        }
         String content= String.valueOf(params.get("content"));
         return teacherMessageService.sentTeacherMessage(title, teacher_id, student_id, content);
     }
