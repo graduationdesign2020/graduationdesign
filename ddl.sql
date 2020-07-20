@@ -16,6 +16,7 @@ CREATE TABLE teacher(
     id          varchar(20) NOT NULL,
     name        varchar(50) NOT NULL,
     department 	varchar(50),
+    major 	varchar(50),
     PRIMARY KEY (id)
 );
 
@@ -23,6 +24,7 @@ CREATE TABLE student(
     id          varchar(12) NOT NULL,
     name        varchar(50) NOT NULL,
     major       varchar(50) NOT NULL,
+     department 	varchar(50) NOT NULL,
     PRIMARY KEY (id)
 );
 
