@@ -53,11 +53,11 @@ Page({
             PostRequest('/getThreeDepartmentNotices', {dept: data.userData.dept}, that.setDeptNotices);
             if(data.userData.auth) {
               PostRequest('/teacherGetTeacherMessages', {teacher_id: data.userData.id}, that.setTeacherMessages);
-              PostRequest('/teacherGetSystemMessages', {teacher_id: data.userData.id}, that.setSysMessages);
+              // PostRequest('/teacherGetSystemMessages', {teacher_id: data.userData.id}, that.setSysMessages);
             }
             else {
               PostRequest('/getTeacherMessages', {student_id: data.userData.id}, that.setTeacherMessages);
-              PostRequest('/getSystemMessages', {student_id: data.userData.id}, that.setSysMessages);
+              // PostRequest('/getSystemMessages', {student_id: data.userData.id}, that.setSysMessages);
             }
           }
         }
@@ -67,11 +67,11 @@ Page({
         PostRequest('/getThreeDepartmentNotices', {dept: this.data.userData.dept}, that.setDeptNotices);
         if(this.data.userData.auth) {
           PostRequest('/teacherGetTeacherMessages', {teacher_id: this.data.userData.id}, that.setTeacherMessages);
-          PostRequest('/teacherGetSystemMessages', {teacher_id: this.data.userData.id}, that.setSysMessages);
+          // PostRequest('/teacherGetSystemMessages', {teacher_id: this.data.userData.id}, that.setSysMessages);
         }
         else {
           PostRequest('/getTeacherMessages', {student_id: this.data.userData.id}, that.setTeacherMessages);
-          PostRequest('/getSystemMessages', {student_id: this.data.userData.id}, that.setSysMessages);
+          // PostRequest('/getSystemMessages', {student_id: this.data.userData.id}, that.setSysMessages);
         }
       }
     }

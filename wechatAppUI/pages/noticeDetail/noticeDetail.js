@@ -1,6 +1,7 @@
 // pages/noticeDetail/noticeDetail.js
 //获取应用实例
 const app = getApp()
+import {PostRequest} from "../../utils/ajax";
 
 Page({
 
@@ -34,22 +35,26 @@ Page({
           }else{
             this.setData({userData: data.userData, type: options.type})
             switch (options.type) {
-              case 0: {
+              case "0": {
                 PostRequest('/getSchoolNotice', {id: options.id}, that.setNotice);
+                break;
               }
-              case 1: {
+              case "1": {
                 PostRequest('/getDepartmentNotice', {id: options.id}, that.setNotice);
+                break;
               }
-              case 2: {
-                PostRequest('/getTeacherMessage', {id: options.id, reading_id: this.data.userData.id}, that.setNotice);
+              case "2": {
+                PostRequest('/getTeacherMessage', {id: options.id, reading_id: options.reading_id}, that.setNotice);
+                break;
               }
-              case 3: {
+              case "3": {
                 if(this.data.userData.auth){
-                  PostRequest('/getSystemMessageByTeacher', {id: options.id}, that.setNotice);
+                  // PostRequest('/getSystemMessageByTeacher', {id: options.id}, that.setNotice);
                 }
                 else{
-                  PostRequest('/getSystemMessage', {id: options.id}, that.setNotice);
+                  // PostRequest('/getSystemMessage', {id: options.id}, that.setNotice);
                 }
+                break;
               }
             }
           }
@@ -57,22 +62,26 @@ Page({
       }else{
         this.setData({userData: app.globalData.userData, type: options.type});
         switch (options.type) {
-          case 0: {
+          case "0": {
             PostRequest('/getSchoolNotice', {id: options.id}, that.setNotice);
+            break;
           }
-          case 1: {
+          case "1": {
             PostRequest('/getDepartmentNotice', {id: options.id}, that.setNotice);
+            break;
           }
-          case 2: {
-            PostRequest('/getTeacherMessage', {id: options.id, reading_id: this.data.userData.id}, that.setNotice);
+          case "2": {
+            PostRequest('/getTeacherMessage', {id: options.id, reading_id: options.reading_id}, that.setNotice);
+            break;
           }
-          case 3: {
+          case "3": {
             if(this.data.userData.auth){
-              PostRequest('/getSystemMessageByTeacher', {id: options.id}, that.setNotice);
+              // PostRequest('/getSystemMessageByTeacher', {id: options.id}, that.setNotice);
             }
             else{
-              PostRequest('/getSystemMessage', {id: options.id}, that.setNotice);
+              // PostRequest('/getSystemMessage', {id: options.id}, that.setNotice);
             }
+            break;
           }
         }
       }
