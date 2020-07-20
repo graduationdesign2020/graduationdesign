@@ -91,7 +91,6 @@ public class NoticeControllerTest extends DemoApplicationTests {
                 .andExpect(status().isOk()).andReturn();
         String resultContent = result.getResponse().getContentAsString();
         SchoolNotice schoolNotice = om.readValue(resultContent, new TypeReference<SchoolNotice>() {});
-
         assertEquals(noticeService.getSchoolNoticeById(1), schoolNotice);
     }
 
