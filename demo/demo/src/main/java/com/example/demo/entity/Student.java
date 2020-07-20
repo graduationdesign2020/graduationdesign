@@ -57,9 +57,4 @@ public class Student {
     public String getDepartment() {
         return department;
     }
-    public Student(String id, String name, String major) {
-            this.id = id;
-            this.name = name;
-            this.major = major;
-        }
     }

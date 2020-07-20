@@ -16,8 +16,6 @@ import java.util.Map;
 public class NoticeController {
     @Autowired
     private NoticeService noticeService;
-    @Autowired
-    private TeacherMessageService teacherMessageService;
 
     @RequestMapping(path = "/getSchoolNotices")
     public List<SchoolNotice> getSchoolNotices()
