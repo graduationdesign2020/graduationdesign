@@ -45,11 +45,9 @@ CREATE TABLE teachermessage(
     id          int not null auto_increment,
     title       varchar(50) NOT NULL,
     teacher_id  varchar(50) NOT NULL,
-    student_id 	varchar(12) NOT NULL,
-    is_read 	boolean NOT NULL default 0,
     time        datetime not null,
     PRIMARY KEY (id),
-    FOREIGN KEY (student_id) REFERENCES student (id) on delete cascade
+    FOREIGN KEY (teacher_id) REFERENCES teacher (id) on delete cascade
 );
 
 CREATE TABLE sysmessage(
@@ -67,10 +65,10 @@ CREATE TABLE sysmessage(
 -- 0:学生
 -- 1:老师
 -- 2:专业管理人
-CREATE TABLE users 
+CREATE TABLE wechatusers 
 (
 	wechat_id 	varchar(20),
-    id 			varchar(50) NOT NULL UNIQUE,
+    id 			varchar(50) NOT NULL,
     auth 		int NOT NULL,
     PRIMARY KEY (wechat_id)
 );
@@ -129,5 +127,17 @@ CREATE TABLE grade
     FOREIGN KEY (id) REFERENCES student(id) on delete cascade
 );
     
+create table teachermessagereading
+(
+    id         int auto_increment
+        primary key,
+    message_id int                  not null,
+    student_id varchar(12)          not null,
+    is_read    tinyint(1) default 0 not null,
+  foreign key (student_id) references student (id)
+            on delete cascade,
+ foreign key (message_id) references teachermessage (id)
+            on delete cascade
+);
     
     
