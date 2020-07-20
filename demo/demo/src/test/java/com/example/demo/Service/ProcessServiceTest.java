@@ -4,9 +4,7 @@ import com.example.demo.DemoApplicationTests;
 import com.example.demo.dao.ProjectDao;
 import com.example.demo.dao.StateDao;
 import com.example.demo.dao.StudentDao;
-import com.example.demo.entity.ProcessInfo;
-import com.example.demo.entity.State;
-import com.example.demo.entity.StateInfo;
+import com.example.demo.entity.*;
 import com.example.demo.service.ProcessService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -73,7 +71,40 @@ public class ProcessServiceTest extends DemoApplicationTests {
     public void checkProcess() {
         List<ProcessInfo> result = processService.checkProcess("1");
         List<ProcessInfo> compare = new ArrayList<>();
+        List<Project> projects = projectDao.findByTeacher("1");
+        int stuNum = projectDao.findByTeacher("1").size();
+        for (int i = 0; i < 5; i++) {
+            ProcessInfo processInfo = new ProcessInfo();
 
+            String name = "";
+            switch (i) {
+                case 0: name = "任务书";break;
+                case 1: name = "开题报告";break;
+                case 2: name = "中期检查";break;
+                case 3: name = "论文定稿";break;
+                case 4: name = "论文最终稿";
+            }
+            processInfo.setName(name);
+            List<Student> studentsFinished = new ArrayList<>();
+            List<Student> studentsUnfinished = new ArrayList<>();
+            int finished = 0;
+            for (Project project : projects) {
+                State state = stateDao.getOneByProjAndState(project.getId(), i);
+                if (state == null || state.getSubmit() != 1) {
+                    studentsUnfinished.add(studentDao.getOne(project.getId()));
+                }
+                else if (state.getSubmit() == 1) {
+                    finished++;
+                    studentsFinished.add(studentDao.getOne(project.getId()));
+                }
+            }
+            int unfinished = stuNum - finished;
+            processInfo.setFinished(finished);
+            processInfo.setUnfinished(unfinished);
+            processInfo.setFinishedStu(studentsFinished);
+            processInfo.setUnfinishedStu(studentsUnfinished);
+            compare.add(processInfo);
+        }
 
         assertEquals(result, compare);
     }
