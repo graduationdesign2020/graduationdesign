@@ -23,7 +23,7 @@ public class LoginController {
     LoginService loginService;
 
     @RequestMapping(path = "/register")
-    public ReturnInfo register(@RequestBody Map<String,String> params) throws JsonProcessingException {
+    public ReturnInfo register(@RequestBody Map<String,String> params){
         String wechat_id= String.valueOf(params.get("openid"));
         String id= String.valueOf(params.get("id"));
         String name=String.valueOf(params.get("name"));
@@ -32,7 +32,7 @@ public class LoginController {
     }
 
     @RequestMapping(path = "/logout")
-    public ReturnInfo logoff(@RequestBody Map<String,String> params) throws JsonProcessingException {
+    public ReturnInfo logoff(@RequestBody Map<String,String> params){
         String wechat_id=params.get("openid");
         return loginService.logout(wechat_id);
     }

@@ -8,4 +8,5 @@ public class CodeReturn {
     private String session_key;
     private String errcode;
     private String errmsg;
+    
 }

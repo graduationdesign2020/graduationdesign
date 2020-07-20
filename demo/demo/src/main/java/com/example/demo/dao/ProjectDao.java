@@ -7,4 +7,5 @@ import java.util.List;
 public interface ProjectDao {
     Project getOne(String id);
     List<Project> findByTeacher(String tea_id);
+    List<String> getIdByTeacher_id(String t_id);
 }

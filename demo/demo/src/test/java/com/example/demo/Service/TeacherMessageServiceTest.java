@@ -1,7 +1,7 @@
 package com.example.demo.Service;
 
 import com.example.demo.DemoApplicationTests;
-import com.example.demo.dao.LoginDao;
+import com.example.demo.dao.UsersDao;
 import com.example.demo.dao.StudentDao;
 import com.example.demo.dao.TeacherMessageDao;
 import com.example.demo.entity.*;
@@ -35,7 +35,7 @@ public class TeacherMessageServiceTest extends DemoApplicationTests {
     @Autowired
     private StudentDao studentDao;
     @Autowired
-    private LoginDao loginDao;
+    private UsersDao usersDao;
     @Autowired
     private TeacherMessageReadingRepository teacherMessageReadingRepository;
 
@@ -78,7 +78,7 @@ public class TeacherMessageServiceTest extends DemoApplicationTests {
         messageInfo.setContent(teacherMessage.getContent());
         messageInfo.setTime(teacherMessage.getTime());
         messageInfo.setReading_id(reading_id);
-        Teacher teacher=loginDao.getTeacherById(teacherMessage.getTeacher_id());
+        Teacher teacher= usersDao.getTeacherById(teacherMessage.getTeacher_id());
         messageInfo.setTeachername(teacher.getName());
         teacherMessageDao.setRead(reading_id);
         MessageInfo compare=teacherMessageService.getTeacherMessageById(id,reading_id);
@@ -98,7 +98,7 @@ public class TeacherMessageServiceTest extends DemoApplicationTests {
             messageInfo.setTitle(teacherMessage.getTitle());
             messageInfo.setTime(teacherMessage.getTime());
             messageInfo.setIs_read(teacherMessageReading.getIs_read());
-            Teacher teacher = loginDao.getTeacherById(teacherMessage.getTeacher_id());
+            Teacher teacher = usersDao.getTeacherById(teacherMessage.getTeacher_id());
             messageInfo.setTeachername(teacher.getName());
             messageInfos.add(messageInfo);
         }
@@ -149,7 +149,7 @@ public class TeacherMessageServiceTest extends DemoApplicationTests {
         List<String> list=teacherMessageDao.getIdByTeacher_id(teacher_id);
         List<Student> students=new ArrayList<>();
         for (String s : list) {
-            Student student = loginDao.getStudentById(s);
+            Student student = usersDao.getStudentById(s);
             students.add(student);
         }
         assertEquals(result,students);
@@ -183,7 +183,7 @@ public class TeacherMessageServiceTest extends DemoApplicationTests {
         messageInfo.setTitle(teacherMessage.getTitle());
         messageInfo.setContent(teacherMessage.getContent());
         messageInfo.setTime(teacherMessage.getTime());
-        Teacher teacher = loginDao.getTeacherById(teacherMessage.getTeacher_id());
+        Teacher teacher = usersDao.getTeacherById(teacherMessage.getTeacher_id());
         messageInfo.setTeachername(teacher.getName());
         assertEquals(compare, messageInfo);
     }

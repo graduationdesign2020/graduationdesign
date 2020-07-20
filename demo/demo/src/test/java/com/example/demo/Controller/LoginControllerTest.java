@@ -41,40 +41,40 @@ public class LoginControllerTest extends DemoApplicationTests {
     }
 
     @AfterEach
-    void tearDown() {
+    public void tearDown() {
     }
 
     @Test
     public void contextLoads() {
+
     }
 
-    @Test
-    public void checkLogin() throws Exception {
-        MvcResult result = mockMvc.perform(post("/login").content("{\"openid\":\"1\"}").contentType(MediaType.APPLICATION_JSON_VALUE))
-                .andExpect(status().isOk()).andReturn();
-        String resultContent = result.getResponse().getContentAsString();
-        ReturnInfo returnInfo = om.readValue(resultContent, new TypeReference<ReturnInfo>() { });
-
-        assertEquals(loginService.login("1"), returnInfo);
-    }
+//    @Test
+//    public void checkLogin() throws Exception {
+//        MvcResult result = mockMvc.perform(post("/login").content("{\"openid\":\"1\"}").contentType(MediaType.APPLICATION_JSON_VALUE))
+//                .andExpect(status().isOk()).andReturn();
+//        String resultContent = result.getResponse().getContentAsString();
+//        ReturnInfo returnInfo = om.readValue(resultContent, new TypeReference<ReadInfo>() { });
+//
+//        assertEquals(loginService.login("1"), readInfo);
+//    }
 
     @Test
     public void checkLogout() throws Exception {
-        MvcResult result = mockMvc.perform(post("/logout").content("{\"openid\":\"1\"}").contentType(MediaType.APPLICATION_JSON_VALUE))
+        MvcResult result = mockMvc.perform(post("/logout").contentType(MediaType.APPLICATION_JSON_VALUE).content("{\"openid\":\"3\"}"))
                 .andExpect(status().isOk()).andReturn();
         String resultContent = result.getResponse().getContentAsString();
         ReturnInfo returnInfo = om.readValue(resultContent, new TypeReference<ReturnInfo>() { });
-
-        assertEquals(loginService.logout("1"), returnInfo);
+        assertEquals(loginService.logout("4"), returnInfo);
     }
 
     @Test
     public void checkRegister() throws Exception {
-        MvcResult result = mockMvc.perform(post("/register").content("1").contentType(MediaType.APPLICATION_JSON_VALUE))
+        MvcResult result = mockMvc.perform(post("/register").content("{\"openid\":\"1\",\"id\":\"518021910456\",\"name\":\"lixuan\",\"auth\":\"0\"}").contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(status().isOk()).andReturn();
         String resultContent = result.getResponse().getContentAsString();
         ReturnInfo returnInfo = om.readValue(resultContent, new TypeReference<ReturnInfo>() { });
 
-        assertEquals(loginService.logout("1"), returnInfo);
+        assertEquals(loginService.register("1234567890","518021910456","lixuan",0), returnInfo);
     }
 }

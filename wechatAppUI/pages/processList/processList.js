@@ -46,12 +46,12 @@ Page({
             })
           }else{
             that.setData({userData: data.userData})
-            PostRequest('/checkProcess', {id: data.userData.id}, that.setProcesses)
+            PostRequest('/checkProcess', {tea_id: data.userData.id}, that.setProcesses)
           }
         }
       }else{
         that.setData({userData: app.globalData.userData});
-        PostRequest('/checkProcess', {id: app.globalData.userData.id}, that.setProcesses);
+        PostRequest('/checkProcess', {tea_id: app.globalData.userData.id}, that.setProcesses);
       }
     }
   },
