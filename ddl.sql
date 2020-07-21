@@ -97,17 +97,13 @@ CREATE TABLE project
 	id 			varchar(12) NOT NULL,
 	project_name varchar(255),
     teacher_id 	varchar(50) NOT NULL,
-    PRIMARY KEY (id),
+    PRIMARY KEY (id)
     FOREIGN KEY (id) REFERENCES student(id) on delete cascade,
     FOREIGN KEY (teacher_id) REFERENCES teacher(id) on delete cascade
 );
 
 -- submit:
--- 0:未提交
--- 1:教师暂存
--- 2:专业审核中
--- 3:退回修改
--- 4:已审
+-- submit取值从1开始，对应关系详见bysj网站，从统计信息的第三栏开始递增，每个state对应不一样的submit
 CREATE TABLE state
 (
 	id     		int NOT NULL auto_increment,
