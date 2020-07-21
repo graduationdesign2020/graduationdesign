@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ProcessServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">demo$NoticeServiceTest.exec</a> &gt; <a href="index.source.html" class="el_package">com.example.demo.serviceimpl</a> &gt; <span class="el_source">ProcessServiceImpl.java</span></div><h1>ProcessServiceImpl.java</h1><pre class="source lang-java linenums">package com.example.demo.serviceimpl;
+
+import com.example.demo.dao.ProjectDao;
+import com.example.demo.dao.StateDao;
+import com.example.demo.dao.StudentDao;
+import com.example.demo.entity.*;
+import com.example.demo.service.ProcessService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@Service
+<span class="fc" id="L15">public class ProcessServiceImpl implements ProcessService {</span>
+    @Autowired
+    private StateDao stateDao;
+    @Autowired
+    private ProjectDao projectDao;
+    @Autowired
+    private StudentDao studentDao;
+
+    @Override
+    public List&lt;StateInfo&gt; checkSelfProcess(String stu_id) {
+<span class="nc" id="L25">        List&lt;StateInfo&gt; stateInfos = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L26">        List&lt;State&gt; states = stateDao.getStates(stu_id);</span>
+<span class="nc bnc" id="L27" title="All 2 branches missed.">        if (states.isEmpty()) {</span>
+<span class="nc" id="L28">            return null;</span>
+        }
+<span class="nc bnc" id="L30" title="All 2 branches missed.">        for (State state : states) {</span>
+<span class="nc" id="L31">            StateInfo stateInfo = new StateInfo();</span>
+<span class="nc" id="L32">            stateInfo.setSta(state);</span>
+<span class="nc" id="L33">            stateInfo.transfer();</span>
+<span class="nc" id="L34">            stateInfos.add(stateInfo);</span>
+<span class="nc" id="L35">        }</span>
+<span class="nc" id="L36">        int num = states.size();</span>
+<span class="nc bnc" id="L37" title="All 2 branches missed.">        for (int i = num; i &lt; 5; i++) {</span>
+<span class="nc" id="L38">            StateInfo stateInfo = new StateInfo();</span>
+<span class="nc" id="L39">            stateInfo.init(i);</span>
+<span class="nc" id="L40">            stateInfo.transfer();</span>
+<span class="nc" id="L41">            stateInfos.add(stateInfo);</span>
+        }
+<span class="nc" id="L43">        return stateInfos;</span>
+    }
+
+    @Override
+    public List&lt;ProcessInfo&gt; checkProcess(String tea_id) {
+<span class="nc" id="L48">        System.out.println(&quot;check process&quot;);</span>
+<span class="nc" id="L49">        List&lt;ProcessInfo&gt; processInfos = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L50">        List&lt;Project&gt; projects = projectDao.findByTeacher(tea_id);</span>
+<span class="nc" id="L51">        System.out.println(projects);</span>
+<span class="nc" id="L52">        int stuNum = projectDao.findByTeacher(tea_id).size();</span>
+<span class="nc bnc" id="L53" title="All 2 branches missed.">        for (int i = 0; i &lt; 5; i++) {</span>
+<span class="nc" id="L54">            ProcessInfo processInfo = new ProcessInfo();</span>
+
+<span class="nc" id="L56">            String name = &quot;&quot;;</span>
+<span class="nc bnc" id="L57" title="All 6 branches missed.">            switch (i) {</span>
+<span class="nc" id="L58">                case 0: name = &quot;任务书&quot;;break;</span>
+<span class="nc" id="L59">                case 1: name = &quot;开题报告&quot;;break;</span>
+<span class="nc" id="L60">                case 2: name = &quot;中期检查&quot;;break;</span>
+<span class="nc" id="L61">                case 3: name = &quot;论文定稿&quot;;break;</span>
+<span class="nc" id="L62">                case 4: name = &quot;论文最终稿&quot;;</span>
+            }
+<span class="nc" id="L64">            processInfo.setName(name);</span>
+<span class="nc" id="L65">            List&lt;Student&gt; studentsFinished = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L66">            List&lt;Student&gt; studentsUnfinished = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L67">            int finished = 0;</span>
+<span class="nc bnc" id="L68" title="All 2 branches missed.">            for (Project project : projects) {</span>
+<span class="nc" id="L69">                State state = stateDao.getOneByProjAndState(project.getId(), i);</span>
+<span class="nc bnc" id="L70" title="All 4 branches missed.">                if (state == null || state.getSubmit() != 1) {</span>
+                    //System.out.println(studentDao.getOne(project.getId()));
+<span class="nc" id="L72">                    studentsUnfinished.add(studentDao.getOne(project.getId()));</span>
+                }
+<span class="nc bnc" id="L74" title="All 2 branches missed.">                else if (state.getSubmit() == 1) {</span>
+<span class="nc" id="L75">                    finished++;</span>
+<span class="nc" id="L76">                    studentsFinished.add(studentDao.getOne(project.getId()));</span>
+                }
+<span class="nc" id="L78">            }</span>
+<span class="nc" id="L79">            int unfinished = stuNum - finished;</span>
+            //System.out.println(studentsUnfinished);
+<span class="nc" id="L81">            processInfo.setFinished(finished);</span>
+<span class="nc" id="L82">            processInfo.setUnfinished(unfinished);</span>
+<span class="nc" id="L83">            processInfo.setFinishedStu(studentsFinished);</span>
+<span class="nc" id="L84">            processInfo.setUnfinishedStu(studentsUnfinished);</span>
+            //System.out.println(processInfo);
+<span class="nc" id="L86">            processInfos.add(processInfo);</span>
+            //System.out.println(processInfos);
+        }
+<span class="nc" id="L89">        return processInfos;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
