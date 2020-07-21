@@ -18,6 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static com.example.demo.constant.ReturnMsg.sendingMsg0;
 import static com.example.demo.constant.ReturnMsg.sendingMsg1;
@@ -43,8 +44,6 @@ public class TeacherMessageServiceTest extends DemoApplicationTests {
     private UsersDao usersDao;
     @Autowired
     private ProjectDao projectDao;
-    @Autowired
-    private TeacherMessageReadingRepository teacherMessageReadingRepository;
 
     @Test
     public void contextLoads() {
@@ -54,6 +53,24 @@ public class TeacherMessageServiceTest extends DemoApplicationTests {
     public void getTeacherMessageRead() {
         ReadInfo result = teacherMessageService.getTeacherMessageRead(1);
         ReadInfo compare = new ReadInfo();
+        int read = 0, unread = 0;
+        List<TeacherMessageReading> readings = teacherMessageReadingDao.findAllByMessage_id(1);
+        List<Student> studentsRead = new ArrayList<>();
+        List<Student> studentsUnread = new ArrayList<>();
+        for (TeacherMessageReading teacherMessageReading : readings) {
+            if (teacherMessageReading.getIs_read()) {
+                read++;
+                studentsRead.add(studentDao.getOne(teacherMessageReading.getStudent_id()));
+            }
+            else {
+                unread++;
+                studentsUnread.add(studentDao.getOne(teacherMessageReading.getStudent_id()));
+            }
+        }
+        compare.setRead(read);
+        compare.setUnRead(unread);
+        compare.setStudentsRead(studentsRead);
+        compare.setStudentsUnread(studentsUnread);
 
         assertEquals(compare, result);
     }
@@ -62,14 +79,14 @@ public class TeacherMessageServiceTest extends DemoApplicationTests {
     public void checkGetTeacherMessageById(){
         int id=1;
         int reading_id=1;
-        TeacherMessage teacherMessage=teacherMessageDao.getTeacherMessageById(id);
+        Optional<TeacherMessage> teacherMessage=teacherMessageDao.getTeacherMessageById(id);
         MessageInfo messageInfo=new MessageInfo();
-        messageInfo.setId(teacherMessage.getId());
-        messageInfo.setTitle(teacherMessage.getTitle());
-        messageInfo.setContent(teacherMessage.getContent());
-        messageInfo.setTime(teacherMessage.getTime());
+        messageInfo.setId(teacherMessage.get().getId());
+        messageInfo.setTitle(teacherMessage.get().getTitle());
+        messageInfo.setContent(teacherMessage.get().getContent());
+        messageInfo.setTime(teacherMessage.get().getTime());
         messageInfo.setReading_id(reading_id);
-        Teacher teacher= teacherDao.getTeacherById(teacherMessage.getTeacher_id());
+        Teacher teacher= teacherDao.getTeacherById(teacherMessage.get().getTeacher_id());
         messageInfo.setTeachername(teacher.getName());
         teacherMessageReadingDao.setRead(reading_id);
         MessageInfo compare=teacherMessageService.getTeacherMessageById(id,reading_id);
@@ -168,15 +185,14 @@ public class TeacherMessageServiceTest extends DemoApplicationTests {
     public void teacherGetTeacherMessageById() {
         int id = 1;
         MessageInfo compare = teacherMessageService.teacherGetTeacherMessageById(id);
-        TeacherMessage teacherMessage = teacherMessageDao.getTeacherMessageById(id);
+        Optional<TeacherMessage> teacherMessage = teacherMessageDao.getTeacherMessageById(id);
         MessageInfo messageInfo = new MessageInfo();
-        messageInfo.setId(teacherMessage.getId());
-        messageInfo.setTitle(teacherMessage.getTitle());
-        messageInfo.setContent(teacherMessage.getContent());
-        messageInfo.setTime(teacherMessage.getTime());
-        Teacher teacher = teacherDao.getTeacherById(teacherMessage.getTeacher_id());
+        messageInfo.setId(teacherMessage.get().getId());
+        messageInfo.setTitle(teacherMessage.get().getTitle());
+        messageInfo.setContent(teacherMessage.get().getContent());
+        messageInfo.setTime(teacherMessage.get().getTime());
+        Teacher teacher = teacherDao.getTeacherById(teacherMessage.get().getTeacher_id());
         messageInfo.setTeachername(teacher.getName());
         assertEquals(compare, messageInfo);
     }
-
 }

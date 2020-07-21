@@ -11,6 +11,8 @@ import com.example.demo.utils.UserInfo;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.Optional;
+
 import static com.example.demo.constant.ReturnMsg.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -27,35 +29,35 @@ public class LoginServiceTest {
     private ProjectDao projectDao;
 
     @Test
-    public void checkRegister(){
-        String wechat_id="123456";
-        String id="518021910456";
-        String name="lixuan";
-        int teacher=0;
-        ReturnInfo returnInfo=new ReturnInfo();
-        UserInfo userInfo=new UserInfo();
-        Users u= usersDao.getUserByWechat_id(wechat_id);
-        if(u!=null) {
+    public void checkRegister() {
+        String wechat_id = "123456";
+        String id = "518021910456";
+        String name = "lixuan";
+        int teacher = 0;
+        ReturnInfo returnInfo = new ReturnInfo();
+        UserInfo userInfo = new UserInfo();
+        Optional<Users> u = usersDao.getUserByWechat_id(wechat_id);
+        if (u.isPresent()) {
             returnInfo.setMsg(registerMsg2);
         }
-        Users testUser= usersDao.getByIdAndAuth(id,teacher);
-        if(testUser!=null) {
+        Optional<Users> testUser = usersDao.getByIdAndAuth(id, teacher);
+        if (testUser.isPresent()) {
             returnInfo.setMsg(registerMsg2);
         }
         boolean flag = false;
-            Student student = studentDao.getStudentByIdAndName(id, name);
-            if (student != null) {
-                userInfo.setId(id);
-                userInfo.setOpenid(wechat_id);
-                userInfo.setName(student.getName());
-                userInfo.setDept(student.getDepartment());
-                userInfo.setAuth(0);
-                Project project=projectDao.getOne(id);
-                userInfo.setProject(project.getProject_name());
-                Teacher teacher1= teacherDao.getTeacherById(project.getTeacher_id());
-                userInfo.setTeacher(teacher1.getName());
-                flag = true;
-            }
+        Student student = studentDao.getStudentByIdAndName(id, name);
+        if (student != null) {
+            userInfo.setId(id);
+            userInfo.setOpenid(wechat_id);
+            userInfo.setName(student.getName());
+            userInfo.setDept(student.getDepartment());
+            userInfo.setAuth(0);
+            Optional<Project> project = projectDao.getOne(id);
+            userInfo.setProject(project.get().getProject_name());
+            Teacher teacher1 = teacherDao.getTeacherById(project.get().getTeacher_id());
+            userInfo.setTeacher(teacher1.getName());
+            flag = true;
+        }
         if (flag) {
             Users users = new Users();
             users.setWechat_id(wechat_id);
@@ -64,11 +66,10 @@ public class LoginServiceTest {
             usersDao.saveUsers(users);
             returnInfo.setMsg(registerMsg1);
             returnInfo.setUserData(userInfo);
-        }
-        else {
+        } else {
             returnInfo.setMsg(registerMsg0);
         }
-        ReturnInfo compare=loginService.register(wechat_id,id,name,teacher);
+        ReturnInfo compare = loginService.register(wechat_id, id, name, teacher);
         assertEquals(compare, returnInfo);
     }
 
@@ -87,15 +88,15 @@ public class LoginServiceTest {
     @Test
     public void checklogin(){
         String wechat_id="3";
-        Users users= usersDao.getUserByWechat_id(wechat_id);
+        Optional<Users> users= usersDao.getUserByWechat_id(wechat_id);
         UserInfo userInfo=new UserInfo();
         ReturnInfo returnInfo=new ReturnInfo();
-        if(users!=null){
-            String id=users.getId();
+        if(users.isPresent()){
+            String id=users.get().getId();
             userInfo.setId(id);
             userInfo.setOpenid(wechat_id);
             returnInfo.setMsg(loginMsg1);
-            if(users.getAuth()==1){
+            if(users.get().getAuth()==1){
                 Teacher t= teacherDao.getTeacherById(id);
                 userInfo.setAuth(1);
                 userInfo.setDept(t.getDepartment());
@@ -108,9 +109,9 @@ public class LoginServiceTest {
                 userInfo.setAuth(0);
                 userInfo.setDept(student.getDepartment());
                 userInfo.setName(student.getName());
-                Project project=projectDao.getOne(id);
-                userInfo.setProject(project.getProject_name());
-                Teacher teacher= teacherDao.getTeacherById(project.getTeacher_id());
+                Optional<Project> project=projectDao.getOne(id);
+                userInfo.setProject(project.get().getProject_name());
+                Teacher teacher= teacherDao.getTeacherById(project.get().getTeacher_id());
                 userInfo.setTeacher(teacher.getName());
             }
         }

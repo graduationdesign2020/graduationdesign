@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -45,18 +46,18 @@ public class NoticeServiceTest extends DemoApplicationTests {
 
     @Test
     public void getDeptNoticesById() {
-        DeptNotice result = deptNoticeDao.getDeptNoticeById(28);
+        Optional<DeptNotice> result = deptNoticeDao.getDeptNoticeById(28);
         DeptNotice compare = noticeService.getDeptNoticeById(28);
 
-        assertEquals(result, compare);
+        assertEquals(result.get(), compare);
     }
 
     @Test
     public void getSchoolNoticeById() {
-        SchoolNotice result = schoolNoticeDao.getSchoolNoticeById(7);
+        Optional<SchoolNotice> result = schoolNoticeDao.getSchoolNoticeById(7);
         SchoolNotice compare = noticeService.getSchoolNoticeById(7);
 
-        assertEquals(result, compare);
+        assertEquals(result.get(), compare);
     }
 
     @Test

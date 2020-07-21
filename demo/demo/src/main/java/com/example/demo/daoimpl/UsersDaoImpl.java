@@ -10,6 +10,8 @@ import com.example.demo.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public class UsersDaoImpl implements UsersDao {
     @Autowired
@@ -17,7 +19,7 @@ public class UsersDaoImpl implements UsersDao {
 
 
     @Override
-    public Users getUserByWechat_id(String wechat_id){
+    public Optional<Users> getUserByWechat_id(String wechat_id){
         return usersRepository.getByWechat_id(wechat_id);
     }
 
@@ -33,7 +35,7 @@ public class UsersDaoImpl implements UsersDao {
     }
 
     @Override
-    public Users getByIdAndAuth(String id,Integer auth){
+    public Optional<Users> getByIdAndAuth(String id,Integer auth){
         return usersRepository.getByIdAndAuth(id, auth);
     }
 }

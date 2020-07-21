@@ -1,3 +1,4 @@
+use GDMS;
 set foreign_key_checks=0;
 DROP TABLE IF EXISTS teacher;
 DROP TABLE IF EXISTS student;
