@@ -104,6 +104,13 @@ CREATE TABLE project
 
 -- submit:
 -- submit取值从1开始，对应关系详见bysj网站，从统计信息的第三栏开始递增，每个state对应不一样的submit
+-- 论文定稿、论文最终稿:
+-- 0:未开始
+-- 1:未提交论文
+-- 2:学生暂存
+-- 3:教师审核中
+-- 4:教师退回修改	
+-- 5:已审
 CREATE TABLE state
 (
 	id     		int NOT NULL auto_increment,
@@ -119,9 +126,10 @@ CREATE TABLE state
 CREATE TABLE grade
 (
 	id				varchar(12) NOT NULL,
-	teacher_grade 	varchar(5),
-    reply_grade		varchar(5),
-    total_grade		varchar(5),
+	teacher_grade 	varchar(2),  /* 教师 */
+    review_grade	varchar(2),  /* 评阅 */
+    defense_grade	varchar(2),  /* 答辩 */
+    total_grade		varchar(2),  /* 总评 */
     PRIMARY KEY (id),
     FOREIGN KEY (id) REFERENCES student(id) on delete cascade
 );

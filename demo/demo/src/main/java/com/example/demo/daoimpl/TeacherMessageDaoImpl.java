@@ -17,9 +17,20 @@ public class TeacherMessageDaoImpl implements TeacherMessageDao {
     private TeacherMessageContentRepository teacherMessageContentRepository;
 
     @Override
-    public Optional<TeacherMessage> getTeacherMessageById(Integer id){
-       return teacherMessageRepository.getById(id);
-
+    public TeacherMessage getTeacherMessageById(Integer id){
+        Optional<TeacherMessage> teacherMessage=teacherMessageRepository.getById(id);
+        if(teacherMessage.isPresent()) {
+            TeacherMessage t = teacherMessage.get();
+            Optional<TeacherMessageContent> teacherMessageContent = teacherMessageContentRepository.findById(id);
+            if (teacherMessageContent.isPresent()) {
+                TeacherMessageContent s = teacherMessageContent.get();
+                t.setContent(s.getContent());
+            } else {
+                t.setContent(null);
+            }
+            return t;
+        }
+        else return null;
     }
 
     @Override
