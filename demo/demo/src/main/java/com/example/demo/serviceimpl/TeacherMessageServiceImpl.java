@@ -65,7 +65,7 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
             messageInfo.setReading_id(teacherMessageReading.getId());
             messageInfo.setTitle(teacherMessage.getTitle());
             messageInfo.setTime(teacherMessage.getTime());
-            messageInfo.setIs_read(teacherMessageReading.getIs_read());
+            messageInfo.set_read(teacherMessageReading.getIs_read());
             Teacher teacher = teacherDao.getTeacherById(teacherMessage.getTeacher_id());
             messageInfo.setTeachername(teacher.getName());
             messageInfos.add(messageInfo);
@@ -155,10 +155,9 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
 
     @Override
     public MessageInfo teacherGetTeacherMessageById(int id){
-        Optional<TeacherMessage> teacherMessage=teacherMessageDao.getTeacherMessageById(id);
-        if(teacherMessage.isPresent())
+        TeacherMessage t=teacherMessageDao.getTeacherMessageById(id);
+        if (t!=null)
         {
-            TeacherMessage t=teacherMessage.get();
             MessageInfo messageInfo = new MessageInfo();
             messageInfo.setId(t.getId());
             messageInfo.setTitle(t.getTitle());
@@ -168,10 +167,7 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
             messageInfo.setTeachername(teacher.getName());
             return messageInfo;
         }
-        else {
-            MessageInfo messageInfo=new MessageInfo();
-            return messageInfo;
-        }
+        else return null;
     }
 
 }

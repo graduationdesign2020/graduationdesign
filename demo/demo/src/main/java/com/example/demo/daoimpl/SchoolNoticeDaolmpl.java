@@ -15,6 +15,8 @@ import java.util.Optional;
 public class SchoolNoticeDaolmpl implements SchoolNoticeDao {
     @Autowired
     private SchoolNoticeRepository schoolNoticeRepository;
+    @Autowired
+    private SchoolNoticeContentRepository schoolNoticeContentRepository;
 
     @Override
     public List<SchoolNotice> getSchoolNotices(){
