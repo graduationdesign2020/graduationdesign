@@ -87,17 +87,16 @@ CREATE TABLE principleusers
 
 
 -- state:
--- 0:开题报告
--- 1:第一阶段检查
+-- 0:任务书
+-- 1:开题报告
 -- 2:中期检查
--- 3:答辩
--- 4:论文定稿
+-- 3:论文定稿
+-- 4:论文最终稿
 CREATE TABLE project
 (
 	id 			varchar(12) NOT NULL,
 	project_name varchar(255),
     teacher_id 	varchar(50) NOT NULL,
-    state 		int NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (id) REFERENCES student(id) on delete cascade,
     FOREIGN KEY (teacher_id) REFERENCES teacher(id) on delete cascade
@@ -105,9 +104,10 @@ CREATE TABLE project
 
 -- submit:
 -- 0:未提交
--- 1:审核中
--- 2:审核通过
--- 3:审核未通过
+-- 1:教师暂存
+-- 2:专业审核中
+-- 3:退回修改
+-- 4:已审
 CREATE TABLE state
 (
 	id     		int NOT NULL auto_increment,
