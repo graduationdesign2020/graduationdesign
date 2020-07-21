@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LoginController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">demo$ProcessControllerTest.exec</a> &gt; <a href="index.source.html" class="el_package">com.example.demo.controller</a> &gt; <span class="el_source">LoginController.java</span></div><h1>LoginController.java</h1><pre class="source lang-java linenums">package com.example.demo.controller;
+
+
+import com.example.demo.utils.HttpClient;
+import com.example.demo.service.LoginService;
+import com.example.demo.utils.CodeReturn;
+import com.example.demo.utils.ReturnInfo;
+import com.example.demo.constant.*;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Map;
+
+@RestController
+@CrossOrigin(origins = &quot;*&quot;,maxAge = 3600)
+<span class="fc" id="L21">public class LoginController {</span>
+    @Autowired
+    LoginService loginService;
+
+    @RequestMapping(path = &quot;/register&quot;)
+    public ReturnInfo register(@RequestBody Map&lt;String,String&gt; params){
+<span class="nc" id="L27">        String wechat_id= String.valueOf(params.get(&quot;openid&quot;));</span>
+<span class="nc" id="L28">        String id= String.valueOf(params.get(&quot;id&quot;));</span>
+<span class="nc" id="L29">        String name=String.valueOf(params.get(&quot;name&quot;));</span>
+<span class="nc" id="L30">        int teacher= Integer.parseInt(params.get(&quot;auth&quot;));</span>
+<span class="nc" id="L31">        return loginService.register(wechat_id,id,name,teacher);</span>
+    }
+
+    @RequestMapping(path = &quot;/logout&quot;)
+    public ReturnInfo logoff(@RequestBody Map&lt;String,String&gt; params){
+<span class="nc" id="L36">        String wechat_id=params.get(&quot;openid&quot;);</span>
+<span class="nc" id="L37">        return loginService.logout(wechat_id);</span>
+    }
+
+    @RequestMapping(path = &quot;/login&quot;)
+    public ReturnInfo login(@RequestBody Map&lt;String,String&gt; params) throws JsonProcessingException {
+<span class="nc" id="L42">        String code=params.get(&quot;code&quot;);</span>
+<span class="nc" id="L43">        System.out.print(code);</span>
+<span class="nc" id="L44">        String result = &quot;&quot;;</span>
+        try {//请求微信服务器，用code换取openid。HttpUtil是工具类，后面会给出实现，Configure类是小程序配置信息，后面会给出代码
+<span class="nc" id="L46">            result = HttpClient.doGet(</span>
+                    &quot;https://api.weixin.qq.com/sns/jscode2session?appid=&quot;
+                            +appId.appId+ &quot;&amp;secret=&quot;
+                            +appId.secret+ &quot;&amp;js_code=&quot;
+                            + code
+                            + &quot;&amp;grant_type=authorization_code&quot;, null);
+<span class="nc" id="L52">        } catch (Exception e) {</span>
+<span class="nc" id="L53">            e.printStackTrace();</span>
+<span class="nc" id="L54">        }</span>
+<span class="nc" id="L55">        ObjectMapper mapper = new ObjectMapper();</span>
+<span class="nc" id="L56">        CodeReturn openIdJson = mapper.readValue(result, CodeReturn.class);</span>
+<span class="nc" id="L57">        String wechat_id=openIdJson.getOpenid();</span>
+<span class="nc" id="L58">            return loginService.login(wechat_id);</span>
+    }
+
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

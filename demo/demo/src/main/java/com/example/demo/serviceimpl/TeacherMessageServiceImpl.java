@@ -114,7 +114,6 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
     @Override
     public ReadInfo getTeacherMessageRead(int id) {
         ReadInfo readInfo = new ReadInfo();
-        //TeacherMessage teacherMessage = teacherMessageDao.getTeacherMessage(id);
         int read = 0, unread = 0;
         List<TeacherMessageReading> readings = teacherMessageReadingDao.findAllByMessage_id(id);
         List<Student> studentsRead = new ArrayList<>();
