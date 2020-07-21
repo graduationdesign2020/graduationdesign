@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface TeacherMessageDao {
-    Optional<TeacherMessage> getTeacherMessageById(Integer id);
+    TeacherMessage getTeacherMessageById(Integer id);
 
     TeacherMessage getTeacherMessage(Integer id);
 

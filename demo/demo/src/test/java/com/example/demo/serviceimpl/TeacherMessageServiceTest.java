@@ -1,4 +1,4 @@
-package com.example.demo.serviceimpl;
+package com.example.demo.Service;
 
 import com.example.demo.DemoApplicationTests;
 import com.example.demo.dao.*;
@@ -11,7 +11,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.Rollback;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,175 +25,88 @@ import static com.example.demo.constant.ReturnMsg.sendingMsg0;
 import static com.example.demo.constant.ReturnMsg.sendingMsg1;
 import static org.junit.jupiter.api.Assertions.*;
 
-@Rollback
-@RunWith(SpringRunner.class)
+@RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
-@Transactional
 public class TeacherMessageServiceTest extends DemoApplicationTests {
 
     @Autowired
     private TeacherMessageService teacherMessageService;
-    @Autowired
-    private TeacherMessageDao teacherMessageDao;
-    @Autowired
-    private TeacherMessageReadingDao teacherMessageReadingDao;
-    @Autowired
-    private StudentDao studentDao;
-    @Autowired
-    private TeacherDao teacherDao;
-    @Autowired
-    private UsersDao usersDao;
-    @Autowired
-    private ProjectDao projectDao;
 
     @Test
     public void contextLoads() {
     }
 
     @Test
+    @Transactional
     public void getTeacherMessageRead() {
         ReadInfo result = teacherMessageService.getTeacherMessageRead(1);
         ReadInfo compare = new ReadInfo();
-        int read = 0, unread = 0;
-        List<TeacherMessageReading> readings = teacherMessageReadingDao.findAllByMessage_id(1);
+        Student student1 = new Student();
+        Student student2 = new Student();
+        Student student3 = new Student();
+        student1.init("1", "111", "SE", "SE");
+        student2.init("2", "222", "SE", "SE");
+        student3.init("3", "333", "SE", "SE");
         List<Student> studentsRead = new ArrayList<>();
         List<Student> studentsUnread = new ArrayList<>();
-        for (TeacherMessageReading teacherMessageReading : readings) {
-            if (teacherMessageReading.getIs_read()) {
-                read++;
-                studentsRead.add(studentDao.getOne(teacherMessageReading.getStudent_id()));
-            }
-            else {
-                unread++;
-                studentsUnread.add(studentDao.getOne(teacherMessageReading.getStudent_id()));
-            }
-        }
-        compare.setRead(read);
-        compare.setUnRead(unread);
+        studentsRead.add(student1);
+        studentsUnread.add(student2);
+        studentsUnread.add(student3);
         compare.setStudentsRead(studentsRead);
         compare.setStudentsUnread(studentsUnread);
-
+        compare.setRead(1);
+        compare.setUnRead(2);
         assertEquals(compare, result);
     }
 
     @Test
-    public void checkGetTeacherMessageById(){
-        int id=1;
-        int reading_id=1;
-        Optional<TeacherMessage> teacherMessage=teacherMessageDao.getTeacherMessageById(id);
-        MessageInfo messageInfo=new MessageInfo();
-        messageInfo.setId(teacherMessage.get().getId());
-        messageInfo.setTitle(teacherMessage.get().getTitle());
-        messageInfo.setContent(teacherMessage.get().getContent());
-        messageInfo.setTime(teacherMessage.get().getTime());
-        messageInfo.setReading_id(reading_id);
-        Teacher teacher= teacherDao.getTeacherById(teacherMessage.get().getTeacher_id());
-        messageInfo.setTeachername(teacher.getName());
-        teacherMessageReadingDao.setRead(reading_id);
-        MessageInfo compare=teacherMessageService.getTeacherMessageById(id,reading_id);
-        assertEquals(compare, messageInfo);
+    @Transactional
+    public void checkGetTeacherMessageById() {
+        MessageInfo messageInfo = new MessageInfo();
+        messageInfo.init(1, 1, "title1", "11111", "content1", "2020-07-17 14:19:48", false, 0, 0);
+        MessageInfo compare=teacherMessageService.getTeacherMessageById(1,1);
+        assertEquals(messageInfo,compare);
     }
 
     @Test
-    public void checkGetTeacherMessages(){
-        String stu_id="1";
-        List<TeacherMessageReading> list=teacherMessageReadingDao.getReading(stu_id);
-        List<MessageInfo> messageInfos=new ArrayList<>();
-        for (TeacherMessageReading teacherMessageReading : list) {
-            MessageInfo messageInfo = new MessageInfo();
-            TeacherMessage teacherMessage = teacherMessageDao.getTeacherMessage(teacherMessageReading.getMessage_id());
-            messageInfo.setId(teacherMessage.getId());
-            messageInfo.setReading_id(teacherMessageReading.getId());
-            messageInfo.setTitle(teacherMessage.getTitle());
-            messageInfo.setTime(teacherMessage.getTime());
-            messageInfo.setIs_read(teacherMessageReading.getIs_read());
-            Teacher teacher = teacherDao.getTeacherById(teacherMessage.getTeacher_id());
-            messageInfo.setTeachername(teacher.getName());
-            messageInfos.add(messageInfo);
-        }
-        List<MessageInfo> compare=teacherMessageService.getTeacherMessages(stu_id);
-        assertEquals(compare, messageInfos);
+    public void checkGetTeacherMessages() {
+        List<MessageInfo> messageInfos = teacherMessageService.getTeacherMessages("515015910016");
+        assertEquals(0,messageInfos.size());
     }
 
-   @Test
+    @Test
+    @Transactional
     public void checkSentTeacherMessage(){
-        String title="test title123456";
-        String teacher_id="1";
-        List<String> student_id=new ArrayList<>();
-        student_id.add("1");
-        student_id.add("3");
-        String content="test content123456";
-        Timestamp d=new Timestamp(System.currentTimeMillis());
         ReturnInfo returnInfo=new ReturnInfo();
-        TeacherMessageReading s=new TeacherMessageReading();
-        String time=d.toString();
-        TeacherMessage teacherMessage=new TeacherMessage();
-        teacherMessage.setTitle(title);
-        teacherMessage.setTime(time);
-        teacherMessage.setTeacher_id(teacher_id);
-        teacherMessage.setContent(content);
-        teacherMessageDao.sentTeacherMessage(teacherMessage);
-        List<TeacherMessageReading> teacherMessageReadings=new ArrayList<>();
-        for (String value : student_id) {
-            TeacherMessageReading teacherMessageReading=new TeacherMessageReading();
-            teacherMessageReading.setMessage_id(teacherMessage.getId());
-            teacherMessageReading.setIs_read(false);
-            teacherMessageReading.setStudent_id(value);
-            teacherMessageReadings.add(teacherMessageReading);
-        }
-        for (TeacherMessageReading value:teacherMessageReadings){
-            s=teacherMessageReadingDao.addReader(value);
-        }
-        if (s!=null)
-            returnInfo.setMsg(sendingMsg1);
-        else returnInfo.setMsg(sendingMsg0);
-        ReturnInfo compare=teacherMessageService.sentTeacherMessage(title,teacher_id,student_id,content);
-        assertEquals(returnInfo,compare);
+        returnInfo.setMsg("SUCCESS");
+        List<String> strings=new ArrayList<>();
+        strings.add("515015910016");
+        strings.add("515020990002");
+        assertEquals(returnInfo,teacherMessageService.sentTeacherMessage("new test title","1",strings,"new test content"));
     }
+
 
     @Test
     public void checkGetStudentsByTeacher_id(){
         String teacher_id="1";
         List<Student> result=teacherMessageService.getStudentsByTeacher_id(teacher_id);
-        List<String> list=projectDao.getIdByTeacher_id(teacher_id);
-        List<Student> students=new ArrayList<>();
-        for (String s : list) {
-            Student student = studentDao.getOne(s);
-            students.add(student);
-        }
-        assertEquals(result,students);
+        assertEquals(result.size(),0);
     }
-
     @Test
     public void checkGetTeacherMessagesByTeacher_id(){
         String t_id="1";
         List<MessageInfo> compare=teacherMessageService.getTeacherMessagesByTeacher_id(t_id);
-        List<TeacherMessage> list=teacherMessageDao.getTeacherMessagesByTeacher(t_id);
-        List<MessageInfo> messageInfos=new ArrayList<>();
-        for (TeacherMessage teacherMessage : list) {
-            MessageInfo messageInfo = new MessageInfo();
-            messageInfo.setTitle(teacherMessage.getTitle());
-            messageInfo.setId(teacherMessage.getId());
-            messageInfo.setReading(teacherMessageReadingDao.getTeacherMessageReadingsByMessage_id(teacherMessage.getId()));
-            messageInfo.setUnread(teacherMessageReadingDao.getUnReadingsByMessage_id(teacherMessage.getId()));
-            messageInfo.setTime(teacherMessage.getTime());
-            messageInfos.add(messageInfo);
-        }
-        assertEquals(compare, messageInfos);
+        assertEquals(compare.size(), 10);
     }
-
     @Test
+    @Transactional
     public void teacherGetTeacherMessageById() {
         int id = 1;
         MessageInfo compare = teacherMessageService.teacherGetTeacherMessageById(id);
-        Optional<TeacherMessage> teacherMessage = teacherMessageDao.getTeacherMessageById(id);
-        MessageInfo messageInfo = new MessageInfo();
-        messageInfo.setId(teacherMessage.get().getId());
-        messageInfo.setTitle(teacherMessage.get().getTitle());
-        messageInfo.setContent(teacherMessage.get().getContent());
-        messageInfo.setTime(teacherMessage.get().getTime());
-        Teacher teacher = teacherDao.getTeacherById(teacherMessage.get().getTeacher_id());
-        messageInfo.setTeachername(teacher.getName());
+        MessageInfo messageInfo=new MessageInfo();
+        messageInfo.init(id,0,"title1","11111","content1","2020-07-17 14:19:48",false,0,0);
         assertEquals(compare, messageInfo);
     }
+
+
 }
