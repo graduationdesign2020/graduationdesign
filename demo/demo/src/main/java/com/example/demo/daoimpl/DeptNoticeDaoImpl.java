@@ -17,6 +17,9 @@ import java.util.Optional;
 public class DeptNoticeDaoImpl implements DeptNoticeDao {
     @Autowired
     private DeptNoticeRepository deptNoticeRepository;
+    @Autowired
+    private DeptNoticeContentRepository deptNoticeContentRepository;
+
 
     @Override
     public List<DeptNotice> getDeptNoticesByDept(String department){
