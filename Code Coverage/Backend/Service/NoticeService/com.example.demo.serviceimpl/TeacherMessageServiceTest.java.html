@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TeacherMessageServiceTest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">demo$NoticeServiceTest.exec</a> &gt; <a href="index.source.html" class="el_package">com.example.demo.serviceimpl</a> &gt; <span class="el_source">TeacherMessageServiceTest.java</span></div><h1>TeacherMessageServiceTest.java</h1><pre class="source lang-java linenums">package com.example.demo.serviceimpl;
+
+import com.example.demo.DemoApplicationTests;
+import com.example.demo.dao.*;
+import com.example.demo.entity.*;
+import com.example.demo.repository.TeacherMessageReadingRepository;
+import com.example.demo.service.TeacherMessageService;
+import com.example.demo.utils.MessageInfo;
+import com.example.demo.utils.ReturnInfo;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.example.demo.constant.ReturnMsg.sendingMsg0;
+import static com.example.demo.constant.ReturnMsg.sendingMsg1;
+import static org.junit.jupiter.api.Assertions.*;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest
+<span class="nc" id="L27">public class TeacherMessageServiceTest extends DemoApplicationTests {</span>
+
+    @Autowired
+    private TeacherMessageService teacherMessageService;
+    @Autowired
+    private TeacherMessageDao teacherMessageDao;
+    @Autowired
+    private TeacherMessageReadingDao teacherMessageReadingDao;
+    @Autowired
+    private StudentDao studentDao;
+    @Autowired
+    private TeacherDao teacherDao;
+    @Autowired
+    private UsersDao usersDao;
+    @Autowired
+    private ProjectDao projectDao;
+    @Autowired
+    private TeacherMessageReadingRepository teacherMessageReadingRepository;
+
+    @Test
+    public void contextLoads() {
+<span class="nc" id="L48">    }</span>
+
+    @Test
+    @Transactional
+    public void getTeacherMessageRead() {
+<span class="nc" id="L53">        ReadInfo result = teacherMessageService.getTeacherMessageRead(1);</span>
+<span class="nc" id="L54">        ReadInfo compare = new ReadInfo();</span>
+<span class="nc" id="L55">        Student student1 = new Student();</span>
+<span class="nc" id="L56">        Student student2 = new Student();</span>
+<span class="nc" id="L57">        Student student3 = new Student();</span>
+<span class="nc" id="L58">        student1.init(&quot;1&quot;, &quot;111&quot;, &quot;SE&quot;, &quot;SE&quot;);</span>
+<span class="nc" id="L59">        student2.init(&quot;2&quot;, &quot;222&quot;, &quot;SE&quot;, &quot;SE&quot;);</span>
+<span class="nc" id="L60">        student3.init(&quot;3&quot;, &quot;333&quot;, &quot;SE&quot;, &quot;SE&quot;);</span>
+<span class="nc" id="L61">        List&lt;Student&gt; studentsRead = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L62">        List&lt;Student&gt; studentsUnread = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L63">        studentsRead.add(student1);</span>
+<span class="nc" id="L64">        studentsUnread.add(student2);</span>
+<span class="nc" id="L65">        studentsUnread.add(student3);</span>
+<span class="nc" id="L66">        compare.setStudentsRead(studentsRead);</span>
+<span class="nc" id="L67">        compare.setStudentsUnread(studentsUnread);</span>
+<span class="nc" id="L68">        compare.setRead(1);</span>
+<span class="nc" id="L69">        compare.setUnRead(2);</span>
+
+<span class="nc" id="L71">        assertEquals(compare, result);</span>
+<span class="nc" id="L72">    }</span>
+
+    @Test
+    public void checkGetTeacherMessageById(){
+<span class="nc" id="L76">        int id=1;</span>
+<span class="nc" id="L77">        int reading_id=1;</span>
+<span class="nc" id="L78">        TeacherMessage teacherMessage=teacherMessageDao.getTeacherMessageById(id);</span>
+<span class="nc" id="L79">        MessageInfo messageInfo=new MessageInfo();</span>
+<span class="nc" id="L80">        messageInfo.setId(teacherMessage.getId());</span>
+<span class="nc" id="L81">        messageInfo.setTitle(teacherMessage.getTitle());</span>
+<span class="nc" id="L82">        messageInfo.setContent(teacherMessage.getContent());</span>
+<span class="nc" id="L83">        messageInfo.setTime(teacherMessage.getTime());</span>
+<span class="nc" id="L84">        messageInfo.setReading_id(reading_id);</span>
+<span class="nc" id="L85">        Teacher teacher= teacherDao.getTeacherById(teacherMessage.getTeacher_id());</span>
+<span class="nc" id="L86">        messageInfo.setTeachername(teacher.getName());</span>
+<span class="nc" id="L87">        teacherMessageReadingDao.setRead(reading_id);</span>
+<span class="nc" id="L88">        MessageInfo compare=teacherMessageService.getTeacherMessageById(id,reading_id);</span>
+<span class="nc" id="L89">        assertEquals(compare, messageInfo);</span>
+<span class="nc" id="L90">    }</span>
+
+    @Test
+    public void checkGetTeacherMessages(){
+<span class="nc" id="L94">        String stu_id=&quot;1&quot;;</span>
+<span class="nc" id="L95">        List&lt;TeacherMessageReading&gt; list=teacherMessageReadingDao.getReading(stu_id);</span>
+<span class="nc" id="L96">        List&lt;MessageInfo&gt; messageInfos=new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L97" title="All 2 branches missed.">        for (TeacherMessageReading teacherMessageReading : list) {</span>
+<span class="nc" id="L98">            MessageInfo messageInfo = new MessageInfo();</span>
+<span class="nc" id="L99">            TeacherMessage teacherMessage = teacherMessageDao.getTeacherMessage(teacherMessageReading.getMessage_id());</span>
+<span class="nc" id="L100">            messageInfo.setId(teacherMessage.getId());</span>
+<span class="nc" id="L101">            messageInfo.setReading_id(teacherMessageReading.getId());</span>
+<span class="nc" id="L102">            messageInfo.setTitle(teacherMessage.getTitle());</span>
+<span class="nc" id="L103">            messageInfo.setTime(teacherMessage.getTime());</span>
+<span class="nc" id="L104">            messageInfo.setIs_read(teacherMessageReading.getIs_read());</span>
+<span class="nc" id="L105">            Teacher teacher = teacherDao.getTeacherById(teacherMessage.getTeacher_id());</span>
+<span class="nc" id="L106">            messageInfo.setTeachername(teacher.getName());</span>
+<span class="nc" id="L107">            messageInfos.add(messageInfo);</span>
+<span class="nc" id="L108">        }</span>
+<span class="nc" id="L109">        List&lt;MessageInfo&gt; compare=teacherMessageService.getTeacherMessages(stu_id);</span>
+<span class="nc" id="L110">        assertEquals(compare, messageInfos);</span>
+<span class="nc" id="L111">    }</span>
+
+   @Test
+    public void checkSentTeacherMessage(){
+<span class="nc" id="L115">        String title=&quot;test title123456&quot;;</span>
+<span class="nc" id="L116">        String teacher_id=&quot;1&quot;;</span>
+<span class="nc" id="L117">        List&lt;String&gt; student_id=new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L118">        student_id.add(&quot;1&quot;);</span>
+<span class="nc" id="L119">        student_id.add(&quot;3&quot;);</span>
+<span class="nc" id="L120">        String content=&quot;test content123456&quot;;</span>
+<span class="nc" id="L121">        Timestamp d=new Timestamp(System.currentTimeMillis());</span>
+<span class="nc" id="L122">        ReturnInfo returnInfo=new ReturnInfo();</span>
+<span class="nc" id="L123">        TeacherMessageReading s=new TeacherMessageReading();</span>
+<span class="nc" id="L124">        String time=d.toString();</span>
+<span class="nc" id="L125">        TeacherMessage teacherMessage=new TeacherMessage();</span>
+<span class="nc" id="L126">        teacherMessage.setTitle(title);</span>
+<span class="nc" id="L127">        teacherMessage.setTime(time);</span>
+<span class="nc" id="L128">        teacherMessage.setTeacher_id(teacher_id);</span>
+<span class="nc" id="L129">        teacherMessage.setContent(content);</span>
+<span class="nc" id="L130">        teacherMessageDao.sentTeacherMessage(teacherMessage);</span>
+<span class="nc" id="L131">        List&lt;TeacherMessageReading&gt; teacherMessageReadings=new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L132" title="All 2 branches missed.">        for (String value : student_id) {</span>
+<span class="nc" id="L133">            TeacherMessageReading teacherMessageReading=new TeacherMessageReading();</span>
+<span class="nc" id="L134">            teacherMessageReading.setMessage_id(teacherMessage.getId());</span>
+<span class="nc" id="L135">            teacherMessageReading.setIs_read(false);</span>
+<span class="nc" id="L136">            teacherMessageReading.setStudent_id(value);</span>
+<span class="nc" id="L137">            teacherMessageReadings.add(teacherMessageReading);</span>
+<span class="nc" id="L138">        }</span>
+<span class="nc bnc" id="L139" title="All 2 branches missed.">        for (TeacherMessageReading value:teacherMessageReadings){</span>
+<span class="nc" id="L140">            s=teacherMessageReadingDao.addReader(value);</span>
+<span class="nc" id="L141">        }</span>
+<span class="nc bnc" id="L142" title="All 2 branches missed.">        if (s!=null)</span>
+<span class="nc" id="L143">            returnInfo.setMsg(sendingMsg1);</span>
+<span class="nc" id="L144">        else returnInfo.setMsg(sendingMsg0);</span>
+<span class="nc" id="L145">        ReturnInfo compare=teacherMessageService.sentTeacherMessage(title,teacher_id,student_id,content);</span>
+<span class="nc" id="L146">        assertEquals(returnInfo,compare);</span>
+<span class="nc" id="L147">    }</span>
+
+    @Test
+    public void checkGetStudentsByTeacher_id(){
+<span class="nc" id="L151">        String teacher_id=&quot;1&quot;;</span>
+<span class="nc" id="L152">        List&lt;Student&gt; result=teacherMessageService.getStudentsByTeacher_id(teacher_id);</span>
+<span class="nc" id="L153">        List&lt;String&gt; list=projectDao.getIdByTeacher_id(teacher_id);</span>
+<span class="nc" id="L154">        List&lt;Student&gt; students=new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L155" title="All 2 branches missed.">        for (String s : list) {</span>
+<span class="nc" id="L156">            Student student = studentDao.getOne(s);</span>
+<span class="nc" id="L157">            students.add(student);</span>
+<span class="nc" id="L158">        }</span>
+<span class="nc" id="L159">        assertEquals(result,students);</span>
+<span class="nc" id="L160">    }</span>
+
+    @Test
+    public void checkGetTeacherMessagesByTeacher_id(){
+<span class="nc" id="L164">        String t_id=&quot;1&quot;;</span>
+<span class="nc" id="L165">        List&lt;MessageInfo&gt; compare=teacherMessageService.getTeacherMessagesByTeacher_id(t_id);</span>
+<span class="nc" id="L166">        List&lt;TeacherMessage&gt; list=teacherMessageDao.getTeacherMessagesByTeacher(t_id);</span>
+<span class="nc" id="L167">        List&lt;MessageInfo&gt; messageInfos=new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L168" title="All 2 branches missed.">        for (TeacherMessage teacherMessage : list) {</span>
+<span class="nc" id="L169">            MessageInfo messageInfo = new MessageInfo();</span>
+<span class="nc" id="L170">            messageInfo.setTitle(teacherMessage.getTitle());</span>
+<span class="nc" id="L171">            messageInfo.setId(teacherMessage.getId());</span>
+<span class="nc" id="L172">            messageInfo.setReading(teacherMessageReadingDao.getTeacherMessageReadingsByMessage_id(teacherMessage.getId()));</span>
+<span class="nc" id="L173">            messageInfo.setUnread(teacherMessageReadingDao.getUnReadingsByMessage_id(teacherMessage.getId()));</span>
+<span class="nc" id="L174">            messageInfo.setTime(teacherMessage.getTime());</span>
+<span class="nc" id="L175">            messageInfos.add(messageInfo);</span>
+<span class="nc" id="L176">        }</span>
+<span class="nc" id="L177">        assertEquals(compare, messageInfos);</span>
+<span class="nc" id="L178">    }</span>
+
+    @Test
+    public void teacherGetTeacherMessageById() {
+<span class="nc" id="L182">        int id = 1;</span>
+<span class="nc" id="L183">        MessageInfo compare = teacherMessageService.teacherGetTeacherMessageById(id);</span>
+<span class="nc" id="L184">        TeacherMessage teacherMessage = teacherMessageDao.getTeacherMessageById(id);</span>
+<span class="nc" id="L185">        MessageInfo messageInfo = new MessageInfo();</span>
+<span class="nc" id="L186">        messageInfo.setId(teacherMessage.getId());</span>
+<span class="nc" id="L187">        messageInfo.setTitle(teacherMessage.getTitle());</span>
+<span class="nc" id="L188">        messageInfo.setContent(teacherMessage.getContent());</span>
+<span class="nc" id="L189">        messageInfo.setTime(teacherMessage.getTime());</span>
+<span class="nc" id="L190">        Teacher teacher = teacherDao.getTeacherById(teacherMessage.getTeacher_id());</span>
+<span class="nc" id="L191">        messageInfo.setTeachername(teacher.getName());</span>
+<span class="nc" id="L192">        assertEquals(compare, messageInfo);</span>
+<span class="nc" id="L193">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

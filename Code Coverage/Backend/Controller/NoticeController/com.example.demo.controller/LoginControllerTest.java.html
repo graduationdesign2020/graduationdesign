@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LoginControllerTest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">demo$NoticeControllerTest.exec</a> &gt; <a href="index.source.html" class="el_package">com.example.demo.controller</a> &gt; <span class="el_source">LoginControllerTest.java</span></div><h1>LoginControllerTest.java</h1><pre class="source lang-java linenums">package com.example.demo.controller;
+
+import com.example.demo.DemoApplicationTests;
+import com.example.demo.service.LoginService;
+import com.example.demo.utils.ReturnInfo;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.context.WebApplicationContext;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest
+<span class="nc" id="L27">public class LoginControllerTest extends DemoApplicationTests {</span>
+    @Autowired
+    LoginService loginService;
+
+    private MockMvc mockMvc;
+<span class="nc" id="L32">    private ObjectMapper om = new ObjectMapper();</span>
+
+    @Autowired
+    private WebApplicationContext context;
+
+    @Before
+    public void setUp() {
+<span class="nc" id="L39">        mockMvc = MockMvcBuilders.webAppContextSetup(context).build();</span>
+<span class="nc" id="L40">    }</span>
+
+    @AfterEach
+    public void tearDown() {
+<span class="nc" id="L44">    }</span>
+
+    @Test
+    public void contextLoads() {
+
+<span class="nc" id="L49">    }</span>
+
+//    @Test
+//    public void checkLogin() throws Exception {
+//        MvcResult result = mockMvc.perform(post(&quot;/login&quot;).content(&quot;{\&quot;openid\&quot;:\&quot;1\&quot;}&quot;).contentType(MediaType.APPLICATION_JSON_VALUE))
+//                .andExpect(status().isOk()).andReturn();
+//        String resultContent = result.getResponse().getContentAsString();
+//        ReturnInfo returnInfo = om.readValue(resultContent, new TypeReference&lt;ReadInfo&gt;() { });
+//
+//        assertEquals(loginService.login(&quot;1&quot;), readInfo);
+//    }
+
+    @Test
+    public void checkLogout() throws Exception {
+<span class="nc" id="L63">        MvcResult result = mockMvc.perform(post(&quot;/logout&quot;).contentType(MediaType.APPLICATION_JSON_VALUE).content(&quot;{\&quot;openid\&quot;:\&quot;3\&quot;}&quot;))</span>
+<span class="nc" id="L64">                .andExpect(status().isOk()).andReturn();</span>
+<span class="nc" id="L65">        String resultContent = result.getResponse().getContentAsString();</span>
+<span class="nc" id="L66">        ReturnInfo returnInfo = om.readValue(resultContent, new TypeReference&lt;ReturnInfo&gt;() { });</span>
+<span class="nc" id="L67">        assertEquals(loginService.logout(&quot;4&quot;), returnInfo);</span>
+<span class="nc" id="L68">    }</span>
+
+    @Test
+    public void checkRegister() throws Exception {
+<span class="nc" id="L72">        MvcResult result = mockMvc.perform(post(&quot;/register&quot;).content(&quot;{\&quot;openid\&quot;:\&quot;1\&quot;,\&quot;id\&quot;:\&quot;518021910456\&quot;,\&quot;name\&quot;:\&quot;lixuan\&quot;,\&quot;auth\&quot;:\&quot;0\&quot;}&quot;).contentType(MediaType.APPLICATION_JSON_VALUE))</span>
+<span class="nc" id="L73">                .andExpect(status().isOk()).andReturn();</span>
+<span class="nc" id="L74">        String resultContent = result.getResponse().getContentAsString();</span>
+<span class="nc" id="L75">        ReturnInfo returnInfo = om.readValue(resultContent, new TypeReference&lt;ReturnInfo&gt;() { });</span>
+
+<span class="nc" id="L77">        assertEquals(loginService.register(&quot;1234567890&quot;,&quot;518021910456&quot;,&quot;lixuan&quot;,0), returnInfo);</span>
+<span class="nc" id="L78">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

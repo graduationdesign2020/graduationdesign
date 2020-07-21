@@ -18,8 +18,8 @@ public class ProcessController {
     @RequestMapping(path = "/checkSelfProcess")
     //@ResponseBody
     public List<StateInfo> checkSelfProcess(@RequestBody Map<String, String> params){
-        System.out.println("self process stu_id");
-        System.out.println(params.get("stu_id"));
+        //System.out.println("self process stu_id");
+        //System.out.println(params.get("stu_id"));
         return processService.checkSelfProcess(params.get("stu_id"));
     }
 

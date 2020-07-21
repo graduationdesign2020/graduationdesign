@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LoginServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">demo$NoticeServiceTest.exec</a> &gt; <a href="index.source.html" class="el_package">com.example.demo.serviceimpl</a> &gt; <span class="el_source">LoginServiceImpl.java</span></div><h1>LoginServiceImpl.java</h1><pre class="source lang-java linenums">package com.example.demo.serviceimpl;
+
+import com.example.demo.dao.StudentDao;
+import com.example.demo.dao.TeacherDao;
+import com.example.demo.dao.UsersDao;
+import com.example.demo.dao.ProjectDao;
+import com.example.demo.entity.Project;
+import com.example.demo.entity.Student;
+import com.example.demo.entity.Teacher;
+import com.example.demo.entity.Users;
+import com.example.demo.service.LoginService;
+import com.example.demo.utils.ReturnInfo;
+import com.example.demo.utils.UserInfo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.Optional;
+
+import static com.example.demo.constant.ReturnMsg.*;
+
+@Service
+<span class="fc" id="L22">public class LoginServiceImpl implements LoginService {</span>
+    @Autowired
+    private UsersDao usersDao;
+    @Autowired
+    private TeacherDao teacherDao;
+    @Autowired
+    private StudentDao studentDao;
+    @Autowired
+    private ProjectDao projectDao;
+
+    @Override
+    public ReturnInfo register(String wechat_id,String id,String name,int teacher){
+<span class="nc" id="L34">        ReturnInfo returnInfo=new ReturnInfo();</span>
+<span class="nc" id="L35">        UserInfo userInfo=new UserInfo();</span>
+<span class="nc" id="L36">        Users u= usersDao.getUserByWechat_id(wechat_id);</span>
+<span class="nc bnc" id="L37" title="All 2 branches missed.">        if(u!=null) {</span>
+<span class="nc" id="L38">            returnInfo.setMsg(registerMsg2);</span>
+<span class="nc" id="L39">            return returnInfo;</span>
+        }
+<span class="nc" id="L41">        Users testUser= usersDao.getByIdAndAuth(id,teacher);</span>
+<span class="nc bnc" id="L42" title="All 2 branches missed.">        if(testUser!=null) {</span>
+<span class="nc" id="L43">            returnInfo.setMsg(registerMsg2);</span>
+<span class="nc" id="L44">            return returnInfo;</span>
+        }
+<span class="nc" id="L46">        boolean flag = false;</span>
+<span class="nc bnc" id="L47" title="All 2 branches missed.">        if (teacher == 1) {</span>
+<span class="nc" id="L48">            Teacher t = teacherDao.getTeacherByIdAndName(id, name);</span>
+<span class="nc bnc" id="L49" title="All 2 branches missed.">            if (t != null) {</span>
+<span class="nc" id="L50">                userInfo.setId(id);</span>
+<span class="nc" id="L51">                userInfo.setOpenid(wechat_id);</span>
+<span class="nc" id="L52">                userInfo.setName(t.getName());</span>
+<span class="nc" id="L53">                userInfo.setDept(t.getDepartment());</span>
+<span class="nc" id="L54">                userInfo.setAuth(1);</span>
+<span class="nc" id="L55">                flag = true;</span>
+            }
+<span class="nc" id="L57">        } else {</span>
+<span class="nc" id="L58">            System.out.print(id);</span>
+<span class="nc" id="L59">            System.out.print(name);</span>
+<span class="nc" id="L60">            Student student = studentDao.getStudentByIdAndName(id, name);</span>
+<span class="nc bnc" id="L61" title="All 2 branches missed.">            if (student != null) {</span>
+<span class="nc" id="L62">                userInfo.setId(id);</span>
+<span class="nc" id="L63">                userInfo.setOpenid(wechat_id);</span>
+<span class="nc" id="L64">                userInfo.setName(student.getName());</span>
+<span class="nc" id="L65">                userInfo.setDept(student.getDepartment());</span>
+<span class="nc" id="L66">                userInfo.setAuth(0);</span>
+<span class="nc" id="L67">                Optional&lt;Project&gt; project= Optional.ofNullable(projectDao.getOne(id));</span>
+<span class="nc bnc" id="L68" title="All 2 branches missed.">                if(project.isPresent()) {</span>
+<span class="nc" id="L69">                    Project p=project.get();</span>
+<span class="nc" id="L70">                    userInfo.setProject(p.getProject_name());</span>
+<span class="nc" id="L71">                    Teacher teacher1= teacherDao.getTeacherById(p.getTeacher_id());</span>
+<span class="nc" id="L72">                    userInfo.setTeacher(teacher1.getName());</span>
+                }
+<span class="nc" id="L74">                flag = true;</span>
+            }
+        }
+<span class="nc bnc" id="L77" title="All 2 branches missed.">        if (flag) {</span>
+<span class="nc" id="L78">            Users users = new Users();</span>
+<span class="nc" id="L79">            users.setWechat_id(wechat_id);</span>
+<span class="nc" id="L80">            users.setId(id);</span>
+<span class="nc" id="L81">            users.setAuth(teacher);</span>
+<span class="nc" id="L82">            usersDao.saveUsers(users);</span>
+<span class="nc" id="L83">            returnInfo.setMsg(registerMsg1);</span>
+<span class="nc" id="L84">            returnInfo.setUserData(userInfo);</span>
+<span class="nc" id="L85">            return returnInfo;</span>
+        }
+        else {
+<span class="nc" id="L88">            returnInfo.setMsg(registerMsg0);</span>
+<span class="nc" id="L89">            return returnInfo;</span>
+        }
+    }
+
+    @Override
+    public ReturnInfo logout(String wechat_id){
+<span class="nc" id="L95">        ReturnInfo returnInfo=new ReturnInfo();</span>
+<span class="nc" id="L96">        int flag= usersDao.deleteUsers(wechat_id);</span>
+<span class="nc bnc" id="L97" title="All 2 branches missed.">        if(flag==1)</span>
+<span class="nc" id="L98">            returnInfo.setMsg(logoutMsg1);</span>
+<span class="nc" id="L99">        else returnInfo.setMsg(logoutMsg0);</span>
+<span class="nc" id="L100">        return returnInfo;</span>
+    }
+
+    @Override
+    public ReturnInfo login(String wechat_id){
+<span class="nc" id="L105">        Users users= usersDao.getUserByWechat_id(wechat_id);</span>
+<span class="nc" id="L106">        UserInfo userInfo=new UserInfo();</span>
+<span class="nc" id="L107">        ReturnInfo returnInfo=new ReturnInfo();</span>
+<span class="nc bnc" id="L108" title="All 2 branches missed.">        if(users!=null){</span>
+<span class="nc" id="L109">            String id=users.getId();</span>
+<span class="nc" id="L110">            userInfo.setId(id);</span>
+<span class="nc" id="L111">            userInfo.setOpenid(wechat_id);</span>
+<span class="nc" id="L112">            returnInfo.setMsg(loginMsg1);</span>
+<span class="nc bnc" id="L113" title="All 2 branches missed.">            if(users.getAuth()==1){</span>
+<span class="nc" id="L114">                Teacher t= teacherDao.getTeacherById(id);</span>
+<span class="nc" id="L115">                userInfo.setAuth(1);</span>
+<span class="nc" id="L116">                userInfo.setDept(t.getDepartment());</span>
+<span class="nc" id="L117">                userInfo.setName(t.getName());</span>
+<span class="nc" id="L118">                returnInfo.setUserData(userInfo);</span>
+<span class="nc" id="L119">            }</span>
+            else
+            {
+<span class="nc" id="L122">                Student student= studentDao.getOne(id);</span>
+<span class="nc" id="L123">                userInfo.setAuth(0);</span>
+<span class="nc" id="L124">                userInfo.setDept(student.getDepartment());</span>
+<span class="nc" id="L125">                userInfo.setName(student.getName());</span>
+<span class="nc" id="L126">                Project project=projectDao.getOne(id);</span>
+<span class="nc" id="L127">                userInfo.setProject(project.getProject_name());</span>
+<span class="nc" id="L128">                Teacher teacher= teacherDao.getTeacherById(project.getTeacher_id());</span>
+<span class="nc" id="L129">                userInfo.setTeacher(teacher.getName());</span>
+<span class="nc" id="L130">                returnInfo.setUserData(userInfo);</span>
+            }
+<span class="nc" id="L132">        }</span>
+        else {
+<span class="nc" id="L134">            userInfo.setOpenid(wechat_id);</span>
+<span class="nc" id="L135">            returnInfo.setUserData(userInfo);</span>
+<span class="nc" id="L136">            returnInfo.setMsg(loginMsg0);</span>
+        }
+<span class="nc" id="L138">        return returnInfo;</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

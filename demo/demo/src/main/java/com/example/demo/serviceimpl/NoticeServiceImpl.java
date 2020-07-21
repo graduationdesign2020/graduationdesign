@@ -46,8 +46,7 @@ public class NoticeServiceImpl implements NoticeService {
             return schoolNotice1;
         }
         else {
-            DeptNotice schoolNotice2=new DeptNotice();
-            return schoolNotice2;
+            return new DeptNotice();
         }
     }
 
@@ -67,8 +66,7 @@ public class NoticeServiceImpl implements NoticeService {
             return schoolNotice1;
         }
         else {
-            SchoolNotice schoolNotice2=new SchoolNotice();
-            return schoolNotice2;
+            return new SchoolNotice();
         }
     }
 
