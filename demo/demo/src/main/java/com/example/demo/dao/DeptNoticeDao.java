@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface DeptNoticeDao {
-    List<DeptNotice> getDeptNoticesByDept(String department);
+    DeptNotice getDeptNoticesByDept(String department);
 
     Optional<DeptNotice> getDeptNoticeById(int id);
 

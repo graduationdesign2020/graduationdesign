@@ -35,17 +35,9 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
 
     @Override
     public MessageInfo getTeacherMessageById(int id, int reading_id){
-        Optional<TeacherMessage> teacherMessage=teacherMessageDao.getTeacherMessageById(id);
-        if(teacherMessage.isPresent())
+        TeacherMessage t=teacherMessageDao.getTeacherMessageById(id);
+        if(t!=null)
         {
-            TeacherMessage t=teacherMessage.get();
-            Optional<TeacherMessageContent> teacherMessageContent = teacherMessageContentRepository.findById(id);
-            if (teacherMessageContent.isPresent()) {
-                TeacherMessageContent s = teacherMessageContent.get();
-                t.setContent(s.getContent());
-            } else {
-                t.setContent(null);
-            }
             MessageInfo messageInfo=new MessageInfo();
             messageInfo.setId(t.getId());
             messageInfo.setTitle(t.getTitle());
@@ -58,8 +50,7 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
             return messageInfo;
         }
         else {
-            MessageInfo messageInfo1=new MessageInfo();
-            return messageInfo1;
+            return null;
         }
     }
 

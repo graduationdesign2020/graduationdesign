@@ -1,4 +1,4 @@
-package com.example.demo.controller;
+package com.example.demo.Controller;
 
 import com.example.demo.DemoApplicationTests;
 import com.example.demo.entity.ProcessInfo;
@@ -13,7 +13,6 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
-import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
@@ -29,10 +28,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@Rollback
 @RunWith(SpringRunner.class)
 @SpringBootTest
-@Transactional
 public class ProcessControllerTest extends DemoApplicationTests {
     @Test
     public void contextLoads() {
@@ -58,13 +55,13 @@ public class ProcessControllerTest extends DemoApplicationTests {
     }
 
     @Test
+    @Transactional
     public void checkSelfProcess() throws Exception {
         MvcResult result = mockMvc.perform(post("/checkSelfProcess").content("{\"stu_id\": \"1\"}").contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(status().isOk()).andReturn();
-        result.getResponse().setCharacterEncoding("UTF-8");
         String resultContent = result.getResponse().getContentAsString();
-        //System.out.println("result content: ");
-        //System.out.println(resultContent);
+        System.out.println("result content: ");
+        System.out.println(resultContent);
         List<StateInfo> stateInfos = om.readValue(resultContent, new TypeReference<List<StateInfo> >() {});
 
         assertEquals(stateInfos, processService.checkSelfProcess("1"));
@@ -74,7 +71,6 @@ public class ProcessControllerTest extends DemoApplicationTests {
     public void checkProcess() throws Exception {
         MvcResult result = mockMvc.perform(post("/checkProcess").content("{\"tea_id\": \"1\"}").contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(status().isOk()).andReturn();
-        result.getResponse().setCharacterEncoding("UTF-8");
         String resultContent = result.getResponse().getContentAsString();
         List<ProcessInfo> processInfos = om.readValue(resultContent, new TypeReference<List<ProcessInfo>>() {} );
 

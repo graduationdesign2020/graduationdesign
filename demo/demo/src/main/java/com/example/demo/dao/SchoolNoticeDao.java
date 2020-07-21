@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface SchoolNoticeDao {
-    Optional<SchoolNotice> getSchoolNoticeById(int id);
+    SchoolNotice getSchoolNoticeById(int id);
 
     List<SchoolNotice> getSchoolNotices();
 
