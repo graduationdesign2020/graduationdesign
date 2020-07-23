@@ -80,7 +80,7 @@ public class LoginServiceImpl implements LoginService {
             users.setId(id);
             users.setAuth("ROLE_TEACHER");
             usersDao.saveUsers(users);
-            returnInfo.setMsg(registerMsg1);
+            returnInfo.setMsg(Msg1);
             returnInfo.setUserData(userInfo);
             return returnInfo;
         }
@@ -95,8 +95,8 @@ public class LoginServiceImpl implements LoginService {
         ReturnInfo returnInfo=new ReturnInfo();
         int flag= usersDao.deleteUsers(wechat_id);
         if(flag==1)
-            returnInfo.setMsg(logoutMsg1);
-        else returnInfo.setMsg(logoutMsg0);
+            returnInfo.setMsg(Msg1);
+        else returnInfo.setMsg(Msg0);
         return returnInfo;
     }
 
@@ -110,7 +110,7 @@ public class LoginServiceImpl implements LoginService {
             String id=u.getId();
             userInfo.setId(id);
             userInfo.setOpenid(wechat_id);
-            returnInfo.setMsg(loginMsg1);
+            returnInfo.setMsg(Msg1);
             if(u.getAuth().equals("ROLE_TEACHER")){
                 Teacher t= teacherDao.getTeacherById(id);
                 userInfo.setAuth(1);
@@ -138,7 +138,7 @@ public class LoginServiceImpl implements LoginService {
         else {
             userInfo.setOpenid(wechat_id);
             returnInfo.setUserData(userInfo);
-            returnInfo.setMsg(loginMsg0);
+            returnInfo.setMsg(Msg0);
         }
         return returnInfo;
     }

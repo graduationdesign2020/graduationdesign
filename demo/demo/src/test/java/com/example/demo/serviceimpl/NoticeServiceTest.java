@@ -46,18 +46,18 @@ public class NoticeServiceTest extends DemoApplicationTests {
 
     @Test
     public void getDeptNoticesById() {
-        Optional<DeptNotice> result = deptNoticeDao.getDeptNoticeById(28);
+        DeptNotice result = deptNoticeDao.getDeptNoticeById(28);
         DeptNotice compare = noticeService.getDeptNoticeById(28);
 
-        assertEquals(result.get(), compare);
+        assertEquals(result, compare);
     }
 
     @Test
     public void getSchoolNoticeById() {
-        Optional<SchoolNotice> result = schoolNoticeDao.getSchoolNoticeById(7);
+        SchoolNotice result = schoolNoticeDao.getSchoolNoticeById(7);
         SchoolNotice compare = noticeService.getSchoolNoticeById(7);
 
-        assertEquals(result.get(), compare);
+        assertEquals(result, compare);
     }
 
     @Test

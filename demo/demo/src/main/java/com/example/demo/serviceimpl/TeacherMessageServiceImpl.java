@@ -2,8 +2,6 @@ package com.example.demo.serviceimpl;
 
 import com.example.demo.dao.*;
 import com.example.demo.entity.*;
-import com.example.demo.repository.TeacherMessageContentRepository;
-import com.example.demo.repository.TeacherMessageReadingRepository;
 import com.example.demo.service.TeacherMessageService;
 import com.example.demo.utils.MessageInfo;
 import com.example.demo.utils.ReturnInfo;
@@ -13,10 +11,8 @@ import org.springframework.stereotype.Service;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
-import static com.example.demo.constant.ReturnMsg.sendingMsg0;
-import static com.example.demo.constant.ReturnMsg.sendingMsg1;
+import static com.example.demo.constant.ReturnMsg.*;
 
 @Service
 public class TeacherMessageServiceImpl implements TeacherMessageService {
@@ -24,8 +20,6 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
     private TeacherMessageDao teacherMessageDao;
     @Autowired
     private StudentDao studentDao;
-    @Autowired
-    private TeacherMessageContentRepository teacherMessageContentRepository;
     @Autowired
     private TeacherDao teacherDao;
     @Autowired
@@ -35,17 +29,9 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
 
     @Override
     public MessageInfo getTeacherMessageById(int id, int reading_id){
-        Optional<TeacherMessage> teacherMessage=teacherMessageDao.getTeacherMessageById(id);
-        if(teacherMessage.isPresent())
+        TeacherMessage t=teacherMessageDao.getTeacherMessageById(id);
+        if(t!=null)
         {
-            TeacherMessage t=teacherMessage.get();
-            Optional<TeacherMessageContent> teacherMessageContent = teacherMessageContentRepository.findById(id);
-            if (teacherMessageContent.isPresent()) {
-                TeacherMessageContent s = teacherMessageContent.get();
-                t.setContent(s.getContent());
-            } else {
-                t.setContent(null);
-            }
             MessageInfo messageInfo=new MessageInfo();
             messageInfo.setId(t.getId());
             messageInfo.setTitle(t.getTitle());
@@ -58,8 +44,7 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
             return messageInfo;
         }
         else {
-            MessageInfo messageInfo1=new MessageInfo();
-            return messageInfo1;
+            return null;
         }
     }
 
@@ -74,7 +59,7 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
             messageInfo.setReading_id(teacherMessageReading.getId());
             messageInfo.setTitle(teacherMessage.getTitle());
             messageInfo.setTime(teacherMessage.getTime());
-            messageInfo.setIs_read(teacherMessageReading.getIs_read());
+            messageInfo.set_read(teacherMessageReading.getIs_read());
             Teacher teacher = teacherDao.getTeacherById(teacherMessage.getTeacher_id());
             messageInfo.setTeachername(teacher.getName());
             messageInfos.add(messageInfo);
@@ -106,8 +91,8 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
             s=teacherMessageReadingDao.addReader(value);
         }
         if (s!=null)
-            returnInfo.setMsg(sendingMsg1);
-        else returnInfo.setMsg(sendingMsg0);
+            returnInfo.setMsg(Msg1);
+        else returnInfo.setMsg(Msg0);
         return returnInfo;
     }
 
@@ -164,10 +149,9 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
 
     @Override
     public MessageInfo teacherGetTeacherMessageById(int id){
-        Optional<TeacherMessage> teacherMessage=teacherMessageDao.getTeacherMessageById(id);
-        if(teacherMessage.isPresent())
+        TeacherMessage t=teacherMessageDao.getTeacherMessageById(id);
+        if (t!=null)
         {
-            TeacherMessage t=teacherMessage.get();
             MessageInfo messageInfo = new MessageInfo();
             messageInfo.setId(t.getId());
             messageInfo.setTitle(t.getTitle());
@@ -177,10 +161,7 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
             messageInfo.setTeachername(teacher.getName());
             return messageInfo;
         }
-        else {
-            MessageInfo messageInfo=new MessageInfo();
-            return messageInfo;
-        }
+        else return null;
     }
 
 }
