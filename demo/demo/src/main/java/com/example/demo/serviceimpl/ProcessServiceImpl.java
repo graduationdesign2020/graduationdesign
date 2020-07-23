@@ -5,11 +5,14 @@ import com.example.demo.dao.StateDao;
 import com.example.demo.dao.StudentDao;
 import com.example.demo.entity.*;
 import com.example.demo.service.ProcessService;
+import com.example.demo.utils.ReturnInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.example.demo.constant.ReturnMsg.*;
 
 @Service
 public class ProcessServiceImpl implements ProcessService {
@@ -87,5 +90,21 @@ public class ProcessServiceImpl implements ProcessService {
             //System.out.println(processInfos);
         }
         return processInfos;
+    }
+
+    @Override
+    public ReturnInfo setDeadline(String end_time,List<String> id,int state){
+        var i=0;
+        for (String value :id) {
+            i=stateDao.setDeadline(end_time, value, state);
+        }
+        ReturnInfo returnInfo=new ReturnInfo();
+        if(i==1){
+            returnInfo.setMsg(Msg1);
+        }
+        else {
+            returnInfo.setMsg(Msg0);
+        }
+        return returnInfo;
     }
 }

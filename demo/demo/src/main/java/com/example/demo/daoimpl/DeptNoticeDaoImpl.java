@@ -17,6 +17,9 @@ import java.util.Optional;
 public class DeptNoticeDaoImpl implements DeptNoticeDao {
     @Autowired
     private DeptNoticeRepository deptNoticeRepository;
+    @Autowired
+    private DeptNoticeContentRepository deptNoticeContentRepository;
+
 
     @Override
     public List<DeptNotice> getDeptNoticesByDept(String department){
@@ -24,8 +27,20 @@ public class DeptNoticeDaoImpl implements DeptNoticeDao {
     }
 
     @Override
-    public Optional<DeptNotice> getDeptNoticeById(int id){
-        return deptNoticeRepository.getById(id);
+    public DeptNotice getDeptNoticeById(int id){
+        Optional<DeptNotice> schoolNotice= deptNoticeRepository.getById(id);
+        if(schoolNotice.isPresent()) {
+            DeptNotice schoolNotice1=schoolNotice.get();
+            Optional<DeptNoticeContent> schoolNoticeContent = Optional.ofNullable(deptNoticeContentRepository.findById(id));
+            if (schoolNoticeContent.isPresent()) {
+                DeptNoticeContent s = schoolNoticeContent.get();
+                schoolNotice1.setContent(s.getContent());
+            } else {
+                schoolNotice1.setContent(null);
+            }
+            return schoolNotice1;
+        }
+        else return null;
 
     }
 

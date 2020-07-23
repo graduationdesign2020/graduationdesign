@@ -6,6 +6,7 @@ import com.example.demo.dao.StateDao;
 import com.example.demo.dao.StudentDao;
 import com.example.demo.entity.*;
 import com.example.demo.service.ProcessService;
+import com.example.demo.utils.ReturnInfo;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,6 +47,16 @@ public class ProcessServiceTest extends DemoApplicationTests {
         List<StateInfo> compare = new ArrayList<>();
 
         assertEquals(result, compare);
+    }
+
+    @Test
+    @Transactional
+    public void checkSetDeadline(){
+        List<String> student=new ArrayList<>();
+        student.add("1");
+        student.add("3");
+        ReturnInfo result=processService.setDeadline("2020-7-23 12:00:00",student,2);
+        assertEquals("FAIL",result.getMsg());
     }
 
     @Test

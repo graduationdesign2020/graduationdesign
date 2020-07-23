@@ -8,7 +8,7 @@ import java.util.Optional;
 public interface DeptNoticeDao {
     List<DeptNotice> getDeptNoticesByDept(String department);
 
-    Optional<DeptNotice> getDeptNoticeById(int id);
+    DeptNotice getDeptNoticeById(int id);
 
     List<DeptNotice> getThreeDeptNoticesByDepartment(String dept);
 }

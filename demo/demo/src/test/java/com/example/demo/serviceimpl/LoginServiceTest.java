@@ -1,24 +1,24 @@
 package com.example.demo.serviceimpl;
 
-import com.example.demo.dao.StudentDao;
-import com.example.demo.dao.TeacherDao;
-import com.example.demo.dao.UsersDao;
-import com.example.demo.dao.ProjectDao;
-import com.example.demo.entity.*;
+
 import com.example.demo.service.LoginService;
 import com.example.demo.utils.ReturnInfo;
 import com.example.demo.utils.UserInfo;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Optional;
-
-import static com.example.demo.constant.ReturnMsg.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@RunWith(SpringJUnit4ClassRunner.class)
+@SpringBootTest
 public class LoginServiceTest {
     @Autowired
     private LoginService loginService;
+<<<<<<< HEAD
     @Autowired
     private UsersDao usersDao;
     @Autowired
@@ -72,25 +72,25 @@ public class LoginServiceTest {
         ReturnInfo compare = loginService.register(wechat_id, id, name, teacher);
         assertEquals(compare, returnInfo);
     }
+=======
+>>>>>>> 18079e399bc096e608f0d15a68030ef48aed7570
 
     @Test
+    @Transactional
     public void checklogout(){
         String wechat_id="123456";
         ReturnInfo returnInfo=new ReturnInfo();
-        int flag= usersDao.deleteUsers(wechat_id);
-        if(flag==1)
-            returnInfo.setMsg(logoutMsg1);
-        else returnInfo.setMsg(logoutMsg0);
+        returnInfo.setMsg("SUCCESS");
         ReturnInfo compare=loginService.logout(wechat_id);
         assertEquals(compare, returnInfo);
     }
 
     @Test
+    @Transactional
     public void checklogin(){
-        String wechat_id="3";
-        Optional<Users> users= usersDao.getUserByWechat_id(wechat_id);
-        UserInfo userInfo=new UserInfo();
+        String wechat_id="ohdPd4pTA-yKZTSfrSY6DsB5_Y00";
         ReturnInfo returnInfo=new ReturnInfo();
+<<<<<<< HEAD
         if(users.isPresent()){
             String id=users.get().getId();
             userInfo.setId(id);
@@ -118,7 +118,13 @@ public class LoginServiceTest {
         else {
             returnInfo.setMsg(loginMsg0);
         }
+=======
+
+>>>>>>> 18079e399bc096e608f0d15a68030ef48aed7570
         ReturnInfo compare=loginService.login(wechat_id);
+        UserInfo userInfo=new UserInfo();
+        userInfo.init("4","ohdPd4pTA-yKZTSfrSY6DsB5_Y00","tiger","SE",null,null,1);
+        returnInfo.setUserData(userInfo);
         assertEquals(compare, returnInfo);
     }
 }

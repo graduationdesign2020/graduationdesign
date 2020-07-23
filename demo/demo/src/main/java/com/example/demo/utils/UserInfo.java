@@ -17,5 +17,15 @@ public class UserInfo {
     private String teacher;
 
     private String auth;
-}
 
+    public void init(String id,String openid,String name,String dept,String project,String teacher,String auth)
+    {
+        this.id=id;
+        this.openid=openid;
+        this.name=name;
+        this.dept=dept;
+        this.project=project;
+        this.teacher=teacher;
+        this.auth=auth;
+    }
+}
