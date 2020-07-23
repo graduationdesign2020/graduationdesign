@@ -9,10 +9,7 @@ import com.example.demo.constant.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -38,24 +35,27 @@ public class LoginController {
     }
 
     @RequestMapping(path = "/login")
+    @ResponseBody
     public ReturnInfo login(@RequestBody Map<String,String> params) throws JsonProcessingException {
         String code=params.get("code");
+        System.out.println("code");
         System.out.print(code);
         String result = "";
-        try {//请求微信服务器，用code换取openid。HttpUtil是工具类，后面会给出实现，Configure类是小程序配置信息，后面会给出代码
-            result = HttpClient.doGet(
-                    "https://api.weixin.qq.com/sns/jscode2session?appid="
-                            +appId.appId+ "&secret="
-                            +appId.secret+ "&js_code="
-                            + code
-                            + "&grant_type=authorization_code", null);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        ObjectMapper mapper = new ObjectMapper();
-        CodeReturn openIdJson = mapper.readValue(result, CodeReturn.class);
-        String wechat_id=openIdJson.getOpenid();
-            return loginService.login(wechat_id);
+//        try {//请求微信服务器，用code换取openid。HttpUtil是工具类，后面会给出实现，Configure类是小程序配置信息，后面会给出代码
+//            result = HttpClient.doGet(
+//                    "https://api.weixin.qq.com/sns/jscode2session?appid="
+//                            +appId.appId+ "&secret="
+//                            +appId.secret+ "&js_code="
+//                            + code
+//                            + "&grant_type=authorization_code", null);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        ObjectMapper mapper = new ObjectMapper();
+//        CodeReturn openIdJson = mapper.readValue(result, CodeReturn.class);
+//        String wechat_id=openIdJson.getOpenid();
+//            return loginService.login(wechat_id);
+        return null;
     }
 
 }

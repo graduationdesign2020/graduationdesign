@@ -62,8 +62,6 @@ public class ProcessControllerTest extends DemoApplicationTests {
         MvcResult result = mockMvc.perform(post("/checkSelfProcess").content("{\"stu_id\": \"1\"}").contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(status().isOk()).andReturn();
         String resultContent = result.getResponse().getContentAsString();
-        System.out.println("result content: ");
-        System.out.println(resultContent);
         List<StateInfo> stateInfos = om.readValue(resultContent, new TypeReference<List<StateInfo> >() {});
 
         assertEquals(stateInfos, processService.checkSelfProcess("1"));

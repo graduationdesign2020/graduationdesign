@@ -11,10 +11,12 @@ import com.example.demo.utils.UserInfo;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.Optional;
+
 import static com.example.demo.constant.ReturnMsg.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-<span class="nc" id="L17">public class LoginServiceTest {</span>
+<span class="nc" id="L19">public class LoginServiceTest {</span>
     @Autowired
     private LoginService loginService;
     @Autowired
@@ -27,98 +29,97 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
     private ProjectDao projectDao;
 
     @Test
-    public void checkRegister(){
-<span class="nc" id="L31">        String wechat_id=&quot;123456&quot;;</span>
-<span class="nc" id="L32">        String id=&quot;518021910456&quot;;</span>
-<span class="nc" id="L33">        String name=&quot;lixuan&quot;;</span>
-<span class="nc" id="L34">        int teacher=0;</span>
-<span class="nc" id="L35">        ReturnInfo returnInfo=new ReturnInfo();</span>
-<span class="nc" id="L36">        UserInfo userInfo=new UserInfo();</span>
-<span class="nc" id="L37">        Users u= usersDao.getUserByWechat_id(wechat_id);</span>
-<span class="nc bnc" id="L38" title="All 2 branches missed.">        if(u!=null) {</span>
-<span class="nc" id="L39">            returnInfo.setMsg(registerMsg2);</span>
+    public void checkRegister() {
+<span class="nc" id="L33">        String wechat_id = &quot;123456&quot;;</span>
+<span class="nc" id="L34">        String id = &quot;518021910456&quot;;</span>
+<span class="nc" id="L35">        String name = &quot;lixuan&quot;;</span>
+<span class="nc" id="L36">        int teacher = 0;</span>
+<span class="nc" id="L37">        ReturnInfo returnInfo = new ReturnInfo();</span>
+<span class="nc" id="L38">        UserInfo userInfo = new UserInfo();</span>
+<span class="nc" id="L39">        Optional&lt;Users&gt; u = usersDao.getUserByWechat_id(wechat_id);</span>
+<span class="nc bnc" id="L40" title="All 2 branches missed.">        if (u.isPresent()) {</span>
+<span class="nc" id="L41">            returnInfo.setMsg(registerMsg2);</span>
         }
-<span class="nc" id="L41">        Users testUser= usersDao.getByIdAndAuth(id,teacher);</span>
-<span class="nc bnc" id="L42" title="All 2 branches missed.">        if(testUser!=null) {</span>
-<span class="nc" id="L43">            returnInfo.setMsg(registerMsg2);</span>
+<span class="nc" id="L43">        Optional&lt;Users&gt; testUser = usersDao.getByIdAndAuth(id, teacher);</span>
+<span class="nc bnc" id="L44" title="All 2 branches missed.">        if (testUser.isPresent()) {</span>
+<span class="nc" id="L45">            returnInfo.setMsg(registerMsg2);</span>
         }
-<span class="nc" id="L45">        boolean flag = false;</span>
-<span class="nc" id="L46">            Student student = studentDao.getStudentByIdAndName(id, name);</span>
-<span class="nc bnc" id="L47" title="All 2 branches missed.">            if (student != null) {</span>
-<span class="nc" id="L48">                userInfo.setId(id);</span>
-<span class="nc" id="L49">                userInfo.setOpenid(wechat_id);</span>
-<span class="nc" id="L50">                userInfo.setName(student.getName());</span>
-<span class="nc" id="L51">                userInfo.setDept(student.getDepartment());</span>
-<span class="nc" id="L52">                userInfo.setAuth(0);</span>
-<span class="nc" id="L53">                Project project=projectDao.getOne(id);</span>
-<span class="nc" id="L54">                userInfo.setProject(project.getProject_name());</span>
-<span class="nc" id="L55">                Teacher teacher1= teacherDao.getTeacherById(project.getTeacher_id());</span>
-<span class="nc" id="L56">                userInfo.setTeacher(teacher1.getName());</span>
-<span class="nc" id="L57">                flag = true;</span>
-            }
-<span class="nc bnc" id="L59" title="All 2 branches missed.">        if (flag) {</span>
-<span class="nc" id="L60">            Users users = new Users();</span>
-<span class="nc" id="L61">            users.setWechat_id(wechat_id);</span>
-<span class="nc" id="L62">            users.setId(id);</span>
-<span class="nc" id="L63">            users.setAuth(teacher);</span>
-<span class="nc" id="L64">            usersDao.saveUsers(users);</span>
-<span class="nc" id="L65">            returnInfo.setMsg(registerMsg1);</span>
-<span class="nc" id="L66">            returnInfo.setUserData(userInfo);</span>
-<span class="nc" id="L67">        }</span>
-        else {
-<span class="nc" id="L69">            returnInfo.setMsg(registerMsg0);</span>
+<span class="nc" id="L47">        boolean flag = false;</span>
+<span class="nc" id="L48">        Student student = studentDao.getStudentByIdAndName(id, name);</span>
+<span class="nc bnc" id="L49" title="All 2 branches missed.">        if (student != null) {</span>
+<span class="nc" id="L50">            userInfo.setId(id);</span>
+<span class="nc" id="L51">            userInfo.setOpenid(wechat_id);</span>
+<span class="nc" id="L52">            userInfo.setName(student.getName());</span>
+<span class="nc" id="L53">            userInfo.setDept(student.getDepartment());</span>
+<span class="nc" id="L54">            userInfo.setAuth(0);</span>
+<span class="nc" id="L55">            Optional&lt;Project&gt; project = projectDao.getOne(id);</span>
+<span class="nc" id="L56">            userInfo.setProject(project.get().getProject_name());</span>
+<span class="nc" id="L57">            Teacher teacher1 = teacherDao.getTeacherById(project.get().getTeacher_id());</span>
+<span class="nc" id="L58">            userInfo.setTeacher(teacher1.getName());</span>
+<span class="nc" id="L59">            flag = true;</span>
         }
-<span class="nc" id="L71">        ReturnInfo compare=loginService.register(wechat_id,id,name,teacher);</span>
-<span class="nc" id="L72">        assertEquals(compare, returnInfo);</span>
-<span class="nc" id="L73">    }</span>
+<span class="nc bnc" id="L61" title="All 2 branches missed.">        if (flag) {</span>
+<span class="nc" id="L62">            Users users = new Users();</span>
+<span class="nc" id="L63">            users.setWechat_id(wechat_id);</span>
+<span class="nc" id="L64">            users.setId(id);</span>
+<span class="nc" id="L65">            users.setAuth(teacher);</span>
+<span class="nc" id="L66">            usersDao.saveUsers(users);</span>
+<span class="nc" id="L67">            returnInfo.setMsg(registerMsg1);</span>
+<span class="nc" id="L68">            returnInfo.setUserData(userInfo);</span>
+<span class="nc" id="L69">        } else {</span>
+<span class="nc" id="L70">            returnInfo.setMsg(registerMsg0);</span>
+        }
+<span class="nc" id="L72">        ReturnInfo compare = loginService.register(wechat_id, id, name, teacher);</span>
+<span class="nc" id="L73">        assertEquals(compare, returnInfo);</span>
+<span class="nc" id="L74">    }</span>
 
     @Test
     public void checklogout(){
-<span class="nc" id="L77">        String wechat_id=&quot;123456&quot;;</span>
-<span class="nc" id="L78">        ReturnInfo returnInfo=new ReturnInfo();</span>
-<span class="nc" id="L79">        int flag= usersDao.deleteUsers(wechat_id);</span>
-<span class="nc bnc" id="L80" title="All 2 branches missed.">        if(flag==1)</span>
-<span class="nc" id="L81">            returnInfo.setMsg(logoutMsg1);</span>
-<span class="nc" id="L82">        else returnInfo.setMsg(logoutMsg0);</span>
-<span class="nc" id="L83">        ReturnInfo compare=loginService.logout(wechat_id);</span>
-<span class="nc" id="L84">        assertEquals(compare, returnInfo);</span>
-<span class="nc" id="L85">    }</span>
+<span class="nc" id="L78">        String wechat_id=&quot;123456&quot;;</span>
+<span class="nc" id="L79">        ReturnInfo returnInfo=new ReturnInfo();</span>
+<span class="nc" id="L80">        int flag= usersDao.deleteUsers(wechat_id);</span>
+<span class="nc bnc" id="L81" title="All 2 branches missed.">        if(flag==1)</span>
+<span class="nc" id="L82">            returnInfo.setMsg(logoutMsg1);</span>
+<span class="nc" id="L83">        else returnInfo.setMsg(logoutMsg0);</span>
+<span class="nc" id="L84">        ReturnInfo compare=loginService.logout(wechat_id);</span>
+<span class="nc" id="L85">        assertEquals(compare, returnInfo);</span>
+<span class="nc" id="L86">    }</span>
 
     @Test
     public void checklogin(){
-<span class="nc" id="L89">        String wechat_id=&quot;3&quot;;</span>
-<span class="nc" id="L90">        Users users= usersDao.getUserByWechat_id(wechat_id);</span>
-<span class="nc" id="L91">        UserInfo userInfo=new UserInfo();</span>
-<span class="nc" id="L92">        ReturnInfo returnInfo=new ReturnInfo();</span>
-<span class="nc bnc" id="L93" title="All 2 branches missed.">        if(users!=null){</span>
-<span class="nc" id="L94">            String id=users.getId();</span>
-<span class="nc" id="L95">            userInfo.setId(id);</span>
-<span class="nc" id="L96">            userInfo.setOpenid(wechat_id);</span>
-<span class="nc" id="L97">            returnInfo.setMsg(loginMsg1);</span>
-<span class="nc bnc" id="L98" title="All 2 branches missed.">            if(users.getAuth()==1){</span>
-<span class="nc" id="L99">                Teacher t= teacherDao.getTeacherById(id);</span>
-<span class="nc" id="L100">                userInfo.setAuth(1);</span>
-<span class="nc" id="L101">                userInfo.setDept(t.getDepartment());</span>
-<span class="nc" id="L102">                userInfo.setName(t.getName());</span>
-<span class="nc" id="L103">                returnInfo.setUserData(userInfo);</span>
-<span class="nc" id="L104">            }</span>
+<span class="nc" id="L90">        String wechat_id=&quot;3&quot;;</span>
+<span class="nc" id="L91">        Optional&lt;Users&gt; users= usersDao.getUserByWechat_id(wechat_id);</span>
+<span class="nc" id="L92">        UserInfo userInfo=new UserInfo();</span>
+<span class="nc" id="L93">        ReturnInfo returnInfo=new ReturnInfo();</span>
+<span class="nc bnc" id="L94" title="All 2 branches missed.">        if(users.isPresent()){</span>
+<span class="nc" id="L95">            String id=users.get().getId();</span>
+<span class="nc" id="L96">            userInfo.setId(id);</span>
+<span class="nc" id="L97">            userInfo.setOpenid(wechat_id);</span>
+<span class="nc" id="L98">            returnInfo.setMsg(loginMsg1);</span>
+<span class="nc bnc" id="L99" title="All 2 branches missed.">            if(users.get().getAuth()==1){</span>
+<span class="nc" id="L100">                Teacher t= teacherDao.getTeacherById(id);</span>
+<span class="nc" id="L101">                userInfo.setAuth(1);</span>
+<span class="nc" id="L102">                userInfo.setDept(t.getDepartment());</span>
+<span class="nc" id="L103">                userInfo.setName(t.getName());</span>
+<span class="nc" id="L104">                returnInfo.setUserData(userInfo);</span>
+<span class="nc" id="L105">            }</span>
             else
             {
-<span class="nc" id="L107">                Student student= studentDao.getOne(id);</span>
-<span class="nc" id="L108">                userInfo.setAuth(0);</span>
-<span class="nc" id="L109">                userInfo.setDept(student.getDepartment());</span>
-<span class="nc" id="L110">                userInfo.setName(student.getName());</span>
-<span class="nc" id="L111">                Project project=projectDao.getOne(id);</span>
-<span class="nc" id="L112">                userInfo.setProject(project.getProject_name());</span>
-<span class="nc" id="L113">                Teacher teacher= teacherDao.getTeacherById(project.getTeacher_id());</span>
-<span class="nc" id="L114">                userInfo.setTeacher(teacher.getName());</span>
+<span class="nc" id="L108">                Student student= studentDao.getOne(id);</span>
+<span class="nc" id="L109">                userInfo.setAuth(0);</span>
+<span class="nc" id="L110">                userInfo.setDept(student.getDepartment());</span>
+<span class="nc" id="L111">                userInfo.setName(student.getName());</span>
+<span class="nc" id="L112">                Optional&lt;Project&gt; project=projectDao.getOne(id);</span>
+<span class="nc" id="L113">                userInfo.setProject(project.get().getProject_name());</span>
+<span class="nc" id="L114">                Teacher teacher= teacherDao.getTeacherById(project.get().getTeacher_id());</span>
+<span class="nc" id="L115">                userInfo.setTeacher(teacher.getName());</span>
             }
-<span class="nc" id="L116">        }</span>
+<span class="nc" id="L117">        }</span>
         else {
-<span class="nc" id="L118">            returnInfo.setMsg(loginMsg0);</span>
+<span class="nc" id="L119">            returnInfo.setMsg(loginMsg0);</span>
         }
-<span class="nc" id="L120">        ReturnInfo compare=loginService.login(wechat_id);</span>
-<span class="nc" id="L121">        assertEquals(compare, returnInfo);</span>
-<span class="nc" id="L122">    }</span>
+<span class="nc" id="L121">        ReturnInfo compare=loginService.login(wechat_id);</span>
+<span class="nc" id="L122">        assertEquals(compare, returnInfo);</span>
+<span class="nc" id="L123">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

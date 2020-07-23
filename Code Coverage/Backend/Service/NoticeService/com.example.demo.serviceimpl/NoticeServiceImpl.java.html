@@ -3,52 +3,89 @@
 import com.example.demo.dao.DeptNoticeDao;
 import com.example.demo.dao.SchoolNoticeDao;
 import com.example.demo.entity.DeptNotice;
+import com.example.demo.entity.DeptNoticeContent;
 import com.example.demo.entity.SchoolNotice;
+import com.example.demo.entity.SchoolNoticeContent;
+import com.example.demo.repository.DeptNoticeContentRepository;
+import com.example.demo.repository.SchoolNoticeContentRepository;
 import com.example.demo.service.NoticeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
-<span class="fc" id="L14">public class NoticeServiceImpl implements NoticeService {</span>
+<span class="fc" id="L19">public class NoticeServiceImpl implements NoticeService {</span>
     @Autowired
     private DeptNoticeDao deptNoticeDao;
     @Autowired
     private SchoolNoticeDao schoolNoticeDao;
+    @Autowired
+    private DeptNoticeContentRepository deptNoticeContentRepository;
+    @Autowired
+    private SchoolNoticeContentRepository schoolNoticeContentRepository;
 
     @Override
     public List&lt;DeptNotice&gt; getDeptNoticesByDept(String department){
-<span class="fc" id="L22">        return deptNoticeDao.getDeptNoticesByDept(department);</span>
+<span class="fc" id="L31">        return deptNoticeDao.getDeptNoticesByDept(department);</span>
     }
 
     @Override
     public DeptNotice getDeptNoticeById(int id){
-<span class="fc" id="L27">        return deptNoticeDao.getDeptNoticeById(id);</span>
+<span class="fc" id="L36">        Optional&lt;DeptNotice&gt; deptNotice= deptNoticeDao.getDeptNoticeById(id);</span>
+<span class="pc bpc" id="L37" title="1 of 2 branches missed.">        if(deptNotice.isPresent()) {</span>
+<span class="fc" id="L38">            DeptNotice schoolNotice1=deptNotice.get();</span>
+<span class="fc" id="L39">            Optional&lt;DeptNoticeContent&gt; schoolNoticeContent = Optional.ofNullable(deptNoticeContentRepository.findById(id));</span>
+<span class="pc bpc" id="L40" title="1 of 2 branches missed.">            if (schoolNoticeContent.isPresent()) {</span>
+<span class="fc" id="L41">                DeptNoticeContent s = schoolNoticeContent.get();</span>
+<span class="fc" id="L42">                schoolNotice1.setContent(s.getContent());</span>
+<span class="fc" id="L43">            } else {</span>
+<span class="nc" id="L44">                schoolNotice1.setContent(null);</span>
+            }
+<span class="fc" id="L46">            return schoolNotice1;</span>
+        }
+        else {
+<span class="nc" id="L49">            return new DeptNotice();</span>
+        }
     }
 
     @Override
     public SchoolNotice getSchoolNoticeById(int id)
     {
-<span class="fc" id="L33">        return schoolNoticeDao.getSchoolNoticeById(id);</span>
+<span class="fc" id="L56">        Optional&lt;SchoolNotice&gt; schoolNotice= schoolNoticeDao.getSchoolNoticeById(id);</span>
+<span class="pc bpc" id="L57" title="1 of 2 branches missed.">        if(schoolNotice.isPresent()) {</span>
+<span class="fc" id="L58">            SchoolNotice schoolNotice1=schoolNotice.get();</span>
+<span class="fc" id="L59">            Optional&lt;SchoolNoticeContent&gt; schoolNoticeContent = Optional.ofNullable(schoolNoticeContentRepository.findById(id));</span>
+<span class="pc bpc" id="L60" title="1 of 2 branches missed.">            if (schoolNoticeContent.isPresent()) {</span>
+<span class="fc" id="L61">                SchoolNoticeContent s = schoolNoticeContent.get();</span>
+<span class="fc" id="L62">                schoolNotice1.setContent(s.getContent());</span>
+<span class="fc" id="L63">            } else {</span>
+<span class="nc" id="L64">                schoolNotice1.setContent(null);</span>
+            }
+<span class="fc" id="L66">            return schoolNotice1;</span>
+        }
+        else {
+<span class="nc" id="L69">            return new SchoolNotice();</span>
+        }
     }
 
     @Override
     public List&lt;SchoolNotice&gt; getSchoolNotices()
     {
-<span class="fc" id="L39">        return schoolNoticeDao.getSchoolNotices();</span>
+<span class="fc" id="L76">        return schoolNoticeDao.getSchoolNotices();</span>
     }
 
     @Override
     public List&lt;SchoolNotice&gt; getThreeSchoolNotices()
     {
-<span class="fc" id="L45">        return schoolNoticeDao.getThreeSchoolNotices();</span>
+<span class="fc" id="L82">        return schoolNoticeDao.getThreeSchoolNotices();</span>
     }
 
     @Override
     public List&lt;DeptNotice&gt; getThreeDeptNoticesByDepartment(String dept)
     {
-<span class="fc" id="L51">        return deptNoticeDao.getThreeDeptNoticesByDepartment(dept);</span>
+<span class="fc" id="L88">        return deptNoticeDao.getThreeDeptNoticesByDepartment(dept);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
