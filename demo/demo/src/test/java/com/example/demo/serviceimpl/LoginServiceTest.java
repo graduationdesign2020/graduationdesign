@@ -51,7 +51,7 @@ public class LoginServiceTest {
             userInfo.setOpenid(wechat_id);
             userInfo.setName(student.getName());
             userInfo.setDept(student.getDepartment());
-            userInfo.setAuth(0);
+            userInfo.setAuth("ROLE_STUDENT");
             Optional<Project> project = projectDao.getOne(id);
             userInfo.setProject(project.get().getProject_name());
             Teacher teacher1 = teacherDao.getTeacherById(project.get().getTeacher_id());
@@ -98,7 +98,7 @@ public class LoginServiceTest {
             returnInfo.setMsg(loginMsg1);
             if(users.get().getAuth().equals("ROLE_TEACHER")){
                 Teacher t= teacherDao.getTeacherById(id);
-                userInfo.setAuth(1);
+                userInfo.setAuth("ROLE_TEACHER");
                 userInfo.setDept(t.getDepartment());
                 userInfo.setName(t.getName());
                 returnInfo.setUserData(userInfo);
@@ -106,7 +106,7 @@ public class LoginServiceTest {
             else
             {
                 Student student= studentDao.getOne(id);
-                userInfo.setAuth(0);
+                userInfo.setAuth("ROLE_STUDENT");
                 userInfo.setDept(student.getDepartment());
                 userInfo.setName(student.getName());
                 Optional<Project> project=projectDao.getOne(id);
