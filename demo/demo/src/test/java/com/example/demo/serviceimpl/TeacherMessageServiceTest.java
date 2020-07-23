@@ -1,4 +1,4 @@
-package com.example.demo.Service;
+package com.example.demo.serviceimpl;
 
 import com.example.demo.DemoApplicationTests;
 import com.example.demo.dao.*;
@@ -11,18 +11,13 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
-import static com.example.demo.constant.ReturnMsg.sendingMsg0;
-import static com.example.demo.constant.ReturnMsg.sendingMsg1;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
