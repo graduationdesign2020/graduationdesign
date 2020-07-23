@@ -12,12 +12,12 @@ import pymongo
 class BYSJPipeline(object):
     def __init__(self):
         # connection database
-        self.connect = pymysql.connect(host='localhost', user='root', passwd='Smile200915@',
+        self.connect = pymysql.connect(host='100.25.196.48', user='root', passwd='graduationdesign',
                                        db='GDMS')
         # get cursor
         self.cursor = self.connect.cursor()
 
-        self.client = pymongo.MongoClient(host='localhost',port=27017)
+        self.client = pymongo.MongoClient(host='100.25.196.48',port=27017)
         self.db = self.client["GDMS"]  # 获得数据库的句柄
         self.coll_dept = self.db["deptnoticecontent"]  # 获得collection的句柄
         self.coll_school = self.db["schoolnoticecontent"]
@@ -86,9 +86,6 @@ class BYSJPipeline(object):
 
             return item
         if item["item_type"] == 'notice':
-            print('notice')
-            if not self.client or not item:
-                return
             if item["notice_type"] == 'dept':
                 try:
                     self.cursor.execute(
