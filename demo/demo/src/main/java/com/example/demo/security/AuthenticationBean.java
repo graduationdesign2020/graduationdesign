@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class AuthenticationBean {
-    private String code;
+    private String openid;
     private String id;
 }

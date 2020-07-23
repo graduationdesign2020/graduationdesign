@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class HttpClient {
-    public static String doGet(String urlPath,HashMap<String,Object> params)
+    public static String doGet(String urlPath, HashMap<String, Object> params)
             throws Exception {
         StringBuilder sb = new StringBuilder(urlPath);
         if (params != null && !params.isEmpty()) { // 说明有参数

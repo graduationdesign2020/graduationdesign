@@ -58,11 +58,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .and()
                 .addFilterBefore(customAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class)
                 .authorizeRequests()
-                    .antMatchers("/", "/login", "/register").permitAll()
+                    .antMatchers("/","/login", "/mylogin", "/register").permitAll()
                     .anyRequest().authenticated()
                     .and()
 
                 .formLogin()
+                    .loginProcessingUrl("/login")
                     .permitAll()
                 //.exceptionHandling()
                 //没有权限，返回json

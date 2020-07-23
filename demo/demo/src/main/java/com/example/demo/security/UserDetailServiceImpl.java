@@ -1,8 +1,13 @@
 package com.example.demo.security;
 
+import com.example.demo.constant.appId;
 import com.example.demo.dao.UsersDao;
 import com.example.demo.entity.Users;
 import com.example.demo.repository.UsersRepository;
+import com.example.demo.utils.CodeReturn;
+import com.example.demo.utils.HttpClient;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
@@ -26,10 +31,11 @@ public class UserDetailServiceImpl implements UserDetailsService {
     @Autowired
     private UsersDao usersDao;
 
+    @SneakyThrows
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<Users> user = usersDao.getUserByWechat_id(username);//usersRepository.getByWechat_id(username);
-        System.err.println(username);
+    public UserDetails loadUserByUsername(String wechat_id) throws UsernameNotFoundException {
+        Optional<Users> user = usersDao.getUserByWechat_id(wechat_id);
+        System.err.println(wechat_id);
         System.err.println(user.isPresent());
 
         if (user.isEmpty()) {
@@ -37,9 +43,7 @@ public class UserDetailServiceImpl implements UserDetailsService {
         }
         System.out.println(user.get());
         List<GrantedAuthority> authorities = AuthorityUtils.createAuthorityList(user.get().getAuth());
-        //List<SimpleGrantedAuthority> authorities = new ArrayList<>();
-        //authorities.add(new SimpleGrantedAuthority(String.valueOf(user.get().getAuth())));
-        System.err.println("username is " + username + ", "+ user.get().getId() + ", " + user.get().getAuth());
+        System.err.println("username is " + wechat_id + ", "+ user.get().getId() + ", " + user.get().getAuth());
         User u = new User(user.get().getWechat_id(), new BCryptPasswordEncoder().encode(user.get().getId()), authorities);
         System.out.println(u);
         return u;
