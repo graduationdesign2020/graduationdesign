@@ -18,8 +18,8 @@ import java.util.Map;
     @RequestMapping(path = &quot;/checkSelfProcess&quot;)
     //@ResponseBody
     public List&lt;StateInfo&gt; checkSelfProcess(@RequestBody Map&lt;String, String&gt; params){
-<span class="nc" id="L21">        System.out.println(&quot;self process stu_id&quot;);</span>
-<span class="nc" id="L22">        System.out.println(params.get(&quot;stu_id&quot;));</span>
+        //System.out.println(&quot;self process stu_id&quot;);
+        //System.out.println(params.get(&quot;stu_id&quot;));
 <span class="nc" id="L23">        return processService.checkSelfProcess(params.get(&quot;stu_id&quot;));</span>
     }
 

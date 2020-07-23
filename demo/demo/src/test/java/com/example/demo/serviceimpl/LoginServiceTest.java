@@ -62,7 +62,7 @@ public class LoginServiceTest {
             Users users = new Users();
             users.setWechat_id(wechat_id);
             users.setId(id);
-            users.setAuth(teacher);
+            users.setAuth("ROLE_TEACHER");
             usersDao.saveUsers(users);
             returnInfo.setMsg(registerMsg1);
             returnInfo.setUserData(userInfo);
@@ -96,7 +96,7 @@ public class LoginServiceTest {
             userInfo.setId(id);
             userInfo.setOpenid(wechat_id);
             returnInfo.setMsg(loginMsg1);
-            if(users.get().getAuth()==1){
+            if(users.get().getAuth().equals("ROLE_TEACHER")){
                 Teacher t= teacherDao.getTeacherById(id);
                 userInfo.setAuth(1);
                 userInfo.setDept(t.getDepartment());

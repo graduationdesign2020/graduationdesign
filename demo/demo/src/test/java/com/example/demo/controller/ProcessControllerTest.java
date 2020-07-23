@@ -63,8 +63,6 @@ public class ProcessControllerTest extends DemoApplicationTests {
                 .andExpect(status().isOk()).andReturn();
         result.getResponse().setCharacterEncoding("UTF-8");
         String resultContent = result.getResponse().getContentAsString();
-        //System.out.println("result content: ");
-        //System.out.println(resultContent);
         List<StateInfo> stateInfos = om.readValue(resultContent, new TypeReference<List<StateInfo> >() {});
 
         assertEquals(stateInfos, processService.checkSelfProcess("1"));
