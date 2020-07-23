@@ -1,0 +1,75 @@
+<view class="PostTask-container"> 
+<view >
+<van-divider contentPosition="center">选择流程</van-divider>
+<van-dropdown-menu>
+  <van-dropdown-item value="{{ value }}" options="{{ options }}" bind:change = "onStateChange"/>
+</van-dropdown-menu>
+<van-divider contentPosition="center">选择截止时间</van-divider>
+<van-cell-group>
+  <van-cell 
+    title="截止日期" 
+    value="{{currentDateString}}"
+    is-link 
+    bind:click="dateshowPopup"
+  />
+  <van-cell 
+    title="截止时间" 
+    value="{{currentTime}}"
+    is-link 
+    bind:click="timeshowPopup"
+  />
+</van-cell-group>
+</view>
+<view class="PostTask-buttons">
+<van-button type="info" round size="large" bind:click="onSubmit">发布流程截止时间</van-button>
+</view>
+<van-dialog id="van-dialog" />
+</view>
+<van-popup
+  show="{{ dateshow }}"
+  position="bottom"
+  bind:close="onClose"
+  >
+  <van-datetime-picker
+  type="date"
+  value="{{ currentDate }}"
+  bind:confirm="onChooseDate"
+  bind:cancel="onClose"
+  min-date="{{ minDate }}"
+  formatter="{{ formatter }}"
+  />
+  </van-popup>
+  <van-popup
+  show="{{ timeshow }}"
+  position="bottom"
+  bind:close="onClose"
+  >
+  <van-datetime-picker
+  type="time"
+  value="{{ currentTime }}"
+  min-hour="{{ minHour }}"
+  max-hour="{{ maxHour }}"
+  min-minute="{{ minMinute }}"
+  max-minute="{{ maxMinute }}"
+  bind:confirm="onChooseTime"
+  bind:cancel="onClose"
+/>
+  </van-popup>
+  <van-overlay show="{{ waitshow }}">
+    <view class="wrapper">
+      <view class="block">
+      <van-loading color="#1989fa" size="24px" vertical>发送中...</van-loading>
+      </view>
+    </view>
+  </van-overlay>
+  <van-dialog 
+  id="van-dialog" 
+  show="{{dialog}}" 
+  title="确认" 
+  message="{{msg}}" 
+  show-confirm-button 
+  show-cancel-button
+  cancel-button-text="再次发送"
+  confirm-button-text="返回"
+  bind:confirm="confirm"
+  bind:cancel="cancel"/>
