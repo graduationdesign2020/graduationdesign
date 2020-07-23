@@ -2,8 +2,6 @@ package com.example.demo.serviceimpl;
 
 import com.example.demo.dao.*;
 import com.example.demo.entity.*;
-import com.example.demo.repository.TeacherMessageContentRepository;
-import com.example.demo.repository.TeacherMessageReadingRepository;
 import com.example.demo.service.TeacherMessageService;
 import com.example.demo.utils.MessageInfo;
 import com.example.demo.utils.ReturnInfo;
@@ -13,10 +11,8 @@ import org.springframework.stereotype.Service;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
-import static com.example.demo.constant.ReturnMsg.sendingMsg0;
-import static com.example.demo.constant.ReturnMsg.sendingMsg1;
+import static com.example.demo.constant.ReturnMsg.*;
 
 @Service
 public class TeacherMessageServiceImpl implements TeacherMessageService {
@@ -24,8 +20,6 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
     private TeacherMessageDao teacherMessageDao;
     @Autowired
     private StudentDao studentDao;
-    @Autowired
-    private TeacherMessageContentRepository teacherMessageContentRepository;
     @Autowired
     private TeacherDao teacherDao;
     @Autowired
@@ -97,8 +91,8 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
             s=teacherMessageReadingDao.addReader(value);
         }
         if (s!=null)
-            returnInfo.setMsg(sendingMsg1);
-        else returnInfo.setMsg(sendingMsg0);
+            returnInfo.setMsg(Msg1);
+        else returnInfo.setMsg(Msg0);
         return returnInfo;
     }
 
