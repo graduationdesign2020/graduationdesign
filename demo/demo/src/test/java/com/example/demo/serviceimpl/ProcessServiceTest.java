@@ -63,9 +63,7 @@ public class ProcessServiceTest extends DemoApplicationTests {
     @Test
     public void checkSetDeadline(){
         List<String> student=new ArrayList<>();
-        student.add("1");
-        student.add("3");
-        ReturnInfo result=processService.setDeadline("2020-7-23 12:00:00",student,2);
+        ReturnInfo result=processService.setDeadline("2020-7-23 12:00:00","1",2);
         assertEquals("FAIL",result.getMsg());
     }
 

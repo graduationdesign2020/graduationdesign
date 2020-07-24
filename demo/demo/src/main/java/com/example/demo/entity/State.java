@@ -24,66 +24,16 @@ public class State {
     @GeneratedValue(strategy = IDENTITY)
     private int id;
 
-    public int getId() {
-        return id;
-    }
-
     private String project_id;
-
-    public String getProject_id() {
-        return project_id;
-    }
-
-    public void setProject_id(String project_id) {
-        this.project_id = project_id;
-    }
 
     private int state;
 
-    public void setState(int state) {
-        this.state = state;
-    }
-
-    public int getState() {
-        return state;
-    }
-
     private  int submit;
 
-    public int getSubmit() {
-        return submit;
-    }
-
-    public void setSubmit(int submit) {
-        this.submit = submit;
-    }
-
-    private String start_time;
-
-    public String getStart_time() {
-        return start_time;
-    }
-
-    public void setStart_time(String start_time) {
-        this.start_time = start_time;
-    }
-
-    private String end_time;
-
-    public String getEnd_time() {
-        return end_time;
-    }
-
-    public void setEnd_time(String end_time) {
-        this.end_time = end_time;
-    }
-
-    public void init(int id, String project_id, int state, int submit, String start_time, String end_time) {
+    public void init(int id, String project_id, int state, int submit) {
         this.id = id;
         this.project_id = project_id;
         this.state = state;
         this.submit = submit;
-        this.start_time = start_time;
-        this.end_time = end_time;
     }
 }

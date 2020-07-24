@@ -20,9 +20,10 @@ Component({
    */
   methods: {
     onChange(e) {
+      var that=this;
       switch (e.detail) {
         case "home": {
-          if(this.properties.active == "home") return;
+          if(that.properties.active == "home") return;
           else{
             wx.redirectTo({
               url: '../home/home',
@@ -30,7 +31,7 @@ Component({
           }
         }
         case "myprofile": {
-          if(this.properties.active == "myprofile") return;
+          if(that.properties.active == "myprofile") return;
           else{
             wx.redirectTo({
               url: '../myProfile/Center',
@@ -38,7 +39,7 @@ Component({
           }
         }
         case "processList": {
-          if(this.properties.active == "processList") return;
+          if(that.properties.active == "processList") return;
           else{
             wx.redirectTo({
               url: '../processList/processList',
@@ -46,7 +47,7 @@ Component({
           }
         }
         case "process": {
-          if(this.properties.active == "process") return;
+          if(that.properties.active == "process") return;
           else{
             wx.redirectTo({
               url: '../process/procedure',

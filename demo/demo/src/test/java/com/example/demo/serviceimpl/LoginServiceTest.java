@@ -20,17 +20,6 @@ public class LoginServiceTest {
     private LoginService loginService;
 
     @Test
-    public void checkRegister() {
-        String wechat_id = "123456";
-        String id = "518021910456";
-        String name = "lixuan";
-        String auth = "ROLE_TEACHER";
-        ReturnInfo returnInfo = new ReturnInfo();
-        ReturnInfo compare = loginService.register(wechat_id, id, name, auth);
-        assertEquals(compare, returnInfo);
-    }
-
-    @Test
     @Transactional
     public void checklogout(){
         String wechat_id="123456";
@@ -45,10 +34,9 @@ public class LoginServiceTest {
     public void checklogin(){
         String wechat_id="ohdPd4pTA-yKZTSfrSY6DsB5_Y00";
         ReturnInfo returnInfo=new ReturnInfo();
-
         ReturnInfo compare=loginService.login(wechat_id);
         UserInfo userInfo=new UserInfo();
-        userInfo.init("4","ohdPd4pTA-yKZTSfrSY6DsB5_Y00","tiger","SE",null,null,"ROLE_TEACHER");
+        userInfo.init("4","ohdPd4pTA-yKZTSfrSY6DsB5_Y00","tiger","SE",null,null,"teacher");
         returnInfo.setUserData(userInfo);
         assertEquals(compare, returnInfo);
     }

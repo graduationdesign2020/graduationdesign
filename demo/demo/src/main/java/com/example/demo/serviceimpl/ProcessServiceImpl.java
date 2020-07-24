@@ -1,9 +1,11 @@
 package com.example.demo.serviceimpl;
 
+import com.example.demo.dao.DeadlineDao;
 import com.example.demo.dao.ProjectDao;
 import com.example.demo.dao.StateDao;
 import com.example.demo.dao.StudentDao;
 import com.example.demo.entity.*;
+import com.example.demo.schdule.LoadTask;
 import com.example.demo.service.ProcessService;
 import com.example.demo.utils.ProcessInfo;
 import com.example.demo.utils.ReturnInfo;
@@ -11,8 +13,10 @@ import com.example.demo.utils.StateInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static com.example.demo.constant.ReturnMsg.*;
 
@@ -24,26 +28,35 @@ public class ProcessServiceImpl implements ProcessService {
     private ProjectDao projectDao;
     @Autowired
     private StudentDao studentDao;
+    @Autowired
+    private DeadlineDao deadlineDao;
 
     @Override
     public List<StateInfo> checkSelfProcess(String stu_id) {
         List<StateInfo> stateInfos = new ArrayList<>();
         List<State> states = stateDao.getStates(stu_id);
-        if (states.isEmpty()) {
-            return null;
-        }
-        for (State state : states) {
-            StateInfo stateInfo = new StateInfo();
-            stateInfo.setSta(state);
-            stateInfo.transfer();
-            stateInfos.add(stateInfo);
-        }
-        int num = states.size();
-        for (int i = num; i < 5; i++) {
-            StateInfo stateInfo = new StateInfo();
-            stateInfo.init(i);
-            stateInfo.transfer();
-            stateInfos.add(stateInfo);
+        Optional<Project> project=projectDao.getOne(stu_id);
+        if (project.isPresent()){
+            Project p=project.get();
+            String t=p.getTeacher_id();
+            if (states.isEmpty()) {
+                return null;
+            }
+            for (State state : states) {
+                StateInfo stateInfo = new StateInfo();
+                stateInfo.setSta(state);
+                stateInfo.transfer();
+                stateInfos.add(stateInfo);
+            }
+            int num = states.size();
+            for (int i = num; i < 5; i++) {
+                StateInfo stateInfo = new StateInfo();
+                stateInfo.init(i);
+                stateInfo.transfer();
+                String ddl=deadlineDao.getDeadline(t,i);
+                stateInfo.setEnd_time(ddl);
+                stateInfos.add(stateInfo);
+            }
         }
         return stateInfos;
     }
@@ -67,6 +80,8 @@ public class ProcessServiceImpl implements ProcessService {
                 case 4: name = "论文最终稿";
             }
             processInfo.setName(name);
+            String ddl=deadlineDao.getDeadline(tea_id,i);
+            processInfo.setEnd_time(ddl);
             List<Student> studentsFinished = new ArrayList<>();
             List<Student> studentsUnfinished = new ArrayList<>();
             int finished = 0;
@@ -95,14 +110,16 @@ public class ProcessServiceImpl implements ProcessService {
     }
 
     @Override
-    public ReturnInfo setDeadline(String end_time,List<String> id,int state){
-        var i=0;
-        for (String value :id) {
-            i=stateDao.setDeadline(end_time, value, state);
-        }
+    public ReturnInfo setDeadline(String end_time,String id,int state){
+        Timestamp ddl=Timestamp.valueOf(end_time);
+        Deadline deadline=deadlineDao.addDeadline(id,ddl,state);
         ReturnInfo returnInfo=new ReturnInfo();
-        if(i==1){
+        if(deadline!=null) {
             returnInfo.setMsg(Msg1);
+            Timestamp timestamp=Timestamp.valueOf(end_time);
+            long time=timestamp.getTime()-(long)1000*3600*24;
+            Timestamp date =new Timestamp(time);
+            LoadTask.timeTask(date,deadline.getId(),id,state);
         }
         else {
             returnInfo.setMsg(Msg0);

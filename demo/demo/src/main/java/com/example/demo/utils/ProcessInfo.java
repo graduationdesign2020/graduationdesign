@@ -12,4 +12,5 @@ public class ProcessInfo {
     private int unfinished;
     private List<Student> finishedStu;
     private List<Student> unfinishedStu;
+    private String end_time;
 }

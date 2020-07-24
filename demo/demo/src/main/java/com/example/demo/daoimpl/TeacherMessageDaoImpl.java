@@ -38,12 +38,6 @@ public class TeacherMessageDaoImpl implements TeacherMessageDao {
         return teacherMessageRepository.getOne(id);
     }
 
-
-//    @Override
-//    public List<TeacherMessage> getTeacherMessages(String stu_id){
-//        return teacherMessageRepository.getTeacherMessagesByStudent_id(stu_id);
-//    }
-
     @Override
     public List<TeacherMessage> getTeacherMessagesByTeacher(String teacher_id) {
         return teacherMessageRepository.findAllByTeacher_id(teacher_id);

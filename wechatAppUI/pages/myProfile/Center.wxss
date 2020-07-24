@@ -21,9 +21,6 @@
   width: 60%;
   margin-left: 20%;
   height: fit-content;
-  /* margin-top: 1em;
-  width: 200px;
-  margin-left: 60px; */
 }
 .wrapper {
   display: flex;

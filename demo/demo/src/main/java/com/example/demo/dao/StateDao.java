@@ -8,6 +8,4 @@ public interface StateDao {
     State getOneByProjAndState(String proj_id, Integer state);
 
     List<State> getStates(String proj_id);
-
-    int setDeadline(String end_time,String id,int state);
 }
