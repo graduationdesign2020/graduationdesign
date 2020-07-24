@@ -16,7 +16,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Data
-@Table(name = "deadline",schema = "GDMS")
+@Table(name = "schedulejob",schema = "GDMS")
 @JsonIgnoreProperties(value = {"handler","hibernateLazyInitializer","fieldHandler"})
 @JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,
@@ -28,7 +28,9 @@ public class Deadline {
 
     private String teacher_id;
 
-    private Timestamp time;
+    private Timestamp end_time;
 
     private int state;
+
+    private int job_status;
 }

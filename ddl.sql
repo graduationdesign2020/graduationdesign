@@ -134,12 +134,12 @@ create table teachermessagereading
 	foreign key (message_id) references teachermessage (id) on delete cascade
 );
     
-create table schdulejob(
-	id				int NOT NULL,
+create table schedulejob(
+	id				int NOT NULL auto_increment,
 	teacher_id 		varchar(30) NOT NULL,  
-    job_status		varchar(2) NOT NULL,  
+    job_status		varchar(2) NOT NULL default"0",  
     state			int not null,  
-    deadline		timestamp not null,
+    end_time		timestamp not null,
     PRIMARY KEY (id),
     FOREIGN KEY (teacher_id) REFERENCES teacher(id) on delete cascade
 );
