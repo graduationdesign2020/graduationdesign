@@ -16,9 +16,9 @@ public class UserInfo {
 
     private String teacher;
 
-    private int auth;
+    private String auth;
 
-    public void init(String id,String openid,String name,String dept,String project,String teacher,int auth)
+    public void init(String id,String openid,String name,String dept,String project,String teacher,String auth)
     {
         this.id=id;
         this.openid=openid;

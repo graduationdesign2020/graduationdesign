@@ -11,7 +11,7 @@
     "pages/myProfile/Center",
     "pages/process/procedure",
     "pages/processList/processList",
-    "components/index"
+    "pages/postddl/postddl"
   ],
   "window": {
     "backgroundTextStyle": "light",

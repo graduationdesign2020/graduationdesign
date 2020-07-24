@@ -5,12 +5,12 @@ DROP TABLE IF EXISTS student;
 DROP TABLE IF EXISTS schoolnotice;
 DROP TABLE IF EXISTS deptnotice;
 DROP TABLE IF EXISTS teachermessage;
-DROP TABLE IF EXISTS sysmessage;
 DROP TABLE IF EXISTS users;
 drop table if exists principleusers;
 DROP TABLE IF EXISTS project;
 DROP TABLE IF EXISTS state;
 drop table if exists grade;
+drop table if exists schedulejob;
 set foreign_key_checks=1;
 
 CREATE TABLE teacher(
@@ -22,7 +22,7 @@ CREATE TABLE teacher(
 );
 
 CREATE TABLE student(
-    id          varchar(12) NOT NULL,
+    id          varchar(25) NOT NULL,
     name        varchar(50) NOT NULL,
     major       varchar(50) NOT NULL,
      department 	varchar(50) NOT NULL,
@@ -51,18 +51,6 @@ CREATE TABLE teachermessage(
     time        datetime not null,
     PRIMARY KEY (id),
     FOREIGN KEY (teacher_id) REFERENCES teacher (id) on delete cascade
-);
-
-CREATE TABLE teachersysmessage(
-    id          int not null auto_increment,
-    title       varchar(50) NOT NULL,
-    type		int not null,
-    submit 		int not null,
-    student_id 	varchar(12) NOT NULL,
-    is_read 	boolean NOT NULL default 0,
-    time        datetime not null,
-    PRIMARY KEY (id),
-    FOREIGN KEY (student_id) REFERENCES student (id) on delete cascade
 );
 
 -- auth:
@@ -95,7 +83,7 @@ CREATE TABLE principleusers
 -- 4:论文最终稿
 CREATE TABLE project
 (
-	id 			varchar(12) NOT NULL,
+	id 			varchar(25) NOT NULL,
 	project_name varchar(255),
     teacher_id 	varchar(50) NOT NULL,
     PRIMARY KEY (id),
@@ -115,7 +103,7 @@ CREATE TABLE project
 CREATE TABLE state
 (
 	id     		int NOT NULL auto_increment,
-	project_id 	varchar(12) NOT NULL,
+	project_id 	varchar(25) NOT NULL,
     state 		int NOT NULL,
     submit 		int NOT NULL,
     start_time 	datetime,
@@ -126,7 +114,7 @@ CREATE TABLE state
 
 CREATE TABLE grade
 (
-	id				varchar(12) NOT NULL,
+	id				varchar(25) NOT NULL,
 	teacher_grade 	varchar(2),  /* 教师 */
     review_grade	varchar(2),  /* 评阅 */
     defense_grade	varchar(2),  /* 答辩 */
@@ -137,15 +125,22 @@ CREATE TABLE grade
     
 create table teachermessagereading
 (
-    id         int auto_increment
-        primary key,
+    id         int auto_increment,
     message_id int                  not null,
-    student_id varchar(12)          not null,
+    student_id varchar(25)          not null,
     is_read    tinyint(1) default 0 not null,
-  foreign key (student_id) references student (id)
-            on delete cascade,
- foreign key (message_id) references teachermessage (id)
-            on delete cascade
+    primary key(id),
+	foreign key (student_id) references student (id) on delete cascade,
+	foreign key (message_id) references teachermessage (id) on delete cascade
 );
     
+create table schdulejob(
+	id				int NOT NULL,
+	teacher_id 		varchar(30) NOT NULL,  
+    job_status		varchar(2) NOT NULL,  
+    state			int not null,  
+    deadline		timestamp not null,
+    PRIMARY KEY (id),
+    FOREIGN KEY (teacher_id) REFERENCES teacher(id) on delete cascade
+);
     
