@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ProcessControllerTest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">demo$NoticeControllerTest.exec</a> &gt; <a href="index.source.html" class="el_package">com.example.demo.controller</a> &gt; <span class="el_source">ProcessControllerTest.java</span></div><h1>ProcessControllerTest.java</h1><pre class="source lang-java linenums">package com.example.demo.controller;
+
+import com.example.demo.DemoApplicationTests;
+import com.example.demo.entity.ProcessInfo;
+import com.example.demo.entity.StateInfo;
+import com.example.demo.service.ProcessService;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
+import org.springframework.test.annotation.Rollback;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.context.WebApplicationContext;
+
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+@Rollback
+@RunWith(SpringRunner.class)
+@SpringBootTest
+@Transactional
+<span class="nc" id="L36">public class ProcessControllerTest extends DemoApplicationTests {</span>
+    @Test
+    public void contextLoads() {
+
+<span class="nc" id="L40">    }</span>
+
+    private MockMvc mockMvc;
+<span class="nc" id="L43">    private ObjectMapper om = new ObjectMapper();</span>
+
+    @Autowired
+    private WebApplicationContext context;
+
+    @Autowired
+    private ProcessService processService;
+
+    @Before
+    public void setUp() {
+<span class="nc" id="L53">        mockMvc = MockMvcBuilders.webAppContextSetup(context).build();</span>
+<span class="nc" id="L54">    }</span>
+
+    @AfterEach
+    void tearDown() {
+<span class="nc" id="L58">    }</span>
+
+    @Test
+    public void checkSelfProcess() throws Exception {
+<span class="nc" id="L62">        MvcResult result = mockMvc.perform(post(&quot;/checkSelfProcess&quot;).content(&quot;{\&quot;stu_id\&quot;: \&quot;1\&quot;}&quot;).contentType(MediaType.APPLICATION_JSON_VALUE))</span>
+<span class="nc" id="L63">                .andExpect(status().isOk()).andReturn();</span>
+<span class="nc" id="L64">        result.getResponse().setCharacterEncoding(&quot;UTF-8&quot;);</span>
+<span class="nc" id="L65">        String resultContent = result.getResponse().getContentAsString();</span>
+        //System.out.println(&quot;result content: &quot;);
+        //System.out.println(resultContent);
+<span class="nc" id="L68">        List&lt;StateInfo&gt; stateInfos = om.readValue(resultContent, new TypeReference&lt;List&lt;StateInfo&gt; &gt;() {});</span>
+
+<span class="nc" id="L70">        assertEquals(stateInfos, processService.checkSelfProcess(&quot;1&quot;));</span>
+<span class="nc" id="L71">    }</span>
+
+    @Test
+    public void checkProcess() throws Exception {
+<span class="nc" id="L75">        MvcResult result = mockMvc.perform(post(&quot;/checkProcess&quot;).content(&quot;{\&quot;tea_id\&quot;: \&quot;1\&quot;}&quot;).contentType(MediaType.APPLICATION_JSON_VALUE))</span>
+<span class="nc" id="L76">                .andExpect(status().isOk()).andReturn();</span>
+<span class="nc" id="L77">        result.getResponse().setCharacterEncoding(&quot;UTF-8&quot;);</span>
+<span class="nc" id="L78">        String resultContent = result.getResponse().getContentAsString();</span>
+<span class="nc" id="L79">        List&lt;ProcessInfo&gt; processInfos = om.readValue(resultContent, new TypeReference&lt;List&lt;ProcessInfo&gt;&gt;() {} );</span>
+
+<span class="nc" id="L81">        assertEquals(processInfos, processService.checkProcess(&quot;1&quot;));</span>
+<span class="nc" id="L82">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

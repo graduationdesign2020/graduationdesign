@@ -25,10 +25,19 @@ public class SchoolNoticeDaolmpl implements SchoolNoticeDao {
 
     @Override
     public SchoolNotice getSchoolNoticeById(int id){
-        SchoolNotice schoolNotice= schoolNoticeRepository.getOne(id);
-        SchoolNoticeContent schoolNoticeContent=schoolNoticeContentRepository.findById(id);
-        schoolNotice.setContent(schoolNoticeContent.getContent());
-        return schoolNotice;
+        Optional<SchoolNotice> schoolNotice= schoolNoticeRepository.getById(id);
+        if(schoolNotice.isPresent()) {
+            SchoolNotice schoolNotice1=schoolNotice.get();
+            Optional<SchoolNoticeContent> schoolNoticeContent = Optional.ofNullable(schoolNoticeContentRepository.findById(id));
+            if (schoolNoticeContent.isPresent()) {
+                SchoolNoticeContent s = schoolNoticeContent.get();
+                schoolNotice1.setContent(s.getContent());
+            } else {
+                schoolNotice1.setContent(null);
+            }
+            return schoolNotice1;
+        }
+        else return null;
     }
 
     @Override

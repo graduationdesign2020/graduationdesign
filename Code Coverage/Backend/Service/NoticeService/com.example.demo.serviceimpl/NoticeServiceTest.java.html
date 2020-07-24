@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>NoticeServiceTest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">demo$NoticeServiceTest.exec</a> &gt; <a href="index.source.html" class="el_package">com.example.demo.serviceimpl</a> &gt; <span class="el_source">NoticeServiceTest.java</span></div><h1>NoticeServiceTest.java</h1><pre class="source lang-java linenums">package com.example.demo.serviceimpl;
+
+import com.example.demo.DemoApplicationTests;
+import com.example.demo.dao.DeptNoticeDao;
+import com.example.demo.dao.SchoolNoticeDao;
+import com.example.demo.entity.DeptNotice;
+import com.example.demo.entity.SchoolNotice;
+import com.example.demo.service.NoticeService;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Rollback;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+@Rollback
+@RunWith(SpringRunner.class)
+@SpringBootTest
+@Transactional
+<span class="fc" id="L27">public class NoticeServiceTest extends DemoApplicationTests {</span>
+    @Autowired
+    private DeptNoticeDao deptNoticeDao;
+    @Autowired
+    private SchoolNoticeDao schoolNoticeDao;
+    @Autowired
+    private NoticeService noticeService;
+
+    @Test
+    public void contextLoads() {
+<span class="fc" id="L37">    }</span>
+
+    @Test
+    public void getDeptNoticesByDept() {
+<span class="fc" id="L41">        List&lt;DeptNotice&gt; result = deptNoticeDao.getDeptNoticesByDept(&quot;电院&quot;);</span>
+<span class="fc" id="L42">        List&lt;DeptNotice&gt; compare = noticeService.getDeptNoticesByDept(&quot;电院&quot;);</span>
+
+<span class="fc" id="L44">        assertEquals(result, compare);</span>
+<span class="fc" id="L45">    }</span>
+
+    @Test
+    public void getDeptNoticesById() {
+<span class="fc" id="L49">        Optional&lt;DeptNotice&gt; result = deptNoticeDao.getDeptNoticeById(28);</span>
+<span class="fc" id="L50">        DeptNotice compare = noticeService.getDeptNoticeById(28);</span>
+
+<span class="fc" id="L52">        assertEquals(result.get(), compare);</span>
+<span class="fc" id="L53">    }</span>
+
+    @Test
+    public void getSchoolNoticeById() {
+<span class="fc" id="L57">        Optional&lt;SchoolNotice&gt; result = schoolNoticeDao.getSchoolNoticeById(7);</span>
+<span class="fc" id="L58">        SchoolNotice compare = noticeService.getSchoolNoticeById(7);</span>
+
+<span class="fc" id="L60">        assertEquals(result.get(), compare);</span>
+<span class="fc" id="L61">    }</span>
+
+    @Test
+    public void getSchoolNotices() {
+<span class="fc" id="L65">        List&lt;SchoolNotice&gt; result = schoolNoticeDao.getSchoolNotices();</span>
+<span class="fc" id="L66">        List&lt;SchoolNotice&gt; compare = noticeService.getSchoolNotices();</span>
+
+<span class="fc" id="L68">        assertEquals(result, compare);</span>
+<span class="fc" id="L69">    }</span>
+
+    @Test
+    public void getThreeSchoolNotices() {
+<span class="fc" id="L73">        List&lt;SchoolNotice&gt; result = schoolNoticeDao.getThreeSchoolNotices();</span>
+<span class="fc" id="L74">        List&lt;SchoolNotice&gt; compare = noticeService.getThreeSchoolNotices();</span>
+
+<span class="fc" id="L76">        assertEquals(result, compare);</span>
+<span class="fc" id="L77">    }</span>
+
+    @Test
+    public void getThreeDeptNoticesByDepartment() {
+<span class="fc" id="L81">        List&lt;DeptNotice&gt; result = deptNoticeDao.getThreeDeptNoticesByDepartment(&quot;电院&quot;);</span>
+<span class="fc" id="L82">        List&lt;DeptNotice&gt; compare = noticeService.getThreeDeptNoticesByDepartment(&quot;电院&quot;);</span>
+
+<span class="fc" id="L84">        assertEquals(result, compare);</span>
+<span class="fc" id="L85">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

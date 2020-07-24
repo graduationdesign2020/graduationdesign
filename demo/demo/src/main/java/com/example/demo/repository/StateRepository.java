@@ -2,10 +2,16 @@ package com.example.demo.repository;
 
 import com.example.demo.entity.State;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 public interface StateRepository extends JpaRepository<State, Integer> {
-    State findByProject_idAndState(String proj_id, Integer state);
-    List<State> findAllByProject_id(String proj_id);
+    @Query("from State where project_id=:proj_id and state=:state")
+    State findByProjectAndState(String proj_id, Integer state);
+
+    @Query("from State where project_id=:proj_id")
+    List<State> findAllByProject(String proj_id);
 }

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class ProjectDaoImpl implements ProjectDao {
@@ -14,12 +15,18 @@ public class ProjectDaoImpl implements ProjectDao {
     private ProjectRepository projectRepository;
 
     @Override
-    public Project getOne(String id) {
-        return projectRepository.getOne(id);
+    public Optional<Project> getOne(String id) {
+        return projectRepository.getById(id);
     }
 
     @Override
     public List<Project> findByTeacher(String tea_id) {
-        return projectRepository.findAllByTeacher_id(tea_id);
+        return projectRepository.findAllByTeacher(tea_id);
     }
+
+    @Override
+    public List<String> getIdByTeacher_id(String t_id){
+        return projectRepository.getIdByTeacher_id(t_id);
+    }
+
 }

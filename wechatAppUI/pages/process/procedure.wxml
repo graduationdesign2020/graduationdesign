@@ -22,7 +22,7 @@
 </van-cell>
 </block>
 <block wx:if="{{procedure.submit==4}}">
-  <van-cell title="{{procedure.state}}" label="{{procedure.end_time}}">
+  <van-cell title="{{procedure.state}}">
   <van-tag plain size="medium">未开始</van-tag>
 </van-cell>
 </block>

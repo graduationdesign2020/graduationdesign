@@ -67,4 +67,11 @@ public class DeptNotice {
     public String getContent() {
         return content;
     }
+
+    public void init(int id, String title, String department, String time) {
+        this.id = id;
+        this.title = title;
+        this.time = time;
+        this.department = department;
+    }
 }

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TeacherMessageServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">demo$NoticeServiceTest.exec</a> &gt; <a href="index.source.html" class="el_package">com.example.demo.serviceimpl</a> &gt; <span class="el_source">TeacherMessageServiceImpl.java</span></div><h1>TeacherMessageServiceImpl.java</h1><pre class="source lang-java linenums">package com.example.demo.serviceimpl;
+
+import com.example.demo.dao.*;
+import com.example.demo.entity.*;
+import com.example.demo.repository.TeacherMessageContentRepository;
+import com.example.demo.repository.TeacherMessageReadingRepository;
+import com.example.demo.service.TeacherMessageService;
+import com.example.demo.utils.MessageInfo;
+import com.example.demo.utils.ReturnInfo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import static com.example.demo.constant.ReturnMsg.sendingMsg0;
+import static com.example.demo.constant.ReturnMsg.sendingMsg1;
+
+@Service
+<span class="fc" id="L22">public class TeacherMessageServiceImpl implements TeacherMessageService {</span>
+    @Autowired
+    private TeacherMessageDao teacherMessageDao;
+    @Autowired
+    private StudentDao studentDao;
+    @Autowired
+    private TeacherMessageContentRepository teacherMessageContentRepository;
+    @Autowired
+    private TeacherDao teacherDao;
+    @Autowired
+    private TeacherMessageReadingDao teacherMessageReadingDao;
+    @Autowired
+    private ProjectDao projectDao;
+
+    @Override
+    public MessageInfo getTeacherMessageById(int id, int reading_id){
+<span class="nc" id="L38">        Optional&lt;TeacherMessage&gt; teacherMessage=teacherMessageDao.getTeacherMessageById(id);</span>
+<span class="nc bnc" id="L39" title="All 2 branches missed.">        if(teacherMessage.isPresent())</span>
+        {
+<span class="nc" id="L41">            TeacherMessage t=teacherMessage.get();</span>
+<span class="nc" id="L42">            Optional&lt;TeacherMessageContent&gt; teacherMessageContent = teacherMessageContentRepository.findById(id);</span>
+<span class="nc bnc" id="L43" title="All 2 branches missed.">            if (teacherMessageContent.isPresent()) {</span>
+<span class="nc" id="L44">                TeacherMessageContent s = teacherMessageContent.get();</span>
+<span class="nc" id="L45">                t.setContent(s.getContent());</span>
+<span class="nc" id="L46">            } else {</span>
+<span class="nc" id="L47">                t.setContent(null);</span>
+            }
+<span class="nc" id="L49">            MessageInfo messageInfo=new MessageInfo();</span>
+<span class="nc" id="L50">            messageInfo.setId(t.getId());</span>
+<span class="nc" id="L51">            messageInfo.setTitle(t.getTitle());</span>
+<span class="nc" id="L52">            messageInfo.setContent(t.getContent());</span>
+<span class="nc" id="L53">            messageInfo.setTime(t.getTime());</span>
+<span class="nc" id="L54">            messageInfo.setReading_id(reading_id);</span>
+<span class="nc" id="L55">            Teacher teacher= teacherDao.getTeacherById(t.getTeacher_id());</span>
+<span class="nc" id="L56">            messageInfo.setTeachername(teacher.getName());</span>
+<span class="nc" id="L57">            teacherMessageReadingDao.setRead(reading_id);</span>
+<span class="nc" id="L58">            return messageInfo;</span>
+        }
+        else {
+<span class="nc" id="L61">            MessageInfo messageInfo1=new MessageInfo();</span>
+<span class="nc" id="L62">            return messageInfo1;</span>
+        }
+    }
+
+    @Override
+    public List&lt;MessageInfo&gt; getTeacherMessages(String stu_id){
+<span class="nc" id="L68">        List&lt;TeacherMessageReading&gt; list=teacherMessageReadingDao.getReading(stu_id);</span>
+<span class="nc" id="L69">        List&lt;MessageInfo&gt; messageInfos=new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L70" title="All 2 branches missed.">        for (TeacherMessageReading teacherMessageReading : list) {</span>
+<span class="nc" id="L71">            MessageInfo messageInfo = new MessageInfo();</span>
+<span class="nc" id="L72">            TeacherMessage teacherMessage = teacherMessageDao.getTeacherMessage(teacherMessageReading.getMessage_id());</span>
+<span class="nc" id="L73">            messageInfo.setId(teacherMessage.getId());</span>
+<span class="nc" id="L74">            messageInfo.setReading_id(teacherMessageReading.getId());</span>
+<span class="nc" id="L75">            messageInfo.setTitle(teacherMessage.getTitle());</span>
+<span class="nc" id="L76">            messageInfo.setTime(teacherMessage.getTime());</span>
+<span class="nc" id="L77">            messageInfo.setIs_read(teacherMessageReading.getIs_read());</span>
+<span class="nc" id="L78">            Teacher teacher = teacherDao.getTeacherById(teacherMessage.getTeacher_id());</span>
+<span class="nc" id="L79">            messageInfo.setTeachername(teacher.getName());</span>
+<span class="nc" id="L80">            messageInfos.add(messageInfo);</span>
+<span class="nc" id="L81">        }</span>
+<span class="nc" id="L82">        return messageInfos;</span>
+    }
+
+    @Override
+    public ReturnInfo sentTeacherMessage(String title, String teacher_id, List&lt;String&gt; student_id, String content){
+<span class="nc" id="L87">        Timestamp d=new Timestamp(System.currentTimeMillis());</span>
+<span class="nc" id="L88">        ReturnInfo returnInfo=new ReturnInfo();</span>
+<span class="nc" id="L89">        TeacherMessageReading s=new TeacherMessageReading();</span>
+<span class="nc" id="L90">        String time=d.toString();</span>
+<span class="nc" id="L91">        TeacherMessage teacherMessage=new TeacherMessage();</span>
+<span class="nc" id="L92">        teacherMessage.setTitle(title);</span>
+<span class="nc" id="L93">        teacherMessage.setTime(time);</span>
+<span class="nc" id="L94">        teacherMessage.setTeacher_id(teacher_id);</span>
+<span class="nc" id="L95">        teacherMessage.setContent(content);</span>
+<span class="nc" id="L96">        teacherMessageDao.sentTeacherMessage(teacherMessage);</span>
+<span class="nc" id="L97">        List&lt;TeacherMessageReading&gt; teacherMessageReadings=new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L98" title="All 2 branches missed.">        for (String value : student_id) {</span>
+<span class="nc" id="L99">            TeacherMessageReading teacherMessageReading=new TeacherMessageReading();</span>
+<span class="nc" id="L100">            teacherMessageReading.setMessage_id(teacherMessage.getId());</span>
+<span class="nc" id="L101">            teacherMessageReading.setIs_read(false);</span>
+<span class="nc" id="L102">            teacherMessageReading.setStudent_id(value);</span>
+<span class="nc" id="L103">            teacherMessageReadings.add(teacherMessageReading);</span>
+<span class="nc" id="L104">        }</span>
+<span class="nc bnc" id="L105" title="All 2 branches missed.">        for (TeacherMessageReading value:teacherMessageReadings){</span>
+<span class="nc" id="L106">            s=teacherMessageReadingDao.addReader(value);</span>
+<span class="nc" id="L107">        }</span>
+<span class="nc bnc" id="L108" title="All 2 branches missed.">        if (s!=null)</span>
+<span class="nc" id="L109">            returnInfo.setMsg(sendingMsg1);</span>
+<span class="nc" id="L110">        else returnInfo.setMsg(sendingMsg0);</span>
+<span class="nc" id="L111">        return returnInfo;</span>
+    }
+
+    @Override
+    public ReadInfo getTeacherMessageRead(int id) {
+<span class="nc" id="L116">        ReadInfo readInfo = new ReadInfo();</span>
+<span class="nc" id="L117">        int read = 0, unread = 0;</span>
+<span class="nc" id="L118">        List&lt;TeacherMessageReading&gt; readings = teacherMessageReadingDao.findAllByMessage_id(id);</span>
+<span class="nc" id="L119">        List&lt;Student&gt; studentsRead = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L120">        List&lt;Student&gt; studentsUnread = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L121" title="All 2 branches missed.">        for (TeacherMessageReading teacherMessageReading : readings) {</span>
+<span class="nc bnc" id="L122" title="All 2 branches missed.">            if (teacherMessageReading.getIs_read()) {</span>
+<span class="nc" id="L123">                read++;</span>
+<span class="nc" id="L124">                studentsRead.add(studentDao.getOne(teacherMessageReading.getStudent_id()));</span>
+            }
+            else {
+<span class="nc" id="L127">                unread++;</span>
+<span class="nc" id="L128">                studentsUnread.add(studentDao.getOne(teacherMessageReading.getStudent_id()));</span>
+            }
+<span class="nc" id="L130">        }</span>
+<span class="nc" id="L131">        readInfo.setRead(read);</span>
+<span class="nc" id="L132">        readInfo.setUnRead(unread);</span>
+<span class="nc" id="L133">        readInfo.setStudentsRead(studentsRead);</span>
+<span class="nc" id="L134">        readInfo.setStudentsUnread(studentsUnread);</span>
+<span class="nc" id="L135">        return readInfo;</span>
+    }
+
+    @Override
+    public List&lt;Student&gt; getStudentsByTeacher_id(String teacher_id){
+<span class="nc" id="L140">        List&lt;String&gt; list=projectDao.getIdByTeacher_id(teacher_id);</span>
+<span class="nc" id="L141">        List&lt;Student&gt; students=new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L142" title="All 2 branches missed.">        for (String s : list) {</span>
+<span class="nc" id="L143">            Student student = studentDao.getOne(s);</span>
+<span class="nc" id="L144">            students.add(student);</span>
+<span class="nc" id="L145">        }</span>
+<span class="nc" id="L146">        return students;</span>
+    }
+
+    @Override
+    public List&lt;MessageInfo&gt; getTeacherMessagesByTeacher_id(String t_id){
+<span class="nc" id="L151">        List&lt;TeacherMessage&gt; list=teacherMessageDao.getTeacherMessagesByTeacher(t_id);</span>
+<span class="nc" id="L152">        List&lt;MessageInfo&gt; messageInfos=new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L153" title="All 2 branches missed.">        for (TeacherMessage teacherMessage : list) {</span>
+<span class="nc" id="L154">            MessageInfo messageInfo = new MessageInfo();</span>
+<span class="nc" id="L155">            messageInfo.setTitle(teacherMessage.getTitle());</span>
+<span class="nc" id="L156">            messageInfo.setId(teacherMessage.getId());</span>
+<span class="nc" id="L157">            messageInfo.setReading(teacherMessageReadingDao.getTeacherMessageReadingsByMessage_id(teacherMessage.getId()));</span>
+<span class="nc" id="L158">            messageInfo.setUnread(teacherMessageReadingDao.getUnReadingsByMessage_id(teacherMessage.getId()));</span>
+<span class="nc" id="L159">            messageInfo.setTime(teacherMessage.getTime());</span>
+<span class="nc" id="L160">            messageInfos.add(messageInfo);</span>
+<span class="nc" id="L161">        }</span>
+<span class="nc" id="L162">        return messageInfos;</span>
+    }
+
+    @Override
+    public MessageInfo teacherGetTeacherMessageById(int id){
+<span class="nc" id="L167">        Optional&lt;TeacherMessage&gt; teacherMessage=teacherMessageDao.getTeacherMessageById(id);</span>
+<span class="nc bnc" id="L168" title="All 2 branches missed.">        if(teacherMessage.isPresent())</span>
+        {
+<span class="nc" id="L170">            TeacherMessage t=teacherMessage.get();</span>
+<span class="nc" id="L171">            MessageInfo messageInfo = new MessageInfo();</span>
+<span class="nc" id="L172">            messageInfo.setId(t.getId());</span>
+<span class="nc" id="L173">            messageInfo.setTitle(t.getTitle());</span>
+<span class="nc" id="L174">            messageInfo.setContent(t.getContent());</span>
+<span class="nc" id="L175">            messageInfo.setTime(t.getTime());</span>
+<span class="nc" id="L176">            Teacher teacher = teacherDao.getTeacherById(t.getTeacher_id());</span>
+<span class="nc" id="L177">            messageInfo.setTeachername(teacher.getName());</span>
+<span class="nc" id="L178">            return messageInfo;</span>
+        }
+        else {
+<span class="nc" id="L181">            MessageInfo messageInfo=new MessageInfo();</span>
+<span class="nc" id="L182">            return messageInfo;</span>
+        }
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

@@ -57,9 +57,12 @@ public class Student {
     public String getDepartment() {
         return department;
     }
-    public Student(String id, String name, String major) {
+
+
+    public void init(String id, String name, String major, String department) {
             this.id = id;
             this.name = name;
             this.major = major;
+            this.department = department;
         }
     }

@@ -10,7 +10,8 @@
     "pages/reading/reading",
     "pages/myProfile/Center",
     "pages/process/procedure",
-    "pages/processList/processList"
+    "pages/processList/processList",
+    "pages/postddl/postddl"
   ],
   "window": {
     "backgroundTextStyle": "light",

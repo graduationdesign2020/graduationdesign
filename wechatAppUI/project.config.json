@@ -12,7 +12,11 @@
 		"minified": true,
 		"newFeature": false,
 		"coverView": true,
+<<<<<<< HEAD
 		"nodeModules": true,
+=======
+		"nodeModules": false,
+>>>>>>> fec533856216d4f2e6d98d047a7548bfe49463dc
 		"autoAudits": false,
 		"showShadowRootInWxmlPanel": true,
 		"scopeDataCheck": false,
@@ -31,7 +35,7 @@
 		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.11.3",
+	"libVersion": "2.12.0",
 	"appid": "wxcea5614102cbce8d",
 	"projectname": "GDMS",
 	"debugOptions": {

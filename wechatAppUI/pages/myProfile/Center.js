@@ -24,11 +24,13 @@ Page({
               url: '../register/index',
             })
           }else{
+            console.log(data);
             this.setData({userData: data.userData})
           }
         }
       }else{
         this.setData({userData: app.globalData.userData});
+        console.log(app.globalData);
       }
     }
     if (app.globalData.userInfo) {
@@ -46,7 +48,7 @@ Page({
 
   logout: function() {
     this.setData({show: true});
-    PostRequest('/logout', {id: this.data.userData.id, auth: this.data.auth, code: app.globalData.code}, (data)=>{
+    PostRequest('/logout', {id: this.data.userData.id, auth: this.data.auth, openid: app.globalData.userData.openid}, (data)=>{
       if(data.msg == 'SUCCESS'){
         this.setData({msg: "注销成功", dialog: true, show: false});
         app.globalData.userInfo = {};
