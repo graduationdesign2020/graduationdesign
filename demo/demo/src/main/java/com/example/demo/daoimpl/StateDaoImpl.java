@@ -23,8 +23,4 @@ public class StateDaoImpl implements StateDao {
         return stateRepository.findAllByProject(proj_id);
     }
 
-    @Override
-    public int setDeadline(String end_time,String id,int state){
-        return stateRepository.setDeadline(end_time,id,state);
-    }
 }

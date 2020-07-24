@@ -82,7 +82,7 @@ public class LoginControllerTest extends DemoApplicationTests {
         returnInfo1.setMsg("SUCCESS");
         UserInfo userInfo=new UserInfo();
         userInfo.setOpenid("1");
-        userInfo.setAuth(1);
+        userInfo.setAuth("student");
         userInfo.setDept("SE");
         userInfo.setName("11111");
         userInfo.setId("1");

@@ -14,10 +14,4 @@ public interface StateRepository extends JpaRepository<State, Integer> {
 
     @Query("from State where project_id=:proj_id")
     List<State> findAllByProject(String proj_id);
-
-
-    @Transactional
-    @Modifying
-    @Query(value = "update State set end_time=:e_t where project_id=:id and state=:state")
-    int setDeadline(String e_t,String id,int state);
 }
