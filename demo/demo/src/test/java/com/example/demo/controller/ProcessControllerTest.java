@@ -80,13 +80,12 @@ public class ProcessControllerTest extends DemoApplicationTests {
     @Test
     @Transactional
     public void checkSetDeadline() throws Exception {
-        MvcResult result = mockMvc.perform(post("/setDeadline").content("{\"time\":\"2020-7-2316:00:00\",\"students\":[\"1\",\"3\"],\"state\":2}").contentType(MediaType.APPLICATION_JSON_VALUE))
+        MvcResult result = mockMvc.perform(post("/setDeadline").content("{\"time\":\"2020-7-2316:00:00\",\"teacher\":\"1\",\"state\":2}").contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(status().isOk()).andReturn();
         String resultContent = result.getResponse().getContentAsString();
         ReturnInfo returnInfo = om.readValue(resultContent, new TypeReference<ReturnInfo>() {});
-        List<String> students=new ArrayList<>();
-        students.add("1");
-        students.add("3");
-        assertEquals(returnInfo,processService.setDeadline("2020-7-3 16:00:00",students,2));
+
+        assertEquals(returnInfo,processService.setDeadline("2020-7-3 16:00:00","1",2));
     }
+
 }

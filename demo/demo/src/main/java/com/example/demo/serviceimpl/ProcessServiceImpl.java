@@ -1,14 +1,20 @@
 package com.example.demo.serviceimpl;
 
+import com.example.demo.dao.DeadlineDao;
 import com.example.demo.dao.ProjectDao;
 import com.example.demo.dao.StateDao;
 import com.example.demo.dao.StudentDao;
 import com.example.demo.entity.*;
+import com.example.demo.schdule.LoadTask;
 import com.example.demo.service.ProcessService;
 import com.example.demo.utils.ReturnInfo;
+import org.quartz.SimpleScheduleBuilder;
+import org.quartz.Trigger;
+import org.quartz.TriggerBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +28,8 @@ public class ProcessServiceImpl implements ProcessService {
     private ProjectDao projectDao;
     @Autowired
     private StudentDao studentDao;
+    @Autowired
+    private DeadlineDao deadlineDao;
 
     @Override
     public List<StateInfo> checkSelfProcess(String stu_id) {
@@ -93,14 +101,16 @@ public class ProcessServiceImpl implements ProcessService {
     }
 
     @Override
-    public ReturnInfo setDeadline(String end_time,List<String> id,int state){
-        var i=0;
-        for (String value :id) {
-            i=stateDao.setDeadline(end_time, value, state);
-        }
+    public ReturnInfo setDeadline(String end_time,String id,int state){
+        Timestamp ddl=Timestamp.valueOf(end_time);
+        Deadline deadline=deadlineDao.addDeadline(id,ddl,state);
         ReturnInfo returnInfo=new ReturnInfo();
-        if(i==1){
+        if(deadline!=null) {
             returnInfo.setMsg(Msg1);
+            Timestamp timestamp=Timestamp.valueOf(end_time);
+            long time=timestamp.getTime()-(long)1000*3600*24;
+            Timestamp date =new Timestamp(time);
+            LoadTask.timeTask(date,deadline.getId(),id,state);
         }
         else {
             returnInfo.setMsg(Msg0);

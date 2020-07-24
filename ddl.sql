@@ -10,6 +10,7 @@ drop table if exists principleusers;
 DROP TABLE IF EXISTS project;
 DROP TABLE IF EXISTS state;
 drop table if exists grade;
+drop table if exists schedulejob;
 set foreign_key_checks=1;
 
 CREATE TABLE teacher(
@@ -124,15 +125,22 @@ CREATE TABLE grade
     
 create table teachermessagereading
 (
-    id         int auto_increment
-        primary key,
+    id         int auto_increment,
     message_id int                  not null,
     student_id varchar(25)          not null,
     is_read    tinyint(1) default 0 not null,
-  foreign key (student_id) references student (id)
-            on delete cascade,
- foreign key (message_id) references teachermessage (id)
-            on delete cascade
+    primary key(id),
+	foreign key (student_id) references student (id) on delete cascade,
+	foreign key (message_id) references teachermessage (id) on delete cascade
 );
     
+create table schdulejob(
+	id				int NOT NULL,
+	teacher_id 		varchar(30) NOT NULL,  
+    job_status		varchar(2) NOT NULL,  
+    state			int not null,  
+    deadline		timestamp not null,
+    PRIMARY KEY (id),
+    FOREIGN KEY (teacher_id) REFERENCES teacher(id) on delete cascade
+);
     

@@ -3,7 +3,6 @@ package com.example.demo.dao;
 import com.example.demo.entity.DeptNotice;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface DeptNoticeDao {
     List<DeptNotice> getDeptNoticesByDept(String department);

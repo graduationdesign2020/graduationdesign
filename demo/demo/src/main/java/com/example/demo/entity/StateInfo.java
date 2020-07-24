@@ -8,8 +8,6 @@ public class StateInfo {
     private String state;
     private int stateNum;
     private int submit;
-    private String start_time;
-    private String end_time;
 
     public void init(int state) {
         this.submit = 4;
@@ -20,8 +18,6 @@ public class StateInfo {
         int s = -1;
         if (this.sta != null) {
             this.submit = sta.getSubmit();
-            this.start_time = sta.getStart_time();
-            this.end_time = sta.getEnd_time();
             s = sta.getState();
         }
         else s = this.stateNum;
