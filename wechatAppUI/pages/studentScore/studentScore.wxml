@@ -3,32 +3,32 @@
   <van-collapse-item 
     wx:for="{{grades}}"
     wx:key="id" 
-    title="学号:{{ item.id }}" 
-    label=" 姓名:{{ item.name }}"
-    name="{{ item.id }}">
+    title="{{ item.name }}" 
+    label="{{ item.grade.id }}"
+    name="{{ item.grade.id }}">
     <van-cell-group>
 <block > 
   <van-cell title="教师成绩">
-  <van-tag wx:if="{{!item.teachergrade}}" size="medium">未发布</van-tag>
-  <van-tag wx:if="{{item.teachergrade}}" type="success" size="medium">{{item.teachergrade}}</van-tag>
+  <van-tag wx:if="{{!item.grade.teachergrade}}" size="medium">未发布</van-tag>
+  <van-tag wx:if="{{item.grade.teachergrade}}" type="success" size="medium">{{item.grade.teachergrade}}</van-tag>
   </van-cell>
 </block>
 <block > 
   <van-cell title="评阅成绩">
-  <van-tag wx:if="{{!item.reviewgrade}}" size="medium">未发布</van-tag>
-  <van-tag wx:if="{{item.reviewgrade}}" type="success" size="medium">{{item.reviewgrade}}</van-tag>
+  <van-tag wx:if="{{!item.grade.reviewgrade}}" size="medium">未发布</van-tag>
+  <van-tag wx:if="{{item.grade.reviewgrade}}" type="success" size="medium">{{item.grade.reviewgrade}}</van-tag>
   </van-cell>
 </block>
 <block > 
   <van-cell title="答辩成绩">
-  <van-tag wx:if="{{!item.thesisgrade}}" size="medium">未发布</van-tag>
-  <van-tag wx:if="{{item.thesisgrade}}" type="success" size="medium">{{item.thesisgrade}}</van-tag>
+  <van-tag wx:if="{{!item.grade.thesisgrade}}" size="medium">未发布</van-tag>
+  <van-tag wx:if="{{item.grade.thesisgrade}}" type="success" size="medium">{{item.grade.thesisgrade}}</van-tag>
   </van-cell>
 </block>
 <block > 
   <van-cell title="总评成绩">
-  <van-tag wx:if="{{!item.allgrade}}" size="medium">未发布</van-tag>
-  <van-tag wx:if="{{item.allgrade}}" type="success" size="medium">{{item.allgrade}}</van-tag>
+  <van-tag wx:if="{{!item.grade.totalgrade}}" size="medium">未发布</van-tag>
+  <van-tag wx:if="{{item.grade.totalgrade}}" type="success" size="medium">{{item.grade.totalgrade}}</van-tag>
   </van-cell>
 </block>
 </van-cell-group>

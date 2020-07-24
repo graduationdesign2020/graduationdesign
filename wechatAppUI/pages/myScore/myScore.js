@@ -41,7 +41,7 @@ Page({
     teachergrade: data.teachergrade,
     reviewgrade: data.reviewgrade,
     thesisgrade: data.thesisgrade,
-    allgrade: data.allgrade,
+    allgrade: data.totalgrade,
     })
   },
 })

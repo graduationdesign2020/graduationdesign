@@ -4,28 +4,34 @@ var app = getApp();
 Page({
   data: {
     grades: [{
-      id: 1,
       name: "NCT董思成",
-      teachergrade: "",
-	    reviewgrade: 100,
-	    thesisgrade: 100,
-	    allgrade: 100,
+      grade: {
+        id: '1',
+        teachergrade: "A",
+        reviewgrade: "A",
+        thesisgrade: "",
+        totalgrade: ""
+      }
     },
     {
-      id: 2,
       name: "NCT李马克",
-      teachergrade: 100,
-	    reviewgrade: "",
-	    thesisgrade: 100,
-	    allgrade: 100,
+      grade: {
+        id: '2',
+        teachergrade: "A",
+        reviewgrade: "A",
+        thesisgrade: "",
+        totalgrade: ""
+      }
     },
     {
-      id: 7,
       name: "NCT李帝努",
-      teachergrade: 100,
-	    reviewgrade: 100,
-	    thesisgrade: "",
-	    allgrade: 100,
+      grade: {
+        id: '3',
+        teachergrade: "A",
+        reviewgrade: "A",
+        thesisgrade: "",
+        totalgrade: ""
+      }
     }],
     userData: {},
     activeNames: [],
