@@ -2,6 +2,7 @@ package com.example.demo.serviceimpl;
 
 import com.example.demo.dao.*;
 import com.example.demo.entity.*;
+import com.example.demo.repository.TeacherMessageReadingRepository;
 import com.example.demo.service.TeacherMessageService;
 import com.example.demo.utils.MessageInfo;
 import com.example.demo.utils.ReadInfo;
@@ -27,6 +28,8 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
     private TeacherMessageReadingDao teacherMessageReadingDao;
     @Autowired
     private ProjectDao projectDao;
+    @Autowired
+    private TeacherMessageReadingRepository teacherMessageReadingRepository;
 
     @Override
     public MessageInfo getTeacherMessageById(int id, int reading_id){
@@ -100,8 +103,9 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
     @Override
     public ReadInfo getTeacherMessageRead(int id) {
         ReadInfo readInfo = new ReadInfo();
+        TeacherMessage teacherMessage = teacherMessageDao.getTeacherMessage(id);
         int read = 0, unread = 0;
-        List<TeacherMessageReading> readings = teacherMessageReadingDao.findAllByMessage_id(id);
+        List<TeacherMessageReading> readings = teacherMessageReadingRepository.findAllByMessage_id(id);
         List<Student> studentsRead = new ArrayList<>();
         List<Student> studentsUnread = new ArrayList<>();
         for (TeacherMessageReading teacherMessageReading : readings) {
