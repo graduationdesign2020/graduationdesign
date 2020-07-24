@@ -7,7 +7,7 @@ Page({
   data: {
     searchValue: '',
     teacherCommonAPPs: [
-      {icon: 'comment-o', text: '发送', url: "/pages/sendNotice/SendNotice"},
+      {icon: 'comment-o', text: '发送', url: "/pages/SendNotice/SendNotice"},
       {icon: 'chat-o', text: '消息', url: '/pages/notices/notices?type=2'},
       {icon: 'records', text: '成绩', url: '/pages/studentScore/studentScore'},
       {icon: 'clock-o', text: '截止时间' , url: '/pages/postddl/postddl'}

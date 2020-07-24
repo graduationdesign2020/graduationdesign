@@ -15,7 +15,7 @@ App({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         var code = res.code;
-        PostRequest("/login", {code: res.code}, (data)=>{
+        PostRequest("/mylogin", {code: res.code}, (data)=>{
           if(data.msg == "SUCCESS"){
             this.globalData.login = 1;
             this.globalData.userData = data.userData;
