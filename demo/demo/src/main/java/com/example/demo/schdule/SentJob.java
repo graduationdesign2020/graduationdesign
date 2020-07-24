@@ -1,12 +1,18 @@
 package com.example.demo.schdule;
 
+import com.example.demo.service.LoginService;
 import org.quartz.Job;
 import org.quartz.JobDetail;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import java.sql.Timestamp;
 
 
 public class SentJob implements Job {
+    @Autowired
+    LoginService loginService;
     public void execute(JobExecutionContext arg0) throws JobExecutionException{
         JobDetail jobDetail =arg0.getJobDetail();
         int state=jobDetail.getJobDataMap().getInt("state");
@@ -16,7 +22,10 @@ public class SentJob implements Job {
     }
     public String getMsg(String student,int state,String time){
         String st=getState(state);
-        return student+"同学:\n 您的"+st+"将于24小时内截止提交，请于"+time+"前完成并提交!";
+        Timestamp timestamp=Timestamp.valueOf(time);
+        long time1=timestamp.getTime()+(long)1000*3600*24;
+        Timestamp date =new Timestamp(time1);
+        return student+"同学:\n 您的"+st+"将于24小时内截止提交，请于"+date+"前完成并提交!";
     }
 
     public String getState(int state){

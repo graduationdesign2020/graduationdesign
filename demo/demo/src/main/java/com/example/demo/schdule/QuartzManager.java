@@ -21,7 +21,7 @@ public class QuartzManager {
     public static void addJob(String jobName, Timestamp time, ScheduleJob schedulejob){
         try {
             Scheduler scheduler=schedulerFactory.getScheduler();
-            JobDetail jobDetail=JobBuilder.newJob(SentJob.class).withIdentity(jobName,JOB_GROUP_NAME).usingJobData("time",schedulejob.getTime().toString()).usingJobData("teacher_id",schedulejob.getTeacher_id()).usingJobData("state",schedulejob.getState()).build();
+            JobDetail jobDetail=JobBuilder.newJob(SentJob.class).withIdentity(jobName,JOB_GROUP_NAME).usingJobData("time",schedulejob.getTime().toString()).usingJobData("teacher",schedulejob.getTeacher_id()).usingJobData("state",schedulejob.getState()).build();
             jobDetail.getJobDataMap().put("scheduleJob",schedulejob);
             Trigger trigger=TriggerBuilder.newTrigger().withIdentity(jobName,TRIGGER_GROUP_NAME).startAt(time).build();
             scheduler.scheduleJob(jobDetail,trigger);

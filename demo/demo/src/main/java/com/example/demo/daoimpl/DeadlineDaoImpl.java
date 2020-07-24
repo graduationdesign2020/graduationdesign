@@ -26,4 +26,9 @@ public class DeadlineDaoImpl implements DeadlineDao {
     public int changeDeadline(String teacher_id,Timestamp time,int state){
         return deadlineRepository.changeDeadline(time,teacher_id,state);
     }
+
+    @Override
+    public String getDeadline(String teacher_id,int state){
+        return deadlineRepository.getByTeacher_idAndState(teacher_id, state);
+    }
 }

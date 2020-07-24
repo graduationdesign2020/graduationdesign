@@ -8,4 +8,6 @@ public interface DeadlineDao {
     Deadline addDeadline(String teacher_id, Timestamp timestamp, int state);
 
     int changeDeadline(String teacher_id,Timestamp time,int state);
+
+    String getDeadline(String teacher_id,int state);
 }

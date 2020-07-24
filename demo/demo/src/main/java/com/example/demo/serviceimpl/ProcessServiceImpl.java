@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static com.example.demo.constant.ReturnMsg.*;
 
@@ -35,21 +36,28 @@ public class ProcessServiceImpl implements ProcessService {
     public List<StateInfo> checkSelfProcess(String stu_id) {
         List<StateInfo> stateInfos = new ArrayList<>();
         List<State> states = stateDao.getStates(stu_id);
-        if (states.isEmpty()) {
-            return null;
-        }
-        for (State state : states) {
-            StateInfo stateInfo = new StateInfo();
-            stateInfo.setSta(state);
-            stateInfo.transfer();
-            stateInfos.add(stateInfo);
-        }
-        int num = states.size();
-        for (int i = num; i < 5; i++) {
-            StateInfo stateInfo = new StateInfo();
-            stateInfo.init(i);
-            stateInfo.transfer();
-            stateInfos.add(stateInfo);
+        Optional<Project> project=projectDao.getOne(stu_id);
+        if (project.isPresent()){
+            Project p=project.get();
+            String t=p.getTeacher_id();
+            if (states.isEmpty()) {
+                return null;
+            }
+            for (State state : states) {
+                StateInfo stateInfo = new StateInfo();
+                stateInfo.setSta(state);
+                stateInfo.transfer();
+                stateInfos.add(stateInfo);
+            }
+            int num = states.size();
+            for (int i = num; i < 5; i++) {
+                StateInfo stateInfo = new StateInfo();
+                stateInfo.init(i);
+                stateInfo.transfer();
+                String ddl=deadlineDao.getDeadline(t,i);
+                stateInfo.setEnd_time(ddl);
+                stateInfos.add(stateInfo);
+            }
         }
         return stateInfos;
     }
@@ -73,6 +81,8 @@ public class ProcessServiceImpl implements ProcessService {
                 case 4: name = "论文最终稿";
             }
             processInfo.setName(name);
+            String ddl=deadlineDao.getDeadline(tea_id,i);
+            processInfo.setEnd_time(ddl);
             List<Student> studentsFinished = new ArrayList<>();
             List<Student> studentsUnfinished = new ArrayList<>();
             int finished = 0;
