@@ -5,23 +5,23 @@ var app = getApp();
 Page({
   data: {
     processes: [
-      {name: "任务书", time: "2020-01-01", finished: 12, unfinished: 2,
+      {name: "任务书", end_time: "2020-01-01", finished: 12, unfinished: 2,
       unfinishedStu:[{id: 1, name: "董思成"},{id: 2, name: "李马克"},{id: 3, name: "李东赫"}],
       finishedStu:[{id: 4, name: "中本悠太"},{id: 5, name: "罗哉民"},{id: 6, name: "李帝努"}],
       },
-      {name: "开题报告", time: "2020-03-09", finished: 12, unfinished: 0,
+      {name: "开题报告", end_time: "2020-03-09", finished: 12, unfinished: 0,
       unfinishedStu:[{id: 1, name: "董思成"},{id: 2, name: "李马克"},{id: 3, name: "李东赫"}],
       finishedStu:[{id: 4, name: "中本悠太"},{id: 5, name: "罗哉民"},{id: 6, name: "李帝努"}],
       },
-      {name: "中期检查", time: "2020-06-09", finished: 11, unfinished: 1,
+      {name: "中期检查", end_time: "2020-06-09", finished: 11, unfinished: 1,
       unfinishedStu:[{id: 1, name: "董思成"},{id: 2, name: "李马克"},{id: 3, name: "李东赫"}],
       finishedStu:[{id: 4, name: "中本悠太"},{id: 5, name: "罗哉民"},{id: 6, name: "李帝努"}],
       },
-      {name: "论文定稿", time: "2020-03-09", finished: 12, unfinished: 0,
+      {name: "论文定稿", end_time: "2020-03-09", finished: 12, unfinished: 0,
       unfinishedStu:[{id: 1, name: "董思成"},{id: 2, name: "李马克"},{id: 3, name: "李东赫"}],
       finishedStu:[{id: 4, name: "中本悠太"},{id: 5, name: "罗哉民"},{id: 6, name: "李帝努"}],
       },
-      {name: "论文最终稿", time: "2020-06-09", finished: 11, unfinished: 1,
+      {name: "论文最终稿", end_time: "2020-06-09", finished: 11, unfinished: 1,
       unfinishedStu:[{id: 1, name: "董思成"},{id: 2, name: "李马克"},{id: 3, name: "李东赫"}],
       finishedStu:[{id: 4, name: "中本悠太"},{id: 5, name: "罗哉民"},{id: 6, name: "李帝努"}],
       }
