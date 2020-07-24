@@ -30,7 +30,7 @@ public class LoginServiceImpl implements LoginService {
     private ProjectDao projectDao;
 
     @Override
-    public ReturnInfo register(String wechat_id,String id,String name,int teacher){
+    public ReturnInfo register(String wechat_id,String id,String name,String auth){
         ReturnInfo returnInfo=new ReturnInfo();
         UserInfo userInfo=new UserInfo();
         Optional<Users> u= usersDao.getUserByWechat_id(wechat_id);
@@ -38,13 +38,13 @@ public class LoginServiceImpl implements LoginService {
             returnInfo.setMsg("registerMsg2");
             return returnInfo;
         }
-        Optional<Users> testUser= usersDao.getByIdAndAuth(id,teacher);
+        Optional<Users> testUser= usersDao.getByIdAndAuth(id,auth);
         if(testUser.isPresent()) {
             returnInfo.setMsg(registerMsg2);
             return returnInfo;
         }
         boolean flag = false;
-        if (teacher == 1) {
+        if (auth.equals("ROLE_TEACHER")) {
             Teacher t = teacherDao.getTeacherByIdAndName(id, name);
             if (t != null) {
                 userInfo.setId(id);

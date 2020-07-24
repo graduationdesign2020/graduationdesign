@@ -5,7 +5,9 @@ import com.example.demo.dao.StateDao;
 import com.example.demo.dao.StudentDao;
 import com.example.demo.entity.*;
 import com.example.demo.service.ProcessService;
+import com.example.demo.utils.ProcessInfo;
 import com.example.demo.utils.ReturnInfo;
+import com.example.demo.utils.StateInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -70,11 +72,11 @@ public class ProcessServiceImpl implements ProcessService {
             int finished = 0;
             for (Project project : projects) {
                 State state = stateDao.getOneByProjAndState(project.getId(), i);
-                if (state == null || state.getSubmit() != 1) {
+                if (state == null || state.getSubmit() != 5) {
                     //System.out.println(studentDao.getOne(project.getId()));
                     studentsUnfinished.add(studentDao.getOne(project.getId()));
                 }
-                else if (state.getSubmit() == 1) {
+                else if (state.getSubmit() == 5) {
                     finished++;
                     studentsFinished.add(studentDao.getOne(project.getId()));
                 }
@@ -106,5 +108,44 @@ public class ProcessServiceImpl implements ProcessService {
             returnInfo.setMsg(Msg0);
         }
         return returnInfo;
+    }
+
+    @Override
+    public List<ProcessInfo> getStudentsProcess(String dept) {
+        List<Student> students = studentDao.findByDept(dept);
+        List<ProcessInfo> processInfos = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            ProcessInfo processInfo = new ProcessInfo();
+
+            String name = "";
+            switch (i) {
+                case 0: name = "任务书";break;
+                case 1: name = "开题报告";break;
+                case 2: name = "中期检查";break;
+                case 3: name = "论文定稿";break;
+                case 4: name = "论文最终稿";
+            }
+            processInfo.setName(name);
+            List<Student> studentsFinished = new ArrayList<>();
+            List<Student> studentsUnfinished = new ArrayList<>();
+            int finished = 0;
+            for (Student student : students) {
+                State state = stateDao.getOneByProjAndState(student.getId(), i);
+                if (state == null || state.getSubmit() != 5) {
+                    studentsUnfinished.add(student);
+                }
+                else if (state.getSubmit() == 5) {
+                    studentsFinished.add(student);
+                    finished++;
+                }
+            }
+            int unfinished = students.size() - finished;
+            processInfo.setFinished(finished);
+            processInfo.setFinishedStu(studentsFinished);
+            processInfo.setUnfinished(unfinished);
+            processInfo.setUnfinishedStu(studentsUnfinished);
+            processInfos.add(processInfo);
+        }
+        return processInfos;
     }
 }

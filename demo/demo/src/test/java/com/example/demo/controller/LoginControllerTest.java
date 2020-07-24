@@ -1,7 +1,6 @@
 package com.example.demo.controller;
 
 import com.example.demo.DemoApplicationTests;
-import com.example.demo.entity.ReadInfo;
 import com.example.demo.service.LoginService;
 import com.example.demo.utils.ReturnInfo;
 import com.example.demo.utils.UserInfo;
@@ -82,7 +81,7 @@ public class LoginControllerTest extends DemoApplicationTests {
         returnInfo1.setMsg("SUCCESS");
         UserInfo userInfo=new UserInfo();
         userInfo.setOpenid("1");
-        userInfo.setAuth(1);
+        userInfo.setAuth("ROLE_TEACHER");
         userInfo.setDept("SE");
         userInfo.setName("11111");
         userInfo.setId("1");

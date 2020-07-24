@@ -38,24 +38,24 @@ public class NoticeServiceTest extends DemoApplicationTests {
 
     @Test
     public void getDeptNoticesByDept() {
-        List<DeptNotice> result = deptNoticeDao.getDeptNoticesByDept("电院");
-        List<DeptNotice> compare = noticeService.getDeptNoticesByDept("电院");
+        List<DeptNotice> result = deptNoticeDao.getDeptNoticesByDept("电子信息与电气工程学院");
+        List<DeptNotice> compare = noticeService.getDeptNoticesByDept("电子信息与电气工程学院");
 
         assertEquals(result, compare);
     }
 
     @Test
     public void getDeptNoticesById() {
-        DeptNotice result = deptNoticeDao.getDeptNoticeById(28);
-        DeptNotice compare = noticeService.getDeptNoticeById(28);
+        DeptNotice result = deptNoticeDao.getDeptNoticeById(156);
+        DeptNotice compare = noticeService.getDeptNoticeById(156);
 
         assertEquals(result, compare);
     }
 
     @Test
     public void getSchoolNoticeById() {
-        SchoolNotice result = schoolNoticeDao.getSchoolNoticeById(7);
-        SchoolNotice compare = noticeService.getSchoolNoticeById(7);
+        SchoolNotice result = schoolNoticeDao.getSchoolNoticeById(23);
+        SchoolNotice compare = noticeService.getSchoolNoticeById(23);
 
         assertEquals(result, compare);
     }
@@ -78,8 +78,8 @@ public class NoticeServiceTest extends DemoApplicationTests {
 
     @Test
     public void getThreeDeptNoticesByDepartment() {
-        List<DeptNotice> result = deptNoticeDao.getThreeDeptNoticesByDepartment("电院");
-        List<DeptNotice> compare = noticeService.getThreeDeptNoticesByDepartment("电院");
+        List<DeptNotice> result = deptNoticeDao.getThreeDeptNoticesByDepartment("电子信息与电气工程学院");
+        List<DeptNotice> compare = noticeService.getThreeDeptNoticesByDepartment("电子信息与电气工程学院");
 
         assertEquals(result, compare);
     }

@@ -1,8 +1,8 @@
 package com.example.demo.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.example.demo.entity.ProcessInfo;
-import com.example.demo.entity.StateInfo;
+import com.example.demo.utils.ProcessInfo;
+import com.example.demo.utils.StateInfo;
 import com.example.demo.service.ProcessService;
 import com.example.demo.utils.ReturnInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +37,7 @@ public class ProcessController {
     }
 
     @RequestMapping(path = "/setDeadline")
+    @PreAuthorize("hasAnyRole('ROLE_TEACHER')")
     public ReturnInfo setDeadline(@RequestBody Map<String,String> params){
         String time=params.get("time");
         List list= JSONObject.parseObject(params.get("students").toString(),List.class);
@@ -46,5 +47,11 @@ public class ProcessController {
         }
         int state=Integer.parseInt(params.get("state"));
         return processService.setDeadline(time,student_id,state);
+    }
+
+    @RequestMapping(path = "/getStudentsProcess")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+    public List<ProcessInfo> getStudentsProcess(@RequestBody String dept) {
+        return processService.getStudentsProcess(dept);
     }
 }
