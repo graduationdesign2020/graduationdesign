@@ -45,9 +45,10 @@ public class ProcessServiceTest extends DemoApplicationTests {
     public void checkSelfProcess() {
         List<StateInfo> result = processService.checkSelfProcess("1");
         List<StateInfo> compare = new ArrayList<>();
-
         assertEquals(result, compare);
     }
+
+
 
     @Test
     @Transactional
