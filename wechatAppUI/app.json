@@ -10,7 +10,8 @@
     "pages/reading/reading",
     "pages/myProfile/Center",
     "pages/process/procedure",
-    "pages/processList/processList"
+    "pages/processList/processList",
+    "components/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

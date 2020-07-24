@@ -53,10 +53,11 @@ CREATE TABLE teachermessage(
     FOREIGN KEY (teacher_id) REFERENCES teacher (id) on delete cascade
 );
 
-CREATE TABLE sysmessage(
+CREATE TABLE teachersysmessage(
     id          int not null auto_increment,
     title       varchar(50) NOT NULL,
     type		int not null,
+    submit 		int not null,
     student_id 	varchar(12) NOT NULL,
     is_read 	boolean NOT NULL default 0,
     time        datetime not null,
@@ -97,7 +98,7 @@ CREATE TABLE project
 	id 			varchar(12) NOT NULL,
 	project_name varchar(255),
     teacher_id 	varchar(50) NOT NULL,
-    PRIMARY KEY (id)
+    PRIMARY KEY (id),
     FOREIGN KEY (id) REFERENCES student(id) on delete cascade,
     FOREIGN KEY (teacher_id) REFERENCES teacher(id) on delete cascade
 );
