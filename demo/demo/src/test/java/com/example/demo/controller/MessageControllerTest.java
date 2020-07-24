@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.entity.ReadInfo;
+import com.example.demo.utils.ReadInfo;
 import com.example.demo.entity.Student;
 import com.example.demo.service.TeacherMessageService;
 import com.example.demo.utils.MessageInfo;

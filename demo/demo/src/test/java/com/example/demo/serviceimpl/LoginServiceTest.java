@@ -19,7 +19,6 @@ public class LoginServiceTest {
     @Autowired
     private LoginService loginService;
 
-
     @Test
     @Transactional
     public void checklogout(){

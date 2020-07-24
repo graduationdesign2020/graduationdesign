@@ -35,7 +35,8 @@ Page({
     }
     if(this.data.id && this.data.name){
       this.setData({show: true});
-      PostRequest('/register', {name: this.data.name, id: this.data.id, auth: this.data.tab, openid: app.globalData.userData.openid}, this.handleMsg)
+      console.log(this.handleAuth())
+      PostRequest('/register', {name: this.data.name, id: this.data.id, auth: this.handleAuth(), openid: app.globalData.userData.openid}, this.handleMsg)
     }
     console.log(this.data);
   },
@@ -45,6 +46,25 @@ Page({
       app.globalData.userData = data.userData;
       app.globalData.login = 1;
       this.setData({msg: "注册成功", dialog: true, show: false});
+      wx.login({
+        success: res => {
+          // 发送 res.code 到后台换取 openId, sessionKey, unionId
+          var code = res.code;
+          PostRequest("/mylogin", {code: res.code}, (data)=>{
+            if(data.msg == "SUCCESS"){
+              this.globalData.login = 1;
+              this.globalData.userData = data.userData;
+            }
+            if(data.msg == "FAIL"){
+              this.globalData.login = 2;
+              this.globalData.userData = data.userData;
+            }
+            if (this.dataCallback){
+              this.dataCallback(data);
+             }
+          })   
+        }
+      })
     }
     if(data.msg == 'REGISTERED'){
       this.setData({msg: "注册失败", dialog: true, show: false});
@@ -72,5 +92,12 @@ Page({
 
   onClickTab (event) {
     this.setData({tab: event.detail.name})
+  },
+
+  handleAuth: function() {
+    switch(this.data.tab) {
+      case 0: return "ROLE_STUDENT";      
+      case 1: return "ROLE_TEACHER";
+    }
   }
 })

@@ -6,6 +6,8 @@ import com.example.demo.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class StudentDaoImpl implements StudentDao {
     @Autowired
@@ -26,5 +28,10 @@ public class StudentDaoImpl implements StudentDao {
     public Student getStudentByIdAndName(String id,String name){
         Student student = studentRepository.getByIdAndName(id, name);
         return student;
+    }
+
+    @Override
+    public List<Student> findByDept(String dept) {
+        return studentRepository.findAllByDepartment(dept);
     }
 }

@@ -13,5 +13,5 @@ public interface UsersDao {
 
     int deleteUsers(String wechat_id);
 
-    Optional<Users> getByIdAndAuth(String id,Integer auth);
+    Optional<Users> getByIdAndAuth(String id,String auth);
 }
