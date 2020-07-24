@@ -93,10 +93,13 @@ public class ProcessServiceImpl implements ProcessService {
     }
 
     @Override
-    public ReturnInfo setDeadline(String end_time,List<String> id,int state){
+    public ReturnInfo setDeadline(String end_time,String id,int state){
         var i=0;
-        for (String value :id) {
-            i=stateDao.setDeadline(end_time, value, state);
+        List<String> students=projectDao.getIdByTeacher_id(id);
+        for(String value: students)
+        {
+            stateDao.setDeadline(end_time,value,state);
+            i=1;
         }
         ReturnInfo returnInfo=new ReturnInfo();
         if(i==1){

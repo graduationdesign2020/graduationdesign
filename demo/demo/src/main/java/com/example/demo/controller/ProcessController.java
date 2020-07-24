@@ -36,12 +36,8 @@ public class ProcessController {
     @RequestMapping(path = "/setDeadline")
     public ReturnInfo setDeadline(@RequestBody Map<String,String> params){
         String time=params.get("time");
-        List list= JSONObject.parseObject(params.get("students").toString(),List.class);
-        List<String> student_id = new ArrayList<>();
-        for (int i = 0; i < list.size(); i++){
-            student_id.add(JSONObject.parseObject(list.get(i).toString(),String.class));
-        }
+        String teacher_id=params.get("teacher");
         int state=Integer.parseInt(params.get("state"));
-        return processService.setDeadline(time,student_id,state);
+        return processService.setDeadline(time,teacher_id,state);
     }
 }
