@@ -14,17 +14,17 @@
     <van-tag type="success">已提交{{item.finished}}</van-tag>
     </view>
     <view>
-    <van-cell title="只显示未提交">
+    <van-cell title="只显示未提交" label="截止时间 {{item.end_time}}">
         <van-switch checked="{{ switch[index] }}" data-index="{{index}}" bind:change="onSwitch" size="20px" />
     </van-cell>
     <block wx:for="{{item.unfinishedStu}}" wx:key = "index" wx:for-item="student">
-    <van-cell title="{{student.id}}" label="{{student.name}}">
+    <van-cell title="{{student.name}}" label="{{student.id}}">
         <van-tag type="danger" size="medium">未提交</van-tag>
     </van-cell>
     </block>
     <block wx:if="{{!switch[index]}}">
     <block wx:for="{{item.finishedStu}}" wx:key = "index" wx:for-item="student">
-    <van-cell title="{{student.id}}" label="{{student.name}}">
+    <van-cell title="{{student.name}}" label="{{student.id}}">
         <van-tag type="success" size="medium">已提交</van-tag>
     </van-cell>
     </block>

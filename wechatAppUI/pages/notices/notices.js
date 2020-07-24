@@ -46,15 +46,6 @@ Page({
                 }
                 break;
               }
-              case "3": {
-                if(this.data.userData.auth){
-                  // PostRequest('/teacherGetSystemMessages', {teacher_id: this.data.userData.id}, that.setNotices);
-                }
-                else{
-                  // PostRequest('/getSystemMessages', {student_id: this.data.userData.id}, that.setNotices);
-                }
-                break;
-              }
             }
           }
         }
@@ -75,15 +66,6 @@ Page({
             }
             else{
               PostRequest('/getTeacherMessages', {student_id: this.data.userData.id}, that.setNotices);
-            }
-            break;
-          }
-          case "3": {
-            if(this.data.userData.auth){
-              // PostRequest('/teacherGetSystemMessages', {teacher_id: this.data.userData.id}, that.setNotices);
-            }
-            else{
-              // PostRequest('/getSystemMessages', {student_id: this.data.userData.id}, that.setNotices);
             }
             break;
           }
