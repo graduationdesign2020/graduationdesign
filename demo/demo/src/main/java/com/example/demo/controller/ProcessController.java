@@ -1,9 +1,11 @@
 package com.example.demo.controller;
 
 
+
 import com.example.demo.entity.Grade;
-import com.example.demo.entity.ProcessInfo;
-import com.example.demo.entity.StateInfo;
+
+import com.example.demo.utils.ProcessInfo;
+import com.example.demo.utils.StateInfo;
 import com.example.demo.service.ProcessService;
 import com.example.demo.utils.GradeInfo;
 import com.example.demo.utils.ReturnInfo;
@@ -63,5 +65,9 @@ public class ProcessController {
         return processService.getGradeByTeacher(id);
     }
 
-
+    @RequestMapping(path = "/getStudentsProcess")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+    public List<ProcessInfo> getStudentsProcess(@RequestBody String dept) {
+        return processService.getStudentsProcess(dept);
+    }
 }

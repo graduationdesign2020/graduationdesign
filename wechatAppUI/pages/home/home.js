@@ -25,11 +25,8 @@ Page({
       {title: '标题', id: 1, is_read: false, reading: 10, unread: 2, teacher_id: '12345', student_id: '11111', time: '07-01', content: '内容'},
       {title: '标题', id: 1, is_read: false, reading: 10, unread: 2, teacher_id: '12345', student_id: '11111', time: '07-01', content: '内容'}  
     ],
-    sysMessages: [
-      {title: '标题', id: 1, is_read: false, type: 1, student_id: '11111', time: '07-01', content: '内容'}
-    ],
     active: "home",
-    userData: {name: "小明", dept: "SE", auth: 1, id: 12345}
+    userData: {name: "小明", dept: "SE", auth: 1, id: '12345'}
   },
 
    /**
@@ -54,11 +51,9 @@ Page({
             PostRequest('/getThreeDepartmentNotices', {dept: data.userData.dept}, that.setDeptNotices);
             if(data.userData.auth) {
               PostRequest('/teacherGetTeacherMessages', {teacher_id: data.userData.id}, that.setTeacherMessages);
-              // PostRequest('/teacherGetSystemMessages', {teacher_id: data.userData.id}, that.setSysMessages);
             }
             else {
               PostRequest('/getTeacherMessages', {student_id: data.userData.id}, that.setTeacherMessages);
-              // PostRequest('/getSystemMessages', {student_id: data.userData.id}, that.setSysMessages);
             }
           }
         }
@@ -68,11 +63,9 @@ Page({
         PostRequest('/getThreeDepartmentNotices', {dept: this.data.userData.dept}, that.setDeptNotices);
         if(this.data.userData.auth) {
           PostRequest('/teacherGetTeacherMessages', {teacher_id: this.data.userData.id}, that.setTeacherMessages);
-          // PostRequest('/teacherGetSystemMessages', {teacher_id: this.data.userData.id}, that.setSysMessages);
         }
         else {
           PostRequest('/getTeacherMessages', {student_id: this.data.userData.id}, that.setTeacherMessages);
-          // PostRequest('/getSystemMessages', {student_id: this.data.userData.id}, that.setSysMessages);
         }
       }
     }
@@ -88,10 +81,6 @@ Page({
 
   setTeacherMessages: function(data){
     this.setData({teacherMessages: data});
-  },
-
-  setSysMessages: function(data){
-    this.setData({sysMessages: data});
   },
     
   onSearch() {

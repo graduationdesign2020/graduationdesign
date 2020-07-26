@@ -13,7 +13,7 @@ public interface UsersRepository extends JpaRepository<Users,String> {
     Optional<Users> getByWechat_id(String id);
 
     @Query("from Users where id=:id and auth=:auth")
-    Optional<Users> getByIdAndAuth(String id,Integer auth);
+    Optional<Users> getByIdAndAuth(String id,String auth);
     @Query(value = "delete from Users where wechat_id=:wechat_id")
     @Modifying
     @Transactional

@@ -47,15 +47,6 @@ Page({
                 PostRequest('/getTeacherMessage', {id: options.id, reading_id: options.reading_id}, that.setNotice);
                 break;
               }
-              case "3": {
-                if(this.data.userData.auth){
-                  // PostRequest('/getSystemMessageByTeacher', {id: options.id}, that.setNotice);
-                }
-                else{
-                  // PostRequest('/getSystemMessage', {id: options.id}, that.setNotice);
-                }
-                break;
-              }
             }
           }
         }
@@ -72,15 +63,6 @@ Page({
           }
           case "2": {
             PostRequest('/getTeacherMessage', {id: options.id, reading_id: options.reading_id}, that.setNotice);
-            break;
-          }
-          case "3": {
-            if(this.data.userData.auth){
-              // PostRequest('/getSystemMessageByTeacher', {id: options.id}, that.setNotice);
-            }
-            else{
-              // PostRequest('/getSystemMessage', {id: options.id}, that.setNotice);
-            }
             break;
           }
         }

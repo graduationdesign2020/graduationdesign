@@ -75,19 +75,6 @@
       />
     </van-cell-group>
   </view>
-  <view class="sys-message" style="width:100%">
-    <van-cell-group>
-      <van-cell title="系统消息" size="large"  value="更多" is-link url="/pages/notices/notices?type=3"  />
-      <van-cell 
-        wx:for="{{ sysMessages }}" 
-        wx:key="index" 
-        title="{{ item.title }}" 
-        is-link 
-        url="/pages/noticeDetail/noticeDetail?type=3&id={{ item.id }}" >
-        <van-tag wx:if="{{!item.is_read}}" type="danger">未读</van-tag>
-      </van-cell>
-    </van-cell-group>
-  </view>
   <navBar active="home" auth="{{userData.auth}}"/>
 </view>
 

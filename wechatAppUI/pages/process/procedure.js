@@ -15,7 +15,7 @@ Page({
       {state: "开题报告", submit:1, end_time:"07-10 00:00"},
       {state: "中期检查", submit:2, end_time:"07-13 00:00"},
       {state: "论文定稿", submit:3, end_time:"07-18 00:00"},
-      {state: "论文最终稿", submit:4}
+      {state: "论文最终稿", submit:4, end_time:"07-18 00:00"}
     ]
   },
 
