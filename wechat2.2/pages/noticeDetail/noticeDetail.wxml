@@ -1,0 +1,14 @@
+<!--pages/noticeDetail/noticeDetail.wxml-->
+<view class="page__detail">
+    <view class="detail">
+        <view class="detail__title">
+            {{ notice.title }}
+        </view>
+        <view class="article__desc">
+            <text class="article__time">{{ notice.time }}</text>
+            <text wx:if="{{type==2}}" class="article__teacher">{{ notice.teachername }}</text>
+        </view>
+        <van-divider/>
+        <textarea>{{notice.content}}</textarea>
+    </view>
+</view>

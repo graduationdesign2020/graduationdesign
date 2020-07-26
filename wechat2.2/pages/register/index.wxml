@@ -1,0 +1,71 @@
+<view class="container">
+  <view class="userinfo">
+    <van-tabs active="{{ 0 }}" bind:click="onClickTab">
+      <van-tab title="学生">
+        <view class="content">
+         <van-cell-group>
+            <van-field
+              bindblur="nameInput"
+              value="{{ name }}"
+              label="姓名"
+              placeholder="请输入姓名"
+              error-message="{{ errorMessage1 }}"
+              required
+            />
+            <van-field
+              bindblur="idInput"
+              value="{{ id }}"
+              label="学号"
+              placeholder="请输入学号"
+              required
+              error-message="{{ errorMessage2 }}"
+              border="{{ true }}"
+            />
+          </van-cell-group>
+        </view>
+      </van-tab>
+      <van-tab title="教师">
+        <view class="content">
+         <van-cell-group>
+            <van-field
+              bindblur="nameInput"
+              value="{{ name }}"
+              label="姓名"
+              placeholder="请输入姓名"
+              error-message="{{ errorMessage1 }}"
+              required
+            />
+            <van-field
+              bindblur="idInput"
+              value="{{ id }}"
+              label="工号"
+              placeholder="请输入工号"
+              required
+              error-message="{{ errorMessage2 }}"
+              border="{{ true }}"
+            />
+          </van-cell-group>
+        </view>
+      </van-tab>
+    </van-tabs>
+  </view>
+  <view class="login-button">
+    <van-button 
+    wx:if="{{canIUse}}" 
+    open-type="getUserInfo" 
+    type="primary"
+    bindgetuserinfo="bindGetUserInfo" 
+    block>
+    绑定微信号
+    </van-button>
+    <view wx:else>请升级微信版本</view>
+  </view>
+  <van-overlay show="{{ show }}">
+    <view class="wrapper">
+      <view class="block">
+      <van-loading color="#1989fa" size="24px" vertical>注册中...</van-loading>
+      </view>
+    </view>
+  </van-overlay>
+  <van-dialog title="确认" show="{{dialog}}" message="{{msg}}" bind:confirm="confirmMsg"/>
+</view>
