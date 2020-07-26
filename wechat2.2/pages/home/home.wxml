@@ -1,0 +1,80 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="searchBar" style="width:100%"> 
+    <van-search
+      model:value="{{ searchValue }}"
+      placeholder="快速搜索通知"
+      bind:search="onSearch"
+    />
+  </view>
+  <view class="common-app" style="width:100%">
+    <van-cell-group>
+      <van-cell title="常用功能" size="large" />
+      <van-grid wx:if="{{ userData.auth }}" column-num="{{teacherCommonAPPs.length}}">
+        <van-grid-item 
+          wx:for="{{ teacherCommonAPPs }}" 
+          wx:key="index"
+          icon="{{ item.icon }}" 
+          text="{{ item.text }}" 
+          link-type="navigateTo" 
+          url="{{ item.url }}" 
+        />
+      </van-grid>
+      <van-grid wx:else column-num="{{studentCommonAPPs.length}}">
+        <van-grid-item 
+          wx:for="{{ studentCommonAPPs }}" 
+          wx:key="index"
+          icon="{{ item.icon }}" 
+          text="{{ item.text }}" 
+          link-type="navigateTo" 
+          url="{{ item.url }}" 
+        />
+      </van-grid>
+    </van-cell-group>
+  </view>
+  <view class="school-notice" style="width:100%">
+    <van-cell-group>
+      <van-cell title="校内公告" size="large" value="更多" is-link url="/pages/notices/notices?type=0" />
+      <van-cell
+        wx:for="{{ schoolNotices }}" 
+        wx:key="index"
+        title="{{ item.title }}" 
+        is-link url="/pages/noticeDetail/noticeDetail?type=0&id={{ item.id }}" 
+      />
+    </van-cell-group>
+  </view>
+    <view class="dept-notice" style="width:100%">
+    <van-cell-group>
+      <van-cell title="院内公告" size="large" value="更多" is-link url="/pages/notices/notices?type=1" />
+      <van-cell
+        wx:for="{{  deptNotices }}" 
+        wx:key="index"
+        title="{{ item.title }}" 
+        is-link url="/pages/noticeDetail/noticeDetail?type=1&id={{ item.id }}" 
+      />
+    </van-cell-group>
+  </view>
+  <view class="teacher-message" style="width:100%">
+    <van-cell-group>
+      <van-cell title="导师消息" size="large"  value="更多" is-link url="/pages/notices/notices?type=2"  />
+      <van-cell 
+        wx:if="{{!userData.auth}}" 
+        wx:for="{{ teacherMessages }}" 
+        wx:key="index" title="{{ item.title }}" 
+        is-link 
+        url="/pages/noticeDetail/noticeDetail?type=2&id={{ item.id }}&reading_id={{item.reading_id}}"  >
+        <van-tag wx:if="{{!item.is_read}}" type="danger">未读</van-tag>
+      </van-cell>
+      <van-cell 
+        wx:if="{{userData.auth}}" 
+        wx:for="{{ teacherMessages }}" 
+        wx:key="index"
+        title="{{ item.title }}"
+        value="未读 {{item.unread}} 已读 {{item.reading}}"
+        is-link url="/pages/reading/reading?id={{ item.id }}"  
+      />
+    </van-cell-group>
+  </view>
+  <navBar active="home" auth="{{userData.auth}}"/>
+</view>
+
