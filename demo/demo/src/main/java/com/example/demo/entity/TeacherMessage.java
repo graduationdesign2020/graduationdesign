@@ -21,39 +21,14 @@ public class TeacherMessage {
     @GeneratedValue(strategy = IDENTITY)
     private int id;
 
-    public void setId(int id){
-        this.id=id;
-    }
-    public int getId(){
-        return id;
-    }
-
     @Basic
     private String title;
-
-    public void setTitle(String title){
-        this.title=title;
-    }
-    public String getTitle(){return title;}
 
     @Basic
     private String teacher_id;
 
-    public void setTeacher_id(String teacher_id) {
-        this.teacher_id = teacher_id;
-    }
-    public String getTeacher_id(){ return teacher_id;}
-
     @Basic
     private String time;
-
-    public String getTime() {
-        return time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
-    }
 
     @Transient
     private String content;

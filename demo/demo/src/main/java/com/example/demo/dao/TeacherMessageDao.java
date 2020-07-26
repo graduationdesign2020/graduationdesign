@@ -11,8 +11,6 @@ public interface TeacherMessageDao {
 
     TeacherMessage getTeacherMessage(Integer id);
 
-    //List<TeacherMessage> getTeacherMessages(String stu_id);
-
     List<TeacherMessage> getTeacherMessagesByTeacher(String teacher_id);
 
     void sentTeacherMessage(TeacherMessage teacherMessage);//将(title,content,teacherId)插入到message表

@@ -29,6 +29,7 @@ public class NoticeController {
     @PreAuthorize("hasAnyRole('ROLE_STUDENT', 'ROLE_TEACHER')")
     public List<SchoolNotice> getThreeSchoolNotices()
     {
+        System.out.println("schoolNotices");
         return noticeService.getThreeSchoolNotices();
     }
 

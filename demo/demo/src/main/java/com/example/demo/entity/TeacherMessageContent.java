@@ -13,22 +13,8 @@ public class TeacherMessageContent {
     @Column(name = "_id")
     private int id;
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getId() {
-        return id;
-    }
-
     private String content;
 
-    public String getContent() {
-        return content;
-    }
-    public void setContent(String content){
-        this.content=content;
-    }
     public TeacherMessageContent(int id, String content){
         this.id=id;
         this.content=content;

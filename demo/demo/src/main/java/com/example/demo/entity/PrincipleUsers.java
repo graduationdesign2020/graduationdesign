@@ -20,22 +20,6 @@ public class PrincipleUsers {
     @Id
     private String teacher_id;
 
-    public String getTeacher_id() {
-        return teacher_id;
-    }
-
-    public void setTeacher_id(String teacher_id) {
-        this.teacher_id = teacher_id;
-    }
-
     private String password;
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
 }

@@ -21,31 +21,7 @@ public class Project {
     @Id
     private String id;
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getId() {
-        return id;
-    }
-
     private String project_name;
 
-    public String getProject_name() {
-        return project_name;
-    }
-
-    public void setProject_name(String project_name) {
-        this.project_name = project_name;
-    }
-
     private String teacher_id;
-
-    public void setTeacher_id(String teacher_id) {
-        this.teacher_id = teacher_id;
-    }
-
-    public String getTeacher_id() {
-        return teacher_id;
-    }
 }

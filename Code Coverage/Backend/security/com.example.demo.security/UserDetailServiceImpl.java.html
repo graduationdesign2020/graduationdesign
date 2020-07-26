@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserDetailServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">demo$ProcessServiceTest.exec</a> &gt; <a href="index.source.html" class="el_package">com.example.demo.security</a> &gt; <span class="el_source">UserDetailServiceImpl.java</span></div><h1>UserDetailServiceImpl.java</h1><pre class="source lang-java linenums">package com.example.demo.security;
+
+import com.example.demo.constant.appId;
+import com.example.demo.dao.UsersDao;
+import com.example.demo.entity.Users;
+import com.example.demo.repository.UsersRepository;
+import com.example.demo.utils.CodeReturn;
+import com.example.demo.utils.HttpClient;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.SneakyThrows;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.AuthorityUtils;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+@Service
+<span class="fc" id="L28">public class UserDetailServiceImpl implements UserDetailsService {</span>
+    @Autowired
+    private UsersRepository usersRepository;
+    @Autowired
+    private UsersDao usersDao;
+
+<span class="nc" id="L34">    @SneakyThrows</span>
+    @Override
+    public UserDetails loadUserByUsername(String wechat_id) throws UsernameNotFoundException {
+<span class="nc" id="L37">        Optional&lt;Users&gt; user = usersDao.getUserByWechat_id(wechat_id);</span>
+<span class="nc" id="L38">        System.err.println(wechat_id);</span>
+<span class="nc" id="L39">        System.err.println(user.isPresent());</span>
+
+<span class="nc bnc" id="L41" title="All 2 branches missed.">        if (user.isEmpty()) {</span>
+<span class="nc" id="L42">            throw new UsernameNotFoundException(&quot;Not Found.&quot;);</span>
+        }
+<span class="nc" id="L44">        System.out.println(user.get());</span>
+<span class="nc" id="L45">        List&lt;GrantedAuthority&gt; authorities = AuthorityUtils.createAuthorityList(user.get().getAuth());</span>
+<span class="nc" id="L46">        System.err.println(&quot;username is &quot; + wechat_id + &quot;, &quot;+ user.get().getId() + &quot;, &quot; + user.get().getAuth());</span>
+<span class="nc" id="L47">        User u = new User(user.get().getWechat_id(), new BCryptPasswordEncoder().encode(user.get().getId()), authorities);</span>
+<span class="nc" id="L48">        System.out.println(u);</span>
+<span class="nc" id="L49">        return u;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

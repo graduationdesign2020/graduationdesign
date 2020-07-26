@@ -35,7 +35,7 @@ public class UsersDaoImpl implements UsersDao {
     }
 
     @Override
-    public Optional<Users> getByIdAndAuth(String id,Integer auth){
+    public Optional<Users> getByIdAndAuth(String id,String auth){
         return usersRepository.getByIdAndAuth(id, auth);
     }
 }

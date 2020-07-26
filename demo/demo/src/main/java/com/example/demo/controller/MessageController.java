@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.example.demo.entity.ReadInfo;
+import com.example.demo.utils.ReadInfo;
 import com.example.demo.entity.Student;
 import com.example.demo.service.TeacherMessageService;
 import com.example.demo.utils.MessageInfo;
@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -25,6 +24,7 @@ public class MessageController {
     @PreAuthorize("hasAnyRole('ROLE_TEACHER')")
     public List<Student> teacherGetStudents(@RequestBody Map<String,String> params){
         String id=params.get("id");
+        System.out.println(id);
         return teacherMessageService.getStudentsByTeacher_id(id);
     }
     @RequestMapping(path = "/getTeacherMessage")
