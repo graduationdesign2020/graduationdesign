@@ -61,7 +61,7 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
             messageInfo.setReading_id(teacherMessageReading.getId());
             messageInfo.setTitle(teacherMessage.getTitle());
             messageInfo.setTime(teacherMessage.getTime());
-            messageInfo.set_read(teacherMessageReading.getIs_read());
+            messageInfo.set_read(teacherMessageReading.is_read());
             Teacher teacher = teacherDao.getTeacherById(teacherMessage.getTeacher_id());
             messageInfo.setTeachername(teacher.getName());
             messageInfos.add(messageInfo);
@@ -85,7 +85,7 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
         for (String value : student_id) {
             TeacherMessageReading teacherMessageReading=new TeacherMessageReading();
             teacherMessageReading.setMessage_id(teacherMessage.getId());
-            teacherMessageReading.setIs_read(false);
+            teacherMessageReading.set_read(false);
             teacherMessageReading.setStudent_id(value);
             teacherMessageReadings.add(teacherMessageReading);
         }
@@ -106,7 +106,7 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
         List<Student> studentsRead = new ArrayList<>();
         List<Student> studentsUnread = new ArrayList<>();
         for (TeacherMessageReading teacherMessageReading : readings) {
-            if (teacherMessageReading.getIs_read()) {
+            if (teacherMessageReading.is_read()) {
                 read++;
                 studentsRead.add(studentDao.getOne(teacherMessageReading.getStudent_id()));
             }

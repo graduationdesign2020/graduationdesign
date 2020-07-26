@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.Data;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -20,41 +21,15 @@ public class Grade {
     @Id
     private String id;
 
-    public void setId(String id) {
-        this.id = id;
-    }
+    @Column(name = "teacher_grade")
+    private String teachergrade;
 
-    public String getId() {
-        return id;
-    }
+    @Column(name = "review_grade")
+    private String reviewgrade;
 
-    private String teacher_grade;
+    @Column(name = "defense_grade")
+    private String thesisgrade;
 
-    public String getTeacher_grade() {
-        return teacher_grade;
-    }
-
-    public void setTeacher_grade(String teacher_grade) {
-        this.teacher_grade = teacher_grade;
-    }
-
-    private String reply_grade;
-
-    public String getReply_grade() {
-        return reply_grade;
-    }
-
-    public void setReply_grade(String reply_grade) {
-        this.reply_grade = reply_grade;
-    }
-
-    private String total_grade;
-
-    public String getTotal_grade() {
-        return total_grade;
-    }
-
-    public void setTotal_grade(String total_grade) {
-        this.total_grade = total_grade;
-    }
+    @Column(name = "total_grade")
+    private String allgrade;
 }

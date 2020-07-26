@@ -1,24 +1,34 @@
 package com.example.demo.schdule;
 
+import com.example.demo.entity.Student;
+import com.example.demo.entity.TeacherMessage;
 import com.example.demo.service.LoginService;
+import com.example.demo.service.TeacherMessageService;
 import org.quartz.Job;
 import org.quartz.JobDetail;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 
 public class SentJob implements Job {
-    @Autowired
-    LoginService loginService;
+    private TeacherMessageService teacherMessageService;
+
     public void execute(JobExecutionContext arg0) throws JobExecutionException{
+        SpringBeanAutowiringSupport.processInjectionBasedOnCurrentContext(this);
         JobDetail jobDetail =arg0.getJobDetail();
         int state=jobDetail.getJobDataMap().getInt("state");
         String teacher=jobDetail.getJobDataMap().getString("teacher");
         String time=jobDetail.getJobDataMap().getString("time");
-        System.out.println(getMsg(teacher,state,time));
+        List<Student> list=teacherMessageService.getStudentsByTeacher_id(teacher);
+        for(Student student:list) {
+            String name=student.getName();
+            System.out.println(getMsg(name, state, time));
+        }
     }
     public String getMsg(String student,int state,String time){
         String st=getState(state);

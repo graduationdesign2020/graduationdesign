@@ -21,30 +21,11 @@ public class SchoolNotice {
     @GeneratedValue(strategy = IDENTITY)
     private int id;
 
-    public int getId() {
-        return id;
-    }
-
     @Basic
     private String title;
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
     @Basic
     private String time;
-    public void setTime(String time) {
-        this.time = time;
-    }
-
-    public String getTime() {
-        return time;
-    }
 
     @Transient
     private String content;

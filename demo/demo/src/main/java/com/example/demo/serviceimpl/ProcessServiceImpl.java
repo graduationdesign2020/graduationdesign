@@ -1,12 +1,11 @@
 package com.example.demo.serviceimpl;
 
-import com.example.demo.dao.DeadlineDao;
-import com.example.demo.dao.ProjectDao;
-import com.example.demo.dao.StateDao;
-import com.example.demo.dao.StudentDao;
+import com.example.demo.dao.*;
 import com.example.demo.entity.*;
 import com.example.demo.schdule.LoadTask;
 import com.example.demo.service.ProcessService;
+
+import com.example.demo.utils.GradeInfo;
 import com.example.demo.utils.ProcessInfo;
 import com.example.demo.utils.ReturnInfo;
 import com.example.demo.utils.StateInfo;
@@ -30,6 +29,8 @@ public class ProcessServiceImpl implements ProcessService {
     private StudentDao studentDao;
     @Autowired
     private DeadlineDao deadlineDao;
+    @Autowired
+    private GradeDao gradeDao;
 
     @Override
     public List<StateInfo> checkSelfProcess(String stu_id) {
@@ -128,6 +129,26 @@ public class ProcessServiceImpl implements ProcessService {
     }
 
     @Override
+    public Grade getGradeById(String id){
+        return gradeDao.getById(id);
+    }
+
+    @Override
+    public List<GradeInfo> getGradeByTeacher(String id) {
+        List<String> list = projectDao.getIdByTeacher_id(id);
+        List<GradeInfo> infoList = new ArrayList<>();
+        for (String value : list) {
+            Student student = studentDao.getOne(value);
+            Grade grade = gradeDao.getById(value);
+            GradeInfo gradeInfo = new GradeInfo();
+            gradeInfo.setName(student.getName());
+            if (grade != null) {
+                gradeInfo.setGrade(grade);
+            }
+            infoList.add(gradeInfo);
+        }
+        return infoList;
+    }
     public List<ProcessInfo> getStudentsProcess(String dept) {
         List<Student> students = studentDao.findByDept(dept);
         List<ProcessInfo> processInfos = new ArrayList<>();
