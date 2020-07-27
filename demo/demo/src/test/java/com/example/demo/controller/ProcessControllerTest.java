@@ -67,15 +67,15 @@ public class ProcessControllerTest extends DemoApplicationTests {
         assertEquals(stateInfos, processService.checkSelfProcess("1"));
     }
 
-    @Test
-    public void checkProcess() throws Exception {
-        MvcResult result = mockMvc.perform(post("/checkProcess").content("{\"tea_id\": \"1\"}").contentType(MediaType.APPLICATION_JSON_VALUE))
-                .andExpect(status().isOk()).andReturn();
-        String resultContent = result.getResponse().getContentAsString();
-        List<ProcessInfo> processInfos = om.readValue(resultContent, new TypeReference<List<ProcessInfo>>() {} );
-
-        assertEquals(processInfos, processService.checkProcess("1"));
-    }
+//    @Test
+//    public void checkProcess() throws Exception {
+//        MvcResult result = mockMvc.perform(post("/checkProcess").content("{\"tea_id\": \"1\"}").contentType(MediaType.APPLICATION_JSON_VALUE))
+//                .andExpect(status().isOk()).andReturn();
+//        String resultContent = result.getResponse().getContentAsString();
+//        List<ProcessInfo> processInfos = om.readValue(resultContent, new TypeReference<List<ProcessInfo>>() {} );
+//
+//        assertEquals(processInfos, processService.checkProcess("1"));
+//    }
 
     @Test
     @Transactional
