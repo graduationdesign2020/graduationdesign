@@ -1,6 +1,6 @@
 package com.example.demo.constant;
 
 public class appId {
-    public static final String appId="wx9f6bc5544d0cf22b";
-    public static final String secret="59fee20c47bd73cb780a34409f4d5ca1";
+    public static final String appId="wx19b7eb8e43f64ebb";
+    public static final String secret="1bf9bab41720dd827fa8c11ecb92f7c1";
 }

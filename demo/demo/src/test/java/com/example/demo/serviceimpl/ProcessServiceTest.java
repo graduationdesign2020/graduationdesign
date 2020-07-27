@@ -67,45 +67,45 @@ public class ProcessServiceTest extends DemoApplicationTests {
         assertEquals("FAIL",result.getMsg());
     }
 
-    @Test
-    public void checkProcess() {
-        List<ProcessInfo> result = processService.checkProcess("09515");
-        List<ProcessInfo> compare = new ArrayList<>();
-        List<Project> projects = projectDao.findByTeacher("09515");
-        int stuNum = projectDao.findByTeacher("09515").size();
-        for (int i = 0; i < 5; i++) {
-            ProcessInfo processInfo = new ProcessInfo();
-
-            String name = "";
-            switch (i) {
-                case 0: name = "任务书";break;
-                case 1: name = "开题报告";break;
-                case 2: name = "中期检查";break;
-                case 3: name = "论文定稿";break;
-                case 4: name = "论文最终稿";
-            }
-            processInfo.setName(name);
-            List<Student> studentsFinished = new ArrayList<>();
-            List<Student> studentsUnfinished = new ArrayList<>();
-            int finished = 0;
-            for (Project project : projects) {
-                State state = stateDao.getOneByProjAndState(project.getId(), i);
-                if (state == null || state.getSubmit() != 5) {
-                    studentsUnfinished.add(studentDao.getOne(project.getId()));
-                }
-                else if (state.getSubmit() == 5) {
-                    finished++;
-                    studentsFinished.add(studentDao.getOne(project.getId()));
-                }
-            }
-            int unfinished = stuNum - finished;
-            processInfo.setFinished(finished);
-            processInfo.setUnfinished(unfinished);
-            processInfo.setFinishedStu(studentsFinished);
-            processInfo.setUnfinishedStu(studentsUnfinished);
-            compare.add(processInfo);
-        }
-
-        assertEquals(result, compare);
-    }
+//    @Test
+//    public void checkProcess() {
+//        List<ProcessInfo> result = processService.checkProcess("09515");
+//        List<ProcessInfo> compare = new ArrayList<>();
+//        List<Project> projects = projectDao.findByTeacher("09515");
+//        int stuNum = projectDao.findByTeacher("09515").size();
+//        for (int i = 0; i < 5; i++) {
+//            ProcessInfo processInfo = new ProcessInfo();
+//
+//            String name = "";
+//            switch (i) {
+//                case 0: name = "任务书";break;
+//                case 1: name = "开题报告";break;
+//                case 2: name = "中期检查";break;
+//                case 3: name = "论文定稿";break;
+//                case 4: name = "论文最终稿";
+//            }
+//            processInfo.setName(name);
+//            List<Student> studentsFinished = new ArrayList<>();
+//            List<Student> studentsUnfinished = new ArrayList<>();
+//            int finished = 0;
+//            for (Project project : projects) {
+//                State state = stateDao.getOneByProjAndState(project.getId(), i);
+//                if (state == null || state.getSubmit() != 5) {
+//                    studentsUnfinished.add(studentDao.getOne(project.getId()));
+//                }
+//                else if (state.getSubmit() == 5) {
+//                    finished++;
+//                    studentsFinished.add(studentDao.getOne(project.getId()));
+//                }
+//            }
+//            int unfinished = stuNum - finished;
+//            processInfo.setFinished(finished);
+//            processInfo.setUnfinished(unfinished);
+//            processInfo.setFinishedStu(studentsFinished);
+//            processInfo.setUnfinishedStu(studentsUnfinished);
+//            compare.add(processInfo);
+//        }
+//
+//        assertEquals(result, compare);
+//    }
 }

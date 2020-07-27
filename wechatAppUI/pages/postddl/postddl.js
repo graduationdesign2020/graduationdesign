@@ -117,8 +117,8 @@ Page({
     this.setData({
       waitshow: true,
     })
-    PostRequest("/settDeadline", 
-      { id: this.data.userData.id, 
+    PostRequest("/setDeadline",
+      { teacher: this.data.userData.id, 
         time: this.data.currentDateString + " " + this.data.currentTime + ":00",
         state: this.data.value,
       },

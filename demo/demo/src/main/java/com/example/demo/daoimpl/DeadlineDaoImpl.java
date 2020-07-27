@@ -18,7 +18,7 @@ public class DeadlineDaoImpl implements DeadlineDao {
         Deadline deadline=new Deadline();
         deadline.setState(state);
         deadline.setTeacher_id(teacher_id);
-        deadline.setTime(timestamp);
+        deadline.setEnd_time(timestamp);
         return deadlineRepository.save(deadline);
     }
 
