@@ -58,7 +58,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .and()
                 .addFilterBefore(customAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class)
                 .authorizeRequests()
-                    .antMatchers("/","/login", "/mylogin", "/register").permitAll()
+                    .antMatchers("/","/login", "/mylogin", "/register", "/mylogout").permitAll()
                     .anyRequest().authenticated()
                     .and()
 
