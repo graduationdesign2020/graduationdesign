@@ -36,7 +36,7 @@ public class LoginController {
         return loginService.register(wechat_id,id,name,auth);
     }
 
-    @RequestMapping(path = "/logout")
+    @RequestMapping(path = "/mylogout")
     public ReturnInfo logoff(@RequestBody Map<String,String> params){
         String wechat_id=params.get("openid");
         return loginService.logout(wechat_id);
