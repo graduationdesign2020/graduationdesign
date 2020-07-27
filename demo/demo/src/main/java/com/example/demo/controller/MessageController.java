@@ -28,7 +28,7 @@ public class MessageController {
         return teacherMessageService.getStudentsByTeacher_id(id);
     }
     @RequestMapping(path = "/getTeacherMessage")
-    @PreAuthorize("hasAnyRole('0', 'ROLE_TEACHER')")
+    @PreAuthorize("hasAnyRole('ROLE_STUDENT', 'ROLE_TEACHER')")
     public MessageInfo getTeacherMessage(@RequestBody Map<String,Integer> params) {
         Integer id=params.get("id");
         Integer reading_id=params.get("reading_id");
@@ -36,7 +36,7 @@ public class MessageController {
     }
 
     @RequestMapping(path = "/getTeacherMessages")
-    @PreAuthorize("hasAnyRole('0', 'ROLE_TEACHER')")
+    @PreAuthorize("hasAnyRole('ROLE_STUDENT', 'ROLE_TEACHER')")
     public List<MessageInfo> getTeacherMessages(@RequestBody Map<String,String> params) {
         String stu_id=params.get("student_id");
         return teacherMessageService.getTeacherMessages(stu_id);
