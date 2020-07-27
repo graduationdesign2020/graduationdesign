@@ -44,7 +44,7 @@ public class ProcessController {
     @ResponseBody
     public ReturnInfo setDeadline(@RequestBody Map<String,String> params){
         String time=params.get("time");
-        String teacher_id=params.get("teacher");
+        String teacher_id=params.get("id");
         int state=Integer.parseInt(params.get("state"));
         return processService.setDeadline(time,teacher_id,state);
     }
