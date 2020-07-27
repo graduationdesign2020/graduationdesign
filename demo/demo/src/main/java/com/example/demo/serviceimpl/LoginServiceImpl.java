@@ -51,7 +51,7 @@ public class LoginServiceImpl implements LoginService {
                 userInfo.setOpenid(wechat_id);
                 userInfo.setName(t.getName());
                 userInfo.setDept(t.getDepartment());
-                userInfo.setAuth("ROLE_TEACHER");
+                userInfo.setAuth(1);
                 flag = true;
             }
         } else {
@@ -63,7 +63,7 @@ public class LoginServiceImpl implements LoginService {
                 userInfo.setOpenid(wechat_id);
                 userInfo.setName(student.getName());
                 userInfo.setDept(student.getDepartment());
-                userInfo.setAuth("ROLE_STUDENT");
+                userInfo.setAuth(0);
                 Optional<Project> project= projectDao.getOne(id);
                 if(project.isPresent()) {
                     Project p=project.get();
@@ -78,7 +78,7 @@ public class LoginServiceImpl implements LoginService {
             Users users = new Users();
             users.setWechat_id(wechat_id);
             users.setId(id);
-            users.setAuth("ROLE_TEACHER");
+            users.setAuth(auth);
             usersDao.saveUsers(users);
             returnInfo.setMsg(Msg1);
             returnInfo.setUserData(userInfo);
@@ -113,7 +113,7 @@ public class LoginServiceImpl implements LoginService {
             returnInfo.setMsg(Msg1);
             if(u.getAuth().equals("ROLE_TEACHER")){
                 Teacher t= teacherDao.getTeacherById(id);
-                userInfo.setAuth("ROLE_TEACHER");
+                userInfo.setAuth(1);
                 userInfo.setDept(t.getDepartment());
                 userInfo.setName(t.getName());
                 returnInfo.setUserData(userInfo);
@@ -121,7 +121,7 @@ public class LoginServiceImpl implements LoginService {
             else
             {
                 Student student= studentDao.getOne(id);
-                userInfo.setAuth("ROLE_STUDENT");
+                userInfo.setAuth(0);
                 userInfo.setDept(student.getDepartment());
                 userInfo.setName(student.getName());
                 Optional<Project> project=projectDao.getOne(id);
@@ -131,8 +131,8 @@ public class LoginServiceImpl implements LoginService {
                     userInfo.setProject(p.getProject_name());
                     Teacher teacher = teacherDao.getTeacherById(p.getTeacher_id());
                     userInfo.setTeacher(teacher.getName());
-                    returnInfo.setUserData(userInfo);
                 }
+                returnInfo.setUserData(userInfo);
             }
         }
         else {
