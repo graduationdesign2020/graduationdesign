@@ -14,21 +14,16 @@ describe('e2e tests', () => {
   })
 
   it('myProfile', async() => {
-    const page = await miniProgram.reLaunch('/pages/SendNotice/SendNotice')
-    const inputInput = await page.$$('van-field')
-    const data=page.data()
-    await page.setData({
-      title:"title"
+    const page = await miniProgram.reLaunch('/pages/notices/notices?type=1')
+    await page.waitFor(async () => {
+      return (await page.$$('wux-card')).length > 2
     })
-    await page.setData({
-      result:data.list
-    })
-    await page.setData({
-      text: "content"
-    })
-    const button = await page.$('.send-button')
+    const elements = await page.$$('wux-card')
+    console.log(elements.length)
+    const button=elements[0];
     button.tap()
     console.log(button.tagName)
+
   })
   
 })

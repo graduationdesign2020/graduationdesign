@@ -5,7 +5,7 @@ import {PostRequest} from "../../utils/ajax";
 
 Page({
   data: {
-    type: 0,
+    type: 2,
     notices: [
       {title: '标题', id: 1, is_read: false, reading: 10, unread: 2, teachername: '娘口三三', time: '07-01', content: '内容'},
       {title: '标题', id: 1, is_read: false, reading: 10, unread: 2, teachername: '猫咪老师', time: '07-01', content: '内容'}

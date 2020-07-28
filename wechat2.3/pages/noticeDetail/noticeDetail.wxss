@@ -31,7 +31,7 @@
 }
 
 .article__content{
-  font-size: 28rpx;
+  font-size: 32rpx;
   color: #333;
   line-height: 42rpx;
   word-break: break-all;

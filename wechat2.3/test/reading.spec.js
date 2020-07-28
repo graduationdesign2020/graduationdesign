@@ -14,10 +14,11 @@ describe('e2e tests', () => {
   })
 
   it('myProfile', async() => {
-    const page = await miniProgram.reLaunch('/pages/processList/processList')
+    const page = await miniProgram.reLaunch('/pages/reading/reading?id=24')
     await page.setData({
-      switch: [true, false, false, false, false]
+      checked: false
     })
+
   })
   
 })

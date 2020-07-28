@@ -9,6 +9,9 @@
             <text wx:if="{{type==2}}" class="article__teacher">{{ notice.teachername }}</text>
         </view>
         <van-divider/>
-        <textarea>{{notice.content}}</textarea>
+        <view class="article__content">
+            {{notice.content}}
+        </view>
+        <!-- <textarea autosize>{{notice.content}}</textarea> -->
     </view>
 </view>

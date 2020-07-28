@@ -48,7 +48,7 @@ Page({
 
   logout: function() {
     this.setData({show: true});
-    PostRequest('/logout', {id: this.data.userData.id, auth: this.data.auth, openid: app.globalData.userData.openid}, (data)=>{
+    PostRequest('/mylogout', {id: this.data.userData.id, auth: this.data.auth, openid: app.globalData.userData.openid}, (data)=>{
       if(data.msg == 'SUCCESS'){
         this.setData({msg: "注销成功", dialog: true, show: false});
         app.globalData.userInfo = {};
