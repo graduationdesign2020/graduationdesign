@@ -63,7 +63,7 @@
         wx:key="index" title="{{ item.title }}" 
         is-link 
         url="/pages/noticeDetail/noticeDetail?type=2&id={{ item.id }}&reading_id={{item.reading_id}}"  >
-        <van-tag wx:if="{{!item.is_read}}" type="danger">未读</van-tag>
+        <van-tag wx:if="{{!item.isread}}" type="danger">未读</van-tag>
       </van-cell>
       <van-cell 
         wx:if="{{userData.auth}}" 

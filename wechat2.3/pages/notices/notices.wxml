@@ -15,7 +15,7 @@
         <wux-wing-blank wx:if="{{type==2 && !userData.auth}}" size="default">
             <wux-card wx:for="{{ notices }}" wx:key="id" bindtap="detail" data-id="{{item.id}}" data-reading_id="{{item.reading_id}}" title="{{item.title}}">
                 <view slot="body">{{item.teachername}} {{item.time}}</view>
-                <view wx:if="{{!item.is_read}}" slot="footer"><van-tag type="danger">未读</van-tag></view>
+                <view wx:if="{{!item.isread}}" slot="footer"><van-tag type="danger">未读</van-tag></view>
             </wux-card>
         </wux-wing-blank>
         <wux-wing-blank wx:if="{{type==2 && userData.auth}}" size="default">
