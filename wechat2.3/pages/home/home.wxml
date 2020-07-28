@@ -12,6 +12,7 @@
       <van-cell title="常用功能" size="large" />
       <van-grid wx:if="{{ userData.auth }}" column-num="{{teacherCommonAPPs.length}}">
         <van-grid-item 
+          class="functions"
           wx:for="{{ teacherCommonAPPs }}" 
           wx:key="index"
           icon="{{ item.icon }}" 
@@ -36,6 +37,7 @@
     <van-cell-group>
       <van-cell title="校内公告" size="large" value="更多" is-link url="/pages/notices/notices?type=0" />
       <van-cell
+        class="schoolnotices"
         wx:for="{{ schoolNotices }}" 
         wx:key="index"
         title="{{ item.title }}" 
@@ -45,8 +47,9 @@
   </view>
     <view class="dept-notice" style="width:100%">
     <van-cell-group>
-      <van-cell title="院内公告" size="large" value="更多" is-link url="/pages/notices/notices?type=1" />
+      <van-cell class="dept" title="院内公告" size="large" value="更多" is-link url="/pages/notices/notices?type=1" />
       <van-cell
+        class="deptnotices"
         wx:for="{{  deptNotices }}" 
         wx:key="index"
         title="{{ item.title }}" 
@@ -58,6 +61,7 @@
     <van-cell-group>
       <van-cell title="导师消息" size="large"  value="更多" is-link url="/pages/notices/notices?type=2"  />
       <van-cell 
+        class="messages"
         wx:if="{{!userData.auth}}" 
         wx:for="{{ teacherMessages }}" 
         wx:key="index" title="{{ item.title }}" 
