@@ -15,14 +15,10 @@ describe('e2e tests', () => {
 
   it('myProfile', async() => {
     const page = await miniProgram.reLaunch('/pages/SendNotice/SendNotice')
-    const inputInput = await page.$$('van-field')
-    const data=page.data()
     await page.setData({
       title:"title"
     })
-    await page.setData({
-      result:data.list
-    })
+    await page.callMethod("chooseAll")
     await page.setData({
       text: "content"
     })

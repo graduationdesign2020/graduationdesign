@@ -44,6 +44,9 @@ Page({
                 break;
               }
               case "2": {
+                var pages = getCurrentPages();
+                var prevPage = pages[pages.length - 2]; //上一个页面
+                prevPage.setData({isRefresh: true}) 
                 PostRequest('/getTeacherMessage', {id: options.id, reading_id: options.reading_id}, that.setNotice);
                 break;
               }
@@ -62,6 +65,9 @@ Page({
             break;
           }
           case "2": {
+            var pages = getCurrentPages();
+            var prevPage = pages[pages.length - 2]; //上一个页面
+            prevPage.setData({isRefresh: true}) 
             PostRequest('/getTeacherMessage', {id: options.id, reading_id: options.reading_id}, that.setNotice);
             break;
           }
