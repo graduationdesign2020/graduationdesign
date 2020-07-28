@@ -27,7 +27,7 @@
     />
     </van-cell-group>
     <view class="button">
-    <van-button type="info" size="large" round bindtap="sendNotice">发送消息</van-button>
+    <van-button class="send-button" type="info" size="large" round bindtap="sendNotice">发送消息</van-button>
     </view>
   <van-popup
     show="{{ show }}"

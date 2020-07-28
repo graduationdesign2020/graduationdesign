@@ -12,6 +12,7 @@ Page({
   },
   
   onLoad: function(){
+    var that = this;
     if(app.globalData.login == 2){
       wx.redirectTo({
         url: '../register/index',
@@ -24,14 +25,13 @@ Page({
               url: '../register/index',
             })
           }else{
-            var that = this;
             this.setData({userData: data.userData})
-            PostRequest('/studentGetGrades', {id: this.data.userData.id}, that.getGrade);
+            PostRequest('/getSelfGrade', {id: this.data.userData.id}, that.getGrade);
           }
         }
       }else{
         this.setData({userData: app.globalData.userData});
-        PostRequest('/studentGetGrades', {id: this.data.userData.id}, that.getGrade);
+        PostRequest('/getSelfGrade', {id: this.data.userData.id}, that.getGrade);
       }
     }
   },
@@ -41,7 +41,7 @@ Page({
     teachergrade: data.teachergrade,
     reviewgrade: data.reviewgrade,
     thesisgrade: data.thesisgrade,
-    allgrade: data.totalgrade,
+    allgrade: data.allgrade,
     })
   },
 })

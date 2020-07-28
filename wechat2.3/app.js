@@ -3,8 +3,8 @@ var appId = "wxcea5614102cbce8d";
 var secret = '59fee20c47bd73cb780a34409f4d5ca1';
 
 import {PostRequest} from "./utils/ajax";
-
 App({
+  
   onLaunch: function () {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []

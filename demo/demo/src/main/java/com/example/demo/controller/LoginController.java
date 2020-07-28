@@ -1,23 +1,17 @@
 package com.example.demo.controller;
 
 
-import com.alibaba.fastjson.JSONObject;
+
 import com.example.demo.utils.HttpClient;
 import com.example.demo.service.LoginService;
 import com.example.demo.utils.CodeReturn;
 import com.example.demo.utils.ReturnInfo;
 import com.example.demo.constant.*;
-import com.example.demo.utils.SecurityInfo;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.Map;
 
 @RestController
@@ -32,7 +26,12 @@ public class LoginController {
         String wechat_id= params.get("openid");
         String id= params.get("id");
         String name=params.get("name");
-        String auth = params.get("auth");
+        int anInt = Integer.parseInt(params.get("auth"));
+        String auth;
+        if(anInt==0){
+            auth="ROLE_STUDENT";
+        }
+        else auth="ROLE_TEACHER";
         return loginService.register(wechat_id,id,name,auth);
     }
 

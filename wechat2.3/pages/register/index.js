@@ -52,15 +52,15 @@ Page({
           var code = res.code;
           PostRequest("/mylogin", {code: res.code}, (data)=>{
             if(data.msg == "SUCCESS"){
-              this.globalData.login = 1;
-              this.globalData.userData = data.userData;
+              app.globalData.login = 1;
+              app.globalData.userData = data.userData;
             }
             if(data.msg == "FAIL"){
-              this.globalData.login = 2;
-              this.globalData.userData = data.userData;
+              app.globalData.login = 2;
+              app.globalData.userData = data.userData;
             }
-            if (this.dataCallback){
-              this.dataCallback(data);
+            if (app.dataCallback){
+              app.dataCallback(data);
              }
           })   
         }
@@ -96,8 +96,8 @@ Page({
 
   handleAuth: function() {
     switch(this.data.tab) {
-      case 0: return "ROLE_STUDENT";      
-      case 1: return "ROLE_TEACHER";
+      case 0: return 0;      
+      case 1: return 1;
     }
   }
 })
