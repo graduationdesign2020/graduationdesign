@@ -101,7 +101,7 @@ Page({
     this.setData({
       waitshow: true,
     })
-    PostRequest("/sendMessages", {id: this.data.userData.id, students: this.data.result, title: this.data.title, content: this.data.content}, (data) => {
+    PostRequest("/sendMessages", {id: this.data.userData.id, students: this.data.result, title: this.data.title, content: this.data.text}, (data) => {
       if(data.msg == "SUCCESS"){
         this.setData({
           waitshow: false,
@@ -161,6 +161,5 @@ Page({
       }
       this.setData({troggleAll: false});
     }
-    
   }
 })

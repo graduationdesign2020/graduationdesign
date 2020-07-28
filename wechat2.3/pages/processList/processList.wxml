@@ -4,6 +4,7 @@
   <van-collapse-item 
     class="state-collapse"
     wx:for = "{{processes}}"
+    wx:for-item="item"
     wx:key = "index"
     name = "{{index}}"
     >
