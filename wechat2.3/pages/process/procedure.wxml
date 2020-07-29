@@ -73,5 +73,5 @@
 </block>
 </van-cell-group>
 <view>
-  <navBar active="process" auth="0"/>
+  <navBar active="process" auth="{{auth}}"/>
 </view>
