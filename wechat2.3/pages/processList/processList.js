@@ -27,33 +27,18 @@ Page({
       }
     ],
     switch: [false, false, false, false, false],
-    userData: {},
+    auth: wx.getStorageSync('auth'),
     activeNames: [],
   },
 
   onLoad: function (options) {
     var that = this;
-    if(app.globalData.login == 2){
-      wx.redirectTo({
-        url: '../register/index',
+    if(this.data.auth == ''){
+      PostRequest('/getAuth',{}, (data)=>{
+        that.setData({auth: data})
       })
-    }else{
-      if(app.globalData.login == 0){
-        app.dataCallback = (data) => {
-          if(data.msg == "FAIL"){
-            wx.redirectTo({
-              url: '../register/index',
-            })
-          }else{
-            that.setData({userData: data.userData})
-            PostRequest('/checkProcess', {tea_id: data.userData.id}, that.setProcesses)
-          }
-        }
-      }else{
-        that.setData({userData: app.globalData.userData});
-        PostRequest('/checkProcess', {tea_id: app.globalData.userData.id}, that.setProcesses);
-      }
     }
+    PostRequest('/checkProcess', {}, that.setProcesses);
   },
 
   setProcesses: function(data) {

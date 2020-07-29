@@ -55,21 +55,11 @@ Page({
     if(this.data.auth == ''){
       PostRequest('/getAuth',{}, (data)=>{
         that.setData({auth: data})
-        PostRequest('/getThreeSchoolNotices', {}, that.setSchoolNotices)
-        PostRequest('/getThreeDepartmentNotices', {}, that.setDeptNotices)
-        if(data) {
-          PostRequest('/teacherGetTeacherMessages', {}, that.setTeacherMessages);
-        }
-        else {
-          PostRequest('/getTeacherMessages', {}, that.setTeacherMessages);
-        }
       })
     }
-    else{
-        PostRequest('/getThreeSchoolNotices', {}, that.setSchoolNotices)
-        PostRequest('/getThreeDepartmentNotices', {}, that.setDeptNotices)
-        PostRequest('/getTeacherMessages', {}, that.setTeacherMessages);
-    }
+    PostRequest('/getThreeSchoolNotices', {}, that.setSchoolNotices)
+    PostRequest('/getThreeDepartmentNotices', {}, that.setDeptNotices)
+    PostRequest('/getTeacherMessages', {}, that.setTeacherMessages);
   },
 
   setSchoolNotices: function(data){
@@ -92,12 +82,7 @@ Page({
     // 返回时刷新页面
     if (that.data.isRefresh==true){
       console.log("refresh")
-      if(that.data.userData.auth) {
-        PostRequest('/teacherGetTeacherMessages', {}, that.setTeacherMessages);
-      }
-      else {
-        PostRequest('/getTeacherMessages', {}, that.setTeacherMessages);
-      }
+      PostRequest('/getTeacherMessages', {}, that.setTeacherMessages);
     }   
   }
 })

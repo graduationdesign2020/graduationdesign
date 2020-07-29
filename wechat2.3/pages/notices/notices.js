@@ -10,67 +10,36 @@ Page({
       {title: '标题', id: 1, isread: false, reading: 10, unread: 2, teachername: '娘口三三', time: '07-01', content: '内容'},
       {title: '标题', id: 1, isread: false, reading: 10, unread: 2, teachername: '猫咪老师', time: '07-01', content: '内容'}
     ],
-    userData: {name: "小明", dept: "SE", auth: 0, id: 12345},
+    auth: wx.getStorageSync('auth'),
     isRefresh:false,
   },
 
   onLoad: function(options) {
     var that = this;
-    if(app.globalData.login == 2){
-      wx.redirectTo({
-        url: '../register/index',
+    console.log(this.data.auth)
+    if(this.data.auth == ''){
+      PostRequest('/getAuth',{}, (data)=>{
+      that.setData({auth: data})
       })
-    }else{
-      if(app.globalData.login == 0){
-        app.dataCallback = (data) => {
-          if(data.msg == "FAIL"){
-            wx.redirectTo({
-              url: '../register/index',
-            })
-          }else{
-            this.setData({userData: app.globalData.userData, type: options.type});
-            switch (options.type) {
-              case "0": {
-                PostRequest('/getSchoolNotices', {}, that.setNotices);
-                break;
-              }
-              case "1": {
-                PostRequest('/getDepartmentNotices', {}, that.setNotices);
-                break;
-              }
-              case "2": {
-                var pages = getCurrentPages();
-                var prevPage = pages[pages.length - 2]; //上一个页面
-                prevPage.setData({isRefresh: true}) 
-                PostRequest('/getTeacherMessages', {}, that.setNotices);
-                break;
-              }
-            }
-          }
-        }
-      }else{
-        this.setData({userData: app.globalData.userData, type: options.type});
-        console.log(app.globalData.userData)
-        switch (options.type) {
-          case "0": {
-            PostRequest('/getSchoolNotices', {}, that.setNotices);
-            break;
-          }
-          case "1": {
-            PostRequest('/getDepartmentNotices', {}, that.setNotices);
-            break;
-          }
-          case "2": {
-            var pages = getCurrentPages();
-            var prevPage = pages[pages.length - 2]; //上一个页面
-            prevPage.setData({isRefresh: true})
-            PostRequest('/getTeacherMessages', {}, that.setNotices);
-            break;
-          }
-        }
-      }
     }
-  },
+    switch (options.type) {
+    case "0": {
+      PostRequest('/getSchoolNotices', {}, that.setNotices);
+      break;
+    }
+    case "1": {
+      PostRequest('/getDepartmentNotices', {}, that.setNotices);
+      break;
+    }
+    case "2": {
+      var pages = getCurrentPages();
+      var prevPage = pages[pages.length - 2]; //上一个页面
+      prevPage.setData({isRefresh: true})
+      PostRequest('/getTeacherMessages', {}, that.setNotices);
+      break;
+    }
+  }
+ },
     
   onShow:function(e){
     // 返回时刷新页面
@@ -89,7 +58,7 @@ Page({
   detail: function(e) {
     var that = this;
     if(this.data.type=="2") {
-      if(this.data.userData.auth) {
+      if(this.data.auth) {
         wx.navigateTo({
           url: '../reading/reading?id=' + e.target.dataset.id,
         })
