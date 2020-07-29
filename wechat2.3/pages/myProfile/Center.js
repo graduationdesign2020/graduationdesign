@@ -9,6 +9,7 @@ Page({
     show: false,
     dialog: false,
     msg: "",
+    auth_boolean: false,
   },
 
   onLoad: function () {

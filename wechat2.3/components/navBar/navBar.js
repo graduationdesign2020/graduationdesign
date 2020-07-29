@@ -5,14 +5,14 @@ Component({
    */
   properties: {
     active: String,
-    auth: Boolean
+    auth: String
   },
 
   /**
    * 组件的初始数据
    */
   data: {
-
+    
   },
 
   /**

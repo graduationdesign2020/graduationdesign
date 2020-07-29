@@ -5,6 +5,7 @@
         <view class="content">
          <van-cell-group>
             <van-field
+              class = "name-field-stu"
               bindblur="nameInput"
               value="{{ name }}"
               label="姓名"
@@ -13,6 +14,7 @@
               required
             />
             <van-field
+              class = "id-field-stu"
               bindblur="idInput"
               value="{{ id }}"
               label="学号"
@@ -52,6 +54,7 @@
   <view class="login-button">
     <van-button 
     wx:if="{{canIUse}}" 
+    submit-button
     open-type="getUserInfo" 
     type="primary"
     bindgetuserinfo="bindGetUserInfo" 
@@ -67,5 +70,5 @@
       </view>
     </view>
   </van-overlay>
-  <van-dialog title="确认" show="{{dialog}}" message="{{msg}}" bind:confirm="confirmMsg"/>
+  <van-dialog class="confirm" title="确认" show="{{dialog}}" message="{{msg}}" bind:confirm="confirmMsg"/>
 </view>

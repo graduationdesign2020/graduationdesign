@@ -8,6 +8,7 @@ import com.example.demo.utils.MessageInfo;
 import com.example.demo.utils.ReturnInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -22,10 +23,8 @@ public class MessageController {
 
     @RequestMapping(path = "/teacherGetStudents")
     @PreAuthorize("hasAnyRole('ROLE_TEACHER')")
-    public List<Student> teacherGetStudents(@RequestBody Map<String,String> params){
-        String id=params.get("id");
-        System.out.println(id);
-        return teacherMessageService.getStudentsByTeacher_id(id);
+    public List<Student> teacherGetStudents(Authentication authentication){
+        return teacherMessageService.getStudentsByTeacher_id(authentication.getName());
     }
     @RequestMapping(path = "/getTeacherMessage")
     @PreAuthorize("hasAnyRole('ROLE_STUDENT', 'ROLE_TEACHER')")
@@ -36,10 +35,9 @@ public class MessageController {
     }
 
     @RequestMapping(path = "/getTeacherMessages")
-    @PreAuthorize("hasAnyRole('ROLE_STUDENT', 'ROLE_TEACHER')")
-    public List<MessageInfo> getTeacherMessages(@RequestBody Map<String,String> params) {
-        String stu_id=params.get("student_id");
-        return teacherMessageService.getTeacherMessages(stu_id);
+    @PreAuthorize("hasAnyRole('ROLE_STUDENT')")
+    public List<MessageInfo> getTeacherMessages(Authentication authentication) {
+        return teacherMessageService.getTeacherMessages(authentication.getName());
     }
 
     @RequestMapping(path = "/getTeacherMessageRead")
@@ -51,9 +49,8 @@ public class MessageController {
 
     @RequestMapping(path = "/teacherGetTeacherMessages")
     @PreAuthorize("hasAnyRole('ROLE_TEACHER')")
-    public List<MessageInfo> getTeacherMessagesByTeacher(@RequestBody Map<String,String> params) {
-        String teacher_id=params.get("teacher_id");
-        return teacherMessageService.getTeacherMessagesByTeacher_id(teacher_id);
+    public List<MessageInfo> getTeacherMessagesByTeacher(Authentication authentication) {
+        return teacherMessageService.getTeacherMessagesByTeacher_id(authentication.getName());
     }
 
     @RequestMapping(path = "/teacherGetTeacherMessage")
@@ -66,9 +63,9 @@ public class MessageController {
 
     @RequestMapping(path = "/sendMessages",method= RequestMethod.POST)
     @PreAuthorize("hasAnyRole('ROLE_TEACHER')")
-    public ReturnInfo sentMessage(@RequestBody Map<String,Object> params) {
+    public ReturnInfo sentMessage(@RequestBody Map<String,Object> params, Authentication authentication) {
         String title= String.valueOf(params.get("title"));
-        String teacher_id= String.valueOf(params.get("id"));
+        String teacher_id= authentication.getName();
         List list= JSONObject.parseObject(params.get("students").toString(),List.class);
         List<String> student_id = new ArrayList<>();
         for (int i = 0; i < list.size(); i++){

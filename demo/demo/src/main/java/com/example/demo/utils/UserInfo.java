@@ -16,9 +16,8 @@ public class UserInfo {
 
     private String teacher;
 
-    private int auth;
 
-    public void init(String id,String openid,String name,String dept,String project,String teacher,int auth)
+    public void init(String id,String openid,String name,String dept,String project,String teacher)
     {
         this.id=id;
         this.openid=openid;
@@ -26,6 +25,5 @@ public class UserInfo {
         this.dept=dept;
         this.project=project;
         this.teacher=teacher;
-        this.auth=auth;
     }
 }

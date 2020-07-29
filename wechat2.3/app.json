@@ -1,5 +1,4 @@
 {
-  
   "pages": [
     "pages/home/home",
     "pages/studentScore/studentScore",
@@ -12,7 +11,8 @@
     "pages/myProfile/Center",
     "pages/process/procedure",
     "pages/processList/processList",
-    "pages/postddl/postddl"
+    "pages/postddl/postddl",
+    "pages/inputId/inputId"
   ],
   "window": {
     "backgroundTextStyle": "light",

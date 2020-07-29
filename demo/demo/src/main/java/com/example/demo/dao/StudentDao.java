@@ -12,4 +12,6 @@ public interface StudentDao {
     Student getStudentByIdAndName(String id,String name);
 
     List<Student> findByDept(String dept);
+
+    String getDeptById(String id);
 }
