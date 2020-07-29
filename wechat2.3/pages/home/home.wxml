@@ -61,12 +61,8 @@
     <van-cell-group>
       <van-cell title="导师消息" size="large"  value="更多" is-link url="/pages/notices/notices?type=2"  />
       <van-cell 
-<<<<<<< HEAD
-        wx:if="{{!auth}}" 
-=======
+        wx:if="{{!auth}}"
         class="messages"
-        wx:if="{{!userData.auth}}" 
->>>>>>> d56cda3b29df20c648fdbd2e8bdbea3e1a7b76d1
         wx:for="{{ teacherMessages }}" 
         wx:key="index" title="{{ item.title }}" 
         is-link 

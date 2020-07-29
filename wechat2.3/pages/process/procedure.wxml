@@ -1,6 +1,6 @@
 <!--pages/procedure/procedure.wxml-->
 <van-cell-group>
-<block wx:for="{{states}}" wx:for-item="procedure">
+<block wx:for="{{states}}" wx:key="index" wx:for-item="procedure">
 <block wx:if="{{procedure.state=='开题报告' || procedure.state=='中期检查'}}">
 <block wx:if="{{procedure.submit==0}}">
   <van-cell title="{{procedure.state}}" label="截止时间 {{procedure.end_time}}">
@@ -73,5 +73,5 @@
 </block>
 </van-cell-group>
 <view>
-  <navBar active="process" auth="{{userData.auth}}"/>
+  <navBar active="process" auth="0"/>
 </view>

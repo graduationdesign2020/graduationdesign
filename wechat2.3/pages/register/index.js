@@ -67,6 +67,8 @@ Page({
           wx.setStorageSync('jwt', res.header['Authorization'])
           PostRequest('/getAuth', {}, (data)=>{
             wx.setStorageSync('auth', data)
+            console.log(2) 
+            console.log(wx.getStorageSync('auth'))  
           })
           that.setData({successdialog: true, show: false})
         },

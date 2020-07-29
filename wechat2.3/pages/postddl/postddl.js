@@ -41,7 +41,6 @@ Page({
     msg: "",
     waitshow: false,
     diaglog: false,
-    userData: {},
     options: [
       { text: '任务书', value: 0 },
       { text: '开题报告', value: 1 },
@@ -50,28 +49,6 @@ Page({
       { text: '论文最终稿', value: 4 },
     ],
     value: 0,
-  },
-
-  onLoad: function () {
-    if(app.globalData.login == 2){
-      wx.redirectTo({
-        url: '../register/index',
-      })
-    }else{
-      if(app.globalData.login == 0){
-        app.dataCallback = (data) => {
-          if(data.msg == "FAIL"){
-            wx.redirectTo({
-              url: '../register/index',
-            })
-          }else{
-            this.setData({userData: data.userData})
-          }
-        }
-      }else{
-        this.setData({userData: app.globalData.userData});
-      }
-    }
   },
 
   onTitleChange(event){
@@ -118,7 +95,7 @@ Page({
       waitshow: true,
     })
     PostRequest("/setDeadline", 
-      { id: this.data.userData.id, 
+      { 
         time: this.data.currentDateString + " " + this.data.currentTime + ":00",
         state: this.data.value,
       },
