@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 import scrapy
-
 import re
 from monitor.items import NoticeItem
 from scrapy.selector import Selector
