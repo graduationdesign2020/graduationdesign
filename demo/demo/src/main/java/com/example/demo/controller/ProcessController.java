@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Map;
 
+
 @RestController
 @CrossOrigin(origins = "*",maxAge = 3600)
 public class ProcessController {
@@ -25,14 +26,12 @@ public class ProcessController {
 
     @RequestMapping(path = "/checkSelfProcess")
     @PreAuthorize("hasAnyRole('ROLE_STUDENT')")
-    @ResponseBody
     public List<StateInfo> checkSelfProcess(Authentication authentication){
         return processService.checkSelfProcess(authentication.getName());
     }
 
     @RequestMapping(path = "/checkProcess")
     @PreAuthorize("hasAnyRole('ROLE_TEACHER')")
-    @ResponseBody
     public List<ProcessInfo> checkProcess(Authentication authentication){
         return processService.checkProcess(authentication.getName());
     }
@@ -48,14 +47,12 @@ public class ProcessController {
 
     @RequestMapping(path = "/getSelfGrade")
     @PreAuthorize("hasAnyRole('ROLE_STUDENT')")
-    @ResponseBody
     public Grade getGrade(Authentication authentication){
         return processService.getGradeById(authentication.getName());
     }
 
     @RequestMapping(path = "/getGrades")
     @PreAuthorize("hasAnyRole('ROLE_TEACHER')")
-    @ResponseBody
     public List<GradeInfo> getGradeByteacher(Authentication authentication){
         return processService.getGradeByTeacher(authentication.getName());
     }

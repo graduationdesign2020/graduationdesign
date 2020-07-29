@@ -61,7 +61,7 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
             messageInfo.setReading_id(teacherMessageReading.getId());
             messageInfo.setTitle(teacherMessage.getTitle());
             messageInfo.setTime(teacherMessage.getTime());
-            messageInfo.set_read(teacherMessageReading.is_read());
+            messageInfo.setIsread(teacherMessageReading.is_read());
             Teacher teacher = teacherDao.getTeacherById(teacherMessage.getTeacher_id());
             messageInfo.setTeachername(teacher.getName());
             messageInfos.add(messageInfo);

@@ -90,11 +90,19 @@ public class ProcessServiceImpl implements ProcessService {
                 State state = stateDao.getOneByProjAndState(project.getId(), i);
                 if (state == null || state.getSubmit() != 5) {
                     //System.out.println(studentDao.getOne(project.getId()));
-                    studentsUnfinished.add(studentDao.getOne(project.getId()));
+                    Student s=studentDao.getOne(project.getId());
+                    Student student=new Student();
+                    student.setId(s.getId());
+                    student.setName(s.getName());
+                    studentsUnfinished.add(student);
                 }
                 else if (state.getSubmit() == 5) {
                     finished++;
-                    studentsFinished.add(studentDao.getOne(project.getId()));
+                    Student s=studentDao.getOne(project.getId());
+                    Student student=new Student();
+                    student.setId(s.getId());
+                    student.setName(s.getName());
+                    studentsFinished.add(student);
                 }
             }
             int unfinished = stuNum - finished;

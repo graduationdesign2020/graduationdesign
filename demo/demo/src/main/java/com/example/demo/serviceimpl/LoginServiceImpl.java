@@ -113,28 +113,42 @@ public class LoginServiceImpl implements LoginService {
             userInfo.setId(id);
             userInfo.setOpenid(wechat_id);
             returnInfo.setMsg(Msg1);
+            boolean flag=false;
             if(u.getAuth().equals("ROLE_TEACHER")){
                 Teacher t= teacherDao.getTeacherById(id);
-                userInfo.setAuth(1);
-                userInfo.setDept(t.getDepartment());
-                userInfo.setName(t.getName());
-                returnInfo.setUserData(userInfo);
+                if(t!=null)
+                {
+                    userInfo.setAuth(1);
+                    userInfo.setDept(t.getDepartment());
+                    userInfo.setName(t.getName());
+                    returnInfo.setUserData(userInfo);
+                    flag=true;
+                }
             }
             else
             {
                 Student student= studentDao.getOne(id);
-                userInfo.setAuth(0);
-                userInfo.setDept(student.getDepartment());
-                userInfo.setName(student.getName());
-                Optional<Project> project=projectDao.getOne(id);
-                if(project.isPresent())
+                if(student!=null)
                 {
-                    Project p=project.get();
-                    userInfo.setProject(p.getProject_name());
-                    Teacher teacher = teacherDao.getTeacherById(p.getTeacher_id());
-                    userInfo.setTeacher(teacher.getName());
+                    userInfo.setAuth(0);
+                    userInfo.setDept(student.getDepartment());
+                    userInfo.setName(student.getName());
+                    Optional<Project> project = projectDao.getOne(id);
+                    if (project.isPresent()) {
+                        Project p = project.get();
+                        userInfo.setProject(p.getProject_name());
+                        Teacher teacher = teacherDao.getTeacherById(p.getTeacher_id());
+                        userInfo.setTeacher(teacher.getName());
+                    }
                     returnInfo.setUserData(userInfo);
+                    flag=true;
                 }
+            }
+            if(!flag){
+                usersDao.deleteUsers(wechat_id);
+                userInfo.setOpenid(wechat_id);
+                returnInfo.setUserData(userInfo);
+                returnInfo.setMsg(Msg0);
             }
         }
         else {

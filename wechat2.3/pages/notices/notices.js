@@ -5,12 +5,13 @@ import {PostRequest} from "../../utils/ajax";
 
 Page({
   data: {
-    type: 0,
+    type: 2,
     notices: [
-      {title: '标题', id: 1, is_read: false, reading: 10, unread: 2, teachername: '娘口三三', time: '07-01', content: '内容'},
-      {title: '标题', id: 1, is_read: false, reading: 10, unread: 2, teachername: '猫咪老师', time: '07-01', content: '内容'}
+      {title: '标题', id: 1, isread: false, reading: 10, unread: 2, teachername: '娘口三三', time: '07-01', content: '内容'},
+      {title: '标题', id: 1, isread: false, reading: 10, unread: 2, teachername: '猫咪老师', time: '07-01', content: '内容'}
     ],
-    userData: {name: "小明", dept: "SE", auth: 0, id: 12345}
+    userData: {name: "小明", dept: "SE", auth: 0, id: 12345},
+    isRefresh:false,
   },
 
   onLoad: function(options) {
@@ -38,6 +39,9 @@ Page({
                 break;
               }
               case "2": {
+                var pages = getCurrentPages();
+                var prevPage = pages[pages.length - 2]; //上一个页面
+                prevPage.setData({isRefresh: true}) 
                 if(this.data.userData.auth){
                   PostRequest('/teacherGetTeacherMessages', {teacher_id: this.data.userData.id}, that.setNotices);
                 }
@@ -61,6 +65,9 @@ Page({
             break;
           }
           case "2": {
+            var pages = getCurrentPages();
+            var prevPage = pages[pages.length - 2]; //上一个页面
+            prevPage.setData({isRefresh: true}) 
             if(this.data.userData.auth){
               PostRequest('/teacherGetTeacherMessages', {teacher_id: this.data.userData.id}, that.setNotices);
             }
@@ -74,8 +81,18 @@ Page({
     }
   },
     
+  onShow:function(e){
+    // 返回时刷新页面
+    var that=this
+    if (that.data.isRefresh==true){
+      console.log("refresh")
+      PostRequest('/getTeacherMessages', {student_id: that.data.userData.id}, that.setNotices);
+    }   
+  },
+
   setNotices: function(data){
     this.setData({notices: data});
+    console.log(this.data.notices)
   },
 
   detail: function(e) {

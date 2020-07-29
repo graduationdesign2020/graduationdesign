@@ -58,6 +58,7 @@ Page({
 
   setProcesses: function(data) {
     this.setData({processes: data});
+    console.log(this.data.processes)
     let initial = new Array(data.length);
     initial.fill(false);
     this.setData({switch: initial});

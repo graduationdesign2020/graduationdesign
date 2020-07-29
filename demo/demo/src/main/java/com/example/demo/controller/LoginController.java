@@ -25,7 +25,12 @@ public class LoginController {
         String wechat_id= params.get("openid");
         String id= params.get("id");
         String name=params.get("name");
-        String auth = params.get("auth");
+        int anInt = Integer.parseInt(params.get("auth"));
+        String auth;
+        if(anInt==0){
+            auth="ROLE_STUDENT";
+        }
+        else auth="ROLE_TEACHER";
         return loginService.register(wechat_id,id,name,auth);
     }
 

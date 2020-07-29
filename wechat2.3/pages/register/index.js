@@ -114,8 +114,8 @@ Page({
 
   handleAuth: function() {
     switch(this.data.tab) {
-      case 0: return "ROLE_STUDENT";      
-      case 1: return "ROLE_TEACHER";
+      case 0: return 0;      
+      case 1: return 1;
     }
   }
 })

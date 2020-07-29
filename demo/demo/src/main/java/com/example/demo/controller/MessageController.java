@@ -72,6 +72,7 @@ public class MessageController {
             student_id.add(JSONObject.parseObject(list.get(i).toString(),String.class));
         }
         String content= String.valueOf(params.get("content"));
+        System.out.println(content);
         return teacherMessageService.sentTeacherMessage(title, teacher_id, student_id, content);
     }
 }

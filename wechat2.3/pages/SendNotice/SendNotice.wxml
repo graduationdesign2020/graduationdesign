@@ -10,7 +10,7 @@
     />
     <van-cell
     title="发送对象"
-    value="{{result.length}}"
+    value="{{result.length}}人"
     is-link
     bind:click="showBottom"
     />
