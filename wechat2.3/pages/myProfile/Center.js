@@ -15,7 +15,7 @@ Page({
   onLoad: function () {
     var that = this
     PostRequest('/getUserData', {}, (data)=>{that.setData({userData: data})})
-    if(this.data.auth == ''){
+    if(this.data.auth === ''){
       PostRequest('/getAuth',{}, (data)=>{
         that.setData({auth: data}) 
         wx.setStorageSync('auth', data)

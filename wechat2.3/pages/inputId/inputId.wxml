@@ -26,4 +26,4 @@
     </view>
 </van-overlay>
   <van-dialog class="confirm" title="成功" show="{{successdialog}}" message="登陆成功" bind:confirm="confirmSuccess"/>
-  <van-dialog class="confirm" title="失败" show="{{faildialog}}" message="登陆失败" bind:confirm="confirmFail"/>
+  <van-dialog class="confirm" title="失败" show="{{faildialog}}" message="不存在的账户，登陆失败" bind:confirm="confirmFail"/>

@@ -40,7 +40,10 @@ Page({
       return
     }
     this.setData({show: true});
-    console.log('show')
+    if(!app.globalData.openid){
+      that.setData({faildialog: true, show: false})
+      return
+    }
     var that = this
     wx.request({
       url: 'http://localhost:8888/login',
@@ -50,15 +53,17 @@ Page({
         openid: app.globalData.openid
       },
       success(res){
-        wx.setStorageSync('jwt', res.header['Authorization'])
-        PostRequest('/getAuth', {}, (data)=>{
+        if(res.statusCode == 200){
+          wx.setStorageSync('jwt', res.header['Authorization'])
+          PostRequest('/getAuth', {}, (data)=>{
           wx.setStorageSync('auth', data)
-        })
-        that.setData({successdialog: true, show: false})
+          })
+          that.setData({successdialog: true, show: false})
+        }
+        else{
+          that.setData({faildialog: true, show: false})
+        }
       },
-      fail(res){
-        that.setData({faildialog: true, show: false})
-      }
     })
   }
 })

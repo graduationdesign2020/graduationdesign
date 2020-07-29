@@ -8,20 +8,31 @@ export const PostRequest = (url, postdata, callback, failcallback = (res)=>{}) =
       data: postdata,
       header: {"Authorization": wx.getStorageSync('jwt')},
       success(res) {
-        callback(res.data)
-      },
-      fail(res){
         switch(res.statusCode){
           case 401:
-            wx.redirectTo({
-              url: '/pages/inputId/inputId',
-            })
+            var pages = getCurrentPages()
+	          var currentPage = pages[pages.length - 1]
+            var url =  currentPage.route 
+	          if(url == "pages/inputId/inputId"){
+              return;
+            }
+            else{
+              wx.redirectTo({
+                url: '/pages/inputId/inputId',
+              })
+            }
             break
           case 403:
             failcallback(res)
             break
+          case 200:
+            callback(res.data)
+            break
         }
       },
+      fail(res){
+        failcallback()
+      }
       method:"POST"
     });
   }

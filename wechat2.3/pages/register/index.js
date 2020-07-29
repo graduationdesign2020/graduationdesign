@@ -36,7 +36,10 @@ Page({
     console.log(this.data)
     if(this.data.id && this.data.name){
       this.setData({show: true});
-      console.log(this.handleAuth())
+      if(!app.globalData.openid){
+        this.setData({msg: "注册失败", dialog: true, show: false});
+        return;
+      }
       var that = this
       wx.request({
         url: 'http://localhost:8888/register',
@@ -67,8 +70,6 @@ Page({
           wx.setStorageSync('jwt', res.header['Authorization'])
           PostRequest('/getAuth', {}, (data)=>{
             wx.setStorageSync('auth', data)
-            console.log(2) 
-            console.log(wx.getStorageSync('auth'))  
           })
           that.setData({successdialog: true, show: false})
         },
