@@ -50,7 +50,6 @@ public class LoginServiceImpl implements LoginService {
             Teacher t = teacherDao.getTeacherByIdAndName(id, name);
             if (t != null) {
                 userInfo.setId(id);
-                userInfo.setOpenid(wechat_id);
                 userInfo.setName(t.getName());
                 userInfo.setDept(t.getDepartment());
                 flag = true;
@@ -61,7 +60,6 @@ public class LoginServiceImpl implements LoginService {
             Student student = studentDao.getStudentByIdAndName(id, name);
             if (student != null) {
                 userInfo.setId(id);
-                userInfo.setOpenid(wechat_id);
                 userInfo.setName(student.getName());
                 userInfo.setDept(student.getDepartment());
                 Optional<Project> project= projectDao.getOne(id);
@@ -101,64 +99,10 @@ public class LoginServiceImpl implements LoginService {
     }
 
     @Override
-    public ReturnInfo login(String wechat_id){
-        Optional<Users> users= usersDao.getUserByWechat_id(wechat_id);
-        UserInfo userInfo=new UserInfo();
-        ReturnInfo returnInfo=new ReturnInfo();
-        if(users.isPresent()){
-            Users u=users.get();
-            String id=u.getId();
-            userInfo.setId(id);
-            userInfo.setOpenid(wechat_id);
-            returnInfo.setMsg(Msg1);
-            boolean flag=false;
-            if(u.getAuth().equals("ROLE_TEACHER")){
-                Teacher t= teacherDao.getTeacherById(id);
-                if(t!=null)
-                {
-                    userInfo.setDept(t.getDepartment());
-                    userInfo.setName(t.getName());
-                    returnInfo.setUserData(userInfo);
-                    flag=true;
-                }
-            }
-            else
-            {
-                Student student= studentDao.getOne(id);
-                if(student!=null)
-                {
-                    userInfo.setDept(student.getDepartment());
-                    userInfo.setName(student.getName());
-                    Optional<Project> project = projectDao.getOne(id);
-                    if (project.isPresent()) {
-                        Project p = project.get();
-                        userInfo.setProject(p.getProject_name());
-                        Teacher teacher = teacherDao.getTeacherById(p.getTeacher_id());
-                        userInfo.setTeacher(teacher.getName());
-                    }
-                    returnInfo.setUserData(userInfo);
-                    flag=true;
-                }
-            }
-            if(!flag){
-                usersDao.deleteUsers(wechat_id);
-                userInfo.setOpenid(wechat_id);
-                returnInfo.setUserData(userInfo);
-                returnInfo.setMsg(Msg0);
-            }
-        }
-        else {
-            userInfo.setOpenid(wechat_id);
-            returnInfo.setUserData(userInfo);
-            returnInfo.setMsg(Msg0);
-        }
-        return returnInfo;
-    }
-
-    @Override
     public UserInfo getUserData(String id, String role){
         UserInfo userInfo=new UserInfo();
-        if(role == "ROLE_STUDENT"){
+        userInfo.setId(id);
+        if(role.equals("ROLE_TEACHER")){
             Teacher t= teacherDao.getTeacherById(id);
             if(t!=null)
             {
@@ -166,7 +110,7 @@ public class LoginServiceImpl implements LoginService {
                 userInfo.setName(t.getName());
             }
         }
-        if(role == "ROLE_TEACHER"){
+        if(role.equals("ROLE_STUDENT")){
             Student student= studentDao.getOne(id);
             if(student!=null)
             {

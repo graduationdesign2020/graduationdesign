@@ -2,27 +2,6 @@
 var appId = "wxcea5614102cbce8d";
 var secret = '59fee20c47bd73cb780a34409f4d5ca1';
 
-// const getAuth = () => {
-//   return new Promise((resolve, reject) => {
-//     wx.request({
-//       url: "http://localhost:8888/getAuth",
-//       header: {"Authorization": wx.getStorageSync('jwt')},
-//       method: "GET",
-//       success(res){
-//         console.log("auth" + res.data)
-//         resolve(res.data)
-//       },
-//       fail(res){
-//         console.log("wrong jwt")
-//         wx.redirectTo({
-//           url: '/pages/inputId/inputId',
-//         })
-//         reject(res)
-//       }
-//     })
-//   })
-// }
-
 App({
   
   onLaunch: function () {
