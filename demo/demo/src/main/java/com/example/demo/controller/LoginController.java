@@ -78,30 +78,5 @@ public class LoginController {
         return loginService.getUserData(authentication.getName(), authentication.getAuthorities().toArray()[0].toString());
     }
 
-    @RequestMapping(path = "/mylogin")
-    public ReturnInfo login(@RequestBody Map<String,String> params) throws IOException {
-        String code=params.get("code");
-        System.out.println("login code");
-        System.out.print(code);
-        String result = "";
-        try {
-            result = HttpClient.doGet(
-                    "https://api.weixin.qq.com/sns/jscode2session?appid="
-                            +appId.appId+ "&secret="
-                            +appId.secret+ "&js_code="
-                            + code
-                            + "&grant_type=authorization_code", null);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        ObjectMapper mapper = new ObjectMapper();
-        CodeReturn openIdJson = mapper.readValue(result, CodeReturn.class);
-        String wechat_id=openIdJson.getOpenid();
-        System.out.println(wechat_id);
-        ReturnInfo returnInfo = loginService.login(wechat_id);
-        System.out.println(returnInfo);
-        return returnInfo;
-    }
-
 }
 

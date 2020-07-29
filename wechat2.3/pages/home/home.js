@@ -11,7 +11,6 @@ const getAuth = () => {
       header: {"Authorization": wx.getStorageSync('jwt')},
       method: "GET",
       success(res){
-        console.log("auth" + res.data)
         resolve(res.data)
       },
       fail(res){
@@ -53,8 +52,8 @@ Page({
   },
   onLoad: function() {
     var that = this
-    if(!this.data.auth){
-      getAuth().then((data) => {
+    if(this.data.auth == ''){
+      PostRequest('/getAuth',{}, (data)=>{
         that.setData({auth: data})
         PostRequest('/getThreeSchoolNotices', {}, that.setSchoolNotices)
         PostRequest('/getThreeDepartmentNotices', {}, that.setDeptNotices)
@@ -94,10 +93,10 @@ Page({
     if (that.data.isRefresh==true){
       console.log("refresh")
       if(that.data.userData.auth) {
-        PostRequest('/teacherGetTeacherMessages', {teacher_id: that.data.userData.id}, that.setTeacherMessages);
+        PostRequest('/teacherGetTeacherMessages', {}, that.setTeacherMessages);
       }
       else {
-        PostRequest('/getTeacherMessages', {student_id: that.data.userData.id}, that.setTeacherMessages);
+        PostRequest('/getTeacherMessages', {}, that.setTeacherMessages);
       }
     }   
   }

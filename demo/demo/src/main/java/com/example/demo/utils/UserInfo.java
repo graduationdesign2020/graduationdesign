@@ -6,8 +6,6 @@ import lombok.Data;
 public class UserInfo {
     private String id;
 
-    private String openid;
-
     private String name;
 
     private String dept;
@@ -17,10 +15,9 @@ public class UserInfo {
     private String teacher;
 
 
-    public void init(String id,String openid,String name,String dept,String project,String teacher)
+    public void init(String id,String name,String dept,String project,String teacher)
     {
         this.id=id;
-        this.openid=openid;
         this.name=name;
         this.dept=dept;
         this.project=project;
