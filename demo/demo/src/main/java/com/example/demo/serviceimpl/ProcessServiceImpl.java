@@ -40,9 +40,9 @@ public class ProcessServiceImpl implements ProcessService {
         if (project.isPresent()){
             Project p=project.get();
             String t=p.getTeacher_id();
-            if (states.isEmpty()) {
-                return null;
-            }
+//            if (states.isEmpty()) {
+//                return null;
+//            }
             for (State state : states) {
                 StateInfo stateInfo = new StateInfo();
                 stateInfo.setSta(state);
