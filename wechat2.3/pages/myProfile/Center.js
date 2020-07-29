@@ -14,7 +14,7 @@ Page({
 
   onLoad: function () {
     var that = this
-    PostRequest('/getUserData', {}, (data)=>{console.log(data); that.setData({userData: data})})
+    PostRequest('/getUserData', {}, (data)=>{that.setData({userData: data})})
     if(this.data.auth == ''){
       PostRequest('/getAuth',{}, (data)=>{
         that.setData({auth: data}) 
@@ -40,7 +40,9 @@ Page({
       if(data.msg == 'SUCCESS'){
         this.setData({msg: "注销成功", dialog: true, show: false});
         wx.setStorageSync('jwt', "")
-        wx.setStorageSync('auth', "")
+        wx.setStorageSync('auth', "") 
+        console.log(1) 
+        console.log(wx.getStorageSync('auth'))  
         app.globalData.userInfo = {};
       } else {
         this.setData({msg: "注销失败", dialog: true, show: false});

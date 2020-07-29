@@ -4,26 +4,6 @@
 const app = getApp();
 import {PostRequest} from "../../utils/ajax";
 
-const getAuth = () => {
-  return new Promise((resolve, reject) => {
-    wx.request({
-      url: "http://localhost:8888/getAuth",
-      header: {"Authorization": wx.getStorageSync('jwt')},
-      method: "GET",
-      success(res){
-        resolve(res.data)
-      },
-      fail(res){
-        console.log("wrong jwt")
-        wx.redirectTo({
-          url: '/pages/inputId/inputId',
-        })
-        reject(res)
-      }
-    })
-  })
-}
-
 Page({
   data: {
     searchValue: '',
@@ -46,12 +26,13 @@ Page({
       {title: '标题', id: 1, isread: false, reading: 10, unread: 2, teacher_id: '12345', student_id: '11111', time: '07-01', content: '内容'},
       {title: '标题', id: 1, isread: false, reading: 10, unread: 2, teacher_id: '12345', student_id: '11111', time: '07-01', content: '内容'}  
     ],
-    active: "home",
     auth: wx.getStorageSync('auth'),
     isRefresh:false
   },
   onLoad: function() {
     var that = this
+    console.log(3) 
+    console.log(wx.getStorageSync('auth'))  
     if(this.data.auth == ''){
       PostRequest('/getAuth',{}, (data)=>{
         that.setData({auth: data})

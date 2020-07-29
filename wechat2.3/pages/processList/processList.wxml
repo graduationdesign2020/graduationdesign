@@ -36,6 +36,6 @@
 </van-collapse>
 </view>
 <view>
-  <navBar active="processList" auth="{{userData.auth}}"/>
+  <navBar active="processList" auth="1"/>
 </view>
 

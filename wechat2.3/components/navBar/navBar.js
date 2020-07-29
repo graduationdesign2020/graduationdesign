@@ -5,7 +5,7 @@ Component({
    */
   properties: {
     active: String,
-    auth: String
+    auth: Boolean,
   },
 
   /**
