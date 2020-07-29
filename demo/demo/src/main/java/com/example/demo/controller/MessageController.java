@@ -35,9 +35,17 @@ public class MessageController {
     }
 
     @RequestMapping(path = "/getTeacherMessages")
-    @PreAuthorize("hasAnyRole('ROLE_STUDENT')")
+    @PreAuthorize("hasAnyRole('ROLE_STUDENT', 'ROLE_TEACHER')")
     public List<MessageInfo> getTeacherMessages(Authentication authentication) {
-        return teacherMessageService.getTeacherMessages(authentication.getName());
+        if(authentication.getAuthorities().toArray()[0].toString().equals("ROLE_STUDENT")){
+            System.out.println(1);
+            return teacherMessageService.getTeacherMessages(authentication.getName());
+        }
+        if(authentication.getAuthorities().toArray()[0].toString().equals("ROLE_TEACHER")){
+            System.out.println(2);
+            return teacherMessageService.getTeacherMessagesByTeacher_id(authentication.getName());
+        }
+        return null;
     }
 
     @RequestMapping(path = "/getTeacherMessageRead")
@@ -45,12 +53,6 @@ public class MessageController {
     @ResponseBody
     public ReadInfo getTeacherMessageRead(@RequestBody Map<String,Integer> params) {
         return teacherMessageService.getTeacherMessageRead(params.get("id"));
-    }
-
-    @RequestMapping(path = "/teacherGetTeacherMessages")
-    @PreAuthorize("hasAnyRole('ROLE_TEACHER')")
-    public List<MessageInfo> getTeacherMessagesByTeacher(Authentication authentication) {
-        return teacherMessageService.getTeacherMessagesByTeacher_id(authentication.getName());
     }
 
     @RequestMapping(path = "/teacherGetTeacherMessage")
