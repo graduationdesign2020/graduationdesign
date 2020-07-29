@@ -1,0 +1,5 @@
+scrapy
+pymysql
+pymongo
+apscheduler
+datetime
