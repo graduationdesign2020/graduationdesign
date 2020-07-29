@@ -31,11 +31,10 @@ Page({
   },
   onLoad: function() {
     var that = this
-    console.log(3) 
-    console.log(wx.getStorageSync('auth'))  
-    if(this.data.auth == ''){
+    if(this.data.auth === ''){
       PostRequest('/getAuth',{}, (data)=>{
         that.setData({auth: data})
+        wx.setStorageSync('auth', data)
       })
     }
     PostRequest('/getThreeSchoolNotices', {}, that.setSchoolNotices)

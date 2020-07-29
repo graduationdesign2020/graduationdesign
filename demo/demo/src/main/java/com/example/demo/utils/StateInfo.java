@@ -10,7 +10,7 @@ public class StateInfo {
     private int stateNum;
     private int submit;
     private String end_time;
-    
+
     public void init(int state) {
         this.submit = 0;
         this.stateNum = state;
