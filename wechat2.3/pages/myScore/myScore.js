@@ -12,7 +12,6 @@ Page({
   
   onLoad: function(){
     var that = this;
-    this.setData({userData: app.globalData.userData});
     PostRequest('/getSelfGrade', {}, that.getGrade);
   },
 
