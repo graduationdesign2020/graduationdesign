@@ -12,7 +12,8 @@ Page({
       {state: "中期检查", submit:2, end_time:"07-13 00:00"},
       {state: "论文定稿", submit:3, end_time:"07-18 00:00"},
       {state: "论文最终稿", submit:4, end_time:"07-18 00:00"}
-    ]
+    ],
+    auth:false,
   },
 
   onLoad: function() {

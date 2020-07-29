@@ -27,17 +27,11 @@ Page({
       }
     ],
     switch: [false, false, false, false, false],
-    auth: wx.getStorageSync('auth'),
     activeNames: [],
   },
 
   onLoad: function (options) {
     var that = this;
-    if(this.data.auth == ''){
-      PostRequest('/getAuth',{}, (data)=>{
-        that.setData({auth: data})
-      })
-    }
     PostRequest('/checkProcess', {}, that.setProcesses);
   },
 
