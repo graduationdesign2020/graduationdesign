@@ -59,6 +59,15 @@ public class ProcessServiceImpl implements ProcessService {
                 stateInfos.add(stateInfo);
             }
         }
+        else {
+            for (int i = 0; i < 5; i++) {
+                StateInfo stateInfo = new StateInfo();
+                stateInfo.init(i);
+                stateInfo.transfer();
+                stateInfo.setEnd_time(null);
+                stateInfos.add(stateInfo);
+            }
+        }
         return stateInfos;
     }
 
