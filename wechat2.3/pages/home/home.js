@@ -68,12 +68,7 @@ Page({
     else{
         PostRequest('/getThreeSchoolNotices', {}, that.setSchoolNotices)
         PostRequest('/getThreeDepartmentNotices', {}, that.setDeptNotices)
-        if(this.data.auth) {
-          PostRequest('/teacherGetTeacherMessages', {}, that.setTeacherMessages);
-        }
-        else {
-          PostRequest('/getTeacherMessages', {}, that.setTeacherMessages);
-        }
+        PostRequest('/getTeacherMessages', {}, that.setTeacherMessages);
     }
   },
 
