@@ -4,7 +4,6 @@ var app = getApp();
 
 Page({
   data: {
-    userData: {},
     show:  false,
     list: [{id: 1, name: "董思成"},
      {id: 2, name: "李东赫"}, 
@@ -23,29 +22,8 @@ Page({
   },
 
   onLoad: function () {
-    if(app.globalData.login == 2){
-      wx.redirectTo({
-        url: '../register/index',
-      })
-    }else{
-      if(app.globalData.login == 0){
-        app.dataCallback = (data) => {
-          if(data.msg == "FAIL"){
-            wx.redirectTo({
-              url: '../register/index',
-            })
-          }else{
-            this.setData({userData: data.userData})
-            var that = this;
-            PostRequest('/teacherGetStudents',{id: this.data.userData.id}, that.getList);
-          }
-        }
-      }else{
-        this.setData({userData: app.globalData.userData});
-        var that = this;
-        PostRequest('/teacherGetStudents',{id: this.data.userData.id}, that.getList);
-      }
-    }
+    var that = this;
+    PostRequest('/teacherGetStudents',{}, that.getList);
   },
 
   getList: function(data) {
@@ -103,7 +81,7 @@ Page({
     this.setData({
       waitshow: true,
     })
-    PostRequest("/sendMessages", {id: this.data.userData.id, students: this.data.result, title: this.data.title, content: this.data.text}, (data) => {
+    PostRequest("/sendMessages", {students: this.data.result, title: this.data.title, content: this.data.text}, (data) => {
       if(data.msg == "SUCCESS"){
         this.setData({
           waitshow: false,

@@ -63,12 +63,7 @@ Page({
     // 返回时刷新页面
     if (that.data.isRefresh==true){
       console.log("refresh")
-      if(that.data.userData.auth) {
-        PostRequest('/teacherGetTeacherMessages', {}, that.setTeacherMessages);
-      }
-      else {
-        PostRequest('/getTeacherMessages', {}, that.setTeacherMessages);
-      }
+      PostRequest('/getTeacherMessages', {}, that.setTeacherMessages);
     }   
   }
 })
