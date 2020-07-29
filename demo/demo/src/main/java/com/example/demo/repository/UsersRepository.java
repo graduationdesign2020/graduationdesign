@@ -18,4 +18,6 @@ public interface UsersRepository extends JpaRepository<Users,String> {
     @Modifying
     @Transactional
     int deleteByWechat_id(String wechat_id);
+
+    Optional<Users> findDistinctById(String id);
 }

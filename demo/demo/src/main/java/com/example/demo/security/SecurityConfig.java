@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -12,9 +12,9 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
@@ -40,82 +40,23 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
+        http.cors().and()
+                // 禁用 CSRF
                 .csrf().disable()
-                .cors().and()
-                .httpBasic()
-                    .authenticationEntryPoint((request,response,authException) -> {
-                        response.setContentType("application/json;charset=utf-8");
-                        response.setStatus(HttpServletResponse.SC_FORBIDDEN);
-                        PrintWriter out = response.getWriter();
-                        Map<String,Object> map = new HashMap<String,Object>();
-                        map.put("code",403);
-                        map.put("msg","未登录");
-                        out.write(objectMapper.writeValueAsString(map));
-                        out.flush();
-                        out.close();
-                    })
-                    .and()
-                .addFilterBefore(customAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class)
                 .authorizeRequests()
-                    .antMatchers("/","/login", "/mylogin", "/register").permitAll()
-                    .anyRequest().authenticated()
-                    .and()
-
-                .formLogin()
-                    .loginProcessingUrl("/login")
-                    .permitAll()
-                //.exceptionHandling()
-                //没有权限，返回json
-//                .accessDeniedHandler((request,response,ex) -> {
-//                    response.setContentType("application/json;charset=utf-8");
-//                    response.setStatus(HttpServletResponse.SC_FORBIDDEN);
-//                    PrintWriter out = response.getWriter();
-//                    Map<String,Object> map = new HashMap<String,Object>();
-//                    map.put("code",403);
-//                    map.put("msg", "权限不足");
-//                    out.write(objectMapper.writeValueAsString(map));
-//                    out.flush();
-//                    out.close();
-//                })
+                .antMatchers(HttpMethod.POST, "/login", "/register", "/getopenid").permitAll()
+                // 指定路径下的资源需要验证了的用户才能访问
+                .anyRequest().authenticated()
                 .and()
-                .logout()
-                    .logoutUrl("/logout");
-    }
-
-    @Bean
-    CustomAuthenticationFilter customAuthenticationFilter() throws Exception {
-        CustomAuthenticationFilter filter = new CustomAuthenticationFilter();
-        filter.setAuthenticationSuccessHandler((request,response,authentication) -> {
-            Map<String,Object> map = new HashMap<String,Object>();
-            map.put("code",200);
-            map.put("msg","登录成功");
-            map.put("data",authentication);
-            response.setContentType("application/json;charset=utf-8");
-            PrintWriter out = response.getWriter();
-            out.write(objectMapper.writeValueAsString(map));
-            out.flush();
-            out.close();
-        });
-        filter.setAuthenticationFailureHandler((request,response,ex) -> {
-            response.setContentType("application/json;charset=utf-8");
-            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-            PrintWriter out = response.getWriter();
-            Map<String,Object> map = new HashMap<String,Object>();
-            map.put("code",401);
-            if (ex instanceof UsernameNotFoundException || ex instanceof BadCredentialsException) {
-                map.put("msg","用户名或密码错误");
-            } else if (ex instanceof DisabledException) {
-                map.put("msg","账户被禁用");
-            } else {
-                map.put("msg","登录失败!");
-            }
-            out.write(objectMapper.writeValueAsString(map));
-            out.flush();
-            out.close();
-        });
-        filter.setAuthenticationManager(authenticationManager());
-        System.out.println(filter.getAuthenticationManager() == null);
-        return filter;
+                //添加自定义Filter
+                .addFilter(new JwtAuthenticationFilter(authenticationManager()))
+                .addFilter(new JwtAuthorizationFilter(authenticationManager(), userDetailService))
+                // 不需要session（不创建会话）
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+                // 授权异常处理
+                .exceptionHandling().authenticationEntryPoint(new JwtAuthenticationEntryPoint())
+                .accessDeniedHandler(new JwtAccessDeniedHandler());
+        // 防止H2 web 页面的Frame 被拦截
+        http.headers().frameOptions().disable();
     }
 }

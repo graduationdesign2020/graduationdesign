@@ -20,14 +20,4 @@ public class Users {
     private String wechat_id;
     private String id;
     private String auth;
-
-//    @Transient
-//    private Role role;
-
-//    public Users() {
-//        switch (auth) {
-//            case 0: this.role = Role.student;break;
-//            case 1: this.role = Role.teacher;
-//        }
-//    }
 }

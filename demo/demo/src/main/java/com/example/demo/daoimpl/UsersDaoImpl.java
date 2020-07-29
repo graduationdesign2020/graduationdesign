@@ -38,4 +38,9 @@ public class UsersDaoImpl implements UsersDao {
     public Optional<Users> getByIdAndAuth(String id,String auth){
         return usersRepository.getByIdAndAuth(id, auth);
     }
+
+    @Override
+    public Optional<Users> getById(String id){
+        return usersRepository.findDistinctById(id);
+    }
 }

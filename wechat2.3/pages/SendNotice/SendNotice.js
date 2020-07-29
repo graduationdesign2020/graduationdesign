@@ -19,6 +19,7 @@ Page({
     title: "",
     all:[],
     troggleAll: false,
+    num: 0,
   },
 
   onLoad: function () {
@@ -72,6 +73,7 @@ Page({
       const checkall = this.selectComponent(`.all`);
       checkall.toggle();
     }
+    console.log(this.data.result.length)
   },
 
   noop: function() {},
@@ -101,7 +103,7 @@ Page({
     this.setData({
       waitshow: true,
     })
-    PostRequest("/sendMessages", {id: this.data.userData.id, students: this.data.result, title: this.data.title, content: this.data.content}, (data) => {
+    PostRequest("/sendMessages", {id: this.data.userData.id, students: this.data.result, title: this.data.title, content: this.data.text}, (data) => {
       if(data.msg == "SUCCESS"){
         this.setData({
           waitshow: false,

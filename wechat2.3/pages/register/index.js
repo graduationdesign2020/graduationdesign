@@ -33,10 +33,22 @@ Page({
     if(!this.data.id){
       this.setData({errorMessage2: "号码不能为空"})
     }
+    console.log(this.data)
     if(this.data.id && this.data.name){
       this.setData({show: true});
       console.log(this.handleAuth())
-      PostRequest('/register', {name: this.data.name, id: this.data.id, auth: this.handleAuth(), openid: app.globalData.userData.openid}, this.handleMsg)
+      var that = this
+      wx.request({
+        url: 'http://localhost:8888/register',
+        data:{
+          name: this.data.name, 
+          id: this.data.id, 
+          auth: this.handleAuth(), 
+          openid: app.globalData.userData.openid
+        },
+        method: "POST",
+        success(res){that.handleMsg(res.data)}
+      })
     }
     console.log(this.data);
   },
@@ -46,25 +58,31 @@ Page({
       app.globalData.userData = data.userData;
       app.globalData.login = 1;
       this.setData({msg: "注册成功", dialog: true, show: false});
-      wx.login({
-        success: res => {
-          // 发送 res.code 到后台换取 openId, sessionKey, unionId
-          var code = res.code;
-          PostRequest("/mylogin", {code: res.code}, (data)=>{
-            if(data.msg == "SUCCESS"){
-              this.globalData.login = 1;
-              this.globalData.userData = data.userData;
-            }
-            if(data.msg == "FAIL"){
-              this.globalData.login = 2;
-              this.globalData.userData = data.userData;
-            }
-            if (this.dataCallback){
-              this.dataCallback(data);
-             }
-          })   
-        }
-      })
+      var logindata = {openid: data.userData.openid, id: data.userData.id}
+      var that = app
+          wx.request({
+            url: 'http://localhost:8888/login',
+            method: 'POST',
+            header: {'Content-Type': 'application/json'},
+            data: logindata,
+            success(res) {
+                var c = JSON.stringify(res.cookies)
+                var s = c.substring(2, c.length-2);
+                console.log(s)
+                wx.setStorageSync('cookies', s.toString())
+                console.log(wx.getStorageSync('cookies'))
+                that.globalData.get_cookie = 1
+                if(that.cookieCallbacks){
+                  console.log(that.cookieCallbacks)
+                  for ( var i = 0; i <that.cookieCallbacks.length; i++){
+                    console.log(that.cookieCallbacks[i]);
+                    console.log(that.cookieCallbacks[i].url)
+                    PostRequest(that.cookieCallbacks[i].url, that.cookieCallbacks[i].data, that.cookieCallbacks[i].callback)
+                }
+                }
+                that.cookieCallbacks = null
+            } 
+          })
     }
     if(data.msg == 'REGISTERED'){
       this.setData({msg: "注册失败", dialog: true, show: false});

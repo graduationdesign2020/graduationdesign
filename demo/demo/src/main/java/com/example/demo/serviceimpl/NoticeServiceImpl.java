@@ -2,6 +2,8 @@ package com.example.demo.serviceimpl;
 
 import com.example.demo.dao.DeptNoticeDao;
 import com.example.demo.dao.SchoolNoticeDao;
+import com.example.demo.dao.StudentDao;
+import com.example.demo.dao.TeacherDao;
 import com.example.demo.entity.DeptNotice;
 import com.example.demo.entity.DeptNoticeContent;
 import com.example.demo.entity.SchoolNotice;
@@ -21,6 +23,10 @@ public class NoticeServiceImpl implements NoticeService {
     private DeptNoticeDao deptNoticeDao;
     @Autowired
     private SchoolNoticeDao schoolNoticeDao;
+    @Autowired
+    private StudentDao studentDao;
+    @Autowired
+    private TeacherDao teacherDao;
 
     @Override
     public List<DeptNotice> getDeptNoticesByDept(String department){
@@ -53,6 +59,32 @@ public class NoticeServiceImpl implements NoticeService {
     @Override
     public List<DeptNotice> getThreeDeptNoticesByDepartment(String dept)
     {
+        return deptNoticeDao.getThreeDeptNoticesByDepartment(dept);
+    }
+
+    @Override
+    public List<DeptNotice> getThreeDeptNoticesBySid(String id)
+    {
+        String dept = studentDao.getDeptById(id);
+        return deptNoticeDao.getThreeDeptNoticesByDepartment(dept);
+    }
+
+    @Override
+    public List<DeptNotice> getDeptNoticesBySid(String id){
+        String dept = studentDao.getDeptById(id);
+        return deptNoticeDao.getDeptNoticesByDept(dept);
+    }
+
+    @Override
+    public List<DeptNotice> getDeptNoticesByTid(String id){
+        String dept = teacherDao.getDeptById(id);
+        return deptNoticeDao.getDeptNoticesByDept(dept);
+    }
+
+    @Override
+    public List<DeptNotice> getThreeDeptNoticesByTid(String id)
+    {
+        String dept = teacherDao.getDeptById(id);
         return deptNoticeDao.getThreeDeptNoticesByDepartment(dept);
     }
 }

@@ -10,7 +10,7 @@
     />
     <van-cell
     title="发送对象"
-    value="选择学生"
+    value="{{result.length}}"
     is-link
     bind:click="showBottom"
     />
