@@ -15,5 +15,5 @@ public interface DeadlineRepository extends JpaRepository<Deadline,Integer> {
     int changeDeadline(Timestamp e_t, String id, int state);
 
     @Query("select end_time from Deadline where teacher_id=:teacher_id and state=:state")
-    String getByTeacher_idAndState(String teacher_id,int state);
+    Timestamp getByTeacher_idAndState(String teacher_id,int state);
 }
