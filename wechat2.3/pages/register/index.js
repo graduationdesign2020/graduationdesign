@@ -54,6 +54,7 @@ Page({
   },
 
   handleMsg: function(data) {
+    var that=this;
     if(data.msg == 'SUCCESS'){
       wx.request({
         url: 'http://localhost:8888/login',
