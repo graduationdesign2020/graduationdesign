@@ -6,8 +6,11 @@ import com.example.demo.service.LoginService;
 import com.example.demo.utils.CodeReturn;
 import com.example.demo.utils.ReturnInfo;
 import com.example.demo.constant.*;
+import com.example.demo.utils.UserInfo;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
@@ -35,9 +38,19 @@ public class LoginController {
     }
 
     @RequestMapping(path = "/mylogout")
-    public ReturnInfo logoff(@RequestBody Map<String,String> params){
-        String wechat_id=params.get("openid");
-        return loginService.logout(wechat_id);
+    @PreAuthorize("hasAnyRole('ROLE_STUDENT', 'ROLE_TEACHER')")
+    public ReturnInfo logoff(Authentication authentication){
+        return loginService.logout(authentication.getName());
+    }
+
+    @RequestMapping(path = "/getAuth")
+    @PreAuthorize("hasAnyRole('ROLE_STUDENT', 'ROLE_TEACHER')")
+    public Integer getauth(Authentication authentication){
+        if(authentication.getAuthorities().toArray()[0].toString().equals("ROLE_STUDENT"))
+        return 0;
+        if(authentication.getAuthorities().toArray()[0].toString().equals("ROLE_TEACHER"))
+            return 1;
+        return null;
     }
 
     @RequestMapping(path = "/getOpenid")
@@ -60,8 +73,12 @@ public class LoginController {
         return wechat_id;
     }
 
+    @RequestMapping(path = "/getUserData")
+    public UserInfo getuserdata(Authentication authentication){
+        return loginService.getUserData(authentication.getName(), authentication.getAuthorities().toArray()[0].toString());
+    }
+
     @RequestMapping(path = "/mylogin")
-    @ResponseBody
     public ReturnInfo login(@RequestBody Map<String,String> params) throws IOException {
         String code=params.get("code");
         System.out.println("login code");

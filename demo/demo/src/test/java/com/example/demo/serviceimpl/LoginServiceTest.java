@@ -36,13 +36,8 @@ public class LoginServiceTest {
         ReturnInfo returnInfo=new ReturnInfo();
         ReturnInfo compare=loginService.login(wechat_id);
         UserInfo userInfo=new UserInfo();
-<<<<<<< HEAD
 //        userInfo.init("4","ohdPd4pTA-yKZTSfrSY6DsB5_Y00","tiger","SE",null,null,"teacher");
 //        returnInfo.setUserData(userInfo);
-=======
-        userInfo.init("4","ohdPd4pTA-yKZTSfrSY6DsB5_Y00","tiger","SE",null,null,1);
-        returnInfo.setUserData(userInfo);
->>>>>>> 0191a80ee3ff631d90f4f520171718cbb8364426
         assertEquals(compare, returnInfo);
     }
 }

@@ -4,6 +4,27 @@
 const app = getApp();
 import {PostRequest} from "../../utils/ajax";
 
+const getAuth = () => {
+  return new Promise((resolve, reject) => {
+    wx.request({
+      url: "http://localhost:8888/getAuth",
+      header: {"Authorization": wx.getStorageSync('jwt')},
+      method: "GET",
+      success(res){
+        console.log("auth" + res.data)
+        resolve(res.data)
+      },
+      fail(res){
+        console.log("wrong jwt")
+        wx.redirectTo({
+          url: '/pages/inputId/inputId',
+        })
+        reject(res)
+      }
+    })
+  })
+}
+
 Page({
   data: {
     searchValue: '',
@@ -27,49 +48,33 @@ Page({
       {title: '标题', id: 1, isread: false, reading: 10, unread: 2, teacher_id: '12345', student_id: '11111', time: '07-01', content: '内容'}  
     ],
     active: "home",
-    userData: {name: "小明", dept: "SE", auth: 1, id: '12345'},
+    auth: wx.getStorageSync('auth'),
     isRefresh:false
   },
-
-   /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function() {
-    var that = this;
-    if(app.globalData.login == 2){
-      wx.redirectTo({
-        url: '../register/index',
-      })
-    }else{
-      if(app.globalData.login == 0){
-        app.dataCallback = (data) => {
-          if(data.msg == "FAIL"){
-            wx.redirectTo({
-              url: '../register/index',
-            })
-          }else{
-            that.setData({userData: data.userData})
-            PostRequest('/getThreeSchoolNotices', {}, that.setSchoolNotices);
-            PostRequest('/getThreeDepartmentNotices', {dept: data.userData.dept}, that.setDeptNotices);
-            if(data.userData.auth) {
-              PostRequest('/teacherGetTeacherMessages', {teacher_id: data.userData.id}, that.setTeacherMessages);
-            }
-            else {
-              PostRequest('/getTeacherMessages', {student_id: data.userData.id}, that.setTeacherMessages);
-            }
-          }
-        }
-      }else{
-        this.setData({userData: app.globalData.userData});
-        PostRequest('/getThreeSchoolNotices', {}, that.setSchoolNotices);
-        PostRequest('/getThreeDepartmentNotices', {dept: this.data.userData.dept}, that.setDeptNotices);
-        if(this.data.userData.auth) {
-          PostRequest('/teacherGetTeacherMessages', {teacher_id: this.data.userData.id}, that.setTeacherMessages);
+    var that = this
+    if(!this.data.auth){
+      getAuth().then((data) => {
+        that.setData({auth: data})
+        PostRequest('/getThreeSchoolNotices', {}, that.setSchoolNotices)
+        PostRequest('/getThreeDepartmentNotices', {}, that.setDeptNotices)
+        if(data) {
+          PostRequest('/teacherGetTeacherMessages', {}, that.setTeacherMessages);
         }
         else {
-          PostRequest('/getTeacherMessages', {student_id: this.data.userData.id}, that.setTeacherMessages);
+          PostRequest('/getTeacherMessages', {}, that.setTeacherMessages);
         }
-      }
+      })
+    }
+    else{
+        PostRequest('/getThreeSchoolNotices', {}, that.setSchoolNotices)
+        PostRequest('/getThreeDepartmentNotices', {}, that.setDeptNotices)
+        if(this.data.auth) {
+          PostRequest('/teacherGetTeacherMessages', {}, that.setTeacherMessages);
+        }
+        else {
+          PostRequest('/getTeacherMessages', {}, that.setTeacherMessages);
+        }
     }
   },
 

@@ -54,9 +54,6 @@ Page({
         this.setData({msg: "注销成功", dialog: true, show: false});
         app.globalData.userInfo = {};
         app.globalData.login = 2;
-        wx.request({
-          url: 'http://localhost:8888/logout',
-        })
       } else {
         this.setData({msg: "注销失败", dialog: true, show: false});
       }

@@ -44,7 +44,7 @@ Page({
           name: this.data.name, 
           id: this.data.id, 
           auth: this.handleAuth(), 
-          openid: app.globalData.userData.openid
+          openid: app.globalData.openid
         },
         method: "POST",
         success(res){that.handleMsg(res.data)}
@@ -55,34 +55,25 @@ Page({
 
   handleMsg: function(data) {
     if(data.msg == 'SUCCESS'){
-      app.globalData.userData = data.userData;
-      app.globalData.login = 1;
-      this.setData({msg: "注册成功", dialog: true, show: false});
-      var logindata = {openid: data.userData.openid, id: data.userData.id}
-      var that = app
-          wx.request({
-            url: 'http://localhost:8888/login',
-            method: 'POST',
-            header: {'Content-Type': 'application/json'},
-            data: logindata,
-            success(res) {
-                var c = JSON.stringify(res.cookies)
-                var s = c.substring(2, c.length-2);
-                console.log(s)
-                wx.setStorageSync('cookies', s.toString())
-                console.log(wx.getStorageSync('cookies'))
-                that.globalData.get_cookie = 1
-                if(that.cookieCallbacks){
-                  console.log(that.cookieCallbacks)
-                  for ( var i = 0; i <that.cookieCallbacks.length; i++){
-                    console.log(that.cookieCallbacks[i]);
-                    console.log(that.cookieCallbacks[i].url)
-                    PostRequest(that.cookieCallbacks[i].url, that.cookieCallbacks[i].data, that.cookieCallbacks[i].callback)
-                }
-                }
-                that.cookieCallbacks = null
-            } 
+      wx.request({
+        url: 'http://localhost:8888/login',
+        method: "POST",
+        data: {
+          id: this.data.id,
+          openid: app.globalData.openid
+        },
+        success(res){
+          wx.setStorageSync('jwt', res.header['Authorization'])
+          PostRequest('/getAuth', {}, (data)=>{
+            wx.setStorageSync('auth', data)
           })
+          that.setData({successdialog: true, show: false})
+        },
+        fail(res){
+          that.setData({faildialog: true, show: false})
+        }
+      })
+      this.setData({msg: "注册成功", dialog: true, show: false});
     }
     if(data.msg == 'REGISTERED'){
       this.setData({msg: "注册失败", dialog: true, show: false});

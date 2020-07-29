@@ -1,32 +1,33 @@
 const urlhead = "http://localhost:8888"
 
-export const PostRequest = (url, postdata, callback) => {
+export const PostRequest = (url, postdata, callback, failcallback = (res)=>{}) => {
   const app = getApp()
-  console.log(postdata)
-  if(app.globalData.get_cookie){
-    console.log('get cookie')
-    console.log(wx.getStorageSync('cookies'))
+  if(wx.getStorageSync('jwt')){
     wx.request({
       url: urlhead+url,
       data: postdata,
-      header: {"Cookie": wx.getStorageSync('cookies')},
+      header: {"Authorization": wx.getStorageSync('jwt')},
       success(res) {
-        console.log(res)
-        console.log(res.data)
-        callback(res.data);
+        callback(res.data)
+      },
+      fail(res){
+        switch(res.statusCode){
+          case 401:
+            wx.redirectTo({
+              url: '/pages/inputId/inputId',
+            })
+            break
+          case 403:
+            failcallback(res)
+            break
+        }
       },
       method:"POST"
     });
   }
   else{
-    if(!app.cookieCallbacks){
-      app.cookieCallbacks = new Array()
-    }
-    console.log(app.cookieCallbacks)
-    app.cookieCallbacks.push({
-      url: url,
-      data: postdata,
-      callback: callback,
+    wx.redirectTo({
+      url: '/pages/inputId/inputId',
     })
   }
 }

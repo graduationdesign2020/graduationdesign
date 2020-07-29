@@ -16,6 +16,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map;
 
 public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
@@ -61,13 +64,25 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     protected void successfulAuthentication(HttpServletRequest request,
                                             HttpServletResponse response,
                                             FilterChain chain,
-                                            Authentication authentication) {
+                                            Authentication authentication) throws IOException {
         Object principal = authentication.getPrincipal();
 
         // 创建 Token
         String token = JwtTokenUtils.createToken(((UserDetails) principal).getUsername(), ((UserDetails) principal).getPassword(), true);
         // Http Response Header 中返回 Token
         response.setHeader(SecurityConstants.TOKEN_HEADER, token);
+
+        // 写入权限信息
+        Map<String,Object> map = new HashMap<String,Object>();
+        map.put("code",200);
+        map.put("msg","SUCCESS");
+        map.put("data",authentication);
+        response.setContentType("application/json;charset=utf-8");
+        PrintWriter out = response.getWriter();
+        ObjectMapper objectMapper = new ObjectMapper();
+        out.write(objectMapper.writeValueAsString(map));
+        out.flush();
+        out.close();
     }
 
     @Override

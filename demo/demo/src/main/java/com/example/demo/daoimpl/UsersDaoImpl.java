@@ -29,8 +29,8 @@ public class UsersDaoImpl implements UsersDao {
     }
 
     @Override
-    public int deleteUsers(String wechat_id){
-        int check=usersRepository.deleteByWechat_id(wechat_id);
+    public int deleteUsers(String id){
+        int check=usersRepository.deleteByid(id);
         return check;
     }
 

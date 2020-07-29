@@ -14,10 +14,10 @@ public interface UsersRepository extends JpaRepository<Users,String> {
 
     @Query("from Users where id=:id and auth=:auth")
     Optional<Users> getByIdAndAuth(String id,String auth);
-    @Query(value = "delete from Users where wechat_id=:wechat_id")
+    @Query(value = "delete from Users where id=:id")
     @Modifying
     @Transactional
-    int deleteByWechat_id(String wechat_id);
+    int deleteByid(String id);
 
     Optional<Users> findDistinctById(String id);
 }
