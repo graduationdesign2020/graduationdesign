@@ -14,18 +14,17 @@ describe('e2e tests', () => {
   })
 
   it('myProfile', async() => {
-    const page = await miniProgram.reLaunch('/pages/SendNotice/SendNotice')
+    const page = await miniProgram.reLaunch('/pages/postddl/postddl')
+
     await page.setData({
-      title:"title"
+      value:3,
+    })
+    await page.setData({
+      currentDateString: "2020-08-02",
+      currentTime:"23:59"
     })
     await page.waitFor(500)
-    await page.callMethod("chooseAll")
-    await page.waitFor(500)
-    await page.setData({
-      text: "content"
-    })
-    await page.waitFor(500)
-    const button = await page.$('van-button')
+    const button = await page.$('.sendbutton')
     button.tap()
     console.log(button.tagName)
   })

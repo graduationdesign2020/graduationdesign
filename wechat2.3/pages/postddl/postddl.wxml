@@ -21,7 +21,7 @@
 </van-cell-group>
 </view>
 <view class="PostTask-buttons">
-<van-button type="info" round size="large" bind:click="onSubmit">发布流程截止时间</van-button>
+<van-button class="sendbutton" type="info" round size="large" bindtap="onSubmit">发布流程截止时间</van-button>
 </view>
 <van-dialog id="van-dialog" />
 </view>

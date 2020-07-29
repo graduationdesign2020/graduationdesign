@@ -3,7 +3,7 @@
     "pages/home/home",
     "pages/studentScore/studentScore",
     "pages/myScore/myScore",
-    "pages/sendNotice/SendNotice",
+    "pages/SendNotice/SendNotice",
     "pages/register/index",
     "pages/notices/notices",
     "pages/noticeDetail/noticeDetail",

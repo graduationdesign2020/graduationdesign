@@ -28,26 +28,21 @@ Page({
               url: '../register/index',
             })
           }else{
-            this.setData({userData: data.userData, type: options.type})
+            this.setData({userData: app.globalData.userData, type: options.type});
             switch (options.type) {
               case "0": {
                 PostRequest('/getSchoolNotices', {}, that.setNotices);
                 break;
               }
               case "1": {
-                PostRequest('/getDepartmentNotices', {dept: this.data.userData.dept}, that.setNotices);
+                PostRequest('/getDepartmentNotices', {}, that.setNotices);
                 break;
               }
               case "2": {
                 var pages = getCurrentPages();
                 var prevPage = pages[pages.length - 2]; //上一个页面
                 prevPage.setData({isRefresh: true}) 
-                if(this.data.userData.auth){
-                  PostRequest('/teacherGetTeacherMessages', {teacher_id: this.data.userData.id}, that.setNotices);
-                }
-                else{
-                  PostRequest('/getTeacherMessages', {student_id: this.data.userData.id}, that.setNotices);
-                }
+                PostRequest('/getTeacherMessages', {}, that.setNotices);
                 break;
               }
             }
@@ -55,25 +50,21 @@ Page({
         }
       }else{
         this.setData({userData: app.globalData.userData, type: options.type});
+        console.log(app.globalData.userData)
         switch (options.type) {
           case "0": {
             PostRequest('/getSchoolNotices', {}, that.setNotices);
             break;
           }
           case "1": {
-            PostRequest('/getDepartmentNotices', {dept: this.data.userData.dept}, that.setNotices);
+            PostRequest('/getDepartmentNotices', {}, that.setNotices);
             break;
           }
           case "2": {
             var pages = getCurrentPages();
             var prevPage = pages[pages.length - 2]; //上一个页面
-            prevPage.setData({isRefresh: true}) 
-            if(this.data.userData.auth){
-              PostRequest('/teacherGetTeacherMessages', {teacher_id: this.data.userData.id}, that.setNotices);
-            }
-            else{
-              PostRequest('/getTeacherMessages', {student_id: this.data.userData.id}, that.setNotices);
-            }
+            prevPage.setData({isRefresh: true})
+            PostRequest('/getTeacherMessages', {}, that.setNotices);
             break;
           }
         }
@@ -86,7 +77,7 @@ Page({
     var that=this
     if (that.data.isRefresh==true){
       console.log("refresh")
-      PostRequest('/getTeacherMessages', {student_id: that.data.userData.id}, that.setNotices);
+      PostRequest('/getTeacherMessages', {}, that.setNotices);
     }   
   },
 
