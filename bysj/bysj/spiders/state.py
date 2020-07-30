@@ -3,6 +3,7 @@ import scrapy
 from urllib import parse
 from bysj.items import StateItem
 
+
 class StateSpider(scrapy.Spider):
     name = 'state'
     allowed_domains = ['bysj.jwc.sjtu.edu.cn']
@@ -17,7 +18,6 @@ class StateSpider(scrapy.Spider):
                       "LoginButton.y": "6"},
             callback=self.precharacter
         )
-
 
     def precharacter(self, response):
         return scrapy.Request(
@@ -78,7 +78,6 @@ class StateSpider(scrapy.Spider):
             meta={'state': '4'},
             method='POST'
         )
-
 
     def parse_form(self, response):
         state = response.meta['state']
