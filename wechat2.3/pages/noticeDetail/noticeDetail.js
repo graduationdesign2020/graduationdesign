@@ -20,6 +20,7 @@ Page({
    */
   onLoad: function(options) {
     var that = this;
+    that.setData({type: options.type})
     switch (options.type) {
       case "0": {
         PostRequest('/getSchoolNotice', {id: options.id}, that.setNotice);
