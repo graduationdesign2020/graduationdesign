@@ -16,7 +16,7 @@ Page({
 
   onLoad: function(options) {
     var that = this;
-    console.log(this.data.auth)
+    that.setData({type: options.type})
     if(this.data.auth === ''){
       PostRequest('/getAuth',{}, (data)=>{
         that.setData({auth: data})
