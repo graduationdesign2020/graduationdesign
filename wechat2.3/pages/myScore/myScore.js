@@ -17,10 +17,10 @@ Page({
 
   getGrade: function(data) {
     this.setData({
-    teachergrade: data.teachergrade,
-    reviewgrade: data.reviewgrade,
-    thesisgrade: data.thesisgrade,
-    allgrade: data.allgrade,
+    teachergrade: data.teachergrade?data.teachergrade:"",
+    reviewgrade: data.reviewgrade?data.reviewgrade:"",
+    thesisgrade: data.thesisgrade?data.thesisgrade:"",
+    allgrade: data.allgrade?data.allgrade:"",
     })
   },
 })

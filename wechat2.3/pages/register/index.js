@@ -67,17 +67,19 @@ Page({
           openid: app.globalData.openid
         },
         success(res){
-          wx.setStorageSync('jwt', res.header['Authorization'])
-          PostRequest('/getAuth', {}, (data)=>{
-            wx.setStorageSync('auth', data)
-          })
-          that.setData({successdialog: true, show: false})
+          if(res.statusCode == 200){
+            wx.setStorageSync('jwt', res.header['Authorization'])
+            wx.setStorageSync('auth', that.data.tab)
+            that.setData({msg: "注册成功", dialog: true, show: false});
+          }
+          else{
+            that.setData({msg: "注册失败", dialog: true, show: false});
+          }
         },
         fail(res){
-          that.setData({faildialog: true, show: false})
+          that.setData({msg: "注册失败", dialog: true, show: false});
         }
       })
-      this.setData({msg: "注册成功", dialog: true, show: false});
     }
     if(data.msg == 'REGISTERED'){
       this.setData({msg: "注册失败", dialog: true, show: false});
