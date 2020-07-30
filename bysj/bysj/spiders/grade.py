@@ -1,8 +1,8 @@
 import scrapy
 
-
 from urllib import parse
 from bysj.items import GradeItem
+
 
 class GradeSpider(scrapy.Spider):
     name = 'grade'
@@ -49,7 +49,6 @@ class GradeSpider(scrapy.Spider):
             callback=self.parse_grade,
             method='POST'
         )
-
 
     def parse_grade(self, response):
         grade_list = response.xpath('//*[@id="gridview"]/tr[position()>1]')
