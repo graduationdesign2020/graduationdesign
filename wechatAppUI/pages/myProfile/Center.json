@@ -1,9 +1,0 @@
-{
-  "usingComponents": {
-    "van-overlay": "@vant/weapp/overlay/index",
-    "van-loading": "@vant/weapp/loading/index",
-    "van-dialog": "@vant/weapp/dialog/index",
-    "navBar": "../../components/navBar/navBar"
-  },
-  "navigationBarTitleText": "我的"
-}
