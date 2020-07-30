@@ -1,6 +1,0 @@
-{
-  "navigationBarTitleText": "查看个人进度",
-  "usingComponents": {
-    "navBar": "../../components/navBar/navBar"
-  }
-}

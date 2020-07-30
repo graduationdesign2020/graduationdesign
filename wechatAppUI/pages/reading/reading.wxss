@@ -1,5 +1,0 @@
-/* pages/reading/reading.wxss */
-.content{
-  font-size: 35rpx;
-  margin-left: 15px;
-}
