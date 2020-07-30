@@ -88,6 +88,9 @@ Page({
           dialog: true,
           msg: "发送成功"
         })
+        var pages = getCurrentPages();
+        var prevPage = pages[pages.length - 2]; //上一个页面
+        prevPage.setData({isRefresh: true}) 
       }else{
         this.setData({
           waitshow: false,
