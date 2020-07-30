@@ -61,7 +61,7 @@ CREATE TABLE wechatusers
 (
 	wechat_id 	varchar(20),
     id 			varchar(50) NOT NULL,
-    auth 		int NOT NULL,
+    auth 		enum('ROLE_TEACHER','ROLE_STUDENT','ROLE_ADMIN'),
     PRIMARY KEY (wechat_id)
 );
 
@@ -106,7 +106,6 @@ CREATE TABLE state
 	project_id 	varchar(25) NOT NULL,
     state 		int NOT NULL,
     submit 		int NOT NULL,
-    start_time 	datetime,
     end_time	datetime,
     PRIMARY KEY (id),
     FOREIGN KEY (project_id) REFERENCES project(id) on delete cascade
