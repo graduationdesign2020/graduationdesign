@@ -19,10 +19,11 @@ Page({
     console.log(this.data.auth)
     if(this.data.auth === ''){
       PostRequest('/getAuth',{}, (data)=>{
-      that.setData({auth: data})
-      wx.setStorageSync('auth', data)
+        that.setData({auth: data})
+        wx.setStorageSync('auth', data)
       })
     }
+    this.setData({type: options.type})
     switch (options.type) {
     case "0": {
       PostRequest('/getSchoolNotices', {}, that.setNotices);

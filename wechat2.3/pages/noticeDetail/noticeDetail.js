@@ -4,10 +4,6 @@ const app = getApp()
 import {PostRequest} from "../../utils/ajax";
 
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     type: 0,
     notice: {
@@ -15,11 +11,9 @@ Page({
     },
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function(options) {
     var that = this;
+    this.setData({type: options.type})
     switch (options.type) {
       case "0": {
         PostRequest('/getSchoolNotice', {id: options.id}, that.setNotice);

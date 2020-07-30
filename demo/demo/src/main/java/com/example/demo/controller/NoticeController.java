@@ -35,6 +35,7 @@ public class NoticeController {
     @PreAuthorize("hasAnyRole('ROLE_STUDENT', 'ROLE_TEACHER')")
     public SchoolNotice getSchoolNotice(@RequestBody Map<String,Integer> params) {
         Integer id=params.get("id");
+        System.out.println(id);
         return noticeService.getSchoolNoticeById(id);
     }
 
