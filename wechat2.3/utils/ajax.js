@@ -32,7 +32,7 @@ export const PostRequest = (url, postdata, callback, failcallback = (res)=>{}) =
       },
       fail(res){
         failcallback()
-      }
+      },
       method:"POST"
     });
   }

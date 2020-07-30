@@ -17,9 +17,10 @@ Page({
   onLoad: function(options) {
     var that = this;
     console.log(this.data.auth)
-    if(this.data.auth == ''){
+    if(this.data.auth === ''){
       PostRequest('/getAuth',{}, (data)=>{
       that.setData({auth: data})
+      wx.setStorageSync('auth', data)
       })
     }
     switch (options.type) {
