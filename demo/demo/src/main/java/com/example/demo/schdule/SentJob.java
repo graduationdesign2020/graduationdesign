@@ -25,10 +25,11 @@ public class SentJob implements Job {
         String teacher=jobDetail.getJobDataMap().getString("teacher");
         String time=jobDetail.getJobDataMap().getString("time");
         List<Student> list=teacherMessageService.getStudentsByTeacher_id(teacher);
-        for(Student student:list) {
-            String name=student.getName();
-            System.out.println(getMsg(name, state, time));
-        }
+//        for(Student student:list) {
+//            String name=student.getName();
+//            System.out.println(getMsg(name, state, time));
+//        }
+        System.out.println(getMsg(teacher, state, time));
     }
     public String getMsg(String student,int state,String time){
         String st=getState(state);

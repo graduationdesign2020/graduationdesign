@@ -13,7 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -40,13 +42,17 @@ public class ProcessServiceImpl implements ProcessService {
         if (project.isPresent()){
             Project p=project.get();
             String t=p.getTeacher_id();
-            if (states.isEmpty()) {
-                return null;
-            }
             for (State state : states) {
                 StateInfo stateInfo = new StateInfo();
                 stateInfo.setSta(state);
                 stateInfo.transfer();
+                Timestamp timestamp=deadlineDao.getDeadline(t,state.getState());
+                if(timestamp!=null)
+                {
+                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+                    String ddl = simpleDateFormat.format(new Date(timestamp.getTime()));
+                    stateInfo.setEnd_time(ddl);
+                }
                 stateInfos.add(stateInfo);
             }
             int num = states.size();
@@ -54,8 +60,14 @@ public class ProcessServiceImpl implements ProcessService {
                 StateInfo stateInfo = new StateInfo();
                 stateInfo.init(i);
                 stateInfo.transfer();
-                String ddl=deadlineDao.getDeadline(t,i);
-                stateInfo.setEnd_time(ddl);
+                stateInfos.add(stateInfo);
+            }
+        }
+        else {
+            for (int i = 0; i < 5; i++) {
+                StateInfo stateInfo = new StateInfo();
+                stateInfo.init(i);
+                stateInfo.transfer();
                 stateInfos.add(stateInfo);
             }
         }
@@ -81,8 +93,12 @@ public class ProcessServiceImpl implements ProcessService {
                 case 4: name = "论文最终稿";
             }
             processInfo.setName(name);
-            String ddl=deadlineDao.getDeadline(tea_id,i);
-            processInfo.setEnd_time(ddl);
+            Timestamp timestamp=deadlineDao.getDeadline(tea_id,i);
+            if(timestamp!=null) {
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+                String ddl = simpleDateFormat.format(new Date(timestamp.getTime()));
+                processInfo.setEnd_time(ddl);
+            }
             List<Student> studentsFinished = new ArrayList<>();
             List<Student> studentsUnfinished = new ArrayList<>();
             int finished = 0;
@@ -90,11 +106,19 @@ public class ProcessServiceImpl implements ProcessService {
                 State state = stateDao.getOneByProjAndState(project.getId(), i);
                 if (state == null || state.getSubmit() != 5) {
                     //System.out.println(studentDao.getOne(project.getId()));
-                    studentsUnfinished.add(studentDao.getOne(project.getId()));
+                    Student s=studentDao.getOne(project.getId());
+                    Student student=new Student();
+                    student.setId(s.getId());
+                    student.setName(s.getName());
+                    studentsUnfinished.add(student);
                 }
                 else if (state.getSubmit() == 5) {
                     finished++;
-                    studentsFinished.add(studentDao.getOne(project.getId()));
+                    Student s=studentDao.getOne(project.getId());
+                    Student student=new Student();
+                    student.setId(s.getId());
+                    student.setName(s.getName());
+                    studentsFinished.add(student);
                 }
             }
             int unfinished = stuNum - finished;
@@ -112,19 +136,22 @@ public class ProcessServiceImpl implements ProcessService {
 
     @Override
     public ReturnInfo setDeadline(String end_time,String id,int state){
-        Timestamp ddl=Timestamp.valueOf(end_time);
-        Deadline deadline=deadlineDao.addDeadline(id,ddl,state);
-        ReturnInfo returnInfo=new ReturnInfo();
-        if(deadline!=null) {
-            returnInfo.setMsg(Msg1);
-            Timestamp timestamp=Timestamp.valueOf(end_time);
-            long time=timestamp.getTime()-(long)1000*3600*24;
-            Timestamp date =new Timestamp(time);
-            LoadTask.timeTask(date,deadline.getId(),id,state);
+        Timestamp t=Timestamp.valueOf(end_time);
+        Timestamp timestamp=deadlineDao.getDeadline(id,state);
+        Deadline deadline=new Deadline();
+        if(timestamp==null) {
+            deadlineDao.addDeadline(id, t, state);
+//            Timestamp timestamp=Timestamp.valueOf(end_time);
+//            long time=timestamp.getTime()-(long)1000*3600*24;
+//            Timestamp date =new Timestamp(time);
+//            LoadTask.timeTask(date,deadline.getId(),id,state);
         }
         else {
-            returnInfo.setMsg(Msg0);
+            deadlineDao.changeDeadline(id,t,state);
         }
+
+        ReturnInfo returnInfo=new ReturnInfo();
+        returnInfo.setMsg(Msg1);
         return returnInfo;
     }
 

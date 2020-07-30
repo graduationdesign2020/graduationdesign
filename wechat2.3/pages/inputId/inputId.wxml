@@ -1,0 +1,29 @@
+<!--pages/inputId/inputId.wxml-->
+<view class="input-content">
+<van-cell-group>
+  <van-field
+    bindchange="idInput"
+    value="{{ id }}"
+    label="学号/工号"
+    placeholder="请输入学号或工号"
+    error-message="{{ errorMessage }}"
+    required/>
+</van-cell-group>
+</view>
+<view class="login-button">
+    <van-button size="large" type="info" bind:click="onClick">登陆</van-button>
+</view>
+<view class="register-button">
+    <van-button size="large" type="primary" bind:click="onClickRegister">
+    没有账号？点击注册
+    </van-button>
+</view>
+<van-overlay show="{{ show }}">
+    <view class="wrapper">
+      <view class="block">
+      <van-loading color="#1989fa" size="24px" vertical>登录中...</van-loading>
+      </view>
+    </view>
+</van-overlay>
+  <van-dialog class="confirm" title="成功" show="{{successdialog}}" message="登陆成功" bind:confirm="confirmSuccess"/>
+  <van-dialog class="confirm" title="失败" show="{{faildialog}}" message="不存在的账户，登陆失败" bind:confirm="confirmFail"/>

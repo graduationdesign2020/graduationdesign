@@ -44,14 +44,14 @@ public class LoginServiceImpl implements LoginService {
             return returnInfo;
         }
         boolean flag = false;
+        System.out.print(auth);
         if (auth.equals("ROLE_TEACHER")) {
+            System.out.print("teacher");
             Teacher t = teacherDao.getTeacherByIdAndName(id, name);
             if (t != null) {
                 userInfo.setId(id);
-                userInfo.setOpenid(wechat_id);
                 userInfo.setName(t.getName());
                 userInfo.setDept(t.getDepartment());
-                userInfo.setAuth("ROLE_TEACHER");
                 flag = true;
             }
         } else {
@@ -60,10 +60,8 @@ public class LoginServiceImpl implements LoginService {
             Student student = studentDao.getStudentByIdAndName(id, name);
             if (student != null) {
                 userInfo.setId(id);
-                userInfo.setOpenid(wechat_id);
                 userInfo.setName(student.getName());
                 userInfo.setDept(student.getDepartment());
-                userInfo.setAuth("ROLE_STUDENT");
                 Optional<Project> project= projectDao.getOne(id);
                 if(project.isPresent()) {
                     Project p=project.get();
@@ -78,7 +76,7 @@ public class LoginServiceImpl implements LoginService {
             Users users = new Users();
             users.setWechat_id(wechat_id);
             users.setId(id);
-            users.setAuth("ROLE_TEACHER");
+            users.setAuth(auth);
             usersDao.saveUsers(users);
             returnInfo.setMsg(Msg1);
             returnInfo.setUserData(userInfo);
@@ -91,9 +89,9 @@ public class LoginServiceImpl implements LoginService {
     }
 
     @Override
-    public ReturnInfo logout(String wechat_id){
+    public ReturnInfo logout(String id){
         ReturnInfo returnInfo=new ReturnInfo();
-        int flag= usersDao.deleteUsers(wechat_id);
+        int flag= usersDao.deleteUsers(id);
         if(flag==1)
             returnInfo.setMsg(Msg1);
         else returnInfo.setMsg(Msg0);
@@ -101,47 +99,33 @@ public class LoginServiceImpl implements LoginService {
     }
 
     @Override
-    public ReturnInfo login(String wechat_id){
-        Optional<Users> users= usersDao.getUserByWechat_id(wechat_id);
+    public UserInfo getUserData(String id, String role){
         UserInfo userInfo=new UserInfo();
-        ReturnInfo returnInfo=new ReturnInfo();
-        if(users.isPresent()){
-            Users u=users.get();
-            String id=u.getId();
-            userInfo.setId(id);
-            userInfo.setOpenid(wechat_id);
-            returnInfo.setMsg(Msg1);
-            if(u.getAuth().equals("ROLE_TEACHER")){
-                Teacher t= teacherDao.getTeacherById(id);
-                userInfo.setAuth("ROLE_TEACHER");
+        userInfo.setId(id);
+        if(role.equals("ROLE_TEACHER")){
+            Teacher t= teacherDao.getTeacherById(id);
+            if(t!=null)
+            {
                 userInfo.setDept(t.getDepartment());
                 userInfo.setName(t.getName());
-                returnInfo.setUserData(userInfo);
             }
-            else
+        }
+        if(role.equals("ROLE_STUDENT")){
+            Student student= studentDao.getOne(id);
+            if(student!=null)
             {
-                Student student= studentDao.getOne(id);
-                userInfo.setAuth("ROLE_STUDENT");
                 userInfo.setDept(student.getDepartment());
                 userInfo.setName(student.getName());
-                Optional<Project> project=projectDao.getOne(id);
-                if(project.isPresent())
-                {
-                    Project p=project.get();
+                Optional<Project> project = projectDao.getOne(id);
+                if (project.isPresent()) {
+                    Project p = project.get();
                     userInfo.setProject(p.getProject_name());
                     Teacher teacher = teacherDao.getTeacherById(p.getTeacher_id());
                     userInfo.setTeacher(teacher.getName());
-                    returnInfo.setUserData(userInfo);
                 }
             }
         }
-        else {
-            userInfo.setOpenid(wechat_id);
-            returnInfo.setUserData(userInfo);
-            returnInfo.setMsg(Msg0);
-        }
-        return returnInfo;
+        return userInfo;
     }
-
 
 }

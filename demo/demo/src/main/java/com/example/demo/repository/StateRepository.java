@@ -12,6 +12,6 @@ public interface StateRepository extends JpaRepository<State, Integer> {
     @Query("from State where project_id=:proj_id and state=:state")
     State findByProjectAndState(String proj_id, Integer state);
 
-    @Query("from State where project_id=:proj_id")
+    @Query("from State where project_id=:proj_id order by state")
     List<State> findAllByProject(String proj_id);
 }

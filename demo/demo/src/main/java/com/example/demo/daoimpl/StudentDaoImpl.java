@@ -34,4 +34,9 @@ public class StudentDaoImpl implements StudentDao {
     public List<Student> findByDept(String dept) {
         return studentRepository.findAllByDepartment(dept);
     }
+
+    @Override
+    public String getDeptById(String id){
+        return studentRepository.getDeptById(id);
+    }
 }

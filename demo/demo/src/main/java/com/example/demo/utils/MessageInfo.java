@@ -14,7 +14,7 @@ public class MessageInfo {
 
     private String content;
 
-    private boolean is_read;
+    private boolean isread;
 
     private int reading;
 
@@ -32,6 +32,6 @@ public class MessageInfo {
         this.content=content;
         this.reading=reading;
         this.unread=unread;
-        this.is_read=is_read;
+        this.isread=is_read;
     }
 }

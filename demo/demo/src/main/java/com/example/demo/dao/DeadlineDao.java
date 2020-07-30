@@ -9,5 +9,5 @@ public interface DeadlineDao {
 
     int changeDeadline(String teacher_id,Timestamp time,int state);
 
-    String getDeadline(String teacher_id,int state);
+    Timestamp getDeadline(String teacher_id,int state);
 }

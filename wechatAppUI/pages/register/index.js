@@ -35,8 +35,7 @@ Page({
     }
     if(this.data.id && this.data.name){
       this.setData({show: true});
-      console.log(this.handleAuth())
-      PostRequest('/register', {name: this.data.name, id: this.data.id, auth: this.handleAuth(), openid: app.globalData.userData.openid}, this.handleMsg)
+      PostRequest('/register', {name: this.data.name, id: this.data.id, auth: this.data.auth, openid: app.globalData.userData.openid}, this.handleMsg)
     }
     console.log(this.data);
   },
@@ -93,11 +92,4 @@ Page({
   onClickTab (event) {
     this.setData({tab: event.detail.name})
   },
-
-  handleAuth: function() {
-    switch(this.data.tab) {
-      case 0: return "ROLE_STUDENT";      
-      case 1: return "ROLE_TEACHER";
-    }
-  }
 })

@@ -11,10 +11,12 @@ import com.example.demo.utils.GradeInfo;
 import com.example.demo.utils.ReturnInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
+
 
 @RestController
 @CrossOrigin(origins = "*",maxAge = 3600)
@@ -24,45 +26,35 @@ public class ProcessController {
 
     @RequestMapping(path = "/checkSelfProcess")
     @PreAuthorize("hasAnyRole('ROLE_STUDENT')")
-    @ResponseBody
-    public List<StateInfo> checkSelfProcess(@RequestBody Map<String, String> params){
-        //System.out.println("self process stu_id");
-        //System.out.println(params.get("stu_id"));
-        return processService.checkSelfProcess(params.get("stu_id"));
+    public List<StateInfo> checkSelfProcess(Authentication authentication){
+        return processService.checkSelfProcess(authentication.getName());
     }
 
     @RequestMapping(path = "/checkProcess")
     @PreAuthorize("hasAnyRole('ROLE_TEACHER')")
-    @ResponseBody
-    public List<ProcessInfo> checkProcess(@RequestBody Map<String,String> params){
-        System.out.println(processService.checkProcess(params.get("tea_id")));
-        return processService.checkProcess(params.get("tea_id"));
+    public List<ProcessInfo> checkProcess(Authentication authentication){
+        return processService.checkProcess(authentication.getName());
     }
 
     @RequestMapping(path = "/setDeadline")
     @PreAuthorize("hasAnyRole('ROLE_TEACHER')")
     @ResponseBody
-    public ReturnInfo setDeadline(@RequestBody Map<String,String> params){
+    public ReturnInfo setDeadline(@RequestBody Map<String,String> params, Authentication authentication){
         String time=params.get("time");
-        String teacher_id=params.get("teacher");
         int state=Integer.parseInt(params.get("state"));
-        return processService.setDeadline(time,teacher_id,state);
+        return processService.setDeadline(time,authentication.getName(),state);
     }
 
     @RequestMapping(path = "/getSelfGrade")
     @PreAuthorize("hasAnyRole('ROLE_STUDENT')")
-    @ResponseBody
-    public Grade getGrade(@RequestBody Map<String,String> params){
-        String id=params.get("id");
-        return processService.getGradeById(id);
+    public Grade getGrade(Authentication authentication){
+        return processService.getGradeById(authentication.getName());
     }
 
     @RequestMapping(path = "/getGrades")
     @PreAuthorize("hasAnyRole('ROLE_TEACHER')")
-    @ResponseBody
-    public List<GradeInfo> getGradeByteacher(@RequestBody Map<String,String> params){
-        String id=params.get("id");
-        return processService.getGradeByTeacher(id);
+    public List<GradeInfo> getGradeByteacher(Authentication authentication){
+        return processService.getGradeByTeacher(authentication.getName());
     }
 
     @RequestMapping(path = "/getStudentsProcess")

@@ -13,4 +13,7 @@ public interface StudentRepository extends JpaRepository<Student, String> {
     Student findDistinctByName(String name);
 
     List<Student> findAllByDepartment(String dept);
+
+    @Query("select department from Student where id=:id")
+    String getDeptById(String id);
 }

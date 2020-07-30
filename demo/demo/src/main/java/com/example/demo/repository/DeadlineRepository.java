@@ -11,9 +11,9 @@ import java.sql.Timestamp;
 public interface DeadlineRepository extends JpaRepository<Deadline,Integer> {
     @Transactional
     @Modifying
-    @Query(value = "update Deadline set time=:e_t where teacher_id=:id and state=:state")
+    @Query(value = "update Deadline set end_time=:e_t where teacher_id=:id and state=:state")
     int changeDeadline(Timestamp e_t, String id, int state);
 
-    @Query("select time from Deadline where teacher_id=:teacher_id and state=:state")
-    String getByTeacher_idAndState(String teacher_id,int state);
+    @Query("select end_time from Deadline where teacher_id=:teacher_id and state=:state")
+    Timestamp getByTeacher_idAndState(String teacher_id,int state);
 }
