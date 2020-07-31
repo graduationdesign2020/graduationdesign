@@ -3,19 +3,19 @@ import pymysql
 import pymongo
 
 # connection database
-connect = pymysql.connect(host='localhost', user='root', passwd='graduationdesign',db='GDMS')
+connect = pymysql.connect(host='54.167.148.196', user='root', passwd='graduationdesign',db='GDMS')
 # get cursor
 cursor = connect.cursor()
 
-client = pymongo.MongoClient(host='localhost', port=27017)
+client = pymongo.MongoClient("mongodb://root:graduationdesign@54.167.148.196:27017/?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&ssl=false")
 db = client["GDMS"]  # 获得数据库的句柄
 coll_message = db["teachermessagecontent"]  # 获得collection的句柄
 
 def set_ddl(teacher_id,state,end_time):
     try:
         cursor.execute(
-            """insert into schedulejob(teacher_id, job_status, state, end_time) VALUES (%s,%s,%s,%s)""",
-            (teacher_id, '0', state, end_time)
+            """insert into schedulejob(teacher_id, job_status, state, end_time) SELECT %s, %s, %s, %s FROM DUAL WHERE NOT EXISTS ( SELECT * FROM schedulejob WHERE teacher_id = %s and state = %s)""",
+            (teacher_id, '0', state, end_time, teacher_id, state)
         )
         cursor.execute("""SELECT id FROM project WHERE teacher_id=%s""", teacher_id)
         results = cursor.fetchall()
@@ -36,6 +36,8 @@ def send_message(teacher_id, title, content):
             """insert into teachermessage(teacher_id, title, time) VALUES (%s,%s,current_timestamp())""",
             (teacher_id, title)
         )
+        connect.commit()
+
         cursor.execute("""select last_insert_id() from teachermessage""")
         result = cursor.fetchone()
         coll_message.insert_one({"_id": result[0], "content": content})
@@ -48,7 +50,6 @@ def send_message(teacher_id, title, content):
                 """insert into teachermessagereading(message_id, student_id, is_read) VALUES (%s,%s,%s)""",
                 (result[0], id, 0)
             )
-
         connect.commit()
     except:
         connect.rollback()
