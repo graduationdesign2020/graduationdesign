@@ -11,8 +11,8 @@ import pymongo
 class BYSJPipeline(object):
     def __init__(self):
         # connection database
-        self.connect = pymysql.connect(host='localhost', user='root', passwd='graduationdesign',
-                                       db='GDMS')
+        self.connect = pymysql.connect(host='localhost', user='root', passwd='520lixuan',
+                                       db='gdms')
         # get cursor
         self.cursor = self.connect.cursor()
 
