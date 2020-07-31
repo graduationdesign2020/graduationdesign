@@ -69,8 +69,7 @@ public class LoginController {
         }
         ObjectMapper mapper = new ObjectMapper();
         CodeReturn openIdJson = mapper.readValue(result, CodeReturn.class);
-        String wechat_id=openIdJson.getOpenid();
-        return wechat_id;
+        return openIdJson.getOpenid();
     }
 
     @RequestMapping(path = "/getUserData")

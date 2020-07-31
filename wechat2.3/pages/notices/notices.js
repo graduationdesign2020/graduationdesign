@@ -23,7 +23,7 @@ Page({
         wx.setStorageSync('auth', data)
       })
     }
-
+    this.setData({type: options.type})
     switch (options.type) {
     case "0": {
       PostRequest('/getSchoolNotices', {}, that.setNotices);

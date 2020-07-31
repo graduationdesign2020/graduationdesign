@@ -5,6 +5,7 @@ from urllib import parse
 from bysj.items import NoticeItem
 from scrapy.selector import Selector
 
+
 class NoticeSpider(scrapy.Spider):
     name = 'notice'
     allowed_domains = ['bysj.jwc.sjtu.edu.cn']

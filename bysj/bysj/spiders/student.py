@@ -3,6 +3,7 @@ import scrapy
 from bysj.items import StudentItem
 from urllib import parse
 
+
 class StudentSpider(scrapy.Spider):
     name = 'student'
     allowed_domains = ['bysj.jwc.sjtu.edu.cn']
