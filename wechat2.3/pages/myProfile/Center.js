@@ -13,6 +13,7 @@ Page({
   },
 
   onLoad: function () {
+    this.setData({auth: wx.getStorageSync('auth')})
     var that = this
     PostRequest('/getUserData', {}, (data)=>{that.setData({userData: data})})
     if(this.data.auth === ''){
@@ -41,7 +42,7 @@ Page({
         this.setData({msg: "注销成功", dialog: true, show: false});
         wx.setStorageSync('jwt', "")
         wx.setStorageSync('auth', "") 
-        console.log(1) 
+        console.log("center") 
         console.log(wx.getStorageSync('auth'))  
         app.globalData.userInfo = {};
       } else {

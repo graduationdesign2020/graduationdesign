@@ -1,5 +1,6 @@
 // pages/studentScore/studentScore.js
 var app = getApp();
+import {PostRequest} from "../../utils/ajax";
 
 Page({
   data: {
@@ -33,33 +34,12 @@ Page({
         totalgrade: ""
       }
     }],
-    userData: {},
     activeNames: [],
   },
 
   onLoad: function (options) {
     var that = this;
-    if(app.globalData.login == 2){
-      wx.redirectTo({
-        url: '../register/index',
-      })
-    }else{
-      if(app.globalData.login == 0){
-        app.dataCallback = (data) => {
-          if(data.msg == "FAIL"){
-            wx.redirectTo({
-              url: '../register/index',
-            })
-          }else{
-            this.setData({userData: data.userData})
-            PostRequest('/teacherGetGrades', {id: this.data.userData.id}, that.getGrades);
-          }
-        }
-      }else{
-        this.setData({userData: app.globalData.userData});
-        PostRequest('/teacherGetGrades', {id: this.data.userData.id}, that.getGrades);
-      }
-    }
+    PostRequest('/getGrades', {}, that.getGrades);
   },
 
   getGrades: function(data){
