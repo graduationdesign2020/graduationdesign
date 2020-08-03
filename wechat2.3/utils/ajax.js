@@ -1,7 +1,6 @@
-const urlhead = "http://localhost:8888"
+const urlhead = "http://54.167.148.196:8888"
 
 export const PostRequest = (url, postdata, callback, failcallback = (res)=>{}) => {
-  const app = getApp()
   if(wx.getStorageSync('jwt')){
     wx.request({
       url: urlhead+url,
@@ -41,4 +40,23 @@ export const PostRequest = (url, postdata, callback, failcallback = (res)=>{}) =
       url: '/pages/inputId/inputId',
     })
   }
+}
+
+export const PostRequestWithoutJwt = (url, postdata, callback, failcallback = (res)=>{}) => {
+  wx.request({
+    url: urlhead+url,
+    data: postdata,
+    method: "POST",
+    success(res){
+      if(res.statusCode == 200){
+        callback(res.data)
+      }
+      else{
+        failcallback(res)
+      }
+    },
+    fail(res){
+      failcallback(res)
+    }
+  })
 }

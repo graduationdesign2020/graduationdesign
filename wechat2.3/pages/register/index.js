@@ -42,7 +42,7 @@ Page({
       }
       var that = this
       wx.request({
-        url: 'http://localhost:8888/register',
+        url: 'http://54.167.148.196:8888/register',
         data:{
           name: this.data.name, 
           id: this.data.id, 
@@ -59,8 +59,11 @@ Page({
   handleMsg: function(data) {
     var that=this;
     if(data.msg == 'SUCCESS'){
+      wx.setStorageSync('auth', that.data.tab)
+      console.log("register") 
+      console.log(wx.getStorageSync('auth')) 
       wx.request({
-        url: 'http://localhost:8888/login',
+        url: 'http://54.167.148.196:8888/login',
         method: "POST",
         data: {
           id: this.data.id,
@@ -69,11 +72,10 @@ Page({
         success(res){
           if(res.statusCode == 200){
             wx.setStorageSync('jwt', res.header['Authorization'])
-            wx.setStorageSync('auth', that.data.tab)
             that.setData({msg: "注册成功", dialog: true, show: false});
           }
           else{
-            that.setData({msg: "注册失败", dialog: true, show: false});
+            that.setData({msg: "登陆失败", dialog: true, show: false});
           }
         },
         fail(res){
