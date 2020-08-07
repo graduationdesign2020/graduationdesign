@@ -1,11 +1,11 @@
-use GDMS;
 set foreign_key_checks=0;
 DROP TABLE IF EXISTS teacher;
 DROP TABLE IF EXISTS student;
 DROP TABLE IF EXISTS schoolnotice;
 DROP TABLE IF EXISTS deptnotice;
 DROP TABLE IF EXISTS teachermessage;
-DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS teachermessagereading;
+DROP TABLE IF EXISTS wechatusers;
 drop table if exists principleusers;
 DROP TABLE IF EXISTS project;
 DROP TABLE IF EXISTS state;
@@ -127,7 +127,7 @@ create table teachermessagereading
     id         int auto_increment,
     message_id int                  not null,
     student_id varchar(25)          not null,
-    is_read    tinyint(1) default 0 not null,
+    is_read    boolean default 0 not null,
     primary key(id),
 	foreign key (student_id) references student (id) on delete cascade,
 	foreign key (message_id) references teachermessage (id) on delete cascade

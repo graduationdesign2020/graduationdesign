@@ -77,10 +77,27 @@ public class NoticeServiceTest extends DemoApplicationTests {
     }
 
     @Test
-    public void getThreeDeptNoticesByDepartment() {
-        List<DeptNotice> result = deptNoticeDao.getThreeDeptNoticesByDepartment("电子信息与电气工程学院");
-        List<DeptNotice> compare = noticeService.getThreeDeptNoticesByDepartment("电子信息与电气工程学院");
-
-        assertEquals(result, compare);
+    public void getThreeDeptNoticesBySid() {
+        List<DeptNotice> compare = noticeService.getThreeDeptNoticesBySid("816249335790");
+        assertEquals(3, compare.size());
     }
+
+    @Test
+    public void getThreeDeptNoticesByTid() {
+       List<DeptNotice> compare = noticeService.getThreeDeptNoticesByTid("60396j");
+        assertEquals(3, compare.size());
+    }
+
+    @Test
+    public void getDeptNoticesBySid() {
+        List<DeptNotice> compare = noticeService.getDeptNoticesBySid("816249335790");
+        assertEquals(30, compare.size());
+    }
+
+    @Test
+    public void getDeptNoticesByTid() {
+        List<DeptNotice> compare = noticeService.getDeptNoticesByTid("60396j");
+        assertEquals(30, compare.size());
+    }
+
 }

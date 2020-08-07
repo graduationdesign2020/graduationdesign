@@ -44,6 +44,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 // 禁用 CSRF
                 .csrf().disable()
                 .authorizeRequests()
+                .antMatchers("/actuator/**").permitAll()
                 .antMatchers(HttpMethod.POST, "/login", "/register", "/getOpenid","/mylogout").permitAll()
                 // 指定路径下的资源需要验证了的用户才能访问
                 .anyRequest().authenticated()

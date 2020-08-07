@@ -13,5 +13,9 @@ public class DeptNoticeContent {
     @Column(name = "_id")
     private int id;
 
+    private String title;
+
+    private String department;
+
     private String content;
 }

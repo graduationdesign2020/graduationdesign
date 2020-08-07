@@ -7,6 +7,8 @@ import lombok.Data;
 
 import javax.persistence.*;
 
+import java.util.List;
+
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
@@ -32,10 +34,8 @@ public class TeacherMessage {
 
     @Transient
     private String content;
+
     @Transient
-    public void setContent(String content) {
-        this.content = content;
-    }
-    public String getContent(){return content;}
+    private List<String> students;
 
 }

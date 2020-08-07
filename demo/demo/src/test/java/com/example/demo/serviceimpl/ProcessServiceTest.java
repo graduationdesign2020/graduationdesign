@@ -6,10 +6,7 @@ import com.example.demo.dao.StateDao;
 import com.example.demo.dao.StudentDao;
 import com.example.demo.entity.*;
 import com.example.demo.service.ProcessService;
-import com.example.demo.utils.ProcessInfo;
-import com.example.demo.utils.ReturnInfo;
-import com.example.demo.utils.SecurityInfo;
-import com.example.demo.utils.StateInfo;
+import com.example.demo.utils.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -49,24 +46,109 @@ public class ProcessServiceTest extends DemoApplicationTests {
 
     @Test
     public void checkSelfProcess() throws JsonProcessingException {
-        List<StateInfo> result = processService.checkSelfProcess("NTE2MDMwOTEwMzk1\n");
+        String student="305349154743";
+        List<StateInfo> result = processService.checkSelfProcess(student);
         List<StateInfo> compare = new ArrayList<>();
         ObjectMapper om = new ObjectMapper();
 
-        String s = "[{\"sta\":{\"id\":904,\"project_id\":\"NTE2MDMwOTEwMzk1\\n\",\"state\":0,\"submit\":5,\"start_time\":null,\"end_time\":null},\"state\":\"任务书\",\"stateNum\":0,\"submit\":5,\"start_time\":null,\"end_time\":null},{\"sta\":{\"id\":910,\"project_id\":\"NTE2MDMwOTEwMzk1\\n\",\"state\":4,\"submit\":5,\"start_time\":null,\"end_time\":null},\"state\":\"论文最终稿\",\"stateNum\":0,\"submit\":5,\"start_time\":null,\"end_time\":null},{\"sta\":{\"id\":923,\"project_id\":\"NTE2MDMwOTEwMzk1\\n\",\"state\":1,\"submit\":6,\"start_time\":null,\"end_time\":null},\"state\":\"开题报告\",\"stateNum\":0,\"submit\":6,\"start_time\":null,\"end_time\":null},{\"sta\":{\"id\":937,\"project_id\":\"NTE2MDMwOTEwMzk1\\n\",\"state\":3,\"submit\":5,\"start_time\":null,\"end_time\":null},\"state\":\"论文定稿\",\"stateNum\":0,\"submit\":5,\"start_time\":null,\"end_time\":null},{\"sta\":{\"id\":938,\"project_id\":\"NTE2MDMwOTEwMzk1\\n\",\"state\":2,\"submit\":6,\"start_time\":null,\"end_time\":null},\"state\":\"中期检查\",\"stateNum\":0,\"submit\":6,\"start_time\":null,\"end_time\":null}]";
-        compare = om.readValue(s, new TypeReference<List<StateInfo>>() {});
+        StateInfo stateInfo=new StateInfo();
+        State state=new State();
+        state.setId(2845);
+        state.setProject_id(student);
+        state.setState(0);
+        state.setSubmit(5);
+        stateInfo.setSta(state);
+        stateInfo.setState("任务书");
+        stateInfo.setSubmit(state.getSubmit());
+        stateInfo.setEnd_time(null);
+        compare.add(stateInfo);
 
+        StateInfo stateInfo1=new StateInfo();
+        State state1=new State();
+        state1.setId(3313);
+        state1.setProject_id(student);
+        state1.setState(1);
+        state1.setSubmit(6);
+        stateInfo1.setSta(state1);
+        stateInfo1.setState("开题报告");
+        stateInfo1.setSubmit(state1.getSubmit());
+        stateInfo1.setEnd_time(null);
+        compare.add(stateInfo1);
+
+        StateInfo stateInfo2=new StateInfo();
+        State state2=new State();
+        state2.setId(3229);
+        state2.setProject_id(student);
+        state2.setState(2);
+        state2.setSubmit(6);
+        stateInfo2.setSta(state2);
+        stateInfo2.setState("中期检查");
+        stateInfo2.setSubmit(state2.getSubmit());
+        stateInfo2.setEnd_time(null);
+        compare.add(stateInfo2);
+        StateInfo stateInfo3=new StateInfo();
+        State state3=new State();
+        state3.setId(2425);
+        state3.setProject_id(student);
+        state3.setState(3);
+        state3.setSubmit(5);
+        stateInfo3.setSta(state3);
+        stateInfo3.setState("论文定稿");
+        stateInfo3.setSubmit(state3.getSubmit());
+        stateInfo3.setEnd_time(null);
+        compare.add(stateInfo3);
+        StateInfo stateInfo4=new StateInfo();
+        State state4=new State();
+        state4.setId(1813);
+        state4.setProject_id(student);
+        state4.setState(4);
+        state4.setSubmit(5);
+        stateInfo4.setSta(state4);
+        stateInfo4.setState("论文最终稿");
+        stateInfo4.setSubmit(state4.getSubmit());
+        stateInfo4.setEnd_time(null);
+        compare.add(stateInfo4);
         System.out.println(compare);
         assertEquals(result, compare);
     }
 
 
-
+    @Transactional
     @Test
     public void checkSetDeadline(){
         List<String> student=new ArrayList<>();
-        ReturnInfo result=processService.setDeadline("2020-7-23 12:00:00","1",2);
-        assertEquals("FAIL",result.getMsg());
+        ReturnInfo result=processService.setDeadline("2020-8-30 12:00:00","03047a",2);
+        assertEquals("SUCCESS",result.getMsg());
+    }
+
+    @Test
+    public void checkGetGrade(){
+        Grade grade=processService.getGradeById("305349154743");
+        Grade compare=new Grade();
+        compare.setId("305349154743");
+        compare.setTeachergrade("B-");
+        compare.setReviewgrade("B");
+        compare.setAllgrade("");
+        compare.setThesisgrade("");
+        assertEquals(compare,grade);
+    }
+
+    @Test
+    public void checkgetGradeByTeacher(){
+        List<GradeInfo> infoList = processService.getGradeByTeacher("03047a");
+        assertEquals(5,infoList.size());
+    }
+
+    @Test
+    public void checkgetStudentsProcess(){
+        List<ProcessInfo> processInfos=processService.getStudentsProcess("111");
+        assertEquals(5,processInfos.size());
+    }
+
+    @Test
+    public void checkProcess(){
+        List<ProcessInfo> list=processService.checkProcess("03047a");
+        assertEquals(5,list.size());
     }
 
 //    @Test

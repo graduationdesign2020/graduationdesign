@@ -80,6 +80,7 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
         teacherMessage.setTime(time);
         teacherMessage.setTeacher_id(teacher_id);
         teacherMessage.setContent(content);
+        teacherMessage.setStudents(student_id);
         teacherMessageDao.sentTeacherMessage(teacherMessage);
         List<TeacherMessageReading> teacherMessageReadings=new ArrayList<>();
         for (String value : student_id) {

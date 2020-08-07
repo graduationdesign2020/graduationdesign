@@ -56,11 +56,6 @@ public class NoticeServiceImpl implements NoticeService {
         return schoolNoticeDao.getThreeSchoolNotices();
     }
 
-    @Override
-    public List<DeptNotice> getThreeDeptNoticesByDepartment(String dept)
-    {
-        return deptNoticeDao.getThreeDeptNoticesByDepartment(dept);
-    }
 
     @Override
     public List<DeptNotice> getThreeDeptNoticesBySid(String id)

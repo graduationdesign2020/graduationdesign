@@ -97,16 +97,16 @@ public class NoticeControllerTest extends DemoApplicationTests {
         assertEquals(noticeService.getDeptNoticesByDept("电院"), deptNotices);
     }
 
-    @Test
-    public void getThreeDeptNoticesByDepartment() throws Exception {
-        MvcResult result = mockMvc.perform(post("/getThreeDepartmentNotices").contentType(MediaType.APPLICATION_JSON_VALUE).content("{\"dept\":\"电院\"}"))
-                .andExpect(status().isOk()).andReturn();
-        result.getResponse().setCharacterEncoding("UTF-8");
-        String resultContent = result.getResponse().getContentAsString();
-        List<DeptNotice> deptNotices = om.readValue(resultContent, new TypeReference<List<DeptNotice> >() {});
-
-        assertEquals(noticeService.getThreeDeptNoticesByDepartment("电院"), deptNotices);
-    }
+//    @Test
+//    public void getThreeDeptNoticesByDepartment() throws Exception {
+//        MvcResult result = mockMvc.perform(post("/getThreeDepartmentNotices").contentType(MediaType.APPLICATION_JSON_VALUE).content("{\"dept\":\"电院\"}"))
+//                .andExpect(status().isOk()).andReturn();
+//        result.getResponse().setCharacterEncoding("UTF-8");
+//        String resultContent = result.getResponse().getContentAsString();
+//        List<DeptNotice> deptNotices = om.readValue(resultContent, new TypeReference<List<DeptNotice> >() {});
+//
+//        assertEquals(noticeService.getThreeDeptNoticesByDepartment("电院"), deptNotices);
+//    }
 
     @Test
     public void getDeptNotice() throws Exception {

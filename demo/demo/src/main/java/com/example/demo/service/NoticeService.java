@@ -20,8 +20,6 @@ public interface NoticeService {
 
     List<SchoolNotice> getThreeSchoolNotices();
 
-    List<DeptNotice> getThreeDeptNoticesByDepartment(String dept);
-
     List<DeptNotice> getThreeDeptNoticesBySid(String id);
 
     List<DeptNotice> getThreeDeptNoticesByTid(String id);

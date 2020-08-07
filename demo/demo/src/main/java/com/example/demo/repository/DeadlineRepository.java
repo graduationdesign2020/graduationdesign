@@ -16,4 +16,9 @@ public interface DeadlineRepository extends JpaRepository<Deadline,Integer> {
 
     @Query("select end_time from Deadline where teacher_id=:teacher_id and state=:state")
     Timestamp getByTeacher_idAndState(String teacher_id,int state);
+
+    @Transactional
+    @Modifying
+    @Query(value="insert into schedulejob(teacher_id, state, end_time) values (?,?,?)",nativeQuery=true)
+    int insertDeadLine(String id, int state,Timestamp e_t);
 }

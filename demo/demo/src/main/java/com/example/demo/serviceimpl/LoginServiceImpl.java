@@ -35,7 +35,7 @@ public class LoginServiceImpl implements LoginService {
         UserInfo userInfo=new UserInfo();
         Optional<Users> u= usersDao.getUserByWechat_id(wechat_id);
         if(u.isPresent()) {
-            returnInfo.setMsg("registerMsg2");
+            returnInfo.setMsg(registerMsg2);
             return returnInfo;
         }
         Optional<Users> testUser= usersDao.getByIdAndAuth(id,auth);
