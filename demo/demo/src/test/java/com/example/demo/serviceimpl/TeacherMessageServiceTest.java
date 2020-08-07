@@ -38,9 +38,9 @@ public class TeacherMessageServiceTest extends DemoApplicationTests {
         Student student1 = new Student();
         Student student2 = new Student();
         Student student3 = new Student();
-        student1.init("1", "111", "SE", "SE");
-        student2.init("2", "222", "SE", "SE");
-        student3.init("3", "333", "SE", "SE");
+        student1.init("305349154743", "学生", "软件工程", "电子信息与电气工程学院");
+        student2.init("305359234696", "学生", "软件工程", "电子信息与电气工程学院");
+        student3.init("305361034731", "学生", "软件工程", "电子信息与电气工程学院");
         List<Student> studentsRead = new ArrayList<>();
         List<Student> studentsUnread = new ArrayList<>();
         studentsRead.add(student1);
@@ -57,15 +57,16 @@ public class TeacherMessageServiceTest extends DemoApplicationTests {
     @Transactional
     public void checkGetTeacherMessageById() {
         MessageInfo messageInfo = new MessageInfo();
-        messageInfo.init(1, 1, "title1", "11111", "content1", "2020-07-17 14:19:48", false, 0, 0);
+        messageInfo.init(1, 1, "test title", "饶若楠", "test content", "2020-07-31 09:44:21", false, 0, 0);
         MessageInfo compare=teacherMessageService.getTeacherMessageById(1,1);
         assertEquals(messageInfo,compare);
     }
 
     @Test
+    @Transactional
     public void checkGetTeacherMessages() {
-        List<MessageInfo> messageInfos = teacherMessageService.getTeacherMessages("515015910016");
-        assertEquals(0,messageInfos.size());
+        List<MessageInfo> messageInfos = teacherMessageService.getTeacherMessages("305349154743");
+        assertEquals(202,messageInfos.size());
     }
 
     @Test
@@ -74,9 +75,9 @@ public class TeacherMessageServiceTest extends DemoApplicationTests {
         ReturnInfo returnInfo=new ReturnInfo();
         returnInfo.setMsg("SUCCESS");
         List<String> strings=new ArrayList<>();
-        strings.add("515015910016");
-        strings.add("515020990002");
-        assertEquals(returnInfo,teacherMessageService.sentTeacherMessage("new test title","1",strings,"new test content"));
+        strings.add("305349154743");
+        strings.add("305359234696");
+        assertEquals(returnInfo,teacherMessageService.sentTeacherMessage("new test title","03047a",strings,"new test content"));
     }
 
 
@@ -90,7 +91,7 @@ public class TeacherMessageServiceTest extends DemoApplicationTests {
     public void checkGetTeacherMessagesByTeacher_id(){
         String t_id="1";
         List<MessageInfo> compare=teacherMessageService.getTeacherMessagesByTeacher_id(t_id);
-        assertEquals(compare.size(), 10);
+        assertEquals(compare.size(), 0);
     }
     @Test
     @Transactional
@@ -98,7 +99,7 @@ public class TeacherMessageServiceTest extends DemoApplicationTests {
         int id = 1;
         MessageInfo compare = teacherMessageService.teacherGetTeacherMessageById(id);
         MessageInfo messageInfo=new MessageInfo();
-        messageInfo.init(id,0,"title1","11111","content1","2020-07-17 14:19:48",false,0,0);
+        messageInfo.init(id,0,"test title","饶若楠","test content","2020-07-31 09:44:21",false,0,0);
         assertEquals(compare, messageInfo);
     }
 

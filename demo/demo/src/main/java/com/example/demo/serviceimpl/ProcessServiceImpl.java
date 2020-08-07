@@ -138,20 +138,25 @@ public class ProcessServiceImpl implements ProcessService {
     public ReturnInfo setDeadline(String end_time,String id,int state){
         Timestamp t=Timestamp.valueOf(end_time);
         Timestamp timestamp=deadlineDao.getDeadline(id,state);
-        Deadline deadline=new Deadline();
+        int i=0;
         if(timestamp==null) {
-            deadlineDao.addDeadline(id, t, state);
+            i=deadlineDao.addDeadline(id, t, state);
 //            Timestamp timestamp=Timestamp.valueOf(end_time);
 //            long time=timestamp.getTime()-(long)1000*3600*24;
 //            Timestamp date =new Timestamp(time);
 //            LoadTask.timeTask(date,deadline.getId(),id,state);
         }
         else {
-            deadlineDao.changeDeadline(id,t,state);
+            i=deadlineDao.changeDeadline(id,t,state);
         }
-
         ReturnInfo returnInfo=new ReturnInfo();
-        returnInfo.setMsg(Msg1);
+        if(i==1)
+        {
+            returnInfo.setMsg(Msg1);
+        }
+        else {
+            returnInfo.setMsg(Msg0);
+        }
         return returnInfo;
     }
 

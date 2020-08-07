@@ -21,8 +21,48 @@ public class LoginServiceTest {
 
     @Test
     @Transactional
+    public void checkrigisterstudent(){
+        ReturnInfo compare=loginService.register("111111","111","1","ROLE_STUDENT");
+        ReturnInfo returnInfo=new ReturnInfo();
+        returnInfo.setMsg("SUCCESS");
+        UserInfo userInfo=new UserInfo();
+        userInfo.setId("111");
+        userInfo.setName("1");
+        userInfo.setTeacher("aaa");
+        userInfo.setDept("1");
+        userInfo.setProject("1");
+        returnInfo.setUserData(userInfo);
+        assertEquals(returnInfo,compare);
+    }
+    @Test
+    @Transactional
+    public void checkrigisterteacher(){
+        ReturnInfo compare=loginService.register("100200300","abcdefg","aaa","ROLE_TEACHER");
+        ReturnInfo returnInfo=new ReturnInfo();
+        returnInfo.setMsg("SUCCESS");
+        UserInfo userInfo=new UserInfo();
+        userInfo.setId("abcdefg");
+        userInfo.setName("aaa");
+        userInfo.setTeacher(null);
+        userInfo.setDept("aaa");
+        userInfo.setProject(null);
+        returnInfo.setUserData(userInfo);
+        assertEquals(returnInfo,compare);
+    }
+    @Test
+    @Transactional
     public void checklogout(){
         String wechat_id="123456";
+        ReturnInfo returnInfo=new ReturnInfo();
+        returnInfo.setMsg("FAIL");
+        ReturnInfo compare=loginService.logout(wechat_id);
+        assertEquals(compare, returnInfo);
+    }
+
+    @Test
+    @Transactional
+    public void checklogoutsuccess(){
+        String wechat_id="816249335787";
         ReturnInfo returnInfo=new ReturnInfo();
         returnInfo.setMsg("SUCCESS");
         ReturnInfo compare=loginService.logout(wechat_id);
@@ -32,12 +72,28 @@ public class LoginServiceTest {
     @Test
     @Transactional
     public void checklogin(){
-        String wechat_id="ohdPd4pTA-yKZTSfrSY6DsB5_Y00";
-        ReturnInfo returnInfo=new ReturnInfo();
-//        ReturnInfo compare=loginService.login(wechat_id);
+        String wechat_id="305349154743";
+        UserInfo compare=loginService.getUserData(wechat_id,"ROLE_STUDENT");
         UserInfo userInfo=new UserInfo();
-//        userInfo.init("4","ohdPd4pTA-yKZTSfrSY6DsB5_Y00","tiger","SE",null,null,"teacher");
-//        returnInfo.setUserData(userInfo);
-//        assertEquals(compare, returnInfo);
+        userInfo.setName("学生");
+        userInfo.setId("305349154743");
+        userInfo.setDept("电子信息与电气工程学院");
+        userInfo.setProject("项目名称");
+        userInfo.setTeacher("孙焱");
+        assertEquals(compare, userInfo);
+    }
+
+    @Test
+    @Transactional
+    public void checkloginteacher(){
+        String wechat_id="03047a";
+        UserInfo compare=loginService.getUserData(wechat_id,"ROLE_TEACHER");
+        UserInfo userInfo=new UserInfo();
+        userInfo.setName("饶若楠");
+        userInfo.setId("03047a");
+        userInfo.setDept("电子信息与电气工程学院");
+        userInfo.setProject(null);
+        userInfo.setTeacher(null);
+        assertEquals(compare, userInfo);
     }
 }

@@ -14,12 +14,8 @@ public class DeadlineDaoImpl implements DeadlineDao {
     private DeadlineRepository deadlineRepository;
 
     @Override
-    public Deadline addDeadline(String teacher_id, Timestamp timestamp, int state){
-        Deadline deadline=new Deadline();
-        deadline.setState(state);
-        deadline.setTeacher_id(teacher_id);
-        deadline.setEnd_time(timestamp);
-        return deadlineRepository.save(deadline);
+    public int addDeadline(String teacher_id, Timestamp timestamp, int state){
+        return deadlineRepository.insertDeadLine(teacher_id,state,timestamp);
     }
 
     @Override
