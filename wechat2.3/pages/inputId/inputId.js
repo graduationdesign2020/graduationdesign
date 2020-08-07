@@ -1,6 +1,6 @@
 // pages/inputId/inputId.js
 
-const { PostRequest } = require("../../utils/ajax")
+const { PostRequest, PostRequestWithoutJwt } = require("../../utils/ajax")
 
 const app = getApp()
 
@@ -46,7 +46,7 @@ Page({
     }
     var that = this
     wx.request({
-      url: 'http://localhost:8888/login',
+      url: 'http://54.167.148.196:8888/login',
       method: "POST",
       data: {
         id: this.data.id,

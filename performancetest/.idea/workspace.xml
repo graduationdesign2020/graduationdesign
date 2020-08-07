@@ -2,47 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b27bb38e-38a8-4977-be39-b3b213e42b65" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../index.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bysj/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bysj/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/bysj/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bysj/.idea/bysj.iml" beforeDir="false" afterPath="$PROJECT_DIR$/bysj/.idea/bysj.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bysj/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/bysj/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bysj/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/bysj/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bysj/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/bysj/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bysj/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/bysj/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bysj/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/bysj/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bysj/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/bysj/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bysj/bysj/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/bysj/bysj/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bysj/bysj/items.py" beforeDir="false" afterPath="$PROJECT_DIR$/bysj/bysj/items.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bysj/bysj/middlewares.py" beforeDir="false" afterPath="$PROJECT_DIR$/bysj/bysj/middlewares.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bysj/bysj/pipelines.py" beforeDir="false" afterPath="$PROJECT_DIR$/bysj/bysj/pipelines.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bysj/bysj/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/bysj/bysj/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bysj/bysj/spiders/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/bysj/bysj/spiders/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bysj/bysj/spiders/grade.py" beforeDir="false" afterPath="$PROJECT_DIR$/bysj/bysj/spiders/grade.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bysj/bysj/spiders/notice.py" beforeDir="false" afterPath="$PROJECT_DIR$/bysj/bysj/spiders/notice.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bysj/bysj/spiders/state.py" beforeDir="false" afterPath="$PROJECT_DIR$/bysj/bysj/spiders/state.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bysj/bysj/spiders/student.py" beforeDir="false" afterPath="$PROJECT_DIR$/bysj/bysj/spiders/student.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bysj/scrapy.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/bysj/scrapy.cfg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/demo/src/main/java/com/example/demo/dao/DeadlineDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/demo/src/main/java/com/example/demo/dao/DeadlineDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/demo/src/main/java/com/example/demo/daoimpl/DeadlineDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/demo/src/main/java/com/example/demo/daoimpl/DeadlineDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/demo/src/main/java/com/example/demo/daoimpl/TeacherMessageDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/demo/src/main/java/com/example/demo/daoimpl/TeacherMessageDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/demo/src/main/java/com/example/demo/entity/DeptNoticeContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/demo/src/main/java/com/example/demo/entity/DeptNoticeContent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/demo/src/main/java/com/example/demo/entity/SchoolNoticeContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/demo/src/main/java/com/example/demo/entity/SchoolNoticeContent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/demo/src/main/java/com/example/demo/entity/TeacherMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/demo/src/main/java/com/example/demo/entity/TeacherMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/demo/src/main/java/com/example/demo/entity/TeacherMessageContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/demo/src/main/java/com/example/demo/entity/TeacherMessageContent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/demo/src/main/java/com/example/demo/repository/DeadlineRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/demo/src/main/java/com/example/demo/repository/DeadlineRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/demo/src/main/java/com/example/demo/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/demo/src/main/java/com/example/demo/security/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/demo/src/main/java/com/example/demo/service/NoticeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/demo/src/main/java/com/example/demo/service/NoticeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/demo/src/main/java/com/example/demo/serviceimpl/LoginServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/demo/src/main/java/com/example/demo/serviceimpl/LoginServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/demo/src/main/java/com/example/demo/serviceimpl/NoticeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/demo/src/main/java/com/example/demo/serviceimpl/NoticeServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/demo/src/main/java/com/example/demo/serviceimpl/ProcessServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/demo/src/main/java/com/example/demo/serviceimpl/ProcessServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/demo/src/main/java/com/example/demo/serviceimpl/TeacherMessageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/demo/src/main/java/com/example/demo/serviceimpl/TeacherMessageServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/demo/src/test/java/com/example/demo/controller/NoticeControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/demo/src/test/java/com/example/demo/controller/NoticeControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/demo/src/test/java/com/example/demo/serviceimpl/LoginServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/demo/src/test/java/com/example/demo/serviceimpl/LoginServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/demo/src/test/java/com/example/demo/serviceimpl/NoticeServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/demo/src/test/java/com/example/demo/serviceimpl/NoticeServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/demo/src/test/java/com/example/demo/serviceimpl/ProcessServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/demo/src/test/java/com/example/demo/serviceimpl/ProcessServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/demo/src/test/java/com/example/demo/serviceimpl/TeacherMessageServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/demo/src/test/java/com/example/demo/serviceimpl/TeacherMessageServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bysj/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bysj/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bysj/bysj/pipelines.py" beforeDir="false" afterPath="$PROJECT_DIR$/bysj/bysj/pipelines.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bysj/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/bysj/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../test/HTTP请求默认值.jmx" beforeDir="false" afterPath="$PROJECT_DIR$/../test/HTTP请求默认值.jmx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../time_schedule.md" beforeDir="false" afterPath="$PROJECT_DIR$/../time_schedule.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wechat2.3/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/../wechat2.3/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wechat2.3/pages/home/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/../wechat2.3/pages/home/home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wechat2.3/pages/inputId/inputId.js" beforeDir="false" afterPath="$PROJECT_DIR$/../wechat2.3/pages/inputId/inputId.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wechat2.3/pages/myProfile/Center.js" beforeDir="false" afterPath="$PROJECT_DIR$/../wechat2.3/pages/myProfile/Center.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wechat2.3/pages/register/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../wechat2.3/pages/register/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wechat2.3/pages/studentScore/studentScore.js" beforeDir="false" afterPath="$PROJECT_DIR$/../wechat2.3/pages/studentScore/studentScore.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wechat2.3/project.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/../wechat2.3/project.config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wechat2.3/utils/ajax.js" beforeDir="false" afterPath="$PROJECT_DIR$/../wechat2.3/utils/ajax.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +49,11 @@
       <option name="presentableId" value="Default" />
       <updated>1596784216731</updated>
       <workItem from="1596784218758" duration="91000" />
+      <workItem from="1596784393818" duration="30000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
   </component>
 </project>
