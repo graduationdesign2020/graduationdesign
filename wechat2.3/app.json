@@ -1,7 +1,9 @@
 {
   "pages": [
     "pages/home/home",
+    "pages/reply/reply",
     "pages/studentScore/studentScore",
+    "pages/studentReply/studentReply",
     "pages/myScore/myScore",
     "pages/SendNotice/SendNotice",
     "pages/register/index",
