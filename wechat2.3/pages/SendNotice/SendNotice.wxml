@@ -25,7 +25,30 @@
       autosize="{maxHeight: 500, minHeight: 200}"
       bind:change="textChange"
     />
+    <van-field
+      value="{{ task }}"
+      center
+      clearable
+      placeholder="请输入您需要的回复"
+      use-button-slot
+      bind:change="taskChange"
+    >
+      <van-button slot="button" size="small" type="primary" custom-class="button" bindtap="setTask">确定</van-button>
+    </van-field>
     </van-cell-group>
+    <view class="task">
+    <van-tag
+    wx:for="{{ tasks }}"
+    wx:key = "index"
+    data-index="{{ index }}"
+    style="margin-left: 10px"
+    type="warning"
+    size="large"
+    closeable
+    bind:close="onClose">
+    {{item}}
+    </van-tag>
+    </view>
     <view class="button">
     <van-button type="info" size="large" round bindtap="sendNotice">发送消息</van-button>
     </view>

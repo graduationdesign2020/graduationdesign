@@ -19,6 +19,8 @@ Page({
     all:[],
     troggleAll: false,
     num: 0,
+    task: "",
+    tasks: [],
   },
 
   onLoad: function () {
@@ -81,7 +83,7 @@ Page({
     this.setData({
       waitshow: true,
     })
-    PostRequest("/sendMessages", {students: this.data.result, title: this.data.title, content: this.data.text}, (data) => {
+    PostRequest("/sendMessages", {students: this.data.result, title: this.data.title, content: this.data.text, tasks: this.data.tasks}, (data) => {
       if(data.msg == "SUCCESS"){
         this.setData({
           waitshow: false,
@@ -118,8 +120,29 @@ Page({
     this.setData({text: event.detail});
   },
 
+  taskChange: function(event) {
+    this.setData({task: event.detail});
+  },
+
+  setTask: function() {
+    if(!this.data.task){
+      this.setData({
+        error: true,
+        msg: "回复不可为空"
+      })
+      return;
+    }
+    this.data.tasks.push(this.data.task)
+    this.setData({tasks: this.data.tasks, task: ""});
+  },
+
   titleChange: function(event) {
     this.setData({title: event.detail});
+  },
+
+  onClose: function(event) {
+    this.data.tasks.splice(event.currentTarget.dataset.index, 1)
+    this.setData({tasks: this.data.tasks});
   },
 
   chooseAll: function() {

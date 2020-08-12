@@ -1,0 +1,59 @@
+<!--pages/studentReply/studentReply.wxml-->
+<van-cell-group>
+<van-cell title="{{notice.title}}" value="{{notice.time}}"/>
+<view class="content">{{notice.content}}</view>
+<wux-white-space size="default" />
+<van-cell title="未回复 {{ReplyInfo.unReply}} 已回复 {{ReplyInfo.reply}}" />
+</van-cell-group>
+
+<view class="button">
+<van-button size="large" type="primary" round bindtap="getExcel">导出excel表格</van-button>
+</view>
+
+<van-cell-group>
+<van-cell title="显示已回复">
+  <van-switch checked="{{ reply }}" bind:change="replyChange" size="20px" />
+</van-cell>
+<van-collapse wx:if="{{reply==true}}" value="{{ activeNames }}" bind:change="onChange">
+  <van-collapse-item 
+    wx:for="{{ReplyInfo.studentsReply}}"
+    wx:key="id" 
+    title="{{item.id}} {{item.name}}"
+    name="{{item.id}}">
+    <van-cell-group>
+      <block wx:for="{{item.reply}}" wx:key="index" wx:for-item="reply">
+        <van-cell title="{{reply.key}}" value="{{reply.value}}"/>
+      </block>
+    </van-cell-group>
+  </van-collapse-item>
+</van-collapse>
+</van-cell-group>
+
+<van-cell-group>
+<van-cell title="显示未回复">
+  <van-switch checked="{{ unReply }}" bind:change="unReplyChange" size="20px" />
+</van-cell>
+<block wx:if="{{unReply==true}}">
+<block wx:for="{{ReplyInfo.studentsUnreply}}" wx:key="id" wx:for-item="student">
+  <van-cell title="{{student.id}} {{student.name}}">
+  <van-tag type="danger" size="medium">未回复</van-tag>
+  </van-cell>
+</block>
+</block>
+</van-cell-group>
+
+<view>
+  <van-overlay show="{{ waitshow }}">
+    <view class="wrapper">
+      <view class="block">
+      <van-loading color="#1989fa" size="24px" vertical>加载中...</van-loading>
+      </view>
+    </view>
+  </van-overlay>
+  <van-dialog 
+  show="{{dialog}}" 
+  title="{{msg}}" 
+  show-confirm-button
+  confirm-button-text="确认"
+  bind:confirm="confirm"/>
+</view>

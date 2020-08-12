@@ -12,6 +12,5 @@
         <view class="article__content">
             {{notice.content}}
         </view>
-        <!-- <textarea autosize>{{notice.content}}</textarea> -->
     </view>
 </view>

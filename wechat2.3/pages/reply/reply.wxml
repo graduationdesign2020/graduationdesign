@@ -1,0 +1,49 @@
+<!--pages/reply/reply.wxml-->
+<van-cell-group>
+<van-cell title="{{notice.title}}" label="{{notice.time}}" value="{{notice.teachername}}"/>
+<view class="content">{{notice.content}}</view>
+<wux-white-space size="large" />
+<wux-white-space size="large" />
+</van-cell-group>
+
+<view wx:if="{{notice.isread == true}}">
+  <van-cell-group>
+    <van-field
+      wx:for="{{reply}}"
+      wx:key = "index"
+      value="{{item.value}}"
+      label="{{item.key}}"
+      disabled
+    />
+  </van-cell-group>
+</view>
+
+<view wx:if="{{notice.isread == false}}">
+  <van-cell-group>
+    <van-field
+      wx:for="{{reply}}"
+      wx:key = "index"
+      data-index="{{ index }}"
+      value="{{item.value}}"
+      label="{{item.key}}"
+      placeholder="请输入"
+      clearable
+      bind:change="onChange"
+    />
+  </van-cell-group>
+  <view class="button">
+    <van-button size="large" type="primary" round bindtap="sendReply">回复消息</van-button>
+  </view>
+</view>
+
+<view>
+  <van-dialog title="错误" show="{{error}}" message="{{msg}}" bind:confirm="confirmError"/>
+  <van-overlay show="{{ waitshow }}">
+    <view class="wrapper">
+      <view class="block">
+      <van-loading color="#1989fa" size="24px" vertical>发送中...</van-loading>
+      </view>
+    </view>
+  </van-overlay>
+  <van-dialog show="{{dialog}}" title="{{msg}}" bind:confirm="confirm"/>
+</view>

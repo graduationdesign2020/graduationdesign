@@ -1,0 +1,29 @@
+/* pages/studentReply/studentReply.wxss */
+.content{
+  font-size: 35rpx;
+  margin-left: 15px;
+}
+
+.button{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  width: 60%;
+  margin-left: 20%;
+  height: fit-content;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.block {
+  width: 120px;
+  height: 120px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,19 +1,20 @@
 <!--pages/reading/reading.wxml-->
 <van-cell-group>
 <van-cell title="{{notice.title}}" value="{{notice.time}}" size="large" />
-<textarea class="content">{{notice.content}}</textarea>
-<van-cell title="未读 {{ReadInfo.unRead}} 已读 {{ReadInfo.read}}" />
+<view class="content">{{notice.content}}</view>
+<wux-white-space size="default" />
+<van-cell title="未读 {{ReadInfo.unRead}} 已读 {{ReadInfo.Read}}" />
 <van-cell title="只显示未读">
   <van-switch checked="{{ checked }}" bind:change="onChange" size="20px" />
 </van-cell>
-<block wx:for="{{ReadInfo.studentsUnread}}" wx:key="index" wx:for-item="student">
-  <van-cell title="{{student.name}}">
+<block wx:for="{{ReadInfo.studentsUnread}}" wx:key="id" wx:for-item="student">
+  <van-cell title="{{student.id}} {{student.name}}">
   <van-tag type="danger" size="medium">未读</van-tag>
   </van-cell>
 </block>
 <block wx:if="{{checked==false}}">
-<block wx:for="{{ReadInfo.studentsRead}}" wx:key="index" wx:for-item="student">
-  <van-cell title="{{student.name}}">
+<block wx:for="{{ReadInfo.studentsRead}}" wx:key="id" wx:for-item="student">
+  <van-cell title="{{student.id}} {{student.name}}">
   <van-tag type="success" size="medium">已读</van-tag>
   </van-cell>
 </block>

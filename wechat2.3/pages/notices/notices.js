@@ -7,8 +7,9 @@ Page({
   data: {
     type: 2,
     notices: [
-      {title: '标题', id: 1, isread: false, reading: 10, unread: 2, teachername: '娘口三三', time: '07-01', content: '内容'},
-      {title: '标题', id: 1, isread: false, reading: 10, unread: 2, teachername: '猫咪老师', time: '07-01', content: '内容'}
+      {title: '学生信息收集', type: 0, id: 1, reading_id: 1, isread: false, reading: 10, unread: 2, teachername: '娘口三三', time: '07-01', content: '请在输入框中输入指定信息blablablabla............................'},
+      {title: '学生信息收集', type: 0, id: 3, reading_id: 3, isread: false, reading: 10, unread: 2, teachername: '娘口三三', time: '07-01', content: '请在输入框中输入指定信息blablablabla............................'},
+      {title: '学生信息收集', type: 1, id: 2, reading_id: 2, isread: false, reading: 10, unread: 2, teachername: '娘口三三', time: '07-01', content: '请在输入框中输入指定信息blablablabla............................'}
     ],
     auth: wx.getStorageSync('auth'),
     isRefresh:false,
@@ -23,7 +24,6 @@ Page({
         wx.setStorageSync('auth', data)
       })
     }
-    this.setData({type: options.type})
     switch (options.type) {
     case "0": {
       PostRequest('/getSchoolNotices', {}, that.setNotices);
@@ -49,6 +49,7 @@ Page({
     if (that.data.isRefresh==true){
       console.log("refresh")
       PostRequest('/getTeacherMessages', {}, that.setNotices);
+      this.setData({isRefresh: false});
     }   
   },
 
@@ -61,19 +62,33 @@ Page({
     var that = this;
     if(this.data.type=="2") {
       if(this.data.auth) {
-        wx.navigateTo({
-          url: '../reading/reading?id=' + e.target.dataset.id,
-        })
+        if(e.currentTarget.dataset.type==0) {
+          wx.navigateTo({
+            url: '../reading/reading?id=' + e.currentTarget.dataset.id,
+          })
+        }
+        else {
+          wx.navigateTo({
+            url: '../studentReply/studentReply?id=' + e.currentTarget.dataset.id,
+          })
+        }
       }
       else {
-        wx.navigateTo({
-          url: '../noticeDetail/noticeDetail?type=' + that.data.type + '&id=' + e.target.dataset.id + '&reading_id=' + e.target.dataset.reading_id,
-        })
+        if(e.currentTarget.dataset.type==0) {
+          wx.navigateTo({
+            url: '../noticeDetail/noticeDetail?type=' + that.data.type + '&id=' + e.currentTarget.dataset.id + '&reading_id=' + e.currentTarget.dataset.reading_id,
+          })
+        }
+        else {
+          wx.navigateTo({
+            url: '../reply/reply?id=' + e.currentTarget.dataset.id + '&reading_id=' + e.currentTarget.dataset.reading_id,
+          })
+        }
       }
     }
     else {
       wx.navigateTo({
-        url: '../noticeDetail/noticeDetail?type=' + that.data.type + '&id=' + e.target.dataset.id,
+        url: '../noticeDetail/noticeDetail?type=' + that.data.type + '&id=' + e.currentTarget.dataset.id,
       })
     }
   }

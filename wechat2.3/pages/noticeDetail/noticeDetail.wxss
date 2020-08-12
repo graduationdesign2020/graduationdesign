@@ -22,12 +22,12 @@
 }
 
 .article__teacher{
-  font-size: 25rpx;
+  font-size: 30rpx;
   margin-left: 220px;
 }
 
 .article__time{
-  font-size: 25rpx;
+  font-size: 30rpx;
 }
 
 .article__content{

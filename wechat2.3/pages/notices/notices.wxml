@@ -13,15 +13,19 @@
             </wux-card>
         </wux-wing-blank>
         <wux-wing-blank wx:if="{{type==2 && !auth}}" size="default">
-            <wux-card wx:for="{{ notices }}" wx:key="id" bindtap="detail" data-id="{{item.id}}" data-reading_id="{{item.reading_id}}" title="{{item.title}}">
+            <wux-card wx:for="{{ notices }}" wx:key="id" bindtap="detail" data-id="{{item.id}}" data-type="{{item.type}}" data-reading_id="{{item.reading_id}}" title="{{item.title}}">
                 <view slot="body">{{item.teachername}} {{item.time}}</view>
-                <view wx:if="{{!item.isread}}" slot="footer"><van-tag type="danger">未读</van-tag></view>
+                <view wx:if="{{item.isread && item.type==0}}" slot="footer"><van-tag type="success">已读</van-tag></view>
+                <view wx:if="{{item.isread && item.type==1}}" slot="footer"><van-tag type="success">已回复</van-tag></view>
+                <view wx:if="{{!item.isread && item.type==0}}" slot="footer"><van-tag type="danger">未读</van-tag></view>
+                <view wx:if="{{!item.isread && item.type==1}}" slot="footer"><van-tag type="danger">未回复</van-tag></view>
             </wux-card>
         </wux-wing-blank>
         <wux-wing-blank wx:if="{{type==2 && auth}}" size="default">
-            <wux-card wx:for="{{ notices }}" wx:key="id" bindtap="detail" data-id="{{item.id}}" title="{{item.title}}" >
+            <wux-card wx:for="{{ notices }}" wx:key="id" bindtap="detail" data-id="{{item.id}}" data-type="{{item.type}}" title="{{item.title}}" >
                 <view slot="body">{{item.time}}</view>
-                <view slot="footer">未读 {{item.unread}} 已读 {{item.reading}}</view>
+                <view wx:if="{{item.type==0}}" slot="footer">未读 {{item.unread}} 已读 {{item.reading}}</view>
+                <view wx:if="{{item.type==1}}" slot="footer">未回复 {{item.unread}} 已回复 {{item.reading}}</view>
             </wux-card>
         </wux-wing-blank>
     </view>

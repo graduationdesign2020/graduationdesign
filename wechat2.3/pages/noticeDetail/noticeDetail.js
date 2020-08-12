@@ -6,9 +6,7 @@ import {PostRequest} from "../../utils/ajax";
 Page({
   data: {
     type: 0,
-    notice: {
-      title: '标题', id: 1, is_read: false, teacher_id: '12345', student_id: '11111', time: '07-01', content: '内容'
-    },
+    notice: {title: '学生信息收集', type: 0, id: 1, reading_id: 1, isread: false, reading: 10, unread: 2, teachername: '娘口三三', time: '07-01', content: '请在输入框中输入指定信息blablablabla............................'},
   },
 
   onLoad: function(options) {
