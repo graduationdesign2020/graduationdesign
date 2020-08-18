@@ -29,5 +29,4 @@ public class TeacherMessageReading {
 
     @Basic
     private boolean is_read;
-
 }

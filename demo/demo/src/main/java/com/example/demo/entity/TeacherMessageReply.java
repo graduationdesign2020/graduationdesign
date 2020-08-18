@@ -7,35 +7,29 @@ import lombok.Data;
 
 import javax.persistence.*;
 
-import java.util.List;
-
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Data
-@Table(name = "teachermessage",schema = "GDMS")
+@Table(name = "teachermessagereply",schema = "GDMS")
 @JsonIgnoreProperties(value = {"handler","hibernateLazyInitializer","fieldHandler"})
 @JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,
         property = "id")
-public class TeacherMessage {
+public class TeacherMessageReply {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private int id;
 
     @Basic
-    private String title;
+    private int message_id;
 
     @Basic
-    private String teacher_id;
+    private String student_id;
 
     @Basic
-    private String time;
-
-    @Basic
-    private int type;
+    private boolean is_reply;
 
     @Transient
-    private TeacherMessageContent teacherMessageContent;
-
+    private ReplyMessage reply;
 }

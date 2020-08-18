@@ -24,9 +24,9 @@ public class TeacherMessageDaoImpl implements TeacherMessageDao {
             Optional<TeacherMessageContent> teacherMessageContent = teacherMessageContentRepository.findById(id);
             if (teacherMessageContent.isPresent()) {
                 TeacherMessageContent s = teacherMessageContent.get();
-                t.setContent(s.getContent());
+                t.setTeacherMessageContent(s);
             } else {
-                t.setContent(null);
+                t.setTeacherMessageContent(null);
             }
             return t;
         }
@@ -48,8 +48,8 @@ public class TeacherMessageDaoImpl implements TeacherMessageDao {
         teacherMessageRepository.save(teacherMessage);
         TeacherMessageContent teacherMessageContent=new TeacherMessageContent();
         teacherMessageContent.setId(teacherMessage.getId());
-        teacherMessageContent.setContent(teacherMessage.getContent());
-        teacherMessageContent.setStudents(teacherMessage.getStudents());
+        teacherMessageContent.setContent(teacherMessage.getTeacherMessageContent().getContent());
+        teacherMessageContent.setStudents(teacherMessage.getTeacherMessageContent().getStudents());
         teacherMessageContentRepository.save(teacherMessageContent);
     }
 }
