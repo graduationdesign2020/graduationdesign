@@ -46,6 +46,7 @@ CREATE TABLE schoolnotice(
 
 CREATE TABLE teachermessage(
     id          int not null auto_increment,
+    type		int not null,
     title       varchar(50) NOT NULL,
     teacher_id  varchar(50) NOT NULL,
     time        datetime not null,
@@ -128,6 +129,17 @@ create table teachermessagereading
     message_id int                  not null,
     student_id varchar(25)          not null,
     is_read    boolean default 0 not null,
+    primary key(id),
+	foreign key (student_id) references student (id) on delete cascade,
+	foreign key (message_id) references teachermessage (id) on delete cascade
+);
+
+create table teachermessagereply
+(
+    id         int auto_increment,
+    message_id int                  not null,
+    student_id varchar(25)          not null,
+    is_reply    boolean default 0 not null,
     primary key(id),
 	foreign key (student_id) references student (id) on delete cascade,
 	foreign key (message_id) references teachermessage (id) on delete cascade
