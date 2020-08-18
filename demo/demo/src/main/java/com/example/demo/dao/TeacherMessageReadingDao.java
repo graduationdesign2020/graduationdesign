@@ -13,8 +13,6 @@ public interface TeacherMessageReadingDao {
 
     int getUnReadingsByMessage_id(int message_id);
 
-    List<TeacherMessageReading> findAllByMessage(int message_id);
-
     List<TeacherMessageReading> getReading(String stu_id);
 
     List<TeacherMessageReading> findAllByMessage_id(int id);

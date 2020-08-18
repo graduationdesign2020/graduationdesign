@@ -37,7 +37,7 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
             MessageInfo messageInfo=new MessageInfo();
             messageInfo.setId(t.getId());
             messageInfo.setTitle(t.getTitle());
-            messageInfo.setContent(t.getContent());
+            messageInfo.setContent(t.getTeacherMessageContent().getContent());
             messageInfo.setTime(t.getTime());
             messageInfo.setReading_id(reading_id);
             Teacher teacher= teacherDao.getTeacherById(t.getTeacher_id());
@@ -79,8 +79,10 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
         teacherMessage.setTitle(title);
         teacherMessage.setTime(time);
         teacherMessage.setTeacher_id(teacher_id);
-        teacherMessage.setContent(content);
-        teacherMessage.setStudents(student_id);
+        TeacherMessageContent teacherMessageContent=new TeacherMessageContent();
+        teacherMessageContent.setContent(content);
+        teacherMessageContent.setStudents(student_id);
+        teacherMessage.setTeacherMessageContent(teacherMessageContent);
         teacherMessageDao.sentTeacherMessage(teacherMessage);
         List<TeacherMessageReading> teacherMessageReadings=new ArrayList<>();
         for (String value : student_id) {
@@ -158,7 +160,7 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
             MessageInfo messageInfo = new MessageInfo();
             messageInfo.setId(t.getId());
             messageInfo.setTitle(t.getTitle());
-            messageInfo.setContent(t.getContent());
+            messageInfo.setContent(t.getTeacherMessageContent().getContent());
             messageInfo.setTime(t.getTime());
             Teacher teacher = teacherDao.getTeacherById(t.getTeacher_id());
             messageInfo.setTeachername(teacher.getName());
