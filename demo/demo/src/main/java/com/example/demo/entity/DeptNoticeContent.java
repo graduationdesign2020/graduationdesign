@@ -13,6 +13,8 @@ public class DeptNoticeContent {
     @Column(name = "_id")
     private int id;
 
+    private int type;//type=0
+
     private String title;
 
     private String department;

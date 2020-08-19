@@ -14,6 +14,8 @@ public class SchoolNoticeContent {
     @Column(name = "_id")
     private int id;
 
+    private int type;//type=1
+
     private String title;
 
     private String content;

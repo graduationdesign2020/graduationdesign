@@ -68,14 +68,19 @@ public class MessageController {
     public ReturnInfo sentMessage(@RequestBody Map<String,Object> params, Authentication authentication) {
         String title= String.valueOf(params.get("title"));
         String teacher_id= authentication.getName();
-        List list= JSONObject.parseObject(params.get("students").toString(),List.class);
+        List students= JSONObject.parseObject(params.get("students").toString(),List.class);
         List<String> student_id = new ArrayList<>();
-        for (int i = 0; i < list.size(); i++){
-            student_id.add(JSONObject.parseObject(list.get(i).toString(),String.class));
+        for (Object student : students) {
+            student_id.add(JSONObject.parseObject(student.toString(), String.class));
         }
         String content= String.valueOf(params.get("content"));
-        System.out.println(content);
-        return teacherMessageService.sentTeacherMessage(title, teacher_id, student_id, content);
+//        System.out.println(content);
+        List tasks= JSONObject.parseObject(params.get("tasks").toString(),List.class);
+        List<String> keys= new ArrayList<>();
+        for (Object key : keys) {
+            keys.add(JSONObject.parseObject(key.toString(), String.class));
+        }
+        return teacherMessageService.sentTeacherMessage(title, teacher_id, student_id, content,keys);
     }
 }
 
