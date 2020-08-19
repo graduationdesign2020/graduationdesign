@@ -46,10 +46,7 @@ public class TeacherMessageDaoImpl implements TeacherMessageDao {
     @Override
     public void sentTeacherMessage(TeacherMessage teacherMessage){
         teacherMessageRepository.save(teacherMessage);
-        TeacherMessageContent teacherMessageContent=new TeacherMessageContent();
-        teacherMessageContent.setId(teacherMessage.getId());
-        teacherMessageContent.setContent(teacherMessage.getTeacherMessageContent().getContent());
-        teacherMessageContent.setStudents(teacherMessage.getTeacherMessageContent().getStudents());
+        TeacherMessageContent teacherMessageContent=teacherMessage.getTeacherMessageContent();
         teacherMessageContentRepository.save(teacherMessageContent);
     }
 }
