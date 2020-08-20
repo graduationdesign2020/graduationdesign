@@ -6,13 +6,11 @@ import {PostRequest} from "../../utils/ajax";
 Page({
   data: {
     type: 2,
-    notices: [
-      {title: '学生信息收集', type: 0, id: 1, reading_id: 1, isread: false, reading: 10, unread: 2, teachername: '娘口三三', time: '07-01', content: '请在输入框中输入指定信息blablablabla............................'},
-      {title: '学生信息收集', type: 0, id: 3, reading_id: 3, isread: false, reading: 10, unread: 2, teachername: '娘口三三', time: '07-01', content: '请在输入框中输入指定信息blablablabla............................'},
-      {title: '学生信息收集', type: 1, id: 2, reading_id: 2, isread: false, reading: 10, unread: 2, teachername: '娘口三三', time: '07-01', content: '请在输入框中输入指定信息blablablabla............................'}
-    ],
+    notices: [],
     auth: wx.getStorageSync('auth'),
     isRefresh:false,
+    currentPage: 1,
+    noticesArray: [[]]
   },
 
   onLoad: function(options) {
