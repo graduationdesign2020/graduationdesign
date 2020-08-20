@@ -14,7 +14,8 @@
     "pages/process/procedure",
     "pages/processList/processList",
     "pages/postddl/postddl",
-    "pages/inputId/inputId"
+    "pages/inputId/inputId",
+    "pages/search/search"
   ],
   "window": {
     "backgroundTextStyle": "light",

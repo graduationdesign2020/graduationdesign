@@ -1,6 +1,6 @@
 //app.js
-var appId = "wxcea5614102cbce8d";
-var secret = '59fee20c47bd73cb780a34409f4d5ca1';
+var appId = "wx19b7eb8e43f64ebb";
+var secret = 'bba19316505d34868fad83b0ccf468d3';
 
 App({
   
@@ -18,7 +18,7 @@ App({
         this.globalData.code = code
         var that = this
         wx.request({
-          url: 'http://54.167.148.196:8888/getOpenid',
+          url: 'http://localhost:8888/getOpenid',
           data: {
             code: res.code
           },
