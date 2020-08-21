@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 
+import com.alibaba.fastjson.JSONObject;
 import com.example.demo.utils.HttpClient;
 import com.example.demo.service.LoginService;
 import com.example.demo.utils.CodeReturn;
@@ -14,6 +15,10 @@ import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.Map;
 
 @RestController
@@ -77,5 +82,66 @@ public class LoginController {
         return loginService.getUserData(authentication.getName(), authentication.getAuthorities().toArray()[0].toString());
     }
 
+//    @RequestMapping(path = "/adminlogin")
+//    public JSONObject adminLogin(@RequestBody Map<String, String> params) {
+//        String id = params.get("id");
+//        String openid = params.get("openid");
+//        JSONObject obj = new JSONObject();
+//        obj.put("id", "admin");
+//        obj.put("openid", "admin");
+//        String result = "";
+//        try {
+//            URL url = new URL("http://localhost:8888/login");
+//            // 建立http连接
+//            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+//            // 设置允许输出
+//            conn.setDoOutput(true);
+//
+//            conn.setDoInput(true);
+//
+//            // 设置不用缓存
+//            conn.setUseCaches(false);
+//            // 设置传递方式
+//            conn.setRequestMethod("POST");
+//            // 设置文件字符集:
+//            conn.setRequestProperty("Charset", "UTF-8");
+//
+//            // 设置文件类型:
+//            conn.setRequestProperty("contentType", "application/json");
+//
+//
+//            // 开始连接请求
+//            conn.connect();
+//            OutputStream out = conn.getOutputStream();
+//            // 写入请求的字符串
+//            out.write((obj.toString()).getBytes());
+//            out.flush();
+//            out.close();
+//
+//            System.out.println(conn.getResponseCode());
+//            // 请求返回的状态
+//            //if (conn.getResponseCode() == 200) {
+//                System.out.println("连接成功");
+//                // 请求返回的数据
+//                InputStream in = conn.getInputStream();
+//                String a = null;
+//                try {
+//                    byte[] data1 = new byte[in.available()];
+//                    in.read(data1);
+//                    // 转成字符串
+//                    a = new String(data1);
+//                    System.out.println(a);
+//                } catch (Exception e1) {
+//                    e1.printStackTrace();
+//                }
+//            //} else {
+//                System.out.println("no++");
+//            //}
+//
+//        } catch (Exception e) {
+//
+//        }
+//        return null;
+//    }
 }
 

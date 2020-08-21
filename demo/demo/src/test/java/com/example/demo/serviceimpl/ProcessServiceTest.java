@@ -141,7 +141,7 @@ public class ProcessServiceTest extends DemoApplicationTests {
 
     @Test
     public void checkgetStudentsProcess(){
-        List<ProcessInfo> processInfos=processService.getStudentsProcess("111");
+        List<StuProInfo> processInfos=processService.getStudentsProcess("111");
         assertEquals(5,processInfos.size());
     }
 

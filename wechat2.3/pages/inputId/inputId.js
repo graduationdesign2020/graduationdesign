@@ -46,7 +46,7 @@ Page({
     }
     var that = this
     wx.request({
-      url: 'http://54.167.148.196:8888/login',
+      url: 'http://localhost:8888/login',
       method: "POST",
       data: {
         id: this.data.id,

@@ -4,11 +4,8 @@ package com.example.demo.controller;
 
 import com.example.demo.entity.Grade;
 
-import com.example.demo.utils.ProcessInfo;
-import com.example.demo.utils.StateInfo;
+import com.example.demo.utils.*;
 import com.example.demo.service.ProcessService;
-import com.example.demo.utils.GradeInfo;
-import com.example.demo.utils.ReturnInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
@@ -59,7 +56,7 @@ public class ProcessController {
 
     @RequestMapping(path = "/getStudentsProcess")
     @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
-    public List<ProcessInfo> getStudentsProcess(@RequestBody String dept) {
+    public List<StuProInfo> getStudentsProcess(@RequestBody String dept) {
         return processService.getStudentsProcess(dept);
     }
 }

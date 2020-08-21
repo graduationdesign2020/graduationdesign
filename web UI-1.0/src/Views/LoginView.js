@@ -14,6 +14,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import {history} from "../utils/history";
 import {AuthedContext} from "../utils/authed";
+import {login, actuator, ajax} from "../utils/ajax";
 
 
 function Copyright() {
@@ -72,8 +73,15 @@ export default function LoginView() {
         setValidp(true);
         setValidid(true);
         if(id && password){
-            authedSuccess();
-            history.push('/');
+            const callback = (data) => {
+                if (data.code === 200) {
+                    authedSuccess()
+                    history.push("/")
+                }
+            }
+            //login({id: id, openid: password}, callback)
+            authedSuccess()
+            history.push("/")
             return;
         }
         if(id){
@@ -86,6 +94,7 @@ export default function LoginView() {
         }
         setValidid(false);
         setValidp(false);
+
         return;
     }
 

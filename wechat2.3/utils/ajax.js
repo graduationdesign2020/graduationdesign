@@ -1,7 +1,8 @@
-const urlhead = "http://54.167.148.196:8888"
+const urlhead = "http://localhost:8888"
 
 export const PostRequest = (url, postdata, callback, failcallback = (res)=>{}) => {
   if(wx.getStorageSync('jwt')){
+    console.log(wx.getStorageSync('jwt'))
     wx.request({
       url: urlhead+url,
       data: postdata,
