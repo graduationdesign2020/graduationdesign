@@ -6,6 +6,7 @@ import com.example.demo.repository.TeacherMessageReadingRepository;
 import com.example.demo.service.TeacherMessageService;
 import com.example.demo.utils.MessageInfo;
 import com.example.demo.utils.ReadInfo;
+import com.example.demo.utils.Reply;
 import com.example.demo.utils.ReturnInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,6 +39,7 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
         {
             MessageInfo messageInfo=new MessageInfo();
             messageInfo.setId(t.getId());
+            messageInfo.setType(0);
             messageInfo.setTitle(t.getTitle());
             messageInfo.setContent(t.getTeacherMessageContent().getContent());
             messageInfo.setTime(t.getTime());
@@ -193,6 +195,5 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
         }
         else return null;
     }
-
 
 }
