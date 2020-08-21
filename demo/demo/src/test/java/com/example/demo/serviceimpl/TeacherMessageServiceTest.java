@@ -77,7 +77,7 @@ public class TeacherMessageServiceTest extends DemoApplicationTests {
         List<String> strings=new ArrayList<>();
         strings.add("305349154743");
         strings.add("305359234696");
-        assertEquals(returnInfo,teacherMessageService.sentTeacherMessage("new test title","03047a",strings,"new test content"));
+        assertEquals(returnInfo,teacherMessageService.sentTeacherMessage("new test title","03047a",strings,"new test content",null));
     }
 
 

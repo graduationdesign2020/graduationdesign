@@ -127,6 +127,6 @@ public class MessageControllerTest {
         List<String> students=new ArrayList<>();
         students.add("1");
         students.add("3");
-        assertEquals(returnInfo, teacherMessageService.sentTeacherMessage("title2020","1", students ,"content2020"));
+        assertEquals(returnInfo, teacherMessageService.sentTeacherMessage("title2020","1", students ,"content2020",null));
     }
 }

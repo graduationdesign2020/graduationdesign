@@ -26,6 +26,7 @@ public class MessageController {
     public List<Student> teacherGetStudents(Authentication authentication){
         return teacherMessageService.getStudentsByTeacher_id(authentication.getName());
     }
+
     @RequestMapping(path = "/getTeacherMessage")
     @PreAuthorize("hasAnyRole('ROLE_STUDENT', 'ROLE_TEACHER')")
     public MessageInfo getTeacherMessage(@RequestBody Map<String,Integer> params) {
@@ -77,8 +78,8 @@ public class MessageController {
 //        System.out.println(content);
         List tasks= JSONObject.parseObject(params.get("tasks").toString(),List.class);
         List<String> keys= new ArrayList<>();
-        for (Object key : keys) {
-            keys.add(JSONObject.parseObject(key.toString(), String.class));
+        for (Object task : tasks) {
+            keys.add(JSONObject.parseObject(task.toString(), String.class));
         }
         return teacherMessageService.sentTeacherMessage(title, teacher_id, student_id, content,keys);
     }

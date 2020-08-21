@@ -60,4 +60,9 @@ public class TeacherMessageReplyDaoImpl implements TeacherMessageReplyDao {
         }
         return teacherMessageReplies;
     }
+
+    @Override
+    public Optional<ReplyMessage> getById(int id){
+        return replyMessageRepository.findById(id);
+    }
 }
