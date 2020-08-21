@@ -8,12 +8,12 @@
         <version>2.3.2.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.example</groupId>
-    <artifactId>demo</artifactId>
+    <groupId>org.graduationdesign</groupId>
+    <artifactId>search</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
-    <name>search</name>
-    <description>Demo project for Spring Boot</description>
+    <name>gdms-search</name>
+    <description>search functions for graduation management system</description>
 
     <properties>
         <java.version>14</java.version>

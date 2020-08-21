@@ -1,7 +1,7 @@
-package com.example.demo.controller;
+package org.graduationdesign.search.controller;
 
-import com.example.demo.entity.Message;
-import com.example.demo.service.MessageService;
+import org.graduationdesign.search.entity.Message;
+import org.graduationdesign.search.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;

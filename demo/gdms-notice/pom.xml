@@ -9,11 +9,11 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>org.graduationdesign</groupId>
-    <artifactId>gdms_notice</artifactId>
+    <artifactId>gdms-notice</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
-    <name>gdms_notice</name>
-    <description>Demo project for Spring Boot</description>
+    <name>gdms-notice</name>
+    <description>notice functions for graduation management system</description>
 
     <properties>
         <java.version>14</java.version>
