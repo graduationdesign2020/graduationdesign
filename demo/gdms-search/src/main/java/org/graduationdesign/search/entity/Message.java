@@ -1,4 +1,4 @@
-package com.example.demo.entity;
+package org.graduationdesign.search.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

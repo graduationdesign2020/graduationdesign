@@ -1,4 +1,4 @@
-package com.example.demo.config;
+package org.graduationdesign.search.config;
 
 import org.apache.http.HttpHost;
 import org.elasticsearch.client.RestClient;
