@@ -14,6 +14,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -51,5 +55,27 @@ public class ReplyController {
         return replyService.sentReply(id,keys);
     }
 
-
+    @RequestMapping(value="/getExcel")
+    @PreAuthorize("hasAnyRole('ROLE_TEACHER')")
+    public String getExcel(HttpServletResponse response, @RequestBody Map<String,Integer> params){
+        response.setContentType("application/binary;charset=UTF-8");
+        int id=params.get("id");
+        try{
+            ServletOutputStream out=response.getOutputStream();
+            try {
+                //设置文件头：最后一个参数是设置下载文件名
+                response.setHeader("Content-Disposition", "attachment;fileName=" + URLEncoder.encode("excel.xls", "UTF-8"));
+            } catch (UnsupportedEncodingException e1) {
+                e1.printStackTrace();
+            }
+            replyService.export(id,out);
+            return "SUCCESS";
+        } catch(Exception e){
+            e.printStackTrace();
+            return "FAIL";
+        }
+    }
 }
+
+
+

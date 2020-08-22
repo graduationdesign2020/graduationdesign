@@ -4,10 +4,11 @@ import com.example.demo.dao.*;
 import com.example.demo.entity.*;
 import com.example.demo.service.ReplyService;
 import com.example.demo.utils.*;
+import org.apache.poi.hssf.usermodel.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.sql.Timestamp;
+import javax.servlet.ServletOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -96,6 +97,67 @@ public class ReplyServiceImpl implements ReplyService {
         }
         else {
             return null;
+        }
+    }
+
+    @Override
+    public void export(int id, ServletOutputStream out) throws Exception{
+        try {
+            HSSFWorkbook workbook = new HSSFWorkbook();
+            HSSFSheet hssfSheet = workbook.createSheet("sheet1");
+            HSSFRow row = hssfSheet.createRow(0);
+            HSSFCell hssfCell = null;
+            TeacherMessage teacherMessage = teacherMessageDao.getTeacherMessageById(id);
+
+            //set table head
+            List<String> keys = teacherMessage.getTeacherMessageContent().getKeys();
+            hssfCell = row.createCell(0);
+            hssfCell.setCellValue("学号");
+            hssfCell = row.createCell(1);
+            hssfCell.setCellValue("姓名");
+            for (int i = 0; i < keys.size(); i++) {
+                hssfCell = row.createCell(2+i);
+                hssfCell.setCellValue(keys.get(2+i));
+            }
+
+            //get all replied student
+            List<TeacherMessageReply> teacherMessageReplyList=teacherMessageReplyDao.findAllByMessage_id(id);
+            List<StudentReply> studentReplyList=new ArrayList<>();
+            for (TeacherMessageReply teacherMessageReply : teacherMessageReplyList) {
+                if (teacherMessageReply.is_reply()) {
+                    StudentReply studentReply = new StudentReply();
+                    studentReply.setId(teacherMessageReply.getStudent_id());
+                    studentReply.setName(studentDao.getOne(studentReply.getId()).getName());
+                    Optional<ReplyMessage> replyMessage = teacherMessageReplyDao.getById(teacherMessageReply.getId());
+                    if (replyMessage.isPresent()) {
+                        ReplyMessage r = replyMessage.get();
+                        studentReply.setReply(r.getReply());
+                    }
+                    studentReplyList.add(studentReply);
+                }
+            }
+
+            //set table row
+            for(int i=0;i<studentReplyList.size();i++){
+                row=hssfSheet.createRow(i+1);
+                StudentReply studentReply=studentReplyList.get(i);
+                row.createCell(0).setCellValue(studentReply.getId());
+                row.createCell(1).setCellValue(studentReply.getName());
+                List<Reply> replies=studentReply.getReply();
+                for(int j=0;j<replies.size();j++){
+                    row.createCell(j+2).setCellValue(replies.get(j).getValue());
+                }
+            }
+            try {
+                workbook.write(out);
+                out.flush();
+                out.close();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            throw new Exception("Fail to export!");
         }
     }
 
