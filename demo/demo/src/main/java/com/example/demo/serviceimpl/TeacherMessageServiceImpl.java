@@ -110,11 +110,12 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
         }
         if(teacherMessage.getType()==1){
             List<TeacherMessageReply> teacherMessageReplies=new ArrayList<>();
-            for (String value : student_id) {
+            for (TeacherMessageReading value:teacherMessageReadings) {
                 TeacherMessageReply teacherMessageReply=new TeacherMessageReply();
-                teacherMessageReply.setMessage_id(teacherMessage.getId());
+                teacherMessageReply.setId(value.getId());
+                teacherMessageReply.setMessage_id(value.getMessage_id());
                 teacherMessageReply.set_reply(false);
-                teacherMessageReply.setStudent_id(value);
+                teacherMessageReply.setStudent_id(value.getStudent_id());
                 teacherMessageReplies.add(teacherMessageReply);
             }
             for (TeacherMessageReply value:teacherMessageReplies){

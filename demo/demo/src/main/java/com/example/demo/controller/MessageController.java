@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.example.demo.utils.ReadInfo;
 import com.example.demo.entity.Student;
@@ -11,7 +12,9 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -66,21 +69,23 @@ public class MessageController {
 
     @RequestMapping(path = "/sendMessages",method= RequestMethod.POST)
     @PreAuthorize("hasAnyRole('ROLE_TEACHER')")
-    public ReturnInfo sentMessage(@RequestBody Map<String,Object> params, Authentication authentication) {
-        String title= String.valueOf(params.get("title"));
-        String teacher_id= authentication.getName();
-        List students= JSONObject.parseObject(params.get("students").toString(),List.class);
+    public ReturnInfo sentMessage(@RequestBody JSONObject params, Authentication authentication) {
+        String title = String.valueOf(params.get("title"));
+        String teacher_id = String.valueOf(params.get("id"));
+        JSONArray students= params.getJSONArray("students");
         List<String> student_id = new ArrayList<>();
         for (Object student : students) {
             student_id.add(JSONObject.parseObject(student.toString(), String.class));
         }
-        String content= String.valueOf(params.get("content"));
+        String content = String.valueOf(params.get("content"));
 //        System.out.println(content);
-        List tasks= JSONObject.parseObject(params.get("tasks").toString(),List.class);
-        List<String> keys= new ArrayList<>();
-        for (Object task : tasks) {
-            keys.add(JSONObject.parseObject(task.toString(), String.class));
+        JSONArray tasks= params.getJSONArray("tasks");
+//        System.out.println(tasks);
+        List<String> keys = new ArrayList<>();
+        for (Object o : tasks) {
+            keys.add(o.toString());
         }
+//        System.out.println(keys);
         return teacherMessageService.sentTeacherMessage(title, teacher_id, student_id, content,keys);
     }
 }

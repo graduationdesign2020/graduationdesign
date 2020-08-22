@@ -47,7 +47,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .requestMatchers(CorsUtils::isPreFlightRequest).permitAll()
                 .antMatchers("/actuator/**").permitAll()
-                .antMatchers(HttpMethod.POST, "/login", "/register", "/getOpenid","/mylogout", "/adminlogin").permitAll()
+                .antMatchers(HttpMethod.POST, "/login", "/register", "/getOpenid","/mylogout", "/adminlogin","/getExcel").permitAll()
                 // 指定路径下的资源需要验证了的用户才能访问
                 .anyRequest().authenticated()
                 .and()

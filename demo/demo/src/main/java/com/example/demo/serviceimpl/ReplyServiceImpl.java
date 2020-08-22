@@ -117,7 +117,7 @@ public class ReplyServiceImpl implements ReplyService {
             hssfCell.setCellValue("姓名");
             for (int i = 0; i < keys.size(); i++) {
                 hssfCell = row.createCell(2+i);
-                hssfCell.setCellValue(keys.get(2+i));
+                hssfCell.setCellValue(keys.get(i));
             }
 
             //get all replied student

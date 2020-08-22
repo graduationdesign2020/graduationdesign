@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.example.demo.service.ReplyService;
 import com.example.demo.utils.Reply;
@@ -18,6 +19,7 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -45,29 +47,28 @@ public class ReplyController {
 
     @RequestMapping(path = "/sendReply")
     @PreAuthorize("hasAnyRole('ROLE_STUDENT', 'ROLE_TEACHER')")
-    public ReturnInfo get(@RequestBody Map<String,Object> params) {
+    public ReturnInfo get(@RequestBody JSONObject params) {
         int id=Integer.parseInt(params.get("reading_id").toString());
-        List replies= JSONObject.parseObject(params.get("reply").toString(),List.class);
+        System.out.println(id);
+        JSONArray replies= params.getJSONArray("reply");
+        System.out.println(replies);
         List<Reply> keys= new ArrayList<>();
         for (Object reply : replies) {
             keys.add(JSONObject.parseObject(reply.toString(), Reply.class));
         }
+        System.out.println(keys);
         return replyService.sentReply(id,keys);
     }
 
     @RequestMapping(value="/getExcel")
-    @PreAuthorize("hasAnyRole('ROLE_TEACHER')")
+//    @PreAuthorize("hasAnyRole('ROLE_TEACHER')")
     public String getExcel(HttpServletResponse response, @RequestBody Map<String,Integer> params){
         response.setContentType("application/binary;charset=UTF-8");
         int id=params.get("id");
         try{
             ServletOutputStream out=response.getOutputStream();
-            try {
-                //设置文件头：最后一个参数是设置下载文件名
-                response.setHeader("Content-Disposition", "attachment;fileName=" + URLEncoder.encode("excel.xls", "UTF-8"));
-            } catch (UnsupportedEncodingException e1) {
-                e1.printStackTrace();
-            }
+            //设置文件头：最后一个参数是设置下载文件名
+            response.setHeader("Content-Disposition", "attachment;fileName=" + URLEncoder.encode("excel.xls", StandardCharsets.UTF_8));
             replyService.export(id,out);
             return "SUCCESS";
         } catch(Exception e){
