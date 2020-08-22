@@ -13,12 +13,8 @@ import static javax.persistence.GenerationType.IDENTITY;
 @Data
 @Table(name = "teachermessagereply",schema = "GDMS")
 @JsonIgnoreProperties(value = {"handler","hibernateLazyInitializer","fieldHandler"})
-@JsonIdentityInfo(
-        generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "id")
 public class TeacherMessageReply {
     @Id
-    @GeneratedValue(strategy = IDENTITY)
     private int id;
 
     @Basic
