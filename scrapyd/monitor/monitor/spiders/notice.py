@@ -1,8 +1,7 @@
+# -*- coding: utf-8 -*-
 import scrapy
-
 import re
-from urllib import parse
-from bysj.items import NoticeItem
+from ..items import NoticeItem
 from scrapy.selector import Selector
 
 
@@ -31,7 +30,7 @@ class NoticeSpider(scrapy.Spider):
         url_list.reverse()
 
         for url in url_list:
-            yield scrapy.Request(url=parse.urljoin(response.url, url), callback=self.parse_notice,
+            yield scrapy.Request(url=response.urljoin(url), callback=self.parse_notice,
                                  meta={'type': notice_type})
 
     def parse_notice(self, response):

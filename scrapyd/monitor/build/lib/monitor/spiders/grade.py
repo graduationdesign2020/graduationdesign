@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import scrapy
 
-from monitor.items import GradeItem
+from monitor.monitor.items import GradeItem
 
 
 class GradeSpider(scrapy.Spider):

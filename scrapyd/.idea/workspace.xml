@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b16bd2bc-a62f-4b91-ba8d-ffaa875d8c38" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../monitor/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../monitor/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../monitor/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../monitor/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../monitor/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../monitor/.idea/monitor.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../monitor/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../monitor/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../monitor/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../monitor/monitor/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../monitor/monitor/items.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../monitor/monitor/middlewares.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../monitor/monitor/pipelines.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../monitor/monitor/settings.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../monitor/monitor/spiders/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../monitor/monitor/spiders/grade.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../monitor/monitor/spiders/notice.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../monitor/monitor/spiders/state.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../monitor/monitor/spiders/student.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../monitor/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../monitor/scrapy.cfg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../performancetest/bysj/.idea/bysj.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../performancetest/bysj/.idea/bysj.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../performancetest/bysj/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../performancetest/bysj/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../performancetest/bysj/bysj/pipelines.py" beforeDir="false" afterPath="$PROJECT_DIR$/../performancetest/bysj/bysj/pipelines.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../performancetest/bysj/bysj/spiders/notice.py" beforeDir="false" afterPath="$PROJECT_DIR$/../performancetest/bysj/bysj/spiders/notice.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../performancetest/bysj/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../performancetest/bysj/main.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1gO82VxltjKS0yjxp441ebHOixW" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b16bd2bc-a62f-4b91-ba8d-ffaa875d8c38" name="Default Changelist" comment="" />
+      <created>1597974071209</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1597974071209</updated>
+      <workItem from="1597974075529" duration="63000" />
+      <workItem from="1597974157027" duration="164000" />
+      <workItem from="1597974510182" duration="2011000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="142" y="0" key="SettingsEditor" timestamp="1597974320917">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1597974320917" />
+  </component>
+</project>

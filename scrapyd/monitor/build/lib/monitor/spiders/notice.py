@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import scrapy
 import re
-from monitor.items import NoticeItem
+from monitor.monitor.items import NoticeItem
 from scrapy.selector import Selector
 
 
@@ -27,6 +27,7 @@ class NoticeSpider(scrapy.Spider):
     def prenotice(self, response):
         notice_type = response.meta['type']
         url_list = response.css('#AllNews a::attr(href)').extract()
+        url_list.reverse()
 
         for url in url_list:
             yield scrapy.Request(url=response.urljoin(url), callback=self.parse_notice,

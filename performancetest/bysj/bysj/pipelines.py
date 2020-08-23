@@ -16,7 +16,8 @@ class BYSJPipeline(object):
         # get cursor
         self.cursor = self.connect.cursor()
 
-        self.client = pymongo.MongoClient("mongodb://root:graduationdesign@54.167.148.196:27017/?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&ssl=false")
+        self.client = pymongo.MongoClient(
+            "mongodb://root:graduationdesign@54.167.148.196:27017/?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&ssl=false")
         self.db = self.client["GDMS"]  # 获得数据库的句柄
         self.coll_dept = self.db["deptnoticecontent"]  # 获得collection的句柄
         self.coll_school = self.db["schoolnoticecontent"]
@@ -29,44 +30,68 @@ class BYSJPipeline(object):
             insert_user = """insert into wechatusers(wechat_id, id, auth) SELECT %s, %s, %s FROM DUAL WHERE NOT EXISTS ( SELECT * FROM wechatusers WHERE wechat_id = %s)"""
 
             try:
-                self.cursor.execute(insert_student, (str(int(item['id']) + 300218425679), '学生', '软件工程', '电子信息与电气工程学院', str(int(item['id']) + 300218425679)))
-                self.cursor.execute(insert_student, (str(int(item['id']) + 301218425679), '学生', 'IEEE', '电子信息与电气工程学院', str(int(item['id']) + 301218425679)))
+                self.cursor.execute(insert_student, (
+                str(int(item['id']) + 300218425679), '学生', '软件工程', '电子信息与电气工程学院', str(int(item['id']) + 300218425679)))
+                self.cursor.execute(insert_student, (
+                str(int(item['id']) + 301218425679), '学生', 'IEEE', '电子信息与电气工程学院', str(int(item['id']) + 301218425679)))
                 self.cursor.execute(insert_student,
-                                    (str(int(item['id']) + 302218425679), '学生', '测控技术与仪器', '电子信息与电气工程学院', str(int(item['id']) + 302218425679)))
-                self.cursor.execute(insert_student, (str(int(item['id']) + 303218425679), '学生', '电气工程', '电子信息与电气工程学院', str(int(item['id']) + 303218425679)))
-                self.cursor.execute(insert_student, (str(int(item['id']) + 304218425679), '学生', '自动化', '电子信息与电气工程学院', str(int(item['id']) + 304218425679)))
+                                    (str(int(item['id']) + 302218425679), '学生', '测控技术与仪器', '电子信息与电气工程学院',
+                                     str(int(item['id']) + 302218425679)))
+                self.cursor.execute(insert_student, (
+                str(int(item['id']) + 303218425679), '学生', '电气工程', '电子信息与电气工程学院', str(int(item['id']) + 303218425679)))
+                self.cursor.execute(insert_student, (
+                str(int(item['id']) + 304218425679), '学生', '自动化', '电子信息与电气工程学院', str(int(item['id']) + 304218425679)))
                 self.cursor.execute(insert_student,
-                                    (str(int(item['id']) + 305218425679), '学生', '计算机科学与工程', '电子信息与电气工程学院', str(int(item['id']) + 305218425679)))
-                self.cursor.execute(insert_student, (str(int(item['id']) + 306218425679), '学生', '电子工程', '电子信息与电气工程学院', str(int(item['id']) + 306218425679)))
-                self.cursor.execute(insert_student, (str(int(item['id']) + 307218425679), '学生', '信息工程', '电子信息与电气工程学院', str(int(item['id']) + 307218425679)))
-                self.cursor.execute(insert_student, (str(int(item['id']) + 308218425679), '学生', '信息安全', '电子信息与电气工程学院', str(int(item['id']) + 308218425679)))
-                self.cursor.execute(insert_student, (str(int(item['id']) + 309218425679), '学生', '微电子', '电子信息与电气工程学院', str(int(item['id']) + 309218425679)))
-                self.cursor.execute(insert_student, (str(int(item['id']) + 310218425679), '学生', '电气信息', '电子信息与电气工程学院', str(int(item['id']) + 310218425679)))
-                self.cursor.execute(insert_student, (str(int(item['id']) + 311218425679), '学生', '人工智能', '电子信息与电气工程学院', str(int(item['id']) + 311218425679)))
+                                    (str(int(item['id']) + 305218425679), '学生', '计算机科学与工程', '电子信息与电气工程学院',
+                                     str(int(item['id']) + 305218425679)))
+                self.cursor.execute(insert_student, (
+                str(int(item['id']) + 306218425679), '学生', '电子工程', '电子信息与电气工程学院', str(int(item['id']) + 306218425679)))
+                self.cursor.execute(insert_student, (
+                str(int(item['id']) + 307218425679), '学生', '信息工程', '电子信息与电气工程学院', str(int(item['id']) + 307218425679)))
+                self.cursor.execute(insert_student, (
+                str(int(item['id']) + 308218425679), '学生', '信息安全', '电子信息与电气工程学院', str(int(item['id']) + 308218425679)))
+                self.cursor.execute(insert_student, (
+                str(int(item['id']) + 309218425679), '学生', '微电子', '电子信息与电气工程学院', str(int(item['id']) + 309218425679)))
+                self.cursor.execute(insert_student, (
+                str(int(item['id']) + 310218425679), '学生', '电气信息', '电子信息与电气工程学院', str(int(item['id']) + 310218425679)))
+                self.cursor.execute(insert_student, (
+                str(int(item['id']) + 311218425679), '学生', '人工智能', '电子信息与电气工程学院', str(int(item['id']) + 311218425679)))
                 self.cursor.execute(insert_user, (
-                    str(int(item['id']) + 300218425679), str(int(item['id']) + 300218425679), 'ROLE_STUDENT', str(int(item['id']) + 300218425679)))
+                    str(int(item['id']) + 300218425679), str(int(item['id']) + 300218425679), 'ROLE_STUDENT',
+                    str(int(item['id']) + 300218425679)))
                 self.cursor.execute(insert_user, (
-                    str(int(item['id']) + 301218425679), str(int(item['id']) + 301218425679), 'ROLE_STUDENT', str(int(item['id']) + 301218425679)))
+                    str(int(item['id']) + 301218425679), str(int(item['id']) + 301218425679), 'ROLE_STUDENT',
+                    str(int(item['id']) + 301218425679)))
                 self.cursor.execute(insert_user, (
-                    str(int(item['id']) + 302218425679), str(int(item['id']) + 302218425679), 'ROLE_STUDENT', str(int(item['id']) + 302218425679)))
+                    str(int(item['id']) + 302218425679), str(int(item['id']) + 302218425679), 'ROLE_STUDENT',
+                    str(int(item['id']) + 302218425679)))
                 self.cursor.execute(insert_user, (
-                    str(int(item['id']) + 303218425679), str(int(item['id']) + 303218425679), 'ROLE_STUDENT', str(int(item['id']) + 303218425679)))
+                    str(int(item['id']) + 303218425679), str(int(item['id']) + 303218425679), 'ROLE_STUDENT',
+                    str(int(item['id']) + 303218425679)))
                 self.cursor.execute(insert_user, (
-                    str(int(item['id']) + 304218425679), str(int(item['id']) + 304218425679), 'ROLE_STUDENT', str(int(item['id']) + 304218425679)))
+                    str(int(item['id']) + 304218425679), str(int(item['id']) + 304218425679), 'ROLE_STUDENT',
+                    str(int(item['id']) + 304218425679)))
                 self.cursor.execute(insert_user, (
-                    str(int(item['id']) + 305218425679), str(int(item['id']) + 305218425679), 'ROLE_STUDENT', str(int(item['id']) + 305218425679)))
+                    str(int(item['id']) + 305218425679), str(int(item['id']) + 305218425679), 'ROLE_STUDENT',
+                    str(int(item['id']) + 305218425679)))
                 self.cursor.execute(insert_user, (
-                    str(int(item['id']) + 306218425679), str(int(item['id']) + 306218425679), 'ROLE_STUDENT', str(int(item['id']) + 306218425679)))
+                    str(int(item['id']) + 306218425679), str(int(item['id']) + 306218425679), 'ROLE_STUDENT',
+                    str(int(item['id']) + 306218425679)))
                 self.cursor.execute(insert_user, (
-                    str(int(item['id']) + 307218425679), str(int(item['id']) + 307218425679), 'ROLE_STUDENT', str(int(item['id']) + 307218425679)))
+                    str(int(item['id']) + 307218425679), str(int(item['id']) + 307218425679), 'ROLE_STUDENT',
+                    str(int(item['id']) + 307218425679)))
                 self.cursor.execute(insert_user, (
-                    str(int(item['id']) + 308218425679), str(int(item['id']) + 308218425679), 'ROLE_STUDENT', str(int(item['id']) + 308218425679)))
+                    str(int(item['id']) + 308218425679), str(int(item['id']) + 308218425679), 'ROLE_STUDENT',
+                    str(int(item['id']) + 308218425679)))
                 self.cursor.execute(insert_user, (
-                    str(int(item['id']) + 309218425679), str(int(item['id']) + 309218425679), 'ROLE_STUDENT', str(int(item['id']) + 309218425679)))
+                    str(int(item['id']) + 309218425679), str(int(item['id']) + 309218425679), 'ROLE_STUDENT',
+                    str(int(item['id']) + 309218425679)))
                 self.cursor.execute(insert_user, (
-                    str(int(item['id']) + 310218425679), str(int(item['id']) + 310218425679), 'ROLE_STUDENT', str(int(item['id']) + 310218425679)))
+                    str(int(item['id']) + 310218425679), str(int(item['id']) + 310218425679), 'ROLE_STUDENT',
+                    str(int(item['id']) + 310218425679)))
                 self.cursor.execute(insert_user, (
-                    str(int(item['id']) + 311218425679), str(int(item['id']) + 311218425679), 'ROLE_STUDENT', str(int(item['id']) + 311218425679)))
+                    str(int(item['id']) + 311218425679), str(int(item['id']) + 311218425679), 'ROLE_STUDENT',
+                    str(int(item['id']) + 311218425679)))
                 self.connect.commit()
             except:
                 self.connect.rollback()
@@ -140,7 +165,7 @@ class BYSJPipeline(object):
             try:
                 # 执行sql语句
                 self.cursor.execute(sql, (
-                    item['teacher_id']+'a', item['teacher_name'], "电子信息与电气工程学院", "软件工程", item['teacher_id']+'a'))
+                    item['teacher_id'] + 'a', item['teacher_name'], "电子信息与电气工程学院", "软件工程", item['teacher_id'] + 'a'))
                 self.cursor.execute(sql, (
                     item['teacher_id'] + 'b', item['teacher_name'], "电子信息与电气工程学院", "IEEE", item['teacher_id'] + 'b'))
                 self.cursor.execute(sql, (
@@ -150,7 +175,8 @@ class BYSJPipeline(object):
                 self.cursor.execute(sql, (
                     item['teacher_id'] + 'e', item['teacher_name'], "电子信息与电气工程学院", "自动化", item['teacher_id'] + 'e'))
                 self.cursor.execute(sql, (
-                    item['teacher_id'] + 'f', item['teacher_name'], "电子信息与电气工程学院", "计算机科学与工程", item['teacher_id'] + 'f'))
+                    item['teacher_id'] + 'f', item['teacher_name'], "电子信息与电气工程学院", "计算机科学与工程",
+                    item['teacher_id'] + 'f'))
                 self.cursor.execute(sql, (
                     item['teacher_id'] + 'g', item['teacher_name'], "电子信息与电气工程学院", "电子工程", item['teacher_id'] + 'g'))
                 self.cursor.execute(sql, (
@@ -196,7 +222,7 @@ class BYSJPipeline(object):
             try:
                 # 执行sql语句
                 self.cursor.execute(sql, (
-                    str(int(item['project_id']) + 300218425679), '项目名称', item['teacher_id']+'a',
+                    str(int(item['project_id']) + 300218425679), '项目名称', item['teacher_id'] + 'a',
                     str(int(item['project_id']) + 300218425679)))
                 self.cursor.execute(sql, (
                     str(int(item['project_id']) + 301218425679), '项目名称', item['teacher_id'] + 'b',
@@ -240,29 +266,41 @@ class BYSJPipeline(object):
             """
             try:
                 self.cursor.execute(insert_sql,
-                                    (str(int(item['project_id']) + 300218425679), item['state'], item['submit'], str(int(item['project_id']) + 300218425679), item['state']))
+                                    (str(int(item['project_id']) + 300218425679), item['state'], item['submit'],
+                                     str(int(item['project_id']) + 300218425679), item['state']))
                 self.cursor.execute(insert_sql,
-                                    (str(int(item['project_id']) + 301218425679), item['state'], item['submit'], str(int(item['project_id']) + 301218425679), item['state']))
+                                    (str(int(item['project_id']) + 301218425679), item['state'], item['submit'],
+                                     str(int(item['project_id']) + 301218425679), item['state']))
                 self.cursor.execute(insert_sql,
-                                    (str(int(item['project_id']) + 302218425679), item['state'], item['submit'], str(int(item['project_id']) + 302218425679), item['state']))
+                                    (str(int(item['project_id']) + 302218425679), item['state'], item['submit'],
+                                     str(int(item['project_id']) + 302218425679), item['state']))
                 self.cursor.execute(insert_sql,
-                                    (str(int(item['project_id']) + 303218425679), item['state'], item['submit'], str(int(item['project_id']) + 303218425679), item['state']))
+                                    (str(int(item['project_id']) + 303218425679), item['state'], item['submit'],
+                                     str(int(item['project_id']) + 303218425679), item['state']))
                 self.cursor.execute(insert_sql,
-                                    (str(int(item['project_id']) + 304218425679), item['state'], item['submit'], str(int(item['project_id']) + 304218425679), item['state']))
+                                    (str(int(item['project_id']) + 304218425679), item['state'], item['submit'],
+                                     str(int(item['project_id']) + 304218425679), item['state']))
                 self.cursor.execute(insert_sql,
-                                    (str(int(item['project_id']) + 305218425679), item['state'], item['submit'], str(int(item['project_id']) + 305218425679), item['state']))
+                                    (str(int(item['project_id']) + 305218425679), item['state'], item['submit'],
+                                     str(int(item['project_id']) + 305218425679), item['state']))
                 self.cursor.execute(insert_sql,
-                                    (str(int(item['project_id']) + 306218425679), item['state'], item['submit'], str(int(item['project_id']) + 306218425679), item['state']))
+                                    (str(int(item['project_id']) + 306218425679), item['state'], item['submit'],
+                                     str(int(item['project_id']) + 306218425679), item['state']))
                 self.cursor.execute(insert_sql,
-                                    (str(int(item['project_id']) + 307218425679), item['state'], item['submit'], str(int(item['project_id']) + 307218425679), item['state']))
+                                    (str(int(item['project_id']) + 307218425679), item['state'], item['submit'],
+                                     str(int(item['project_id']) + 307218425679), item['state']))
                 self.cursor.execute(insert_sql,
-                                    (str(int(item['project_id']) + 308218425679), item['state'], item['submit'], str(int(item['project_id']) + 308218425679), item['state']))
+                                    (str(int(item['project_id']) + 308218425679), item['state'], item['submit'],
+                                     str(int(item['project_id']) + 308218425679), item['state']))
                 self.cursor.execute(insert_sql,
-                                    (str(int(item['project_id']) + 309218425679), item['state'], item['submit'], str(int(item['project_id']) + 309218425679), item['state']))
+                                    (str(int(item['project_id']) + 309218425679), item['state'], item['submit'],
+                                     str(int(item['project_id']) + 309218425679), item['state']))
                 self.cursor.execute(insert_sql,
-                                    (str(int(item['project_id']) + 310218425679), item['state'], item['submit'], str(int(item['project_id']) + 310218425679), item['state']))
+                                    (str(int(item['project_id']) + 310218425679), item['state'], item['submit'],
+                                     str(int(item['project_id']) + 310218425679), item['state']))
                 self.cursor.execute(insert_sql,
-                                    (str(int(item['project_id']) + 311218425679), item['state'], item['submit'], str(int(item['project_id']) + 311218425679), item['state']))
+                                    (str(int(item['project_id']) + 311218425679), item['state'], item['submit'],
+                                     str(int(item['project_id']) + 311218425679), item['state']))
                 self.connect.commit()
             except:
                 self.connect.rollback()
@@ -279,7 +317,8 @@ class BYSJPipeline(object):
                     self.connect.commit()
                     self.cursor.execute("""select last_insert_id() from deptnotice""")
                     result = self.cursor.fetchone()
-                    self.coll_dept.insert_one({"_id": result[0], "content": item['content']})
+                    self.coll_dept.insert_one({"_id": result[0], "content": item['content'], "title": item['title'],
+                                               "department": '电子信息与电气工程学院', "type": 1})
                 except:
                     self.connect.rollback()
                 return item
@@ -293,7 +332,8 @@ class BYSJPipeline(object):
                     self.connect.commit()
                     self.cursor.execute("""select last_insert_id() from schoolnotice""")
                     result = self.cursor.fetchone()
-                    self.coll_school.insert_one({"_id": result[0], "content": item['content']})
+                    self.coll_school.insert_one({"_id": result[0], "content": item['content'], "title": item['title'],
+                                                 "type": 0})
                 except:
                     self.connect.rollback()
             return item

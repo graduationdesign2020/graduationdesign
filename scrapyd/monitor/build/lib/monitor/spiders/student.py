@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import scrapy
 
-from monitor.items import StudentItem
+from monitor.monitor.items import StudentItem
 
 class StudentSpider(scrapy.Spider):
     name = 'student'

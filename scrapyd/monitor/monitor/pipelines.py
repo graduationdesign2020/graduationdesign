@@ -11,12 +11,15 @@ import pymongo
 class MonitorPipeline(object):
     def __init__(self):
         # connection database
-        self.connect = pymysql.connect(host='18.207.234.42', user='root', passwd='graduationdesign',
+        # self.connect = pymysql.connect(host='54.167.148.196', user='root', passwd='graduationdesign',
+        #                                db='GDMS')
+        self.connect = pymysql.connect(host='8.211.161.48', user='root', passwd='graduationdesign',
                                        db='GDMS')
         # get cursor
         self.cursor = self.connect.cursor()
 
-        self.client = pymongo.MongoClient(host='18.207.234.42', port=27017)
+        # self.client = pymongo.MongoClient("mongodb://root:graduationdesign@54.167.148.196:27017/?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&ssl=false")
+        self.client = pymongo.MongoClient("mongodb://8.211.161.48:27017/")
         self.db = self.client["GDMS"]  # 获得数据库的句柄
         self.coll_dept = self.db["deptnoticecontent"]  # 获得collection的句柄
         self.coll_school = self.db["schoolnoticecontent"]
@@ -30,7 +33,6 @@ class MonitorPipeline(object):
                                    (str(int(item['id']) + 304718425679), '学生', item['major'], item['department'])) == 0:
                 query_sql = """select * from student where id=%s"""
                 if self.cursor.execute(query_sql, (str(int(item['id']) + 304718425679))) == 0:
-                    print('insert student')
                     insert_sql = """insert into student(id, name, major, department) VALUES (%s,%s,%s,%s)"""
                     try:
                         self.cursor.execute(insert_sql,
@@ -39,7 +41,6 @@ class MonitorPipeline(object):
                     except:
                         self.connect.rollback()
                 else:
-                    print('update student')
                     update_sql = """update student set name=%s, major=%s, department=%s where id=%s"""
                     try:
                         self.cursor.execute(update_sql,
@@ -47,8 +48,6 @@ class MonitorPipeline(object):
                         self.connect.commit()
                     except:
                         self.connect.rollback()
-            else:
-                print('right student')
 
             return item
 
@@ -59,7 +58,6 @@ class MonitorPipeline(object):
                                                item['review_grade'], item['defense_grade'], item['total_grade'])) == 0:
                 query_sql = """select * from grade where id=%s"""
                 if self.cursor.execute(query_sql, (str(int(item['id']) + 304718425679))) == 0:
-                    print('insert grade')
                     insert_sql = """insert into grade(id, teacher_grade, review_grade, defense_grade, total_grade) 
                     VALUES (%s,%s,%s,%s,%s)"""
                     try:
@@ -70,7 +68,6 @@ class MonitorPipeline(object):
                     except:
                         self.connect.rollback()
                 else:
-                    print('update grade')
                     update_sql = """update grade 
                     set teacher_grade=%s, review_grade=%s, defense_grade=%s, total_grade=%s where id=%s"""
                     try:
@@ -80,8 +77,6 @@ class MonitorPipeline(object):
                         self.connect.commit()
                     except:
                         self.connect.rollback()
-            else:
-                print('right grade')
 
             return item
 
@@ -100,7 +95,6 @@ class MonitorPipeline(object):
                                    (str(int(item['project_id']) + 304718425679), '项目名称', item['teacher_id'])) == 0:
                 query_sql = """select * from project where id=%s"""
                 if self.cursor.execute(query_sql, (str(int(item['project_id']) + 304718425679))) == 0:
-                    print('insert project')
                     insert_sql = """insert into project(id, project_name, teacher_id) VALUES (%s,%s,%s)"""
                     try:
                         self.cursor.execute(insert_sql,
@@ -109,7 +103,6 @@ class MonitorPipeline(object):
                     except:
                         self.connect.rollback()
                 else:
-                    print('update project')
                     update_sql = """update project set project_name=%s, teacher_id=%s where id=%s"""
                     try:
                         self.cursor.execute(update_sql,
@@ -117,15 +110,12 @@ class MonitorPipeline(object):
                         self.connect.commit()
                     except:
                         self.connect.rollback()
-            else:
-                print('right project')
 
             query_sql = """select * from state where project_id=%s and state=%s and submit=%s"""
             if self.cursor.execute(query_sql,
                                    (str(int(item['project_id']) + 304718425679), item['state'], item['submit'])) == 0:
                 query_sql = """select * from state where project_id=%s and state=%s"""
                 if self.cursor.execute(query_sql, (str(int(item['project_id']) + 304718425679), item['state'])) == 0:
-                    print('insert state')
                     insert_sql = """insert into state(project_id, state, submit) VALUES (%s,%s,%s)"""
                     try:
                         self.cursor.execute(insert_sql,
@@ -134,7 +124,6 @@ class MonitorPipeline(object):
                     except:
                         self.connect.rollback()
                 else:
-                    print('update state')
                     update_sql = """update state set submit=%s where project_id=%s and state=%s"""
                     try:
                         self.cursor.execute(update_sql,
@@ -142,8 +131,6 @@ class MonitorPipeline(object):
                         self.connect.commit()
                     except:
                         self.connect.rollback()
-            else:
-                print('right state')
 
             return item
         if item["item_type"] == 'notice':
@@ -152,38 +139,34 @@ class MonitorPipeline(object):
             if item["notice_type"] == 'dept':
                 query_sql = """select * from deptnotice where department=%s and title=%s and time=%s"""
                 if self.cursor.execute(query_sql, ('电子信息与电气工程学院', item['title'], item['time'])) == 0:
-                    print('insert notice')
                     try:
                         self.cursor.execute(
                             """insert into deptnotice(department, title, time) value (%s, %s, %s)""",
                             ('电子信息与电气工程学院', item['title'], item['time'])
                         )
+                        self.connect.commit()
                         self.cursor.execute("""select last_insert_id() from deptnotice""")
                         result = self.cursor.fetchone()
-                        self.coll_dept.insert_one({"_id": result[0], "content": item['content']})
-                        self.connect.commit()
+                        self.coll_dept.insert_one({"_id": result[0], "content": item['content'], "title": item['title'],
+                                                   "department": '电子信息与电气工程学院', "type": 1})
                     except:
                         self.connect.rollback()
-                else:
-                    print('exist notice')
                 return item
             if item["notice_type"] == 'school':
                 query_sql = """select * from schoolnotice where title=%s and time=%s"""
                 if self.cursor.execute(query_sql, (item['title'], item['time'])) == 0:
-                    print('insert notice')
                     try:
                         self.cursor.execute(
                             """insert into schoolnotice(title, time) value (%s, %s)""",
                             (item['title'], item['time'])
                         )
+                        self.connect.commit()
                         self.cursor.execute("""select last_insert_id() from schoolnotice""")
                         result = self.cursor.fetchone()
-                        self.coll_school.insert_one({"_id": result[0], "content": item['content']})
-                        self.connect.commit()
+                        self.coll_school.insert_one({"_id": result[0], "content": item['content'],
+                                                     "title": item['title'], "type": 0})
                     except:
                         self.connect.rollback()
-                else:
-                    print('exist notice')
                 return item
 
     def close_spider(self, spider):

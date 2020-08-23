@@ -1,0 +1,8 @@
+scrapy
+pymysql
+pymongo
+scrapyd
+scrapyd-client
+scrapydweb
+six
+w3lib

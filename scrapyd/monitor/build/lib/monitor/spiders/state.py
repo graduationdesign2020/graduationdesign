@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import scrapy
 
-from monitor.items import StateItem
+from monitor.monitor.items import StateItem
 
 
 class StateSpider(scrapy.Spider):
