@@ -1,0 +1,52 @@
+package org.graduationdesign.gdms_notice.daoimpl;
+
+import org.graduationdesign.gdms_notice.dao.DeptNoticeDao;
+import org.graduationdesign.gdms_notice.entity.DeptNotice;
+import org.graduationdesign.gdms_notice.entity.DeptNoticeContent;
+import org.graduationdesign.gdms_notice.repository.DeptNoticeContentRepository;
+import org.graduationdesign.gdms_notice.repository.DeptNoticeRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+import java.util.Optional;
+
+@Repository
+public class DeptNoticeDaoImpl implements DeptNoticeDao {
+    @Autowired
+    private DeptNoticeRepository deptNoticeRepository;
+    @Autowired
+    private DeptNoticeContentRepository deptNoticeContentRepository;
+
+
+    @Override
+    public List<DeptNotice> getDeptNoticesByDept(String department){
+        return deptNoticeRepository.getDeptNoticesByDepartment(department);
+    }
+
+    @Override
+    public DeptNotice getDeptNoticeById(int id){
+        Optional<DeptNotice> schoolNotice= deptNoticeRepository.getById(id);
+        if(schoolNotice.isPresent()) {
+            DeptNotice schoolNotice1=schoolNotice.get();
+            Optional<DeptNoticeContent> schoolNoticeContent = Optional.ofNullable(deptNoticeContentRepository.findById(id));
+            if (schoolNoticeContent.isPresent()) {
+                DeptNoticeContent s = schoolNoticeContent.get();
+                schoolNotice1.setContent(s.getContent());
+            } else {
+                schoolNotice1.setContent(null);
+            }
+            return schoolNotice1;
+        }
+        else return null;
+
+    }
+
+    @Override
+    public List<DeptNotice> getThreeDeptNoticesByDepartment(String dept){
+        return deptNoticeRepository.getThreeDeptNoticesByDepartment(dept);
+    }
+
+
+
+}

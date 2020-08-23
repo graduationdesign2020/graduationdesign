@@ -14,6 +14,10 @@ public class TeacherMessageContent {
     @Column(name = "_id")
     private int id;
 
+    private int type;//type=2
+
+    private List<String> keys;
+
     private String title;
 
     private List<String> students;

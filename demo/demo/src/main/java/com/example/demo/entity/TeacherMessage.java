@@ -32,10 +32,10 @@ public class TeacherMessage {
     @Basic
     private String time;
 
-    @Transient
-    private String content;
+    @Basic
+    private int type;
 
     @Transient
-    private List<String> students;
+    private TeacherMessageContent teacherMessageContent;
 
 }

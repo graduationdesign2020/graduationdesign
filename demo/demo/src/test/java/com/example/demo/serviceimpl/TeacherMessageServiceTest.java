@@ -13,6 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.beans.Transient;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -77,9 +78,11 @@ public class TeacherMessageServiceTest extends DemoApplicationTests {
         List<String> strings=new ArrayList<>();
         strings.add("305349154743");
         strings.add("305359234696");
-        assertEquals(returnInfo,teacherMessageService.sentTeacherMessage("new test title","03047a",strings,"new test content"));
+        List<String> tasks=new ArrayList<>();
+        tasks.add("身份证号");
+        tasks.add("电话号码");
+        assertEquals(returnInfo,teacherMessageService.sentTeacherMessage("no reply","03047a",strings,"new test content",null));
     }
-
 
     @Test
     public void checkGetStudentsByTeacher_id(){

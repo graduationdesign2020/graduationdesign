@@ -39,11 +39,6 @@ public class TeacherMessageReadingDaoImpl implements TeacherMessageReadingDao {
     }
 
     @Override
-    public List<TeacherMessageReading> findAllByMessage(int message_id) {
-        return teacherMessageReadingRepository.findAllByMessage_id(message_id);
-    }
-
-    @Override
     public List<TeacherMessageReading> findAllByMessage_id(int id){
         return teacherMessageReadingRepository.findAllByMessage_id(id);
     }
