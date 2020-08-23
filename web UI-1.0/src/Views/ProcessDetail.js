@@ -59,7 +59,8 @@ class ProcessDetail extends React.Component {
         const callback = (data) => {
             this.setState({process: data})
         }
-        ajax("getStudentProcess", "123", callback)
+        const dept = 123;
+        ajax("getStudentsProcess", dept, callback)
     }
 
     onCollapse = collapsed => {

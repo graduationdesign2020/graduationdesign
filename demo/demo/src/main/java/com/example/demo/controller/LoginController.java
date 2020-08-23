@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 
 import com.alibaba.fastjson.JSONObject;
+import com.example.demo.entity.Student;
 import com.example.demo.utils.HttpClient;
 import com.example.demo.service.LoginService;
 import com.example.demo.utils.CodeReturn;
@@ -82,8 +83,8 @@ public class LoginController {
         return loginService.getUserData(authentication.getName(), authentication.getAuthorities().toArray()[0].toString());
     }
 
-//    @RequestMapping(path = "/adminlogin")
-//    public JSONObject adminLogin(@RequestBody Map<String, String> params) {
+    @RequestMapping(path = "/adminlogin")
+    public Student adminLogin(@RequestBody Map<String, String> params) {
 //        String id = params.get("id");
 //        String openid = params.get("openid");
 //        JSONObject obj = new JSONObject();
@@ -141,7 +142,12 @@ public class LoginController {
 //        } catch (Exception e) {
 //
 //        }
-//        return null;
-//    }
+        System.out.println("admin login");
+        System.out.println(params.get("id"));
+        Student s = new Student();
+        s.setId("12331");
+        s.setName("dsvsfsd");
+        return s;
+    }
 }
 

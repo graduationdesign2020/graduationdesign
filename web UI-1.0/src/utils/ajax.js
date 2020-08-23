@@ -1,5 +1,5 @@
 export const ajax = (url, data, callback) => {
-    fetch("https://localhost:8888/" + url, {
+    fetch("http://localhost:8888/" + url, {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
@@ -22,7 +22,7 @@ export const ajax = (url, data, callback) => {
 export const login = (data, callback) => {
     fetch("http://localhost:8888/login", {
         method: "POST",
-        body: {id: "admin",openid: "admin"},
+        body: JSON.stringify(data),
         headers: {
             'Content-Type': 'application/json'
         }

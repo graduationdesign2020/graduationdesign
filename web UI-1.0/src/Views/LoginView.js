@@ -74,14 +74,15 @@ export default function LoginView() {
         setValidid(true);
         if(id && password){
             const callback = (data) => {
+                console.log(data)
                 if (data.code === 200) {
                     authedSuccess()
                     history.push("/")
                 }
             }
-            //login({id: id, openid: password}, callback)
-            authedSuccess()
-            history.push("/")
+            login({"id": id, "openid": password}, callback)
+            // authedSuccess()
+            // history.push("/")
             return;
         }
         if(id){
