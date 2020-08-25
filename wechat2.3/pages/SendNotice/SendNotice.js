@@ -21,11 +21,13 @@ Page({
     num: 0,
     task: "",
     tasks: [],
+    userData: null
   },
 
   onLoad: function () {
     var that = this;
     PostRequest('/teacherGetStudents',{}, that.getList);
+    PostRequest('/getUserData', {}, (data)=>{that.setData({userData: data})})
   },
 
   getList: function(data) {
@@ -83,7 +85,7 @@ Page({
     this.setData({
       waitshow: true,
     })
-    PostRequest("/sendMessages", {students: this.data.result, title: this.data.title, content: this.data.text, tasks: this.data.tasks}, (data) => {
+    PostRequest("/sendMessages", {id: this.data.userData.id,students: this.data.result, title: this.data.title, content: this.data.text, tasks: this.data.tasks}, (data) => {
       if(data.msg == "SUCCESS"){
         this.setData({
           waitshow: false,

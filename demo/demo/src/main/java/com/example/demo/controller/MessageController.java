@@ -73,6 +73,7 @@ public class MessageController {
         String title = String.valueOf(params.get("title"));
         String teacher_id = String.valueOf(params.get("id"));
         JSONArray students= params.getJSONArray("students");
+        System.out.println(teacher_id);
         List<String> student_id = new ArrayList<>();
         for (Object student : students) {
             student_id.add(JSONObject.parseObject(student.toString(), String.class));
