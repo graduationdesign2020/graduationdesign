@@ -84,7 +84,7 @@ public class LoginController {
     }
 
     @RequestMapping(path = "/adminlogin")
-    public Student adminLogin(@RequestBody Map<String, String> params) {
+    public JSONObject adminLogin(@RequestBody Map<String, String> params) {
 //        String id = params.get("id");
 //        String openid = params.get("openid");
 //        JSONObject obj = new JSONObject();
@@ -142,12 +142,14 @@ public class LoginController {
 //        } catch (Exception e) {
 //
 //        }
-        System.out.println("admin login");
-        System.out.println(params.get("id"));
-        Student s = new Student();
-        s.setId("12331");
-        s.setName("dsvsfsd");
-        return s;
+        String id = params.get("id");
+        String openid = params.get("openid");
+        JSONObject result = new JSONObject();
+        if (id.equals("admin") && openid.equals("admin")) {
+            result.put("code", 200);
+        }
+        else result.put("code", 400);
+        return result;
     }
 }
 

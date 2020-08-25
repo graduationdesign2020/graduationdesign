@@ -7,6 +7,22 @@ describe('e2e tests', () => {
     miniProgram = await automator.connect({
       wsEndpoint: 'ws://localhost:9420',
     })
+    it('myProfile', async() => {
+    const page = await miniProgram.reLaunch('/pages/myProfile/Center')
+    await page.waitFor(500)
+    const button = await page.$('#logout-button')
+    
+    expect(await button.wxml()).toContain('注销用户'); 
+    await button.tap()
+
+    await page.waitFor(1500);
+    const dialog = await page.$('.confirm-dialog')
+    await dialog.tap()
+
+    await page.waitFor(1500);
+    const currentPage = await miniProgram.currentPage();
+    expect(currentPage.path).toContain('pages/register/index');
+  })
   })
 
   afterAll(async () => {
@@ -37,20 +53,6 @@ describe('e2e tests', () => {
     // expect(currentPage.path).toContain('pages/home/home');
   })
 
-  it('myProfile', async() => {
-    const page = await miniProgram.reLaunch('/pages/myProfile/Center')
-
-    const button = await page.$('.logout-button')
-    expect(await button.wxml()).toContain('注销用户'); 
-    await button.tap()
-
-    await page.waitFor(1500);
-    const dialog = await page.$('.confirm-dialog')
-    await dialog.tap()
-
-    await page.waitFor(1500);
-    const currentPage = await miniProgram.currentPage();
-    expect(currentPage.path).toContain('pages/register/index');
-  })
+  
   
 })

@@ -15,6 +15,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import {history} from "../utils/history";
 import {AuthedContext} from "../utils/authed";
 import {login, actuator, ajax} from "../utils/ajax";
+import {message} from "antd";
 
 
 function Copyright() {
@@ -79,6 +80,9 @@ export default function LoginView() {
                     authedSuccess()
                     history.push("/")
                 }
+                else {
+                    message.error("Wrong password or username!")
+                }
             }
             login({"id": id, "openid": password}, callback)
             // authedSuccess()
@@ -136,7 +140,7 @@ export default function LoginView() {
                             type="password"
                             id="password"
                             autoComplete="current-password"
-                            onChange={event => {console.log(event.target.value);setPassword(event.target.value);}}
+                            onChange={event => {setPassword(event.target.value);}}
                             error={!validp}
                             helperText={!validp?"密码不可为空":null}
                         />

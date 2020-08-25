@@ -20,7 +20,7 @@ export const ajax = (url, data, callback) => {
 }
 
 export const login = (data, callback) => {
-    fetch("http://localhost:8888/login", {
+    fetch("http://localhost:8888/adminlogin", {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
