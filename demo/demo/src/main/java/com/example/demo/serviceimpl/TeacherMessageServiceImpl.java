@@ -29,8 +29,6 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
     private TeacherMessageReadingDao teacherMessageReadingDao;
     @Autowired
     private ProjectDao projectDao;
-    @Autowired
-    private TeacherMessageReplyDao teacherMessageReplyDao;
 
     @Override
     public MessageInfo getTeacherMessageById(int id, int reading_id){
@@ -107,20 +105,6 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
         }
         for (TeacherMessageReading value:teacherMessageReadings){
             s=teacherMessageReadingDao.addReader(value);
-        }
-        if(teacherMessage.getType()==1){
-            List<TeacherMessageReply> teacherMessageReplies=new ArrayList<>();
-            for (TeacherMessageReading value:teacherMessageReadings) {
-                TeacherMessageReply teacherMessageReply=new TeacherMessageReply();
-                teacherMessageReply.setId(value.getId());
-                teacherMessageReply.setMessage_id(value.getMessage_id());
-                teacherMessageReply.set_reply(false);
-                teacherMessageReply.setStudent_id(value.getStudent_id());
-                teacherMessageReplies.add(teacherMessageReply);
-            }
-            for (TeacherMessageReply value:teacherMessageReplies){
-                teacherMessageReplyDao.addReplier(value);
-            }
         }
         if (s!=null)
             returnInfo.setMsg(Msg1);
