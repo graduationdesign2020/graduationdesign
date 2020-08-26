@@ -29,4 +29,7 @@ public class TeacherMessageReading {
 
     @Basic
     private boolean is_read;
+
+    @Transient
+    private ReplyMessage reply;
 }

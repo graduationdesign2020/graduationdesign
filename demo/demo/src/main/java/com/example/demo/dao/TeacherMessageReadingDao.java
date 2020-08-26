@@ -16,4 +16,8 @@ public interface TeacherMessageReadingDao {
     List<TeacherMessageReading> getReading(String stu_id);
 
     List<TeacherMessageReading> findAllByMessage_id(int id);
+
+    List<TeacherMessageReading> findReplyByMessage_id(int id);
+
+
 }

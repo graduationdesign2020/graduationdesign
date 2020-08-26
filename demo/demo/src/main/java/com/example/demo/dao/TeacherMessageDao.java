@@ -15,4 +15,6 @@ public interface TeacherMessageDao {
 
     void sentTeacherMessage(TeacherMessage teacherMessage);//将(title,content,teacherId)插入到message表
 
+    List<String> getKeysById(int id);
+
 }
