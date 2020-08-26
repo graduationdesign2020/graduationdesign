@@ -59,7 +59,8 @@ class ProcessDetail extends React.Component {
         const callback = (data) => {
             this.setState({process: data})
         }
-        ajax("getStudentProcess", "123", callback)
+        const dept = 123;
+        ajax("getStudentsProcess", dept, callback)
     }
 
     onCollapse = collapsed => {
@@ -83,9 +84,9 @@ class ProcessDetail extends React.Component {
         if(this.state.choose === 5){
             return "论文最终稿"
         }
-        if(this.state.choose === 6){
-            return "用户管理"
-        }
+        // if(this.state.choose === 6){
+        //     return "用户管理"
+        // }
     };
 
     render() {
@@ -115,9 +116,9 @@ class ProcessDetail extends React.Component {
                         <Menu.Item key="5" icon={<DesktopOutlined />}>
                             论文最终稿
                         </Menu.Item>
-                        <Menu.Item key="6" icon={<DesktopOutlined />}>
-                            用户管理
-                        </Menu.Item>
+                        {/*<Menu.Item key="6" icon={<DesktopOutlined />}>*/}
+                        {/*    用户管理*/}
+                        {/*</Menu.Item>*/}
                     </Menu>
                 </Sider>
                 <Layout className="site-layout">
