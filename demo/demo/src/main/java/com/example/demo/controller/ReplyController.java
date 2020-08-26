@@ -63,7 +63,7 @@ public class ReplyController {
     @RequestMapping(value="/getExcel")
 //    @PreAuthorize("hasAnyRole('ROLE_TEACHER')")
     public String getExcel(HttpServletResponse response, @RequestBody Map<String,Integer> params){
-        response.setContentType("application/binary;charset=UTF-8");
+        response.setContentType("application/vnd.ms-excel;charset=UTF-8");
         int id=params.get("id");
         try{
             ServletOutputStream out=response.getOutputStream();
