@@ -57,6 +57,7 @@ public class ProcessController {
     @RequestMapping(path = "/getStudentsProcess")
     @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     public List<StuProInfo> getStudentsProcess(@RequestBody String dept) {
+        System.out.println(dept);
         return processService.getStudentsProcess(dept);
     }
 }

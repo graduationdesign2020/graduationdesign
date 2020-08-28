@@ -16,7 +16,7 @@
     <description>search functions for graduation management system</description>
 
     <properties>
-        <java.version>14</java.version>
+        <java.version>11</java.version>
         <elasticsearch.version>7.8.1</elasticsearch.version>
     </properties>
 
@@ -61,6 +61,11 @@
                     <artifactId>junit-vintage-engine</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+            <version>2.3.3.RELEASE</version>
         </dependency>
     </dependencies>
 

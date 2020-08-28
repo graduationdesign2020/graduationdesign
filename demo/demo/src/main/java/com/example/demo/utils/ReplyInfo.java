@@ -8,7 +8,7 @@ import java.util.List;
 public class ReplyInfo {
     private List<StudentReply> studentsReply;
 
-    private List<StudentUnreply> studentsUnreply;
+    private List<StudentReply> studentsUnreply;
 
     private int reply;
 
