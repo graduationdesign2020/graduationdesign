@@ -2,6 +2,7 @@
 //获取应用实例
 const app = getApp()
 import {PostRequest} from "../../utils/ajax";
+import {NoticeRequest} from "../../utils/ajax";
 
 Page({
   data: {
@@ -14,17 +15,17 @@ Page({
     this.setData({type: options.type})
     switch (options.type) {
       case "0": {
-        PostRequest('/getSchoolNotice', {id: options.id}, that.setNotice);
+        NoticeRequest('/getSchoolNotice', {id: options.id}, that.setNotice);
         break;
       }
       case "1": {
-        PostRequest('/getDepartmentNotice', {id: options.id}, that.setNotice);
+        NoticeRequest('/getDepartmentNotice', {id: options.id}, that.setNotice);
         break;
       }
       case "2": {
-        var pages = getCurrentPages();
-        var prevPage = pages[pages.length - 2]; //上一个页面
-        prevPage.setData({isRefresh: true}) 
+        // var pages = getCurrentPages();
+        // var prevPage = pages[pages.length - 2]; //上一个页面
+        // prevPage.setData({isRefresh: true}) 
         PostRequest('/getTeacherMessage', {id: options.id, reading_id: options.reading_id}, that.setNotice);
         break;
       }
@@ -32,6 +33,7 @@ Page({
   },
   
   setNotice: function(data){
+    console.log(data)
     this.setData({notice: data});
   }
 })

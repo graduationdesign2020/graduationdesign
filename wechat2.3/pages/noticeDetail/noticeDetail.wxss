@@ -23,7 +23,7 @@
 
 .article__teacher{
   font-size: 30rpx;
-  margin-left: 220px;
+  margin-left: 130px;
 }
 
 .article__time{
