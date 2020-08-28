@@ -19,7 +19,7 @@ Page({
         {name: "夏目玲子", id: "22222"},
         {name: "名取周一", id: "33333"}
       ],
-      Read: 1,
+      read: 1,
       unRead: 2
     }
   },
@@ -38,6 +38,7 @@ Page({
   },
 
   setReadInfo: function(data){
+    console.log(data)
     this.setData({ReadInfo: data});
   },
 

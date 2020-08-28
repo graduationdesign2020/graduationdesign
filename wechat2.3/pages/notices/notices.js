@@ -2,15 +2,14 @@
 //获取应用实例
 const app = getApp()
 import {PostRequest} from "../../utils/ajax";
+import {NoticeRequest} from "../../utils/ajax";
 
 Page({
   data: {
     type: 2,
     notices: [],
     auth: wx.getStorageSync('auth'),
-    isRefresh:false,
-    currentPage: 1,
-    noticesArray: [[]]
+    isRefresh:false
   },
 
   onLoad: function(options) {
@@ -24,17 +23,17 @@ Page({
     }
     switch (options.type) {
     case "0": {
-      PostRequest('/getSchoolNotices', {}, that.setNotices);
+      NoticeRequest('/getSchoolNotices', {}, that.setNotices);
       break;
     }
     case "1": {
-      PostRequest('/getDepartmentNotices', {}, that.setNotices);
+      NoticeRequest('/getDepartmentNotices', {}, that.setNotices);
       break;
     }
     case "2": {
-      var pages = getCurrentPages();
-      var prevPage = pages[pages.length - 2]; //上一个页面
-      prevPage.setData({isRefresh: true})
+      // var pages = getCurrentPages();
+      // var prevPage = pages[pages.length - 2]; //上一个页面
+      // prevPage.setData({isRefresh: true})
       PostRequest('/getTeacherMessages', {}, that.setNotices);
       break;
     }

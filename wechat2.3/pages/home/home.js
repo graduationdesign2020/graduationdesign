@@ -3,6 +3,7 @@
 //获取应用实例
 const app = getApp();
 import {PostRequest} from "../../utils/ajax";
+import {NoticeRequest} from "../../utils/ajax";
 
 Page({
   data: {
@@ -34,8 +35,8 @@ Page({
         wx.setStorageSync('auth', data)
       })
     }
-    PostRequest('/getThreeSchoolNotices', {}, that.setSchoolNotices)
-    PostRequest('/getThreeDepartmentNotices', {}, that.setDeptNotices)
+    NoticeRequest('/getThreeSchoolNotices', {}, that.setSchoolNotices)
+    NoticeRequest('/getThreeDepartmentNotices', {}, that.setDeptNotices)
     PostRequest('/getTeacherMessages', {}, that.setTeacherMessages);
   },
 
@@ -48,6 +49,7 @@ Page({
   },
 
   setTeacherMessages: function(data){
+    console.log(data)
     this.setData({teacherMessages: data});
   },
 
