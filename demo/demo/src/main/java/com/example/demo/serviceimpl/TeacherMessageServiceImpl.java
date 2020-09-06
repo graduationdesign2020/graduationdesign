@@ -83,6 +83,7 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
         teacherMessage.setTime(time);
         teacherMessage.setTeacher_id(teacher_id);
         TeacherMessageContent teacherMessageContent=new TeacherMessageContent();
+        teacherMessageContent.setTitle(title);
         teacherMessageContent.setContent(content);
         teacherMessageContent.setStudents(student_id);
         teacherMessageContent.setType(2);

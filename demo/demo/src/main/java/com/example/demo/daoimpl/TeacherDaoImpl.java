@@ -21,8 +21,4 @@ public class TeacherDaoImpl implements TeacherDao {
         return teacherRepository.getByIdAndName(id, name);
     }
 
-    @Override
-    public String getDeptById(String id){
-        return teacherRepository.getDeptById(id);
-    }
 }

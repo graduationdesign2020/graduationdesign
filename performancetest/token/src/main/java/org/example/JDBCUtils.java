@@ -9,7 +9,7 @@ public class JDBCUtils {
     private static final String URL = "jdbc:mysql://localhost:3306/GDMS?useUnicode=true&characterEncoding=utf8";//数据库连接字符串，这里的deom为数据库名
 
     private static final String NAME = "root";//登录名
-    private static final String PASSWORD = "Smile200915@";//密码
+    private static final String PASSWORD = "520lixuan";//密码
 
 
     public void getConnection() {

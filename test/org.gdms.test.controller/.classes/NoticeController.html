@@ -1,0 +1,156 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: NoticeController</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.gdms.test.controller</a> ]
+</div>
+
+<h1>Coverage Summary for Class: NoticeController (org.gdms.test.controller)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">NoticeController</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (7/ 7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (24/ 24)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package org.gdms.test.controller;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import org.gdms.test.entity.DeptNotice;
+<i>4</i>&nbsp;import org.gdms.test.entity.SchoolNotice;
+<i>5</i>&nbsp;import org.gdms.test.service.NoticeService;
+<i>6</i>&nbsp;import org.springframework.beans.factory.annotation.Autowired;
+<i>7</i>&nbsp;import org.springframework.web.bind.annotation.CrossOrigin;
+<i>8</i>&nbsp;import org.springframework.web.bind.annotation.RequestBody;
+<i>9</i>&nbsp;import org.springframework.web.bind.annotation.RequestMapping;
+<i>10</i>&nbsp;import org.springframework.web.bind.annotation.RestController;
+<i>11</i>&nbsp;
+<i>12</i>&nbsp;import java.util.List;
+<i>13</i>&nbsp;import java.util.Map;
+<i>14</i>&nbsp;
+<i>15</i>&nbsp;@RestController
+<i>16</i>&nbsp;@CrossOrigin(origins = &quot;*&quot;,maxAge = 3600)
+<b class="fc"><i>17</i>&nbsp;public class NoticeController {</b>
+<i>18</i>&nbsp;    @Autowired
+<i>19</i>&nbsp;    private NoticeService noticeService;
+<i>20</i>&nbsp;
+<i>21</i>&nbsp;    @RequestMapping(path = &quot;/getSchoolNotices&quot;)
+<i>22</i>&nbsp;    public List&lt;SchoolNotice&gt; getSchoolNotices()
+<i>23</i>&nbsp;    {
+<b class="fc"><i>24</i>&nbsp;        return noticeService.getSchoolNotices();</b>
+<i>25</i>&nbsp;    }
+<i>26</i>&nbsp;
+<i>27</i>&nbsp;    @RequestMapping(path = &quot;/getThreeSchoolNotices&quot;)
+<i>28</i>&nbsp;    public List&lt;SchoolNotice&gt; getThreeSchoolNotices()
+<i>29</i>&nbsp;    {
+<b class="fc"><i>30</i>&nbsp;        return noticeService.getThreeSchoolNotices();</b>
+<i>31</i>&nbsp;    }
+<i>32</i>&nbsp;
+<i>33</i>&nbsp;    @RequestMapping(path = &quot;/getSchoolNotice&quot;)
+<i>34</i>&nbsp;    public SchoolNotice getSchoolNotice(@RequestBody Map&lt;String,Integer&gt; params) {
+<b class="fc"><i>35</i>&nbsp;        Integer id=params.get(&quot;id&quot;);</b>
+<b class="fc"><i>36</i>&nbsp;        System.out.println(id);</b>
+<b class="fc"><i>37</i>&nbsp;        return noticeService.getSchoolNoticeById(id);</b>
+<i>38</i>&nbsp;    }
+<i>39</i>&nbsp;
+<i>40</i>&nbsp;    @RequestMapping(path = &quot;/getDepartmentNotices&quot;)
+<i>41</i>&nbsp;    public List&lt;DeptNotice&gt; getDeptNotices(@RequestBody Map&lt;String,String&gt; params)
+<i>42</i>&nbsp;    {
+<b class="fc"><i>43</i>&nbsp;        String id=params.get(&quot;id&quot;);</b>
+<b class="fc"><i>44</i>&nbsp;        int auth=Integer.parseInt(params.get(&quot;auth&quot;));</b>
+<b class="fc"><i>45</i>&nbsp;        if(auth==0){</b>
+<b class="fc"><i>46</i>&nbsp;            System.out.println(1);</b>
+<b class="fc"><i>47</i>&nbsp;            return noticeService.getDeptNoticesBySid(id);</b>
+<i>48</i>&nbsp;        }
+<b class="fc"><i>49</i>&nbsp;        if(auth==1){</b>
+<b class="fc"><i>50</i>&nbsp;            System.out.println(2);</b>
+<b class="fc"><i>51</i>&nbsp;            return noticeService.getDeptNoticesByTid(id);</b>
+<i>52</i>&nbsp;        }
+<b class="fc"><i>53</i>&nbsp;        return null;</b>
+<i>54</i>&nbsp;    }
+<i>55</i>&nbsp;
+<i>56</i>&nbsp;    @RequestMapping(path = &quot;/getThreeDepartmentNotices&quot;)
+<i>57</i>&nbsp;    public List&lt;DeptNotice&gt; getThreeDeptNoticesByDepartment(@RequestBody Map&lt;String,String&gt; params)
+<i>58</i>&nbsp;    {
+<b class="fc"><i>59</i>&nbsp;        String id=params.get(&quot;id&quot;);</b>
+<b class="fc"><i>60</i>&nbsp;        int auth=Integer.parseInt(params.get(&quot;auth&quot;));</b>
+<b class="fc"><i>61</i>&nbsp;        if(auth==0)</b>
+<b class="fc"><i>62</i>&nbsp;            return noticeService.getThreeDeptNoticesBySid(id);</b>
+<b class="fc"><i>63</i>&nbsp;        if(auth==1)</b>
+<b class="fc"><i>64</i>&nbsp;            return noticeService.getThreeDeptNoticesByTid(id);</b>
+<b class="fc"><i>65</i>&nbsp;        return null;</b>
+<i>66</i>&nbsp;    }
+<i>67</i>&nbsp;
+<i>68</i>&nbsp;    @RequestMapping(path = &quot;/getDepartmentNotice&quot;)
+<i>69</i>&nbsp;    public DeptNotice getDeptNotice(@RequestBody Map&lt;String,String&gt; params){
+<b class="fc"><i>70</i>&nbsp;        int id=Integer.parseInt(params.get(&quot;id&quot;));</b>
+<b class="fc"><i>71</i>&nbsp;        return noticeService.getDeptNoticeById(id);</b>
+<i>72</i>&nbsp;    }
+<i>73</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-09-06 21:36</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+server:
+  port: 8301
+
+spring:
+  application:
+    name: GDMS-Gateway
+  boot:
+    admin:
+      client:
+        url: http://localhost:8401
+        username: gdms
+        password: gdmsadmin
+
+eureka:
+  instance:
+    lease-renewal-interval-in-seconds: 20
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    instance-info-replication-interval-seconds: 30
+    registry-fetch-interval-seconds: 3
+    serviceUrl:
+      defaultZone: http://gdms:graduationdesign@localhost:8001/register/eureka/
+
+zuul:
+  routes:
+    auth:
+      path: /auth/**
+      serviceId: GDMS-Auth
+      sensitiveHeaders: "*"
+    system:
+      path: /search/**
+      serviceId: GDMS-Server-Search
+      sensitiveHeaders: "*"
+  retryable: true
+  ignored-services: "*"
+  ribbon:
+    eager-load:
+      enabled: true
+
+ribbon:
+  ReadTimeout: 3000
+
+info:
+  app:
+    name: ${spring.application.name}
+    description: "@project.description@"
+    version: "@project.version@"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: ALWAYS

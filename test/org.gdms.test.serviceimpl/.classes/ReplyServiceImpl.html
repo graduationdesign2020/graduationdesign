@@ -1,0 +1,257 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: ReplyServiceImpl</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.gdms.test.serviceimpl</a> ]
+</div>
+
+<h1>Coverage Summary for Class: ReplyServiceImpl (org.gdms.test.serviceimpl)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ReplyServiceImpl</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/ 4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    98.3%
+  </span>
+  <span class="absValue">
+    (57/ 58)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package org.gdms.test.serviceimpl;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import org.gdms.test.dao.*;
+<i>4</i>&nbsp;import org.gdms.test.entity.*;
+<i>5</i>&nbsp;import org.gdms.test.service.ReplyService;
+<i>6</i>&nbsp;import org.gdms.test.util.*;
+<i>7</i>&nbsp;//import org.apache.poi.hssf.usermodel.HSSFCell;
+<i>8</i>&nbsp;//import org.apache.poi.hssf.usermodel.HSSFRow;
+<i>9</i>&nbsp;//import org.apache.poi.hssf.usermodel.HSSFSheet;
+<i>10</i>&nbsp;//import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+<i>11</i>&nbsp;import org.springframework.beans.factory.annotation.Autowired;
+<i>12</i>&nbsp;import org.springframework.stereotype.Service;
+<i>13</i>&nbsp;
+<i>14</i>&nbsp;import javax.servlet.ServletOutputStream;
+<i>15</i>&nbsp;import java.util.ArrayList;
+<i>16</i>&nbsp;import java.util.List;
+<i>17</i>&nbsp;import java.util.Optional;
+<i>18</i>&nbsp;
+<i>19</i>&nbsp;import static org.gdms.test.constant.ReturnMsg.*;
+<i>20</i>&nbsp;
+<i>21</i>&nbsp;@Service
+<b class="fc"><i>22</i>&nbsp;public class ReplyServiceImpl implements ReplyService {</b>
+<i>23</i>&nbsp;    @Autowired
+<i>24</i>&nbsp;    private TeacherMessageReadingDao teacherMessageReadingDao;
+<i>25</i>&nbsp;    @Autowired
+<i>26</i>&nbsp;    private ReplyMessageDao replyMessageDao;
+<i>27</i>&nbsp;    @Autowired
+<i>28</i>&nbsp;    private StudentDao studentDao;
+<i>29</i>&nbsp;    @Autowired
+<i>30</i>&nbsp;    private TeacherMessageDao teacherMessageDao;
+<i>31</i>&nbsp;    @Autowired
+<i>32</i>&nbsp;    private TeacherDao teacherDao;
+<i>33</i>&nbsp;
+<i>34</i>&nbsp;    @Override
+<i>35</i>&nbsp;    public ReturnInfo sentReply(int reading_id, List&lt;Reply&gt; replies){
+<b class="fc"><i>36</i>&nbsp;        ReturnInfo returnInfo=new ReturnInfo();</b>
+<b class="fc"><i>37</i>&nbsp;        ReplyMessage replyMessage=new ReplyMessage();</b>
+<b class="fc"><i>38</i>&nbsp;        replyMessage.setId(reading_id);</b>
+<b class="fc"><i>39</i>&nbsp;        replyMessage.setReply(replies);</b>
+<b class="fc"><i>40</i>&nbsp;        replyMessageDao.saveReply(replyMessage);</b>
+<i>41</i>&nbsp;        int i;
+<b class="fc"><i>42</i>&nbsp;        i=teacherMessageReadingDao.setRead(reading_id);</b>
+<b class="fc"><i>43</i>&nbsp;        if (i==1)</b>
+<b class="fc"><i>44</i>&nbsp;            returnInfo.setMsg(Msg1);</b>
+<b class="fc"><i>45</i>&nbsp;        else returnInfo.setMsg(Msg0);</b>
+<b class="fc"><i>46</i>&nbsp;        return returnInfo;</b>
+<i>47</i>&nbsp;    }
+<i>48</i>&nbsp;
+<i>49</i>&nbsp;    @Override
+<i>50</i>&nbsp;    public ReplyInfo getRepliesById(int id){
+<b class="fc"><i>51</i>&nbsp;        ReplyInfo replyInfo=new ReplyInfo();</b>
+<b class="fc"><i>52</i>&nbsp;        List&lt;TeacherMessageReading&gt; teacherMessageReplyList=teacherMessageReadingDao.findReplyByMessage_id(id);</b>
+<b class="fc"><i>53</i>&nbsp;        List&lt;StudentReply&gt; studentReplyList=new ArrayList&lt;&gt;();</b>
+<b class="fc"><i>54</i>&nbsp;        List&lt;StudentReply&gt; studentUnreplyList=new ArrayList&lt;&gt;();</b>
+<b class="fc"><i>55</i>&nbsp;        List&lt;String&gt; keys=teacherMessageDao.getKeysById(id);</b>
+<b class="fc"><i>56</i>&nbsp;        List&lt;Reply&gt; replies=new ArrayList&lt;&gt;();</b>
+<b class="fc"><i>57</i>&nbsp;        for (String key : keys) {</b>
+<b class="fc"><i>58</i>&nbsp;            Reply reply = new Reply();</b>
+<b class="fc"><i>59</i>&nbsp;            reply.setKey(key);</b>
+<b class="fc"><i>60</i>&nbsp;            replies.add(reply);</b>
+<b class="fc"><i>61</i>&nbsp;        }</b>
+<b class="fc"><i>62</i>&nbsp;        for (TeacherMessageReading teacherMessageReply : teacherMessageReplyList) {</b>
+<b class="fc"><i>63</i>&nbsp;            StudentReply studentReply = new StudentReply();</b>
+<b class="fc"><i>64</i>&nbsp;            studentReply.setId(teacherMessageReply.getStudent_id());</b>
+<b class="fc"><i>65</i>&nbsp;            studentReply.setName(studentDao.getOne(studentReply.getId()).getName());</b>
+<b class="fc"><i>66</i>&nbsp;            if (teacherMessageReply.is_read()) {</b>
+<b class="fc"><i>67</i>&nbsp;                Optional&lt;ReplyMessage&gt; replyMessage = replyMessageDao.getById(teacherMessageReply.getId());</b>
+<b class="fc"><i>68</i>&nbsp;                if (replyMessage.isPresent()) {</b>
+<b class="fc"><i>69</i>&nbsp;                    ReplyMessage r = replyMessage.get();</b>
+<b class="fc"><i>70</i>&nbsp;                    studentReply.setReply(r.getReply());</b>
+<i>71</i>&nbsp;                }
+<b class="fc"><i>72</i>&nbsp;                studentReplyList.add(studentReply);</b>
+<b class="fc"><i>73</i>&nbsp;            }</b>
+<i>74</i>&nbsp;            else {
+<b class="fc"><i>75</i>&nbsp;                studentReply.setReply(replies);</b>
+<b class="fc"><i>76</i>&nbsp;                studentUnreplyList.add(studentReply);</b>
+<i>77</i>&nbsp;            }
+<b class="fc"><i>78</i>&nbsp;        }</b>
+<b class="fc"><i>79</i>&nbsp;        replyInfo.setStudentsReply(studentReplyList);</b>
+<b class="fc"><i>80</i>&nbsp;        replyInfo.setStudentsUnreply(studentUnreplyList);</b>
+<b class="fc"><i>81</i>&nbsp;        replyInfo.setReply(teacherMessageReadingDao.getTeacherMessageReadingsByMessage_id(id));</b>
+<b class="fc"><i>82</i>&nbsp;        replyInfo.setUnReply(teacherMessageReadingDao.getUnReadingsByMessage_id(id));</b>
+<b class="fc"><i>83</i>&nbsp;        return replyInfo;</b>
+<i>84</i>&nbsp;    }
+<i>85</i>&nbsp;
+<i>86</i>&nbsp;    @Override
+<i>87</i>&nbsp;    public ReplyMessageInfo getReplyMessage(int id,int reading_id){
+<b class="fc"><i>88</i>&nbsp;        TeacherMessage t=teacherMessageDao.getTeacherMessageById(id);</b>
+<b class="fc"><i>89</i>&nbsp;        if(t!=null)</b>
+<i>90</i>&nbsp;        {
+<b class="fc"><i>91</i>&nbsp;            ReplyMessageInfo messageInfo=new ReplyMessageInfo();</b>
+<b class="fc"><i>92</i>&nbsp;            messageInfo.setId(t.getId());</b>
+<b class="fc"><i>93</i>&nbsp;            messageInfo.setType(0);</b>
+<b class="fc"><i>94</i>&nbsp;            messageInfo.setTitle(t.getTitle());</b>
+<b class="fc"><i>95</i>&nbsp;            messageInfo.setContent(t.getTeacherMessageContent().getContent());</b>
+<b class="fc"><i>96</i>&nbsp;            messageInfo.setTime(t.getTime());</b>
+<b class="fc"><i>97</i>&nbsp;            messageInfo.setReading_id(reading_id);</b>
+<b class="fc"><i>98</i>&nbsp;            Teacher teacher= teacherDao.getTeacherById(t.getTeacher_id());</b>
+<b class="fc"><i>99</i>&nbsp;            messageInfo.setTeachername(teacher.getName());</b>
+<b class="fc"><i>100</i>&nbsp;            Optional&lt;ReplyMessage&gt; replyMessage=replyMessageDao.getById(reading_id);</b>
+<b class="fc"><i>101</i>&nbsp;            if(replyMessage.isPresent()){</b>
+<b class="fc"><i>102</i>&nbsp;                ReplyMessage r=replyMessage.get();</b>
+<b class="fc"><i>103</i>&nbsp;                messageInfo.setReply(r.getReply());</b>
+<i>104</i>&nbsp;            }
+<b class="fc"><i>105</i>&nbsp;            return messageInfo;</b>
+<i>106</i>&nbsp;        }
+<i>107</i>&nbsp;        else {
+<b class="nc"><i>108</i>&nbsp;            return null;</b>
+<i>109</i>&nbsp;        }
+<i>110</i>&nbsp;    }
+<i>111</i>&nbsp;
+<i>112</i>&nbsp;//    @Override
+<i>113</i>&nbsp;//    public void export(int id, ServletOutputStream out) throws Exception{
+<i>114</i>&nbsp;//        try {
+<i>115</i>&nbsp;//            HSSFWorkbook workbook = new HSSFWorkbook();
+<i>116</i>&nbsp;//            HSSFSheet hssfSheet = workbook.createSheet(&quot;sheet1&quot;);
+<i>117</i>&nbsp;//            HSSFRow row = hssfSheet.createRow(0);
+<i>118</i>&nbsp;//            HSSFCell hssfCell = null;
+<i>119</i>&nbsp;//            TeacherMessage teacherMessage = teacherMessageDao.getTeacherMessageById(id);
+<i>120</i>&nbsp;//
+<i>121</i>&nbsp;//            //set table head
+<i>122</i>&nbsp;//            List&lt;String&gt; keys = teacherMessage.getTeacherMessageContent().getKeys();
+<i>123</i>&nbsp;//            hssfCell = row.createCell(0);
+<i>124</i>&nbsp;//            hssfCell.setCellValue(&quot;Ñ§ºÅ&quot;);
+<i>125</i>&nbsp;//            hssfCell = row.createCell(1);
+<i>126</i>&nbsp;//            hssfCell.setCellValue(&quot;ÐÕÃû&quot;);
+<i>127</i>&nbsp;//            for (int i = 0; i &lt; keys.size(); i++) {
+<i>128</i>&nbsp;//                hssfCell = row.createCell(2+i);
+<i>129</i>&nbsp;//                hssfCell.setCellValue(keys.get(i));
+<i>130</i>&nbsp;//            }
+<i>131</i>&nbsp;//
+<i>132</i>&nbsp;//            //get all replied student
+<i>133</i>&nbsp;//            List&lt;TeacherMessageReading&gt; teacherMessageReplyList=teacherMessageReadingDao.findReplyByMessage_id(id);
+<i>134</i>&nbsp;//            List&lt;StudentReply&gt; studentReplyList=new ArrayList&lt;&gt;();
+<i>135</i>&nbsp;//            for (TeacherMessageReading teacherMessageReply : teacherMessageReplyList) {
+<i>136</i>&nbsp;//                if (teacherMessageReply.is_read()) {
+<i>137</i>&nbsp;//                    StudentReply studentReply = new StudentReply();
+<i>138</i>&nbsp;//                    studentReply.setId(teacherMessageReply.getStudent_id());
+<i>139</i>&nbsp;//                    studentReply.setName(studentDao.getOne(studentReply.getId()).getName());
+<i>140</i>&nbsp;//                    Optional&lt;ReplyMessage&gt; replyMessage = replyMessageDao.getById(teacherMessageReply.getId());
+<i>141</i>&nbsp;//                    if (replyMessage.isPresent()) {
+<i>142</i>&nbsp;//                        ReplyMessage r = replyMessage.get();
+<i>143</i>&nbsp;//                        studentReply.setReply(r.getReply());
+<i>144</i>&nbsp;//                    }
+<i>145</i>&nbsp;//                    studentReplyList.add(studentReply);
+<i>146</i>&nbsp;//                }
+<i>147</i>&nbsp;//            }
+<i>148</i>&nbsp;//
+<i>149</i>&nbsp;//            //set table row
+<i>150</i>&nbsp;//            for(int i=0;i&lt;studentReplyList.size();i++){
+<i>151</i>&nbsp;//                row=hssfSheet.createRow(i+1);
+<i>152</i>&nbsp;//                StudentReply studentReply=studentReplyList.get(i);
+<i>153</i>&nbsp;//                row.createCell(0).setCellValue(studentReply.getId());
+<i>154</i>&nbsp;//                row.createCell(1).setCellValue(studentReply.getName());
+<i>155</i>&nbsp;//                List&lt;Reply&gt; replies=studentReply.getReply();
+<i>156</i>&nbsp;//                for(int j=0;j&lt;replies.size();j++){
+<i>157</i>&nbsp;//                    row.createCell(j+2).setCellValue(replies.get(j).getValue());
+<i>158</i>&nbsp;//                }
+<i>159</i>&nbsp;//            }
+<i>160</i>&nbsp;//            try {
+<i>161</i>&nbsp;//                workbook.write(out);
+<i>162</i>&nbsp;//                out.flush();
+<i>163</i>&nbsp;//                out.close();
+<i>164</i>&nbsp;//            }catch (Exception e){
+<i>165</i>&nbsp;//                e.printStackTrace();
+<i>166</i>&nbsp;//            }
+<i>167</i>&nbsp;//        }catch (Exception e){
+<i>168</i>&nbsp;//            e.printStackTrace();
+<i>169</i>&nbsp;//            throw new Exception(&quot;Fail to export!&quot;);
+<i>170</i>&nbsp;//        }
+<i>171</i>&nbsp;//    }
+<i>172</i>&nbsp;
+<i>173</i>&nbsp;
+<i>174</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-09-06 21:36</div>
+</div>
+</body>
+</html>

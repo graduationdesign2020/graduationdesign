@@ -1,0 +1,141 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: ProcessController</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.gdms.test.controller</a> ]
+</div>
+
+<h1>Coverage Summary for Class: ProcessController (org.gdms.test.controller)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ProcessController</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (7/ 7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (15/ 15)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package org.gdms.test.controller;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;
+<i>4</i>&nbsp;import org.gdms.test.entity.Grade;
+<i>5</i>&nbsp;import org.gdms.test.service.ProcessService;
+<i>6</i>&nbsp;import org.gdms.test.util.*;
+<i>7</i>&nbsp;import org.springframework.beans.factory.annotation.Autowired;
+<i>8</i>&nbsp;import org.springframework.web.bind.annotation.*;
+<i>9</i>&nbsp;
+<i>10</i>&nbsp;import java.util.List;
+<i>11</i>&nbsp;import java.util.Map;
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;
+<i>14</i>&nbsp;@RestController
+<i>15</i>&nbsp;@CrossOrigin(origins = &quot;*&quot;,maxAge = 3600)
+<b class="fc"><i>16</i>&nbsp;public class ProcessController {</b>
+<i>17</i>&nbsp;    @Autowired
+<i>18</i>&nbsp;    private ProcessService processService;
+<i>19</i>&nbsp;
+<i>20</i>&nbsp;    @RequestMapping(path = &quot;/checkSelfProcess&quot;)
+<i>21</i>&nbsp;    public List&lt;StateInfo&gt; checkSelfProcess(@RequestBody Map&lt;String,String&gt; params){
+<b class="fc"><i>22</i>&nbsp;        String id=params.get(&quot;id&quot;);</b>
+<b class="fc"><i>23</i>&nbsp;        return processService.checkSelfProcess(id);</b>
+<i>24</i>&nbsp;    }
+<i>25</i>&nbsp;
+<i>26</i>&nbsp;    @RequestMapping(path = &quot;/checkProcess&quot;)
+<i>27</i>&nbsp;    public List&lt;ProcessInfo&gt; checkProcess(@RequestBody Map&lt;String,String&gt; params){
+<b class="fc"><i>28</i>&nbsp;        String id=params.get(&quot;id&quot;);</b>
+<b class="fc"><i>29</i>&nbsp;        return processService.checkProcess(id);</b>
+<i>30</i>&nbsp;    }
+<i>31</i>&nbsp;
+<i>32</i>&nbsp;    @RequestMapping(path = &quot;/setDeadline&quot;)
+<i>33</i>&nbsp;    @ResponseBody
+<i>34</i>&nbsp;    public ReturnInfo setDeadline(@RequestBody Map&lt;String,String&gt; params){
+<b class="fc"><i>35</i>&nbsp;        String id=params.get(&quot;id&quot;);</b>
+<b class="fc"><i>36</i>&nbsp;        String time=params.get(&quot;time&quot;);</b>
+<b class="fc"><i>37</i>&nbsp;        int state=Integer.parseInt(params.get(&quot;state&quot;));</b>
+<b class="fc"><i>38</i>&nbsp;        return processService.setDeadline(time,id,state);</b>
+<i>39</i>&nbsp;    }
+<i>40</i>&nbsp;
+<i>41</i>&nbsp;    @RequestMapping(path = &quot;/getSelfGrade&quot;)
+<i>42</i>&nbsp;    public Grade getGrade(@RequestBody Map&lt;String,String&gt; params){
+<b class="fc"><i>43</i>&nbsp;        String id=params.get(&quot;id&quot;);</b>
+<b class="fc"><i>44</i>&nbsp;        return processService.getGradeById(id);</b>
+<i>45</i>&nbsp;    }
+<i>46</i>&nbsp;
+<i>47</i>&nbsp;    @RequestMapping(path = &quot;/getGrades&quot;)
+<i>48</i>&nbsp;    public List&lt;GradeInfo&gt; getGradeByteacher(@RequestBody Map&lt;String,String&gt; params){
+<b class="fc"><i>49</i>&nbsp;        String id=params.get(&quot;id&quot;);</b>
+<b class="fc"><i>50</i>&nbsp;        return processService.getGradeByTeacher(id);</b>
+<i>51</i>&nbsp;    }
+<i>52</i>&nbsp;
+<i>53</i>&nbsp;    @RequestMapping(path = &quot;/getStudentsProcess&quot;)
+<i>54</i>&nbsp;    public List&lt;StuProInfo&gt; getStudentsProcess(@RequestBody String dept) {
+<b class="fc"><i>55</i>&nbsp;        System.out.println(dept);</b>
+<b class="fc"><i>56</i>&nbsp;        return processService.getStudentsProcess(dept);</b>
+<i>57</i>&nbsp;    }
+<i>58</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-09-06 21:36</div>
+</div>
+</body>
+</html>

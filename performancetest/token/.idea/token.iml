@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
+<module type="PYTHON_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$" />
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+  <component name="TestRunnerService">
+    <option name="PROJECT_TEST_RUNNER" value="Twisted Trial" />
+=======
+<module version="4">
+  <component name="CheckStyle-IDEA-Module">
+    <option name="configuration">
+      <map />
+    </option>
+>>>>>>> 206a2c029f8b03f7d5012a5629f8cc5b0d9626ed
+  </component>
+</module>

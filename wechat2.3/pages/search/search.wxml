@@ -1,7 +1,7 @@
 <!--pages/search/search.wxml-->
 <wxs src="../../utils/tool.wxs" module="tools" />
 
-<view>
+<scroll-view>
   <view class="searchBar" style="width:100%"> 
     <van-search
       model:value="{{ searchValue }}"
@@ -9,10 +9,16 @@
       bind:search="onSearch"
     />
   </view>
-  <wux-wing-blank size="default">
-    <wux-card wx:for="{{ searchMessages }}" wx:key="id" bindtap="detail" data-id="{{item.id}}" data-type="{{item.type}}" title="{{item.title}}">
-      <view slot = "body">{{tools.sub(item.content)}}</view>
-      <view slot="footer">{{item.time}}</view>
-    </wux-card>
-  </wux-wing-blank>
-</view>
+  <view>
+    <block wx:for="{{searchMessages}}" wx:for-item="list">
+      <block wx:for="{{list}}" wx:for-item="item" wx:key="id">
+        <wux-card bindtap="detail" data-id="{{item.id}}" data-type="{{item.type}}" title="{{item.title}}">
+            <view slot = "body">{{tools.sub(item.content)}}</view>
+            <!-- <view slot="footer">{{item.time}}</view> -->
+          </wux-card>
+      </block>
+      
+    </block>
+  </view>
+  
+</scroll-view>
