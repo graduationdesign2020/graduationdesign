@@ -5,6 +5,7 @@ DROP TABLE IF EXISTS schoolnotice;
 DROP TABLE IF EXISTS deptnotice;
 DROP TABLE IF EXISTS teachermessage;
 DROP TABLE IF EXISTS teachermessagereading;
+DROP TABLE IF EXISTS teachermessagereply;
 DROP TABLE IF EXISTS wechatusers;
 drop table if exists principleusers;
 DROP TABLE IF EXISTS project;
@@ -44,6 +45,9 @@ CREATE TABLE schoolnotice(
     PRIMARY KEY (id)
 );
 
+-- type:
+-- 0:不回复信息
+-- 1:回复信息
 CREATE TABLE teachermessage(
     id          int not null auto_increment,
     type		int not null,

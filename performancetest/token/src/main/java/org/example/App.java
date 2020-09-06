@@ -11,7 +11,7 @@ public class App
 {
     public static void main( String[] args ) throws IOException {
         try {
-            File writeName = new File("/Users/mac/Desktop/token.txt");
+            File writeName = new File("C:/Users/peach/Desktop/token.txt");
             try (FileWriter writer = new FileWriter(writeName);
                  BufferedWriter out = new BufferedWriter(writer)
             ) {
