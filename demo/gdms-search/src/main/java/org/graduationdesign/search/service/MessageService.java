@@ -30,7 +30,7 @@ public class MessageService {
         SearchRequest searchRequest=new SearchRequest("gdms");
         SearchSourceBuilder searchSourceBuilder=new SearchSourceBuilder();
 
-        searchSourceBuilder.from(pageNo);
+        searchSourceBuilder.from(pageNo*pageSize);
         searchSourceBuilder.size(pageSize);
 
         BoolQueryBuilder queryBuilders=QueryBuilders.boolQuery()

@@ -77,6 +77,7 @@ export default function LoginView() {
             const callback = (data) => {
                 console.log(data)
                 if (data.code === 200) {
+                    localStorage.setItem("Authorization", data.Authorization)
                     authedSuccess()
                     history.push("/")
                 }

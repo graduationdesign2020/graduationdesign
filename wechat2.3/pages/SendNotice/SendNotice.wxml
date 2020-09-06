@@ -16,7 +16,7 @@
     />
     <van-cell title="正文"/>
     <van-field
-      value="{{ content }}"
+      value="{{ text }}"
       type="textarea"
       center
       size="large"
@@ -33,15 +33,15 @@
       use-button-slot
       bind:change="taskChange"
     >
-      <van-button slot="button" size="small" type="primary" custom-class="button" bindtap="setTask">确定</van-button>
+      <van-button class="task-button" slot="button" size="small" type="primary" custom-class="button" bindtap="setTask">确定</van-button>
     </van-field>
     </van-cell-group>
-    <view class="task">
+    <view class="tasks">
     <van-tag
-    wx:for="{{ tasks }}"
-    wx:key = "index"
-    data-index="{{ index }}"
+    wx:for="{{ tasks }}"  
+    wx:key = "index" 
     style="margin-left: 10px"
+    data-index="{{ index }}"
     type="warning"
     size="large"
     closeable
@@ -50,7 +50,7 @@
     </van-tag>
     </view>
     <view class="button">
-    <van-button type="info" size="large" round bindtap="sendNotice">发送消息</van-button>
+    <van-button class="send-button" type="info" size="large" round bindtap="sendNotice">发送消息</van-button>
     </view>
   <van-popup
     show="{{ show }}"
