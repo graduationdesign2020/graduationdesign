@@ -1,7 +1,7 @@
-package org.graduationdesign.gdmsservernotice.configure;
+package org.graduationdesign.gdmsserversearch.configure;
 
 import org.apache.commons.lang.StringUtils;
-import org.graduationdesign.gdmsservernotice.properties.GdmsServerSystemProperties;
+import org.graduationdesign.gdmsserversearch.properties.GdmsServerSystemProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -10,7 +10,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.R
 
 @Configuration
 @EnableResourceServer
-public class GdmsServerNoticeResourceSeverConfigure extends ResourceServerConfigurerAdapter {
+public class GdmsServerSearchResourceServerConfigure extends ResourceServerConfigurerAdapter {
     @Autowired
     private GdmsServerSystemProperties properties;
 

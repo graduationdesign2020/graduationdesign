@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: GDMS-Server-Notice
+    name: GDMS-Server-Core
   datasource:
     username: root
     password: Smile200915@
