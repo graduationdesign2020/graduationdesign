@@ -117,6 +117,8 @@ gdms
 
 ## 数据库概览
 > 共16张表，其中NoSQL表4张，存储通知/消息内容等非格式化数据；SQL表12张，存储格式化信息
+
+![ImageText](https://github.com/graduationdesign2020/graduationdesign/blob/master/picture/mysql.png)
 - MySQL
 
 ![ImageText](https://github.com/graduationdesign2020/graduationdesign/blob/master/picture/1599426444(1).png)
