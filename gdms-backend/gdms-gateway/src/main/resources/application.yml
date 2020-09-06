@@ -7,7 +7,7 @@ spring:
   boot:
     admin:
       client:
-        url: http://localhost:8401
+        url: http://54.234.98.178:8401
         username: gdms
         password: gdmsadmin
 
@@ -20,7 +20,7 @@ eureka:
     instance-info-replication-interval-seconds: 30
     registry-fetch-interval-seconds: 3
     serviceUrl:
-      defaultZone: http://gdms:graduationdesign@localhost:8001/register/eureka/
+      defaultZone: http://gdms:graduationdesign@54.234.98.178:8001/register/eureka/
 
 zuul:
   host:
