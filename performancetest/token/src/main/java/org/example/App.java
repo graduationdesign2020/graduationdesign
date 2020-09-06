@@ -11,6 +11,7 @@ public class App
 {
     public static void main( String[] args ) throws IOException {
         try {
+
             File writeName = new File("/Users/mac/Desktop/token.txt");
             File teacherName = new File("/Users/mac/Desktop/teachertoken.txt");
             File studentName = new File("/Users/mac/Desktop/studenttoken.txt");
