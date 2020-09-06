@@ -51,6 +51,30 @@ public class LoginServiceTest {
     }
     @Test
     @Transactional
+    public void checkrigisterwrong(){
+        ReturnInfo compare=loginService.register("100200300","1234","aaa","ROLE_TEACHER");
+        ReturnInfo returnInfo=new ReturnInfo();
+        returnInfo.setMsg("WRONG");
+        assertEquals(returnInfo,compare);
+    }
+    @Test
+    @Transactional
+    public void checkrigisteridrepeat(){
+        ReturnInfo compare=loginService.register("100200300","03047a","aaa","ROLE_TEACHER");
+        ReturnInfo returnInfo=new ReturnInfo();
+        returnInfo.setMsg("REGISTERED");
+        assertEquals(returnInfo,compare);
+    }
+    @Test
+    @Transactional
+    public void checkrigisterwechatrepeat(){
+        ReturnInfo compare=loginService.register("03047a","03047a","aaa","ROLE_TEACHER");
+        ReturnInfo returnInfo=new ReturnInfo();
+        returnInfo.setMsg("REGISTERED");
+        assertEquals(returnInfo,compare);
+    }
+    @Test
+    @Transactional
     public void checklogout(){
         String wechat_id="123456";
         ReturnInfo returnInfo=new ReturnInfo();
@@ -58,6 +82,7 @@ public class LoginServiceTest {
         ReturnInfo compare=loginService.logout(wechat_id);
         assertEquals(compare, returnInfo);
     }
+
 
     @Test
     @Transactional

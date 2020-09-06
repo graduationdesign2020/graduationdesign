@@ -18,6 +18,7 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,6 +45,19 @@ public class ProcessServiceTest extends DemoApplicationTests {
     public void contextLoads() {
     }
 
+    @Test
+    public void checkSelfProcessFail() throws JsonProcessingException{
+        String student="abcdefg";
+        List<StateInfo> result = processService.checkSelfProcess(student);
+        assertEquals(5,result.size());
+    }
+
+    @Test
+    public void checkSelfProcessEmpty() throws JsonProcessingException{
+        String student="518021910456";
+        List<StateInfo> result = processService.checkSelfProcess(student);
+        assertEquals(5,result.size());
+    }
     @Test
     public void checkSelfProcess() throws JsonProcessingException {
         String student="305349154743";
@@ -95,7 +109,7 @@ public class ProcessServiceTest extends DemoApplicationTests {
         stateInfo3.setSta(state3);
         stateInfo3.setState("论文定稿");
         stateInfo3.setSubmit(state3.getSubmit());
-        stateInfo3.setEnd_time(null);
+        stateInfo3.setEnd_time("2020-08-27 04:57");
         compare.add(stateInfo3);
         StateInfo stateInfo4=new StateInfo();
         State state4=new State();
@@ -116,10 +130,17 @@ public class ProcessServiceTest extends DemoApplicationTests {
     @Transactional
     @Test
     public void checkSetDeadline(){
-        List<String> student=new ArrayList<>();
         ReturnInfo result=processService.setDeadline("2020-8-30 12:00:00","03047a",2);
         assertEquals("SUCCESS",result.getMsg());
     }
+
+    @Transactional
+    @Test
+    public void checkChangeDeadline(){
+        ReturnInfo result=processService.setDeadline("2020-8-30 12:00:00","10370a",3);
+        assertEquals("SUCCESS",result.getMsg());
+    }
+
 
     @Test
     public void checkGetGrade(){
@@ -141,13 +162,18 @@ public class ProcessServiceTest extends DemoApplicationTests {
 
     @Test
     public void checkgetStudentsProcess(){
-        List<ProcessInfo> processInfos=processService.getStudentsProcess("111");
+        List<StuProInfo> processInfos=processService.getStudentsProcess("1");
         assertEquals(5,processInfos.size());
     }
 
     @Test
     public void checkProcess(){
         List<ProcessInfo> list=processService.checkProcess("03047a");
+        assertEquals(5,list.size());
+    }
+    @Test
+    public void checkTimeProcess(){
+        List<ProcessInfo> list=processService.checkProcess("10370a");
         assertEquals(5,list.size());
     }
 

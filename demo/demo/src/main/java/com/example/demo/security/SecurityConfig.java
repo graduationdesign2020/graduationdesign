@@ -15,6 +15,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.cors.CorsUtils;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
@@ -40,12 +41,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.cors().and()
-                // 禁用 CSRF
+        http.cors().and()   // 禁用 CSRF
                 .csrf().disable()
                 .authorizeRequests()
+                .requestMatchers(CorsUtils::isPreFlightRequest).permitAll()
                 .antMatchers("/actuator/**").permitAll()
-                .antMatchers(HttpMethod.POST, "/login", "/register", "/getOpenid","/mylogout").permitAll()
+                .antMatchers(HttpMethod.POST, "/login", "/register", "/getOpenid","/mylogout", "/adminlogin","/getExcel").permitAll()
                 // 指定路径下的资源需要验证了的用户才能访问
                 .anyRequest().authenticated()
                 .and()

@@ -3,6 +3,7 @@
 //获取应用实例
 const app = getApp();
 import {PostRequest} from "../../utils/ajax";
+import {NoticeRequest} from "../../utils/ajax";
 
 Page({
   data: {
@@ -16,16 +17,9 @@ Page({
     studentCommonAPPs: [
       {icon: 'records', text: '成绩', url: '/pages/myScore/myScore'}
     ],
-    schoolNotices: [
-      {title: '毕业设计选题公告', id: 1, time: '07-01', content: '内容'}
-    ],
-    deptNotices: [
-      {title: '毕业设计选题公告', id: 1, time: '07-01', content: '内容', department: '专业'}
-    ],
-    teacherMessages: [
-      {title: '学生信息收集', type: 0, id: 1, reading_id: 1, isread: false, reading: 10, unread: 2, teachername: '娘口三三', time: '07-01', content: '请在输入框中输入指定信息blablablabla............................'},
-      {title: '学生信息收集', type: 1, id: 2, reading_id: 2, isread: false, reading: 10, unread: 2, teachername: '娘口三三', time: '07-01', content: '请在输入框中输入指定信息blablablabla............................'}  
-    ],
+    schoolNotices: [],
+    deptNotices: [],
+    teacherMessages: [],
     auth: wx.getStorageSync('auth'),
     isRefresh:false
   },
@@ -41,8 +35,8 @@ Page({
         wx.setStorageSync('auth', data)
       })
     }
-    PostRequest('/getThreeSchoolNotices', {}, that.setSchoolNotices)
-    PostRequest('/getThreeDepartmentNotices', {}, that.setDeptNotices)
+    NoticeRequest('/getThreeSchoolNotices', {}, that.setSchoolNotices)
+    NoticeRequest('/getThreeDepartmentNotices', {}, that.setDeptNotices)
     PostRequest('/getTeacherMessages', {}, that.setTeacherMessages);
   },
 
@@ -55,12 +49,26 @@ Page({
   },
 
   setTeacherMessages: function(data){
+    console.log(data)
     this.setData({teacherMessages: data});
+  },
+
+  setSearchResults: function(data) {
+    this.setData({
+      deptNotices: data.deptNotices,
+      schoolNotices: data.schoolNotices,
+      teacherMessages: data.teacherMessages
+    })
   },
     
   onSearch() {
-
+    console.log(this.data.searchValue)
+    wx.navigateTo({
+      url: '../search/search?searchValue=' + this.data.searchValue,
+    })
+    
   },
+
   onShow:function(e){
     var that=this
     // 返回时刷新页面

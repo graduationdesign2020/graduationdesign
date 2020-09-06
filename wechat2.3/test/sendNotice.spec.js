@@ -1,6 +1,6 @@
 const automator = require('miniprogram-automator')
 
-describe('e2e tests', () => {
+describe('send notice', () => {
   let miniProgram
 
   beforeAll(async () => {
@@ -13,21 +13,51 @@ describe('e2e tests', () => {
     await miniProgram.disconnect()
   })
 
-  it('myProfile', async() => {
+  it('read', async() => {
     const page = await miniProgram.reLaunch('/pages/SendNotice/SendNotice')
-    await page.setData({
-      title:"title"
-    })
     await page.waitFor(500)
+
+    await page.setData({
+      title:"测试",
+      text: "测试",
+    })
+    await page.waitFor(200)
+
     await page.callMethod("chooseAll")
+    await page.waitFor(200)
+    expect(await page.data('result.length')).toBe(3)
+
+    const button = await page.$('.send-button')
+    await button.tap()
     await page.waitFor(500)
+    expect(await page.data('msg')).toBe('发送成功')
+  }, 30000)
+
+  it('reply', async() => {
+    const page = await miniProgram.reLaunch('/pages/SendNotice/SendNotice')
+    await page.waitFor(500)
+
     await page.setData({
-      text: "content"
+      title:"测试",
+      text: "测试",
+      task: '测试'
     })
+    await page.waitFor(200)
+
+    await page.callMethod("chooseAll")
+    await page.waitFor(200)
+    expect(await page.data('result.length')).toBe(3)
+
+    const taskButton = await page.$('.task-button')
+    await taskButton.tap()
+    await page.waitFor(200)
+    const tasks = await page.$$('van-tag')
+    expect(tasks.length).toBe(1)
+
+    const button = await page.$('.send-button')
+    await button.tap()
     await page.waitFor(500)
-    const button = await page.$('van-button')
-    button.tap()
-    console.log(button.tagName)
-  })
+    expect(await page.data('msg')).toBe('发送成功')
+  }, 30000)
   
 })

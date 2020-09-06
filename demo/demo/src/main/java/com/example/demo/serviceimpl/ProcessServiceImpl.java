@@ -5,10 +5,7 @@ import com.example.demo.entity.*;
 import com.example.demo.schdule.LoadTask;
 import com.example.demo.service.ProcessService;
 
-import com.example.demo.utils.GradeInfo;
-import com.example.demo.utils.ProcessInfo;
-import com.example.demo.utils.ReturnInfo;
-import com.example.demo.utils.StateInfo;
+import com.example.demo.utils.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -181,41 +178,34 @@ public class ProcessServiceImpl implements ProcessService {
         }
         return infoList;
     }
-    public List<ProcessInfo> getStudentsProcess(String dept) {
+    public List<StuProInfo> getStudentsProcess(String dept) {
         List<Student> students = studentDao.findByDept(dept);
-        List<ProcessInfo> processInfos = new ArrayList<>();
+        List<StuProInfo> stuProInfos = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
-            ProcessInfo processInfo = new ProcessInfo();
-
-            String name = "";
-            switch (i) {
-                case 0: name = "任务书";break;
-                case 1: name = "开题报告";break;
-                case 2: name = "中期检查";break;
-                case 3: name = "论文定稿";break;
-                case 4: name = "论文最终稿";
-            }
-            processInfo.setName(name);
-            List<Student> studentsFinished = new ArrayList<>();
-            List<Student> studentsUnfinished = new ArrayList<>();
-            int finished = 0;
+            StuProInfo stuProInfo = new StuProInfo();
+            stuProInfo.setState(i+1);
+            List<StuInfo> stuInfos = new ArrayList<>();
             for (Student student : students) {
+                StuInfo stuInfo = new StuInfo();
                 State state = stateDao.getOneByProjAndState(student.getId(), i);
                 if (state == null || state.getSubmit() != 5) {
-                    studentsUnfinished.add(student);
+                    stuInfo.setFlag(false);
                 }
                 else if (state.getSubmit() == 5) {
-                    studentsFinished.add(student);
-                    finished++;
+                    stuInfo.setFlag(true);
                 }
+                stuInfo.setId(student.getId());
+                stuInfo.setName(student.getName());
+                stuInfo.setDept(student.getDepartment());
+                stuInfo.setMajor(student.getMajor());
+                Project project = projectDao.getOne(student.getId()).get();
+                stuInfo.setInstructor(project.getTeacher_id());
+                stuInfo.setProject(project.getProject_name());
+                stuInfos.add(stuInfo);
             }
-            int unfinished = students.size() - finished;
-            processInfo.setFinished(finished);
-            processInfo.setFinishedStu(studentsFinished);
-            processInfo.setUnfinished(unfinished);
-            processInfo.setUnfinishedStu(studentsUnfinished);
-            processInfos.add(processInfo);
+            stuProInfo.setStuInfos(stuInfos);
+            stuProInfos.add(stuProInfo);
         }
-        return processInfos;
+        return stuProInfos;
     }
 }

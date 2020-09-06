@@ -10,6 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import java.sql.Timestamp;
+
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
@@ -29,11 +31,4 @@ public class State {
     private int state;
 
     private  int submit;
-
-    public void init(int id, String project_id, int state, int submit) {
-        this.id = id;
-        this.project_id = project_id;
-        this.state = state;
-        this.submit = submit;
-    }
 }

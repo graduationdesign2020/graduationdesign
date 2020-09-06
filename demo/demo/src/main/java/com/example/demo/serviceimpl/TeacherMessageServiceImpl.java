@@ -6,6 +6,7 @@ import com.example.demo.repository.TeacherMessageReadingRepository;
 import com.example.demo.service.TeacherMessageService;
 import com.example.demo.utils.MessageInfo;
 import com.example.demo.utils.ReadInfo;
+import com.example.demo.utils.Reply;
 import com.example.demo.utils.ReturnInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,6 +37,7 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
         {
             MessageInfo messageInfo=new MessageInfo();
             messageInfo.setId(t.getId());
+            messageInfo.setType(0);
             messageInfo.setTitle(t.getTitle());
             messageInfo.setContent(t.getTeacherMessageContent().getContent());
             messageInfo.setTime(t.getTime());
@@ -58,6 +60,7 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
             MessageInfo messageInfo = new MessageInfo();
             TeacherMessage teacherMessage = teacherMessageDao.getTeacherMessage(teacherMessageReading.getMessage_id());
             messageInfo.setId(teacherMessage.getId());
+            messageInfo.setType(teacherMessage.getType());
             messageInfo.setReading_id(teacherMessageReading.getId());
             messageInfo.setTitle(teacherMessage.getTitle());
             messageInfo.setTime(teacherMessage.getTime());
@@ -70,7 +73,7 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
     }
 
     @Override
-    public ReturnInfo sentTeacherMessage(String title, String teacher_id, List<String> student_id, String content){
+    public ReturnInfo sentTeacherMessage(String title, String teacher_id, List<String> student_id, String content,List<String> tasks){
         Timestamp d=new Timestamp(System.currentTimeMillis());
         ReturnInfo returnInfo=new ReturnInfo();
         TeacherMessageReading s=new TeacherMessageReading();
@@ -82,7 +85,15 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
         TeacherMessageContent teacherMessageContent=new TeacherMessageContent();
         teacherMessageContent.setContent(content);
         teacherMessageContent.setStudents(student_id);
+        teacherMessageContent.setType(2);
         teacherMessage.setTeacherMessageContent(teacherMessageContent);
+        if(tasks==null||tasks.size()<=0) {
+            teacherMessage.setType(0);
+        }
+        else {
+            teacherMessage.setType(1);
+            teacherMessageContent.setKeys(tasks);
+        }
         teacherMessageDao.sentTeacherMessage(teacherMessage);
         List<TeacherMessageReading> teacherMessageReadings=new ArrayList<>();
         for (String value : student_id) {
@@ -144,6 +155,7 @@ public class TeacherMessageServiceImpl implements TeacherMessageService {
             MessageInfo messageInfo = new MessageInfo();
             messageInfo.setTitle(teacherMessage.getTitle());
             messageInfo.setId(teacherMessage.getId());
+            messageInfo.setType(teacherMessage.getType());
             messageInfo.setReading(teacherMessageReadingDao.getTeacherMessageReadingsByMessage_id(teacherMessage.getId()));
             messageInfo.setUnread(teacherMessageReadingDao.getUnReadingsByMessage_id(teacherMessage.getId()));
             messageInfo.setTime(teacherMessage.getTime());

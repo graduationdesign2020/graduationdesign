@@ -24,7 +24,7 @@ Page({
   },
   
   setNotice: function(data){
-    this.setData({notice: data.MessageInfo, reply: data.reply});
+    this.setData({notice: data, reply: data.reply});
   },
 
   onChange: function(event) {

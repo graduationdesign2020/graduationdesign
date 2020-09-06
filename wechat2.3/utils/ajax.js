@@ -1,9 +1,24 @@
-const urlhead = "http://54.167.148.196:8888"
+const urlhead = "http://localhost:8888"
+const searchurl = "http://localhost:8889"
+const noticeurl = "http://localhost:8890"
 
-export const PostRequest = (url, postdata, callback, failcallback = (res)=>{}) => {
+export const PostRequest = (url, postdata, callback, failcallback = (res) => {}) => {
+  Request(urlhead, url, postdata, callback)
+}
+
+export const SearchRequest = (url, postdata, callback, failcallback = (res) => {}) => {
+  Request(searchurl, url, postdata, callback)
+}
+
+export const NoticeRequest = (url, postdata, callback, failcallback = (res) => {}) => {
+  Request(noticeurl, url, postdata, callback)
+}
+
+export const Request = (head, url, postdata, callback, failcallback = (res)=>{}) => {
   if(wx.getStorageSync('jwt')){
+    console.log(wx.getStorageSync('jwt'))
     wx.request({
-      url: urlhead+url,
+      url: head+url,
       data: postdata,
       header: {"Authorization": wx.getStorageSync('jwt')},
       success(res) {

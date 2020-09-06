@@ -6,6 +6,8 @@ import lombok.Data;
 public class MessageInfo {
     private int id;
 
+    private int type;//0:单向消息;1:回复消息
+
     private int reading_id;
 
     private String title;

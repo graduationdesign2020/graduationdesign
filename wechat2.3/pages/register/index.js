@@ -42,7 +42,7 @@ Page({
       }
       var that = this
       wx.request({
-        url: 'http://54.167.148.196:8888/register',
+        url: 'http://localhost:8888/register',
         data:{
           name: this.data.name, 
           id: this.data.id, 
@@ -63,7 +63,7 @@ Page({
       console.log("register") 
       console.log(wx.getStorageSync('auth')) 
       wx.request({
-        url: 'http://54.167.148.196:8888/login',
+        url: 'http://localhost:8888/login',
         method: "POST",
         data: {
           id: this.data.id,

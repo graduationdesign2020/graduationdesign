@@ -14,7 +14,8 @@
     "pages/process/procedure",
     "pages/processList/processList",
     "pages/postddl/postddl",
-    "pages/inputId/inputId"
+    "pages/inputId/inputId",
+    "pages/search/search"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -55,5 +56,11 @@
     "van-divider": "@vant/weapp/divider/index",
     "van-collapse": "@vant/weapp/collapse/index",
     "van-collapse-item": "@vant/weapp/collapse-item/index"
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 20000,
+    "uploadFile": 20000,
+    "downloadFile": 20000
   }
 }
