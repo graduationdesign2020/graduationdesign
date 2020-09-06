@@ -65,7 +65,7 @@ LOCAL_SCRAPYD_SERVER = 'localhost:6800'
 # python -c "from os.path import abspath, isdir; from scrapyd.config import Config; path = abspath(Config().get('logs_dir')); print(path); print(isdir(path))"
 # Check out https://scrapyd.readthedocs.io/en/stable/config.html#logs-dir for more info.
 # e.g. 'C:/Users/username/logs' or '/home/username/logs'
-LOCAL_SCRAPYD_LOGS_DIR = 'C:/Users/LYC/graduationdesign/scrapyd/logs'
+LOCAL_SCRAPYD_LOGS_DIR = '/code/scrapyd/logs/'
 
 # The default is False, set it to True to automatically run LogParser as a subprocess at startup.
 # Note that you can run the LogParser service separately via command 'logparser' as you like.
@@ -91,7 +91,7 @@ PRIVATEKEY_FILEPATH = ''
 # ScrapydWeb is able to locate projects in the SCRAPY_PROJECTS_DIR,
 # so that you can simply select a project to deploy, instead of packaging it in advance.
 # e.g. 'C:/Users/username/myprojects' or '/home/username/myprojects'
-SCRAPY_PROJECTS_DIR = 'C:/Users/LYC/graduationdesign/scrapyd'
+SCRAPY_PROJECTS_DIR = '/code/'
 
 ############################## Scrapyd ########################################
 # ScrapydWeb would try every extension in sequence to locate the Scrapy logfile.
