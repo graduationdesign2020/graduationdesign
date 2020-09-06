@@ -1,6 +1,6 @@
 // pages/search/search.js
 const app = getApp()
-import {PostRequest} from '../../utils/ajax'
+import {SearchRequest, PostRequest} from '../../utils/ajax'
 
 Page({
 
@@ -12,7 +12,7 @@ Page({
     userData: {},
     searchValue: '',
     currentPage: 1,
-    searchMessages: [{id: 1,type:1, title: '参数的传递', time: '2020-08-19', content: '啊擦都洞的佛v觉得覅v哦地方v哦v地方v那地方v你吧v官方撒吃撒地产市场的食不果腹DVD是'}]
+    searchMessages: [{id: 1,type:1, title: '参数的传递', content: '啊擦都洞的佛v觉得覅v哦地方v哦v地方v那地方v你吧v官方撒吃撒地产市场的食不果腹DVD是'}]
   },
 
   /**
@@ -64,9 +64,15 @@ Page({
    */
   onReachBottom: function () {
     var page = this.data.currentPage + 1
-    var data = {dept: this.data.userData.dept, id: this.data.userData.id, keywords: this.data.searchValue, pageNo: page, pageSize: 5}
+    var data = {dept: this.data.userData.dept, id: this.data.userData.id, keywords: this.data.searchValue, pageNo: page, pageSize: 6}
     var that = this
-    PostRequest('search', data, (res)=>{that.setData({currentPage: page, ["searchMassages["+page+"]"]: res})})
+    console.log("reach bottom")
+    SearchRequest('/search', data, (res)=>{
+      console.log(res)
+      that.setData({
+        ["searchMessages["+page+"]"]: res, currentPage: page
+      })
+    })
   },
 
   /**
@@ -77,9 +83,15 @@ Page({
   },
 
   onSearch: function () {
-    var data = {dept: this.data.userData.dept, id: this.data.userData.id, keywords: this.data.searchValue, pageNo: 1, pageSize: 5}
+    var data = {dept: this.data.userData.dept, id: this.data.userData.id, keywords: this.data.searchValue, pageNo: 0, pageSize: 6}
     var that = this
-    //PostRequest('search', data, (res)=> {that.setData({["searchMessages["+0+"]"]: res})})
+    SearchRequest('/search', data, (res)=> {
+      console.log("init", res)
+      that.setData({
+        ["searchMessages["+ 0 +"]"]: res, 
+        currentPage: 0
+      })
+    })
   },
 
   detail: function(e) {

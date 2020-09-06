@@ -42,6 +42,7 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
                 String openid=authenticationBean.getOpenid();
                 System.out.print(openid);
                 authRequest = new UsernamePasswordAuthenticationToken(authenticationBean.getId(), openid);
+                System.out.println(authRequest);
             }
             catch (IOException e) {
                 e.printStackTrace();
