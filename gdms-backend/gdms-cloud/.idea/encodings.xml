@@ -9,5 +9,6 @@
     <file url="file://$PROJECT_DIR$/../gdms-server/gdms-server-core/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../gdms-server/gdms-server-notice/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../gdms-server/gdms-server-search/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../gdms-server/gdms-server-test/src/main/java" charset="UTF-8" />
   </component>
 </project>

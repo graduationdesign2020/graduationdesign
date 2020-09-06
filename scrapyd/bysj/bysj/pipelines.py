@@ -11,13 +11,13 @@ import pymongo
 class BYSJPipeline(object):
     def __init__(self):
         # connection database
-        self.connect = pymysql.connect(host='54.90.100.214', user='root', passwd='graduationdesign',
-                                       db='gdms')
+        self.connect = pymysql.connect(host='localhost', user='root', passwd='Smile200915@',
+                                       db='GDMS')
         # get cursor
         self.cursor = self.connect.cursor()
 
-        self.client = pymongo.MongoClient("mongodb://54.90.100.214:27017")
-        self.db = self.client["gdms"]  # 获得数据库的句柄
+        self.client = pymongo.MongoClient("mongodb://localhost:27017")
+        self.db = self.client["GDMS"]  # 获得数据库的句柄
         self.coll_dept = self.db["deptnoticecontent"]  # 获得collection的句柄
         self.coll_school = self.db["schoolnoticecontent"]
 

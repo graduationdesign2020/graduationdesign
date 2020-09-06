@@ -1,17 +1,17 @@
-package org.graduationdesign.gdmsservernotice;
+package org.graduationdesign.gdmsservertest;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 
-@EnableGlobalMethodSecurity(prePostEnabled = true)
 @EnableDiscoveryClient
 @SpringBootApplication
-public class GdmsServerNoticeApplication {
+@EnableGlobalMethodSecurity(prePostEnabled = true)
+public class GdmsServerTestApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(GdmsServerNoticeApplication.class, args);
+        SpringApplication.run(GdmsServerTestApplication.class, args);
     }
 
 }

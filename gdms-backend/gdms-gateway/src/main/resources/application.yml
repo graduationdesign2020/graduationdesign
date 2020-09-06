@@ -23,14 +23,29 @@ eureka:
       defaultZone: http://gdms:graduationdesign@localhost:8001/register/eureka/
 
 zuul:
+  host:
+    socket-timeout-millis: 60000
+    connect-timeout-millis: 60000
   routes:
     auth:
       path: /auth/**
       serviceId: GDMS-Auth
       sensitiveHeaders: "*"
-    system:
+    search:
       path: /search/**
       serviceId: GDMS-Server-Search
+      sensitiveHeaders: "*"
+    notice:
+      path: /notice/**
+      serviceId: GDMS-Server-Notice
+      sensitiveHeaders: "*"
+    core:
+      path: /core/**
+      serviceId: GDMS-Server-Core
+      sensitiveHeaders: "*"
+    test:
+      path: /test/**
+      serviceId: GDMS-Server-Test
       sensitiveHeaders: "*"
   retryable: true
   ignored-services: "*"
@@ -39,7 +54,16 @@ zuul:
       enabled: true
 
 ribbon:
-  ReadTimeout: 3000
+  ReadTimeout: 60000
+  ConnectTimeout: 60000
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
 
 info:
   app:
