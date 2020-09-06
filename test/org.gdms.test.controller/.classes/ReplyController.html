@@ -1,0 +1,140 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: ReplyController</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.gdms.test.controller</a> ]
+</div>
+
+<h1>Coverage Summary for Class: ReplyController (org.gdms.test.controller)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ReplyController</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/ 4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (16/ 16)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package org.gdms.test.controller;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import com.alibaba.fastjson.JSONArray;
+<i>4</i>&nbsp;import com.alibaba.fastjson.JSONObject;
+<i>5</i>&nbsp;import org.gdms.test.service.ReplyService;
+<i>6</i>&nbsp;import org.gdms.test.util.*;
+<i>7</i>&nbsp;import org.springframework.beans.factory.annotation.Autowired;
+<i>8</i>&nbsp;import org.springframework.web.bind.annotation.CrossOrigin;
+<i>9</i>&nbsp;import org.springframework.web.bind.annotation.RequestBody;
+<i>10</i>&nbsp;import org.springframework.web.bind.annotation.RequestMapping;
+<i>11</i>&nbsp;import org.springframework.web.bind.annotation.RestController;
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import javax.servlet.ServletOutputStream;
+<i>14</i>&nbsp;import javax.servlet.http.HttpServletResponse;
+<i>15</i>&nbsp;import java.net.URLEncoder;
+<i>16</i>&nbsp;import java.nio.charset.StandardCharsets;
+<i>17</i>&nbsp;import java.util.ArrayList;
+<i>18</i>&nbsp;import java.util.List;
+<i>19</i>&nbsp;import java.util.Map;
+<i>20</i>&nbsp;
+<i>21</i>&nbsp;@RestController
+<i>22</i>&nbsp;@CrossOrigin(origins = &quot;*&quot;,maxAge = 3600)
+<b class="fc"><i>23</i>&nbsp;public class ReplyController {</b>
+<i>24</i>&nbsp;    @Autowired
+<i>25</i>&nbsp;    ReplyService replyService;
+<i>26</i>&nbsp;
+<i>27</i>&nbsp;    @RequestMapping(path = &quot;/getReplyMessage&quot;)
+<i>28</i>&nbsp;    public ReplyMessageInfo getReplyMessage(@RequestBody Map&lt;String,Integer&gt; params) {
+<b class="fc"><i>29</i>&nbsp;        Integer id=params.get(&quot;id&quot;);</b>
+<b class="fc"><i>30</i>&nbsp;        Integer reading_id=params.get(&quot;reading_id&quot;);</b>
+<b class="fc"><i>31</i>&nbsp;        return replyService.getReplyMessage(id,reading_id);</b>
+<i>32</i>&nbsp;    }
+<i>33</i>&nbsp;
+<i>34</i>&nbsp;    @RequestMapping(path = &quot;/getTeacherMessageReply&quot;)
+<i>35</i>&nbsp;    public ReplyInfo getTeacherMessageReply(@RequestBody Map&lt;String,Integer&gt; params) {
+<b class="fc"><i>36</i>&nbsp;        Integer id=params.get(&quot;id&quot;);</b>
+<b class="fc"><i>37</i>&nbsp;        return replyService.getRepliesById(id);</b>
+<i>38</i>&nbsp;    }
+<i>39</i>&nbsp;
+<i>40</i>&nbsp;    @RequestMapping(path = &quot;/sendReply&quot;)
+<i>41</i>&nbsp;    public ReturnInfo get(@RequestBody JSONObject params) {
+<b class="fc"><i>42</i>&nbsp;        int id=Integer.parseInt(params.get(&quot;reading_id&quot;).toString());</b>
+<b class="fc"><i>43</i>&nbsp;        System.out.println(id);</b>
+<b class="fc"><i>44</i>&nbsp;        JSONArray replies= params.getJSONArray(&quot;reply&quot;);</b>
+<b class="fc"><i>45</i>&nbsp;        System.out.println(replies);</b>
+<b class="fc"><i>46</i>&nbsp;        List&lt;Reply&gt; keys= new ArrayList&lt;&gt;();</b>
+<b class="fc"><i>47</i>&nbsp;        for (Object reply : replies) {</b>
+<b class="fc"><i>48</i>&nbsp;            keys.add(JSONObject.parseObject(reply.toString(), Reply.class));</b>
+<b class="fc"><i>49</i>&nbsp;        }</b>
+<b class="fc"><i>50</i>&nbsp;        System.out.println(keys);</b>
+<b class="fc"><i>51</i>&nbsp;        return replyService.sentReply(id,keys);</b>
+<i>52</i>&nbsp;    }
+<i>53</i>&nbsp;
+<i>54</i>&nbsp;}
+<i>55</i>&nbsp;
+<i>56</i>&nbsp;
+<i>57</i>&nbsp;
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-09-06 21:36</div>
+</div>
+</body>
+</html>
