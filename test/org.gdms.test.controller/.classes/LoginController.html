@@ -1,0 +1,130 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: LoginController</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">org.gdms.test.controller</a> ]
+</div>
+
+<h1>Coverage Summary for Class: LoginController (org.gdms.test.controller)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">LoginController</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/ 4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (15/ 15)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package org.gdms.test.controller;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import org.gdms.test.service.LoginService;
+<i>4</i>&nbsp;import org.gdms.test.util.*;
+<i>5</i>&nbsp;import org.springframework.beans.factory.annotation.Autowired;
+<i>6</i>&nbsp;import org.springframework.web.bind.annotation.CrossOrigin;
+<i>7</i>&nbsp;import org.springframework.web.bind.annotation.RequestBody;
+<i>8</i>&nbsp;import org.springframework.web.bind.annotation.RequestMapping;
+<i>9</i>&nbsp;import org.springframework.web.bind.annotation.RestController;
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;import java.util.Map;
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;@RestController
+<i>14</i>&nbsp;@CrossOrigin(origins = &quot;*&quot;,maxAge = 3600)
+<b class="fc"><i>15</i>&nbsp;public class LoginController {</b>
+<i>16</i>&nbsp;    @Autowired
+<i>17</i>&nbsp;    LoginService loginService;
+<i>18</i>&nbsp;
+<i>19</i>&nbsp;    @RequestMapping(path = &quot;/register&quot;)
+<i>20</i>&nbsp;    public ReturnInfo register(@RequestBody Map&lt;String,String&gt; params){
+<b class="fc"><i>21</i>&nbsp;        System.out.println(params);</b>
+<b class="fc"><i>22</i>&nbsp;        String wechat_id= params.get(&quot;openid&quot;);</b>
+<b class="fc"><i>23</i>&nbsp;        String id= params.get(&quot;id&quot;);</b>
+<b class="fc"><i>24</i>&nbsp;        String name=params.get(&quot;name&quot;);</b>
+<b class="fc"><i>25</i>&nbsp;        int anInt = Integer.parseInt(params.get(&quot;auth&quot;));</b>
+<i>26</i>&nbsp;        String auth;
+<b class="fc"><i>27</i>&nbsp;        if(anInt==0){</b>
+<b class="fc"><i>28</i>&nbsp;            auth=&quot;ROLE_STUDENT&quot;;</b>
+<i>29</i>&nbsp;        }
+<b class="fc"><i>30</i>&nbsp;        else auth=&quot;ROLE_TEACHER&quot;;</b>
+<b class="fc"><i>31</i>&nbsp;        return loginService.register(wechat_id,id,name,auth);</b>
+<i>32</i>&nbsp;    }
+<i>33</i>&nbsp;
+<i>34</i>&nbsp;    @RequestMapping(path = &quot;/mylogout&quot;)
+<i>35</i>&nbsp;    public ReturnInfo logoff(@RequestBody Map&lt;String, String&gt; params){
+<b class="fc"><i>36</i>&nbsp;        String id=params.get(&quot;id&quot;);</b>
+<b class="fc"><i>37</i>&nbsp;        return loginService.logout(id);</b>
+<i>38</i>&nbsp;    }
+<i>39</i>&nbsp;
+<i>40</i>&nbsp;    @RequestMapping(path = &quot;/getUserData&quot;)
+<i>41</i>&nbsp;    public UserInfo getuserdata(@RequestBody Map&lt;String, String&gt; params){
+<b class="fc"><i>42</i>&nbsp;        String id=params.get(&quot;id&quot;);</b>
+<b class="fc"><i>43</i>&nbsp;        String auth=params.get(&quot;auth&quot;);</b>
+<b class="fc"><i>44</i>&nbsp;        return loginService.getUserData(id, auth);</b>
+<i>45</i>&nbsp;    }
+<i>46</i>&nbsp;}
+<i>47</i>&nbsp;
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-09-06 21:36</div>
+</div>
+</body>
+</html>
