@@ -3,11 +3,11 @@ import pymysql
 import pymongo
 
 # connection database
-connect = pymysql.connect(host='54.90.100.214', user='root', passwd='graduationdesign', db='gdms')
+connect = pymysql.connect(host='54.234.98.178', user='root', passwd='graduationdesign', db='gdms')
 # get cursor
 cursor = connect.cursor()
 
-client = pymongo.MongoClient("mongodb://54.90.100.214:27017")
+client = pymongo.MongoClient("mongodb://54.234.98.178:27017")
 
 db = client["gdms"]  # 获得数据库的句柄
 coll_message = db["teachermessagecontent"]  # 获得collection的句柄
