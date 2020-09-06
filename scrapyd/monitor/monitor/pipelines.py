@@ -6,17 +6,18 @@
 # See: https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 import pymysql
 import pymongo
+import requests
 
 
 class MonitorPipeline(object):
     def __init__(self):
         # connection database
-        self.connect = pymysql.connect(host='54.90.100.214', user='root', passwd='graduationdesign',
+        self.connect = pymysql.connect(host='54.234.98.178', user='root', passwd='graduationdesign',
                                        db='gdms')
         # get cursor
         self.cursor = self.connect.cursor()
 
-        self.client = pymongo.MongoClient("mongodb://54.90.100.214:27017")
+        self.client = pymongo.MongoClient("mongodb://54.234.98.178:27017")
         self.db = self.client["gdms"]  # 获得数据库的句柄
         self.coll_dept = self.db["deptnoticecontent"]  # 获得collection的句柄
         self.coll_school = self.db["schoolnoticecontent"]
@@ -65,6 +66,9 @@ class MonitorPipeline(object):
                     except:
                         self.connect.rollback()
                 else:
+                    # url = "http://54.234.98.178:8888/gradeupdate"
+                    # data = {"id": item['id']}
+                    # requests.post(url=url, data=data)
                     update_sql = """update grade 
                     set teacher_grade=%s, review_grade=%s, defense_grade=%s, total_grade=%s where id=%s"""
                     try:
@@ -121,6 +125,9 @@ class MonitorPipeline(object):
                     except:
                         self.connect.rollback()
                 else:
+                    # url = "http://54.234.98.178:8888/stateupdate"
+                    # data = {"project_id": item['project_id'], 'state': item['state']}
+                    # requests.post(url=url, data=data)
                     update_sql = """update state set submit=%s where project_id=%s and state=%s"""
                     try:
                         self.cursor.execute(update_sql,
@@ -136,6 +143,9 @@ class MonitorPipeline(object):
             if item["notice_type"] == 'dept':
                 query_sql = """select * from deptnotice where department=%s and title=%s and time=%s"""
                 if self.cursor.execute(query_sql, ('电子信息与电气工程学院', item['title'], item['time'])) == 0:
+                    # url = "http://54.234.98.178:8888/schoolnoticeupdate"
+                    # data = {"id": result[0]}
+                    # requests.post(url=url, data=data)
                     try:
                         self.cursor.execute(
                             """insert into deptnotice(department, title, time) value (%s, %s, %s)""",
@@ -152,6 +162,9 @@ class MonitorPipeline(object):
             if item["notice_type"] == 'school':
                 query_sql = """select * from schoolnotice where title=%s and time=%s"""
                 if self.cursor.execute(query_sql, (item['title'], item['time'])) == 0:
+                    # url = "http://54.234.98.178:8888/deptnoticeupdate"
+                    # data = {"id": result[0]}
+                    # requests.post(url=url, data=data)
                     try:
                         self.cursor.execute(
                             """insert into schoolnotice(title, time) value (%s, %s)""",
