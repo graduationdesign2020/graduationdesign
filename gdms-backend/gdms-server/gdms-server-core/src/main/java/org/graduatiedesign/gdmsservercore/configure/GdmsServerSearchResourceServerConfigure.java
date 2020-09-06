@@ -1,7 +1,7 @@
-package org.graduationdesign.gdmsserversearch.configure;
+package org.graduatiedesign.gdmsservercore.configure;
 
 import org.apache.commons.lang.StringUtils;
-import org.graduationdesign.gdmsserversearch.properties.GdmsServerSystemProperties;
+import org.graduatiedesign.gdmsservercore.properties.GdmsServerSystemProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
