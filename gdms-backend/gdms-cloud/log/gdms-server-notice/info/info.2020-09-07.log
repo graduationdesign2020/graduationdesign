@@ -1125,3 +1125,242 @@ Using generated security password: d1440d3d-753e-40c8-b336-d7cfc1551bfe
 2020-09-07 05:34:18 INFO  RMI TCP Connection(1)-127.0.0.1 org.springframework.web.servlet.DispatcherServlet Completed initialization in 13 ms
 2020-09-07 05:34:18 INFO  RMI TCP Connection(3)-127.0.0.1 org.mongodb.driver.connection Opened connection [connectionId{localValue:2, serverValue:39}] to localhost:27017
 2020-09-07 05:39:17 INFO  AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2020-09-07 05:44:17 INFO  AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2020-09-07 05:49:17 INFO  AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2020-09-07 05:54:17 INFO  AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2020-09-07 05:56:00 INFO  Thread-22 org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry Unregistering application GDMS-SERVER-NOTICE with eureka with status DOWN
+2020-09-07 05:56:00 INFO  DiscoveryClient-InstanceInfoReplicator-0 com.netflix.discovery.DiscoveryClient DiscoveryClient_GDMS-SERVER-NOTICE/192.168.78.47:GDMS-Server-Notice:8202: registering service...
+2020-09-07 05:56:00 INFO  DiscoveryClient-InstanceInfoReplicator-0 com.netflix.discovery.DiscoveryClient DiscoveryClient_GDMS-SERVER-NOTICE/192.168.78.47:GDMS-Server-Notice:8202 - registration status: 204
+2020-09-07 05:56:00 INFO  Thread-22 org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler Shutting down ExecutorService
+2020-09-07 05:56:00 INFO  Thread-22 org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor Shutting down ExecutorService 'applicationTaskExecutor'
+2020-09-07 05:56:01 INFO  Thread-22 org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-09-07 05:56:01 INFO  Thread-22 org.mongodb.driver.connection Closed connection [connectionId{localValue:2, serverValue:39}] to localhost:27017 because the pool has been closed.
+2020-09-07 05:56:01 INFO  Thread-22 com.netflix.discovery.DiscoveryClient Shutting down DiscoveryClient ...
+2020-09-07 05:56:04 INFO  Thread-22 com.netflix.discovery.DiscoveryClient Unregistering ...
+2020-09-07 05:56:04 INFO  Thread-22 com.netflix.discovery.DiscoveryClient DiscoveryClient_GDMS-SERVER-NOTICE/192.168.78.47:GDMS-Server-Notice:8202 - deregister  status: 200
+2020-09-07 05:56:04 INFO  Thread-22 com.netflix.discovery.DiscoveryClient Completed shut down of DiscoveryClient
+2020-09-07 05:56:04 INFO  Thread-22 com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown initiated...
+2020-09-07 05:56:04 INFO  Thread-22 com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown completed.
+2020-09-07 06:02:48 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$e4b17b1b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-07 06:02:49 INFO  main org.graduatiedesign.gdmsservercore.GdmsServerCoreApplication No active profile set, falling back to default profiles: default
+2020-09-07 06:02:50 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-07 06:02:50 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-09-07 06:02:50 INFO  main org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport Spring Data JPA - Could not safely identify store assignment for repository candidate interface org.graduatiedesign.gdmsservercore.repository.ReplyMessageRepository.
+2020-09-07 06:02:50 INFO  main org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport Spring Data JPA - Could not safely identify store assignment for repository candidate interface org.graduatiedesign.gdmsservercore.repository.TeacherMessageContentRepository.
+2020-09-07 06:02:50 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 104ms. Found 9 repository interfaces.
+2020-09-07 06:02:50 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-07 06:02:50 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-09-07 06:02:50 INFO  main org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport Spring Data MongoDB - Could not safely identify store assignment for repository candidate interface org.graduatiedesign.gdmsservercore.repository.DeadlineRepository.
+2020-09-07 06:02:50 INFO  main org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport Spring Data MongoDB - Could not safely identify store assignment for repository candidate interface org.graduatiedesign.gdmsservercore.repository.GradeRepository.
+2020-09-07 06:02:50 INFO  main org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport Spring Data MongoDB - Could not safely identify store assignment for repository candidate interface org.graduatiedesign.gdmsservercore.repository.ProjectRepository.
+2020-09-07 06:02:50 INFO  main org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport Spring Data MongoDB - Could not safely identify store assignment for repository candidate interface org.graduatiedesign.gdmsservercore.repository.StateRepository.
+2020-09-07 06:02:50 INFO  main org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport Spring Data MongoDB - Could not safely identify store assignment for repository candidate interface org.graduatiedesign.gdmsservercore.repository.StudentRepository.
+2020-09-07 06:02:50 INFO  main org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport Spring Data MongoDB - Could not safely identify store assignment for repository candidate interface org.graduatiedesign.gdmsservercore.repository.TeacherMessageReadingRepository.
+2020-09-07 06:02:50 INFO  main org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport Spring Data MongoDB - Could not safely identify store assignment for repository candidate interface org.graduatiedesign.gdmsservercore.repository.TeacherMessageRepository.
+2020-09-07 06:02:50 INFO  main org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport Spring Data MongoDB - Could not safely identify store assignment for repository candidate interface org.graduatiedesign.gdmsservercore.repository.TeacherRepository.
+2020-09-07 06:02:50 INFO  main org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport Spring Data MongoDB - Could not safely identify store assignment for repository candidate interface org.graduatiedesign.gdmsservercore.repository.UsersRepository.
+2020-09-07 06:02:50 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 16ms. Found 2 repository interfaces.
+2020-09-07 06:02:50 INFO  main org.springframework.cloud.context.scope.GenericScope BeanFactory id=30698b40-5ff1-3a21-af3a-af72b4ae6221
+2020-09-07 06:02:50 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$c897781e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-07 06:02:51 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$61454058] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-07 06:02:51 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-07 06:02:51 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@6367a688' of type [org.springframework.security.oauth2.provider.expression.OAuth2MethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-07 06:02:51 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$8619e30a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-07 06:02:51 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-07 06:02:51 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$e4b17b1b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-07 06:02:51 INFO  main org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat initialized with port(s): 8203 (http)
+2020-09-07 06:02:51 INFO  main org.apache.coyote.http11.Http11NioProtocol Initializing ProtocolHandler ["http-nio-8203"]
+2020-09-07 06:02:51 INFO  main org.apache.catalina.core.StandardService Starting service [Tomcat]
+2020-09-07 06:02:51 INFO  main org.apache.catalina.core.StandardEngine Starting Servlet engine: [Apache Tomcat/9.0.21]
+2020-09-07 06:02:51 INFO  main org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring embedded WebApplicationContext
+2020-09-07 06:02:51 INFO  main org.springframework.web.context.ContextLoader Root WebApplicationContext: initialization completed in 2588 ms
+2020-09-07 06:02:51 INFO  main com.netflix.config.sources.URLConfigurationSource To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-09-07 06:02:51 INFO  main com.netflix.config.DynamicPropertyFactory DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@512abf25
+2020-09-07 06:02:52 INFO  main org.mongodb.driver.cluster Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2020-09-07 06:02:52 INFO  cluster-ClusterId{value='5f555c8c2c49782653f6f342', description='null'}-localhost:27017 org.mongodb.driver.connection Opened connection [connectionId{localValue:1, serverValue:40}] to localhost:27017
+2020-09-07 06:02:52 INFO  cluster-ClusterId{value='5f555c8c2c49782653f6f342', description='null'}-localhost:27017 org.mongodb.driver.cluster Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 8]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2720600}
+2020-09-07 06:02:53 INFO  main org.springframework.boot.actuate.endpoint.web.ServletEndpointRegistrar Registered '/actuator/jolokia' to jolokia-actuator-endpoint
+2020-09-07 06:02:53 INFO  main com.zaxxer.hikari.HikariDataSource HikariPool-1 - Starting...
+2020-09-07 06:02:53 INFO  main com.zaxxer.hikari.HikariDataSource HikariPool-1 - Start completed.
+2020-09-07 06:02:53 INFO  main org.hibernate.jpa.internal.util.LogHelper HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2020-09-07 06:02:53 INFO  main org.hibernate.Version HHH000412: Hibernate Core {5.3.10.Final}
+2020-09-07 06:02:53 INFO  main org.hibernate.cfg.Environment HHH000206: hibernate.properties not found
+2020-09-07 06:02:54 INFO  main org.hibernate.annotations.common.Version HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2020-09-07 06:02:54 INFO  main org.hibernate.dialect.Dialect HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-09-07 06:02:55 INFO  main org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-09-07 06:02:55 INFO  main org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-09-07 06:02:55 INFO  main com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown initiated...
+2020-09-07 06:02:55 INFO  main com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown completed.
+2020-09-07 06:02:55 INFO  main org.apache.catalina.core.StandardService Stopping service [Tomcat]
+2020-09-07 06:02:55 INFO  main org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-09-07 06:05:41 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$a6e3c72c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-07 06:05:41 INFO  main org.graduatiedesign.gdmsservercore.GdmsServerCoreApplication No active profile set, falling back to default profiles: default
+2020-09-07 06:05:42 INFO  main org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-09-07 06:07:08 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$e0a82000] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-07 06:07:08 INFO  main org.graduatiedesign.gdmsservercore.GdmsServerCoreApplication No active profile set, falling back to default profiles: default
+2020-09-07 06:07:09 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-07 06:07:09 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-09-07 06:07:09 INFO  main org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport Spring Data JPA - Could not safely identify store assignment for repository candidate interface org.graduatiedesign.gdmsservercore.repository.ReplyMessageRepository.
+2020-09-07 06:07:09 INFO  main org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport Spring Data JPA - Could not safely identify store assignment for repository candidate interface org.graduatiedesign.gdmsservercore.repository.TeacherMessageContentRepository.
+2020-09-07 06:07:09 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 77ms. Found 9 repository interfaces.
+2020-09-07 06:07:09 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-07 06:07:09 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-09-07 06:07:09 INFO  main org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport Spring Data MongoDB - Could not safely identify store assignment for repository candidate interface org.graduatiedesign.gdmsservercore.repository.DeadlineRepository.
+2020-09-07 06:07:09 INFO  main org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport Spring Data MongoDB - Could not safely identify store assignment for repository candidate interface org.graduatiedesign.gdmsservercore.repository.GradeRepository.
+2020-09-07 06:07:09 INFO  main org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport Spring Data MongoDB - Could not safely identify store assignment for repository candidate interface org.graduatiedesign.gdmsservercore.repository.ProjectRepository.
+2020-09-07 06:07:09 INFO  main org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport Spring Data MongoDB - Could not safely identify store assignment for repository candidate interface org.graduatiedesign.gdmsservercore.repository.StateRepository.
+2020-09-07 06:07:09 INFO  main org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport Spring Data MongoDB - Could not safely identify store assignment for repository candidate interface org.graduatiedesign.gdmsservercore.repository.StudentRepository.
+2020-09-07 06:07:09 INFO  main org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport Spring Data MongoDB - Could not safely identify store assignment for repository candidate interface org.graduatiedesign.gdmsservercore.repository.TeacherMessageReadingRepository.
+2020-09-07 06:07:09 INFO  main org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport Spring Data MongoDB - Could not safely identify store assignment for repository candidate interface org.graduatiedesign.gdmsservercore.repository.TeacherMessageRepository.
+2020-09-07 06:07:09 INFO  main org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport Spring Data MongoDB - Could not safely identify store assignment for repository candidate interface org.graduatiedesign.gdmsservercore.repository.TeacherRepository.
+2020-09-07 06:07:09 INFO  main org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport Spring Data MongoDB - Could not safely identify store assignment for repository candidate interface org.graduatiedesign.gdmsservercore.repository.UsersRepository.
+2020-09-07 06:07:09 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 17ms. Found 2 repository interfaces.
+2020-09-07 06:07:10 INFO  main org.springframework.cloud.context.scope.GenericScope BeanFactory id=5843f588-d390-3ed4-a66b-6a80ec1b7f11
+2020-09-07 06:07:10 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$c48e1d03] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-07 06:07:10 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$5d3be53d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-07 06:07:10 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-07 06:07:10 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@52ca2652' of type [org.springframework.security.oauth2.provider.expression.OAuth2MethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-07 06:07:10 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$821087ef] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-07 06:07:10 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-07 06:07:10 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$e0a82000] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-07 06:07:10 INFO  main org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat initialized with port(s): 8203 (http)
+2020-09-07 06:07:10 INFO  main org.apache.coyote.http11.Http11NioProtocol Initializing ProtocolHandler ["http-nio-8203"]
+2020-09-07 06:07:10 INFO  main org.apache.catalina.core.StandardService Starting service [Tomcat]
+2020-09-07 06:07:10 INFO  main org.apache.catalina.core.StandardEngine Starting Servlet engine: [Apache Tomcat/9.0.21]
+2020-09-07 06:07:10 INFO  main org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring embedded WebApplicationContext
+2020-09-07 06:07:10 INFO  main org.springframework.web.context.ContextLoader Root WebApplicationContext: initialization completed in 2178 ms
+2020-09-07 06:07:11 INFO  main com.netflix.config.sources.URLConfigurationSource To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-09-07 06:07:11 INFO  main com.netflix.config.DynamicPropertyFactory DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@5c8d58ed
+2020-09-07 06:07:11 INFO  main org.mongodb.driver.cluster Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2020-09-07 06:07:11 INFO  cluster-ClusterId{value='5f555d8f2c4978268db27c98', description='null'}-localhost:27017 org.mongodb.driver.connection Opened connection [connectionId{localValue:1, serverValue:41}] to localhost:27017
+2020-09-07 06:07:11 INFO  cluster-ClusterId{value='5f555d8f2c4978268db27c98', description='null'}-localhost:27017 org.mongodb.driver.cluster Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 8]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=3650677}
+2020-09-07 06:07:12 INFO  main org.springframework.boot.actuate.endpoint.web.ServletEndpointRegistrar Registered '/actuator/jolokia' to jolokia-actuator-endpoint
+2020-09-07 06:07:12 INFO  main com.zaxxer.hikari.HikariDataSource HikariPool-1 - Starting...
+2020-09-07 06:07:12 INFO  main com.zaxxer.hikari.HikariDataSource HikariPool-1 - Start completed.
+2020-09-07 06:07:12 INFO  main org.hibernate.jpa.internal.util.LogHelper HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2020-09-07 06:07:12 INFO  main org.hibernate.Version HHH000412: Hibernate Core {5.3.10.Final}
+2020-09-07 06:07:12 INFO  main org.hibernate.cfg.Environment HHH000206: hibernate.properties not found
+2020-09-07 06:07:12 INFO  main org.hibernate.annotations.common.Version HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2020-09-07 06:07:12 INFO  main org.hibernate.dialect.Dialect HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-09-07 06:07:13 INFO  main org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-09-07 06:07:13 INFO  main org.hibernate.hql.internal.QueryTranslatorFactoryInitiator HHH000397: Using ASTQueryTranslatorFactory
+2020-09-07 06:07:14 INFO  main org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver Exposing 21 endpoint(s) beneath base path '/actuator'
+2020-09-07 06:07:15 INFO  main springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2020-09-07 06:07:15 INFO  main com.netflix.config.sources.URLConfigurationSource To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-09-07 06:07:15 INFO  main org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-07 06:07:15 INFO  main org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler Initializing ExecutorService
+2020-09-07 06:07:15 INFO  main org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration 
+
+Using generated security password: 9f05f027-0f54-4d8b-ab3c-85b430260587
+
+2020-09-07 06:07:16 INFO  main org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler Shutting down ExecutorService
+2020-09-07 06:07:16 INFO  main org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor Shutting down ExecutorService 'applicationTaskExecutor'
+2020-09-07 06:07:16 INFO  main org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-09-07 06:07:16 INFO  main com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown initiated...
+2020-09-07 06:07:16 INFO  main com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown completed.
+2020-09-07 06:07:16 INFO  main org.apache.catalina.core.StandardService Stopping service [Tomcat]
+2020-09-07 06:07:16 INFO  main org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-09-07 06:08:14 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$ab1e5f8d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-07 06:08:14 INFO  main org.graduatiedesign.gdmsservercore.GdmsServerCoreApplication No active profile set, falling back to default profiles: default
+2020-09-07 06:08:15 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-07 06:08:15 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-09-07 06:08:15 INFO  main org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport Spring Data JPA - Could not safely identify store assignment for repository candidate interface org.graduatiedesign.gdmsservercore.repository.ReplyMessageRepository.
+2020-09-07 06:08:15 INFO  main org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport Spring Data JPA - Could not safely identify store assignment for repository candidate interface org.graduatiedesign.gdmsservercore.repository.TeacherMessageContentRepository.
+2020-09-07 06:08:15 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 78ms. Found 9 repository interfaces.
+2020-09-07 06:08:15 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-07 06:08:15 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-09-07 06:08:15 INFO  main org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport Spring Data MongoDB - Could not safely identify store assignment for repository candidate interface org.graduatiedesign.gdmsservercore.repository.DeadlineRepository.
+2020-09-07 06:08:15 INFO  main org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport Spring Data MongoDB - Could not safely identify store assignment for repository candidate interface org.graduatiedesign.gdmsservercore.repository.GradeRepository.
+2020-09-07 06:08:15 INFO  main org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport Spring Data MongoDB - Could not safely identify store assignment for repository candidate interface org.graduatiedesign.gdmsservercore.repository.ProjectRepository.
+2020-09-07 06:08:15 INFO  main org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport Spring Data MongoDB - Could not safely identify store assignment for repository candidate interface org.graduatiedesign.gdmsservercore.repository.StateRepository.
+2020-09-07 06:08:15 INFO  main org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport Spring Data MongoDB - Could not safely identify store assignment for repository candidate interface org.graduatiedesign.gdmsservercore.repository.StudentRepository.
+2020-09-07 06:08:15 INFO  main org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport Spring Data MongoDB - Could not safely identify store assignment for repository candidate interface org.graduatiedesign.gdmsservercore.repository.TeacherMessageReadingRepository.
+2020-09-07 06:08:15 INFO  main org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport Spring Data MongoDB - Could not safely identify store assignment for repository candidate interface org.graduatiedesign.gdmsservercore.repository.TeacherMessageRepository.
+2020-09-07 06:08:15 INFO  main org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport Spring Data MongoDB - Could not safely identify store assignment for repository candidate interface org.graduatiedesign.gdmsservercore.repository.TeacherRepository.
+2020-09-07 06:08:15 INFO  main org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport Spring Data MongoDB - Could not safely identify store assignment for repository candidate interface org.graduatiedesign.gdmsservercore.repository.UsersRepository.
+2020-09-07 06:08:15 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 17ms. Found 2 repository interfaces.
+2020-09-07 06:08:15 INFO  main org.springframework.cloud.context.scope.GenericScope BeanFactory id=5843f588-d390-3ed4-a66b-6a80ec1b7f11
+2020-09-07 06:08:16 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$8f045c90] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-07 06:08:16 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$27b224ca] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-07 06:08:16 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-07 06:08:16 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@656a3d6b' of type [org.springframework.security.oauth2.provider.expression.OAuth2MethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-07 06:08:16 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$4c86c77c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-07 06:08:16 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-07 06:08:16 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$ab1e5f8d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-07 06:08:16 INFO  main org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat initialized with port(s): 8203 (http)
+2020-09-07 06:08:16 INFO  main org.apache.coyote.http11.Http11NioProtocol Initializing ProtocolHandler ["http-nio-8203"]
+2020-09-07 06:08:16 INFO  main org.apache.catalina.core.StandardService Starting service [Tomcat]
+2020-09-07 06:08:16 INFO  main org.apache.catalina.core.StandardEngine Starting Servlet engine: [Apache Tomcat/9.0.21]
+2020-09-07 06:08:16 INFO  main org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring embedded WebApplicationContext
+2020-09-07 06:08:16 INFO  main org.springframework.web.context.ContextLoader Root WebApplicationContext: initialization completed in 1938 ms
+2020-09-07 06:08:16 INFO  main com.netflix.config.sources.URLConfigurationSource To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-09-07 06:08:16 INFO  main com.netflix.config.DynamicPropertyFactory DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@2313db84
+2020-09-07 06:08:17 INFO  main org.mongodb.driver.cluster Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2020-09-07 06:08:17 INFO  cluster-ClusterId{value='5f555dd12c4978269ec49b17', description='null'}-localhost:27017 org.mongodb.driver.connection Opened connection [connectionId{localValue:1, serverValue:42}] to localhost:27017
+2020-09-07 06:08:17 INFO  cluster-ClusterId{value='5f555dd12c4978269ec49b17', description='null'}-localhost:27017 org.mongodb.driver.cluster Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 8]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=1915060}
+2020-09-07 06:08:17 INFO  main org.springframework.boot.actuate.endpoint.web.ServletEndpointRegistrar Registered '/actuator/jolokia' to jolokia-actuator-endpoint
+2020-09-07 06:08:17 INFO  main com.zaxxer.hikari.HikariDataSource HikariPool-1 - Starting...
+2020-09-07 06:08:18 INFO  main com.zaxxer.hikari.HikariDataSource HikariPool-1 - Start completed.
+2020-09-07 06:08:18 INFO  main org.hibernate.jpa.internal.util.LogHelper HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2020-09-07 06:08:18 INFO  main org.hibernate.Version HHH000412: Hibernate Core {5.3.10.Final}
+2020-09-07 06:08:18 INFO  main org.hibernate.cfg.Environment HHH000206: hibernate.properties not found
+2020-09-07 06:08:18 INFO  main org.hibernate.annotations.common.Version HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2020-09-07 06:08:18 INFO  main org.hibernate.dialect.Dialect HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-09-07 06:08:19 INFO  main org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-09-07 06:08:19 INFO  main org.hibernate.hql.internal.QueryTranslatorFactoryInitiator HHH000397: Using ASTQueryTranslatorFactory
+2020-09-07 06:08:20 INFO  main org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver Exposing 21 endpoint(s) beneath base path '/actuator'
+2020-09-07 06:08:20 INFO  main springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2020-09-07 06:08:20 INFO  main com.netflix.config.sources.URLConfigurationSource To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-09-07 06:08:20 INFO  main org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-07 06:08:20 INFO  main org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler Initializing ExecutorService
+2020-09-07 06:08:20 INFO  main org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration 
+
+Using generated security password: 971d4b03-d7c3-471a-9401-2ed67357a79e
+
+2020-09-07 06:08:20 INFO  main org.springframework.security.web.DefaultSecurityFilterChain Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/**']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4ed74d03, org.springframework.security.web.context.SecurityContextPersistenceFilter@c651286, org.springframework.security.web.header.HeaderWriterFilter@1a6df932, org.springframework.security.web.authentication.logout.LogoutFilter@2e7dd504, org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationProcessingFilter@5825932c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1d160161, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@f3e6876, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7ec729be, org.springframework.security.web.session.SessionManagementFilter@7da40bf4, org.springframework.security.web.access.ExceptionTranslationFilter@61e4a072, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@714a4ba2]
+2020-09-07 06:08:21 INFO  main org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler Initializing ExecutorService 'taskScheduler'
+2020-09-07 06:08:21 INFO  main org.springframework.cloud.netflix.eureka.InstanceInfoFactory Setting initial instance status as: STARTING
+2020-09-07 06:08:21 INFO  main com.netflix.discovery.DiscoveryClient Initializing Eureka in region us-east-1
+2020-09-07 06:08:21 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using JSON encoding codec LegacyJacksonJson
+2020-09-07 06:08:21 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using JSON decoding codec LegacyJacksonJson
+2020-09-07 06:08:21 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using XML encoding codec XStreamXml
+2020-09-07 06:08:21 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using XML decoding codec XStreamXml
+2020-09-07 06:08:21 INFO  main com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2020-09-07 06:08:21 INFO  main com.netflix.discovery.DiscoveryClient Disable delta property : false
+2020-09-07 06:08:21 INFO  main com.netflix.discovery.DiscoveryClient Single vip registry refresh property : null
+2020-09-07 06:08:21 INFO  main com.netflix.discovery.DiscoveryClient Force full registry fetch : false
+2020-09-07 06:08:21 INFO  main com.netflix.discovery.DiscoveryClient Application is null : false
+2020-09-07 06:08:21 INFO  main com.netflix.discovery.DiscoveryClient Registered Applications size is zero : true
+2020-09-07 06:08:21 INFO  main com.netflix.discovery.DiscoveryClient Application version is -1: true
+2020-09-07 06:08:21 INFO  main com.netflix.discovery.DiscoveryClient Getting all instance registry info from the eureka server
+2020-09-07 06:08:22 INFO  main com.netflix.discovery.DiscoveryClient The response status is 200
+2020-09-07 06:08:22 INFO  main com.netflix.discovery.DiscoveryClient Starting heartbeat executor: renew interval is: 20
+2020-09-07 06:08:22 INFO  main com.netflix.discovery.InstanceInfoReplicator InstanceInfoReplicator onDemand update allowed rate per min is 4
+2020-09-07 06:08:22 INFO  main com.netflix.discovery.DiscoveryClient Discovery Client initialized at timestamp 1599430102266 with initial instances count: 2
+2020-09-07 06:08:22 INFO  main org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry Registering application GDMS-SERVER-CORE with eureka with status UP
+2020-09-07 06:08:22 INFO  main com.netflix.discovery.DiscoveryClient Saw local status change event StatusChangeEvent [timestamp=1599430102274, current=UP, previous=STARTING]
+2020-09-07 06:08:22 INFO  main springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper Context refreshed
+2020-09-07 06:08:22 INFO  DiscoveryClient-InstanceInfoReplicator-0 com.netflix.discovery.DiscoveryClient DiscoveryClient_GDMS-SERVER-CORE/192.168.78.47:GDMS-Server-Core:8203: registering service...
+2020-09-07 06:08:22 INFO  main springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper Found 1 custom documentation plugin(s)
+2020-09-07 06:08:22 INFO  DiscoveryClient-InstanceInfoReplicator-0 com.netflix.discovery.DiscoveryClient DiscoveryClient_GDMS-SERVER-CORE/192.168.78.47:GDMS-Server-Core:8203 - registration status: 204
+2020-09-07 06:08:22 INFO  main springfox.documentation.spring.web.scanners.ApiListingReferenceScanner Scanning for api listing references
+2020-09-07 06:08:22 INFO  main org.apache.coyote.http11.Http11NioProtocol Starting ProtocolHandler ["http-nio-8203"]
+2020-09-07 06:08:22 INFO  main org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat started on port(s): 8203 (http) with context path ''
+2020-09-07 06:08:22 INFO  main org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration Updating port to 8203
+2020-09-07 06:08:22 INFO  main org.graduatiedesign.gdmsservercore.GdmsServerCoreApplication Started GdmsServerCoreApplication in 9.105 seconds (JVM running for 9.874)
+2020-09-07 06:08:22 INFO  RMI TCP Connection(2)-127.0.0.1 org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-07 06:08:22 INFO  RMI TCP Connection(2)-127.0.0.1 org.springframework.web.servlet.DispatcherServlet Initializing Servlet 'dispatcherServlet'
+2020-09-07 06:08:23 INFO  RMI TCP Connection(2)-127.0.0.1 org.springframework.web.servlet.DispatcherServlet Completed initialization in 15 ms
+2020-09-07 06:08:23 INFO  RMI TCP Connection(3)-127.0.0.1 org.mongodb.driver.connection Opened connection [connectionId{localValue:2, serverValue:43}] to localhost:27017

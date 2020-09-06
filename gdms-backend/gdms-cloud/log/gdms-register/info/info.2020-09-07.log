@@ -379,3 +379,40 @@
 2020-09-07 05:37:45 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 4ms
 2020-09-07 05:38:45 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 2ms
 2020-09-07 05:39:45 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 5ms
+2020-09-07 05:40:45 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 4ms
+2020-09-07 05:41:45 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 0ms
+2020-09-07 05:42:45 INFO  ReplicaAwareInstanceRegistry - RenewalThresholdUpdater com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl Current renewal threshold is : 8
+2020-09-07 05:42:45 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 4ms
+2020-09-07 05:43:45 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 4ms
+2020-09-07 05:44:45 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 4ms
+2020-09-07 05:45:45 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 4ms
+2020-09-07 05:46:45 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 3ms
+2020-09-07 05:47:45 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 2ms
+2020-09-07 05:48:45 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 0ms
+2020-09-07 05:49:45 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 4ms
+2020-09-07 05:50:45 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 2ms
+2020-09-07 05:51:45 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 4ms
+2020-09-07 05:52:45 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 0ms
+2020-09-07 05:53:45 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 4ms
+2020-09-07 05:54:45 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 1ms
+2020-09-07 05:55:45 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 2ms
+2020-09-07 05:55:57 INFO  http-nio-8001-exec-7 com.netflix.eureka.registry.AbstractInstanceRegistry Registered instance GDMS-SERVER-TEST/192.168.78.47:GDMS-Server-Test:8402 with status DOWN (replication=false)
+2020-09-07 05:56:00 INFO  http-nio-8001-exec-6 com.netflix.eureka.registry.AbstractInstanceRegistry Cancelled instance GDMS-SERVER-TEST/192.168.78.47:GDMS-Server-Test:8402 (replication=false)
+2020-09-07 05:56:00 INFO  http-nio-8001-exec-10 com.netflix.eureka.registry.AbstractInstanceRegistry Registered instance GDMS-SERVER-NOTICE/192.168.78.47:GDMS-Server-Notice:8202 with status DOWN (replication=false)
+2020-09-07 05:56:04 INFO  http-nio-8001-exec-1 com.netflix.eureka.registry.AbstractInstanceRegistry Cancelled instance GDMS-SERVER-NOTICE/192.168.78.47:GDMS-Server-Notice:8202 (replication=false)
+2020-09-07 05:56:45 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 0ms
+2020-09-07 05:57:45 INFO  ReplicaAwareInstanceRegistry - RenewalThresholdUpdater com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl Current renewal threshold is : 5
+2020-09-07 05:57:45 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 3ms
+2020-09-07 05:58:45 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 2ms
+2020-09-07 05:59:45 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 1ms
+2020-09-07 06:00:45 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 3ms
+2020-09-07 06:01:45 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 5ms
+2020-09-07 06:02:45 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 6ms
+2020-09-07 06:03:45 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 0ms
+2020-09-07 06:04:45 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 6ms
+2020-09-07 06:05:45 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 0ms
+2020-09-07 06:06:45 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 4ms
+2020-09-07 06:07:45 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 4ms
+2020-09-07 06:08:22 INFO  http-nio-8001-exec-10 com.netflix.eureka.registry.AbstractInstanceRegistry Registered instance GDMS-SERVER-CORE/192.168.78.47:GDMS-Server-Core:8203 with status UP (replication=false)
+2020-09-07 06:08:45 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 4ms
+2020-09-07 06:09:45 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 0ms
