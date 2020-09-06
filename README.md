@@ -35,6 +35,7 @@ gdms
 | Spring Security Oauth2 | 认证和授权框架       | https://spring.io/projects/spring-security-oauth     |
 | Swagger                | 文档生产工具         | https://swagger.io/    |
 | Elasticsearch          | 搜索引擎             | https://github.com/elastic/elasticsearch             |
+| Scrapy                 | 爬虫框架             | https://scrapy.org/            |
 | MongoDb                | NoSql数据库          | https://www.mongodb.com/                             |
 | MySQL                  | Sql数据库            | https://www.mysql.com/                               |
 | Docker                 | 应用容器引擎         | https://www.docker.com/                              |
@@ -65,6 +66,9 @@ gdms
 | Logstash      | 7.9.0  | https://www.elastic.co/cn/downloads/logstash                 |
                       
 ## 功能概览
+### 爬虫模块
+- 定时爬取消息
+- 检测变化，发出信息
 ### 登陆模块
 - 用学/工号和姓名注册用户
 - 微信小程序自动登录
@@ -108,17 +112,19 @@ gdms
 - 在距离截止日期24h时，收到消息提醒
 
 ### 搜索模块
--查询含有关键字的全部校内通知/院内通知/教师消息
+- 查询含有关键字的全部校内通知/院内通知/教师消息
 
 
 ## 数据库概览
 > 共16张表，其中NoSQL表4张，存储通知/消息内容等非格式化数据；SQL表12张，存储格式化信息
 - MySQL
+
 ![ImageText](https://github.com/graduationdesign2020/graduationdesign/blob/master/picture/1599426444(1).png)
 - MongoDB
+
 ![ImageText](https://github.com/graduationdesign2020/graduationdesign/blob/master/picture/1599426498(1).png)
 
 ## 测试结果
 ### Unit Test
 ![Image text](https://github.com/graduationdesign2020/graduationdesign/raw/master/picture/unittest.png)
-
+### 并发性测试
