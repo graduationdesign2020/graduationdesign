@@ -22,7 +22,7 @@ public class ScheduleTask {
     @Autowired
     StudentDao studentDao;
 
-    @Scheduled(cron = "0 0/5 * * * ?")
+    @Scheduled(cron = "0 0/1 * * * ?")
     public void sentJob(){
         Date date=new Date();
         Timestamp currentTime=new Timestamp(date.getTime());

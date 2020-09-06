@@ -15,7 +15,7 @@ public class StudentDaoImpl implements StudentDao {
 
     @Override
     public Student getOne(String stu_id) {
-        return studentRepository.getOne(stu_id);
+        return studentRepository.getById(stu_id);
     }
 
     @Override
