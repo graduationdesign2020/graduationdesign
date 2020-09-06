@@ -13,6 +13,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
@@ -59,7 +60,9 @@ public class ProcessControllerTest extends DemoApplicationTests {
     @Test
     @Transactional
     public void checkSelfProcess() throws Exception {
-        MvcResult result = mockMvc.perform(post("/checkSelfProcess").content("{\"stu_id\": \"1\"}").contentType(MediaType.APPLICATION_JSON_VALUE))
+        HttpHeaders headers=new HttpHeaders();
+        headers.add("Authorization","Bearer eyJ0eXBlIjoiSldUIiwiYWxnIjoiSFMyNTYifQ.eyJyb2wiOiIzMDUzNDkxNTQ3NDMiLCJpc3MiOiJTbmFpbENsaW1iIiwiaWF0IjoxNTk4MzQzNjA4LCJzdWIiOiIzMDUzNDkxNTQ3NDMiLCJleHAiOjE1OTg5NDg0MDh9.4_4jzc8nyzkPxQi9MZTtLFt6S8rsU_r1bQMpnnao7u4");
+        MvcResult result = mockMvc.perform(post("/checkSelfProcess").headers(headers))
                 .andExpect(status().isOk()).andReturn();
         String resultContent = result.getResponse().getContentAsString();
         List<StateInfo> stateInfos = om.readValue(resultContent, new TypeReference<List<StateInfo> >() {});
