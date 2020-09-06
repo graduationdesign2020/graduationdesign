@@ -1,0 +1,16 @@
+setup.py
+bysj/__init__.py
+bysj/items.py
+bysj/middlewares.py
+bysj/pipelines.py
+bysj/settings.py
+bysj/spiders/__init__.py
+bysj/spiders/grade.py
+bysj/spiders/notice.py
+bysj/spiders/state.py
+bysj/spiders/student.py
+project.egg-info/PKG-INFO
+project.egg-info/SOURCES.txt
+project.egg-info/dependency_links.txt
+project.egg-info/entry_points.txt
+project.egg-info/top_level.txt
