@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="gdms-auth" />
+        <module name="gdms-common" />
+        <module name="gdms-gateway" />
+        <module name="gdms-monitor-admin" />
+        <module name="gdms-server-notice" />
+        <module name="gdms-server-search" />
+        <module name="gdms-register" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="gdms-auth" options="-parameters" />
+      <module name="gdms-common" options="-parameters" />
+      <module name="gdms-gateway" options="-parameters" />
+      <module name="gdms-monitor-admin" options="-parameters" />
+      <module name="gdms-register" options="-parameters" />
+      <module name="gdms-server-notice" options="-parameters" />
+      <module name="gdms-server-search" options="-parameters" />
+    </option>
+  </component>
+</project>

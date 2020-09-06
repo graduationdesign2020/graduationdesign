@@ -1,0 +1,429 @@
+2020-09-06 18:07:25 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$2cd9ddd1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-06 18:07:25 INFO  main org.graduationdesign.gdmsauth.GdmsAuthApplication No active profile set, falling back to default profiles: default
+2020-09-06 18:07:26 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-06 18:07:26 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-09-06 18:07:26 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 89ms. Found 1 repository interfaces.
+2020-09-06 18:07:26 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-06 18:07:26 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-09-06 18:07:26 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 20ms. Found 1 repository interfaces.
+2020-09-06 18:07:27 INFO  main org.springframework.cloud.context.scope.GenericScope BeanFactory id=fd07ab3f-ee32-3cf8-84db-bbc17d619013
+2020-09-06 18:07:27 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$10bfdad4] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-06 18:07:27 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$2cd9ddd1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-06 18:07:28 INFO  main org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat initialized with port(s): 8101 (http)
+2020-09-06 18:07:28 INFO  main org.apache.coyote.http11.Http11NioProtocol Initializing ProtocolHandler ["http-nio-8101"]
+2020-09-06 18:07:28 INFO  main org.apache.catalina.core.StandardService Starting service [Tomcat]
+2020-09-06 18:07:28 INFO  main org.apache.catalina.core.StandardEngine Starting Servlet engine: [Apache Tomcat/9.0.21]
+2020-09-06 18:07:28 INFO  main org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring embedded WebApplicationContext
+2020-09-06 18:07:28 INFO  main org.springframework.web.context.ContextLoader Root WebApplicationContext: initialization completed in 3154 ms
+2020-09-06 18:07:28 INFO  main com.netflix.config.sources.URLConfigurationSource To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-09-06 18:07:28 INFO  main com.netflix.config.DynamicPropertyFactory DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@76f881d9
+2020-09-06 18:07:30 INFO  main org.springframework.boot.actuate.endpoint.web.ServletEndpointRegistrar Registered '/actuator/jolokia' to jolokia-actuator-endpoint
+2020-09-06 18:07:30 INFO  main com.zaxxer.hikari.HikariDataSource HikariPool-1 - Starting...
+2020-09-06 18:07:30 INFO  main com.zaxxer.hikari.HikariDataSource HikariPool-1 - Start completed.
+2020-09-06 18:07:30 INFO  main org.hibernate.jpa.internal.util.LogHelper HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2020-09-06 18:07:31 INFO  main org.hibernate.Version HHH000412: Hibernate Core {5.3.10.Final}
+2020-09-06 18:07:31 INFO  main org.hibernate.cfg.Environment HHH000206: hibernate.properties not found
+2020-09-06 18:07:31 INFO  main org.hibernate.annotations.common.Version HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2020-09-06 18:07:31 INFO  main org.hibernate.dialect.Dialect HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-09-06 18:07:32 INFO  main org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-09-06 18:07:34 INFO  main org.springframework.security.web.DefaultSecurityFilterChain Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/oauth/token'], Ant [pattern='/oauth/token_key'], Ant [pattern='/oauth/check_token']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@18f8e2e0, org.springframework.security.web.context.SecurityContextPersistenceFilter@1d008e61, org.springframework.security.web.header.HeaderWriterFilter@552ffa44, org.springframework.security.web.authentication.logout.LogoutFilter@31c5304f, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@434d001d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5de243bb, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@490d9c41, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@28d56028, org.springframework.security.web.session.SessionManagementFilter@53b2e1eb, org.springframework.security.web.access.ExceptionTranslationFilter@5f0ca069, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1136122a]
+2020-09-06 18:07:34 INFO  main org.springframework.security.web.DefaultSecurityFilterChain Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/oauth/**']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1203d787, org.springframework.security.web.context.SecurityContextPersistenceFilter@72d16d6, org.springframework.security.web.header.HeaderWriterFilter@1324e70a, org.springframework.security.web.authentication.logout.LogoutFilter@44618fe6, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7b0525a8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4f2d8175, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1f72fbd1, org.springframework.security.web.session.SessionManagementFilter@3cc6f036, org.springframework.security.web.access.ExceptionTranslationFilter@6f976c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@14fff5e7]
+2020-09-06 18:07:34 INFO  main org.springframework.security.web.DefaultSecurityFilterChain Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/**']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7096d451, org.springframework.security.web.context.SecurityContextPersistenceFilter@45451333, org.springframework.security.web.header.HeaderWriterFilter@5981f2c6, org.springframework.security.web.authentication.logout.LogoutFilter@6abd8bcd, org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationProcessingFilter@771afdd5, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6942ee48, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3f033664, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7816454d, org.springframework.security.web.session.SessionManagementFilter@49639118, org.springframework.security.web.access.ExceptionTranslationFilter@719bb60d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@78e97d4d]
+2020-09-06 18:07:34 INFO  main com.netflix.config.sources.URLConfigurationSource To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-09-06 18:07:34 INFO  main org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-06 18:07:35 INFO  main org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler Initializing ExecutorService
+2020-09-06 18:07:36 INFO  main org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver Exposing 20 endpoint(s) beneath base path '/actuator'
+2020-09-06 18:07:36 INFO  main org.springframework.cloud.netflix.eureka.InstanceInfoFactory Setting initial instance status as: STARTING
+2020-09-06 18:07:37 INFO  main com.netflix.discovery.DiscoveryClient Initializing Eureka in region us-east-1
+2020-09-06 18:07:37 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using JSON encoding codec LegacyJacksonJson
+2020-09-06 18:07:37 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using JSON decoding codec LegacyJacksonJson
+2020-09-06 18:07:37 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using XML encoding codec XStreamXml
+2020-09-06 18:07:37 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using XML decoding codec XStreamXml
+2020-09-06 18:07:38 INFO  main com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2020-09-06 18:07:38 INFO  main com.netflix.discovery.DiscoveryClient Disable delta property : false
+2020-09-06 18:07:38 INFO  main com.netflix.discovery.DiscoveryClient Single vip registry refresh property : null
+2020-09-06 18:07:38 INFO  main com.netflix.discovery.DiscoveryClient Force full registry fetch : false
+2020-09-06 18:07:38 INFO  main com.netflix.discovery.DiscoveryClient Application is null : false
+2020-09-06 18:07:38 INFO  main com.netflix.discovery.DiscoveryClient Registered Applications size is zero : true
+2020-09-06 18:07:38 INFO  main com.netflix.discovery.DiscoveryClient Application version is -1: true
+2020-09-06 18:07:38 INFO  main com.netflix.discovery.DiscoveryClient Getting all instance registry info from the eureka server
+2020-09-06 18:07:38 INFO  main com.netflix.discovery.DiscoveryClient The response status is 200
+2020-09-06 18:07:38 INFO  main com.netflix.discovery.DiscoveryClient Starting heartbeat executor: renew interval is: 20
+2020-09-06 18:07:38 INFO  main com.netflix.discovery.InstanceInfoReplicator InstanceInfoReplicator onDemand update allowed rate per min is 4
+2020-09-06 18:07:38 INFO  main com.netflix.discovery.DiscoveryClient Discovery Client initialized at timestamp 1599386858967 with initial instances count: 0
+2020-09-06 18:07:38 INFO  main org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry Registering application GDMS-AUTH with eureka with status UP
+2020-09-06 18:07:38 INFO  main com.netflix.discovery.DiscoveryClient Saw local status change event StatusChangeEvent [timestamp=1599386858972, current=UP, previous=STARTING]
+2020-09-06 18:07:38 INFO  DiscoveryClient-InstanceInfoReplicator-0 com.netflix.discovery.DiscoveryClient DiscoveryClient_GDMS-AUTH/10.162.111.66:GDMS-Auth:8101: registering service...
+2020-09-06 18:07:39 INFO  main org.apache.coyote.http11.Http11NioProtocol Starting ProtocolHandler ["http-nio-8101"]
+2020-09-06 18:07:39 INFO  DiscoveryClient-InstanceInfoReplicator-0 com.netflix.discovery.DiscoveryClient DiscoveryClient_GDMS-AUTH/10.162.111.66:GDMS-Auth:8101 - registration status: 204
+2020-09-06 18:07:39 INFO  main org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat started on port(s): 8101 (http) with context path ''
+2020-09-06 18:07:39 INFO  main org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration Updating port to 8101
+2020-09-06 18:07:39 INFO  main org.graduationdesign.gdmsauth.GdmsAuthApplication Started GdmsAuthApplication in 15.102 seconds (JVM running for 15.777)
+2020-09-06 18:07:39 INFO  RMI TCP Connection(19)-127.0.0.1 org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-06 18:07:39 INFO  RMI TCP Connection(19)-127.0.0.1 org.springframework.web.servlet.DispatcherServlet Initializing Servlet 'dispatcherServlet'
+2020-09-06 18:07:39 INFO  RMI TCP Connection(19)-127.0.0.1 org.springframework.web.servlet.DispatcherServlet Completed initialization in 16 ms
+2020-09-06 18:07:49 INFO  registrationTask1 de.codecentric.boot.admin.client.registration.ApplicationRegistrator Application registered itself as c011f206e631
+2020-09-06 18:08:08 INFO  DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Disable delta property : false
+2020-09-06 18:08:08 INFO  DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Single vip registry refresh property : null
+2020-09-06 18:08:08 INFO  DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Force full registry fetch : false
+2020-09-06 18:08:08 INFO  DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Application is null : false
+2020-09-06 18:08:08 INFO  DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Registered Applications size is zero : true
+2020-09-06 18:08:08 INFO  DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Application version is -1: false
+2020-09-06 18:08:08 INFO  DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Getting all instance registry info from the eureka server
+2020-09-06 18:08:08 INFO  DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient The response status is 200
+2020-09-06 18:08:45 INFO  http-nio-8101-exec-7 org.hibernate.hql.internal.QueryTranslatorFactoryInitiator HHH000397: Using ASTQueryTranslatorFactory
+2020-09-06 18:12:20 INFO  Thread-35 org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry Unregistering application GDMS-AUTH with eureka with status DOWN
+2020-09-06 18:12:20 INFO  DiscoveryClient-InstanceInfoReplicator-0 com.netflix.discovery.DiscoveryClient DiscoveryClient_GDMS-AUTH/10.162.111.66:GDMS-Auth:8101: registering service...
+2020-09-06 18:12:20 INFO  Thread-35 org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler Shutting down ExecutorService
+2020-09-06 18:12:20 INFO  Thread-35 org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor Shutting down ExecutorService 'applicationTaskExecutor'
+2020-09-06 18:12:20 INFO  Thread-35 org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-09-06 18:12:20 INFO  Thread-35 com.netflix.discovery.DiscoveryClient Shutting down DiscoveryClient ...
+2020-09-06 18:12:23 INFO  Thread-35 com.netflix.discovery.DiscoveryClient Unregistering ...
+2020-09-06 18:12:23 INFO  Thread-35 com.netflix.discovery.DiscoveryClient Completed shut down of DiscoveryClient
+2020-09-06 18:12:23 INFO  Thread-35 com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown initiated...
+2020-09-06 18:12:23 INFO  Thread-35 com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown completed.
+2020-09-06 18:55:22 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$f1570cbf] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-06 18:55:22 INFO  main org.graduationdesign.gdmsauth.GdmsAuthApplication No active profile set, falling back to default profiles: default
+2020-09-06 18:55:23 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-06 18:55:23 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-09-06 18:55:23 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 86ms. Found 1 repository interfaces.
+2020-09-06 18:55:23 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-06 18:55:23 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-09-06 18:55:23 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 10ms. Found 1 repository interfaces.
+2020-09-06 18:55:23 INFO  main org.springframework.cloud.context.scope.GenericScope BeanFactory id=796c94d7-49d2-3bdb-9dd3-c106bac71206
+2020-09-06 18:55:24 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$d53d09c2] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-06 18:55:24 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$f1570cbf] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-06 18:55:24 INFO  main org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat initialized with port(s): 8101 (http)
+2020-09-06 18:55:24 INFO  main org.apache.coyote.http11.Http11NioProtocol Initializing ProtocolHandler ["http-nio-8101"]
+2020-09-06 18:55:24 INFO  main org.apache.catalina.core.StandardService Starting service [Tomcat]
+2020-09-06 18:55:24 INFO  main org.apache.catalina.core.StandardEngine Starting Servlet engine: [Apache Tomcat/9.0.21]
+2020-09-06 18:55:24 INFO  main org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring embedded WebApplicationContext
+2020-09-06 18:55:24 INFO  main org.springframework.web.context.ContextLoader Root WebApplicationContext: initialization completed in 1690 ms
+2020-09-06 18:55:24 INFO  main com.netflix.config.sources.URLConfigurationSource To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-09-06 18:55:24 INFO  main com.netflix.config.DynamicPropertyFactory DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@66a5755
+2020-09-06 18:55:24 INFO  main org.springframework.boot.actuate.endpoint.web.ServletEndpointRegistrar Registered '/actuator/jolokia' to jolokia-actuator-endpoint
+2020-09-06 18:55:25 INFO  main com.zaxxer.hikari.HikariDataSource HikariPool-1 - Starting...
+2020-09-06 18:55:25 INFO  main com.zaxxer.hikari.HikariDataSource HikariPool-1 - Start completed.
+2020-09-06 18:55:25 INFO  main org.hibernate.jpa.internal.util.LogHelper HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2020-09-06 18:55:25 INFO  main org.hibernate.Version HHH000412: Hibernate Core {5.3.10.Final}
+2020-09-06 18:55:25 INFO  main org.hibernate.cfg.Environment HHH000206: hibernate.properties not found
+2020-09-06 18:55:25 INFO  main org.hibernate.annotations.common.Version HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2020-09-06 18:55:26 INFO  main org.hibernate.dialect.Dialect HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-09-06 18:55:27 INFO  main org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-09-06 18:55:28 INFO  main org.springframework.security.web.DefaultSecurityFilterChain Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/oauth/token'], Ant [pattern='/oauth/token_key'], Ant [pattern='/oauth/check_token']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2e1ad7de, org.springframework.security.web.context.SecurityContextPersistenceFilter@18ac25e6, org.springframework.security.web.header.HeaderWriterFilter@1b841e7d, org.springframework.security.web.authentication.logout.LogoutFilter@b3042ed, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@5521407f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1eda309d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@10d49900, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7c56c911, org.springframework.security.web.session.SessionManagementFilter@6b5e1fc5, org.springframework.security.web.access.ExceptionTranslationFilter@5906ebfb, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5d6d424d]
+2020-09-06 18:55:28 INFO  main org.springframework.security.web.DefaultSecurityFilterChain Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/oauth/**']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6a07e6ca, org.springframework.security.web.context.SecurityContextPersistenceFilter@21ffc00e, org.springframework.security.web.header.HeaderWriterFilter@443253a6, org.springframework.security.web.authentication.logout.LogoutFilter@6723e6b3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@134955bb, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@45b08b17, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@726ef6aa, org.springframework.security.web.session.SessionManagementFilter@191774d6, org.springframework.security.web.access.ExceptionTranslationFilter@71687d8f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7d70ba18]
+2020-09-06 18:55:28 INFO  main org.springframework.security.web.DefaultSecurityFilterChain Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/**']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@72d16d6, org.springframework.security.web.context.SecurityContextPersistenceFilter@1136122a, org.springframework.security.web.header.HeaderWriterFilter@2f60e66a, org.springframework.security.web.authentication.logout.LogoutFilter@4ea43d4d, org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationProcessingFilter@6c56fff, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5a537a16, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@72288480, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7b0525a8, org.springframework.security.web.session.SessionManagementFilter@5bccef9f, org.springframework.security.web.access.ExceptionTranslationFilter@2a0c244e, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3cc6f036]
+2020-09-06 18:55:28 INFO  main com.netflix.config.sources.URLConfigurationSource To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-09-06 18:55:28 INFO  main org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-06 18:55:28 INFO  main org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler Initializing ExecutorService
+2020-09-06 18:55:28 INFO  main org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver Exposing 20 endpoint(s) beneath base path '/actuator'
+2020-09-06 18:55:29 INFO  main org.springframework.cloud.netflix.eureka.InstanceInfoFactory Setting initial instance status as: STARTING
+2020-09-06 18:55:29 INFO  main com.netflix.discovery.DiscoveryClient Initializing Eureka in region us-east-1
+2020-09-06 18:55:29 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using JSON encoding codec LegacyJacksonJson
+2020-09-06 18:55:29 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using JSON decoding codec LegacyJacksonJson
+2020-09-06 18:55:29 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using XML encoding codec XStreamXml
+2020-09-06 18:55:29 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using XML decoding codec XStreamXml
+2020-09-06 18:55:29 INFO  main com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2020-09-06 18:55:29 INFO  main com.netflix.discovery.DiscoveryClient Disable delta property : false
+2020-09-06 18:55:29 INFO  main com.netflix.discovery.DiscoveryClient Single vip registry refresh property : null
+2020-09-06 18:55:29 INFO  main com.netflix.discovery.DiscoveryClient Force full registry fetch : false
+2020-09-06 18:55:29 INFO  main com.netflix.discovery.DiscoveryClient Application is null : false
+2020-09-06 18:55:29 INFO  main com.netflix.discovery.DiscoveryClient Registered Applications size is zero : true
+2020-09-06 18:55:29 INFO  main com.netflix.discovery.DiscoveryClient Application version is -1: true
+2020-09-06 18:55:29 INFO  main com.netflix.discovery.DiscoveryClient Getting all instance registry info from the eureka server
+2020-09-06 18:55:29 INFO  main com.netflix.discovery.DiscoveryClient The response status is 200
+2020-09-06 18:55:29 INFO  main com.netflix.discovery.DiscoveryClient Starting heartbeat executor: renew interval is: 20
+2020-09-06 18:55:29 INFO  main com.netflix.discovery.InstanceInfoReplicator InstanceInfoReplicator onDemand update allowed rate per min is 4
+2020-09-06 18:55:29 INFO  main com.netflix.discovery.DiscoveryClient Discovery Client initialized at timestamp 1599389729944 with initial instances count: 0
+2020-09-06 18:55:29 INFO  main org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry Registering application GDMS-AUTH with eureka with status UP
+2020-09-06 18:55:29 INFO  main com.netflix.discovery.DiscoveryClient Saw local status change event StatusChangeEvent [timestamp=1599389729948, current=UP, previous=STARTING]
+2020-09-06 18:55:29 INFO  DiscoveryClient-InstanceInfoReplicator-0 com.netflix.discovery.DiscoveryClient DiscoveryClient_GDMS-AUTH/10.162.111.66:GDMS-Auth:8101: registering service...
+2020-09-06 18:55:29 INFO  main org.apache.coyote.http11.Http11NioProtocol Starting ProtocolHandler ["http-nio-8101"]
+2020-09-06 18:55:30 INFO  main org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat started on port(s): 8101 (http) with context path ''
+2020-09-06 18:55:30 INFO  main org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration Updating port to 8101
+2020-09-06 18:55:30 INFO  main org.graduationdesign.gdmsauth.GdmsAuthApplication Started GdmsAuthApplication in 8.669 seconds (JVM running for 9.97)
+2020-09-06 18:55:30 INFO  DiscoveryClient-InstanceInfoReplicator-0 com.netflix.discovery.DiscoveryClient DiscoveryClient_GDMS-AUTH/10.162.111.66:GDMS-Auth:8101 - registration status: 204
+2020-09-06 18:55:30 INFO  RMI TCP Connection(7)-127.0.0.1 org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-06 18:55:30 INFO  RMI TCP Connection(7)-127.0.0.1 org.springframework.web.servlet.DispatcherServlet Initializing Servlet 'dispatcherServlet'
+2020-09-06 18:55:30 INFO  RMI TCP Connection(7)-127.0.0.1 org.springframework.web.servlet.DispatcherServlet Completed initialization in 8 ms
+2020-09-06 18:55:59 INFO  DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Disable delta property : false
+2020-09-06 18:55:59 INFO  DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Single vip registry refresh property : null
+2020-09-06 18:55:59 INFO  DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Force full registry fetch : false
+2020-09-06 18:55:59 INFO  DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Application is null : false
+2020-09-06 18:55:59 INFO  DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Registered Applications size is zero : true
+2020-09-06 18:55:59 INFO  DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Application version is -1: false
+2020-09-06 18:55:59 INFO  DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Getting all instance registry info from the eureka server
+2020-09-06 18:55:59 INFO  DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient The response status is 200
+2020-09-06 18:56:29 INFO  DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Disable delta property : false
+2020-09-06 18:56:29 INFO  DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Single vip registry refresh property : null
+2020-09-06 18:56:29 INFO  DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Force full registry fetch : false
+2020-09-06 18:56:29 INFO  DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Application is null : false
+2020-09-06 18:56:29 INFO  DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Registered Applications size is zero : true
+2020-09-06 18:56:29 INFO  DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Application version is -1: false
+2020-09-06 18:56:29 INFO  DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Getting all instance registry info from the eureka server
+2020-09-06 18:56:30 INFO  DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient The response status is 200
+2020-09-06 18:58:37 INFO  Thread-23 org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry Unregistering application GDMS-AUTH with eureka with status DOWN
+2020-09-06 18:58:37 INFO  DiscoveryClient-InstanceInfoReplicator-0 com.netflix.discovery.DiscoveryClient DiscoveryClient_GDMS-AUTH/10.162.111.66:GDMS-Auth:8101: registering service...
+2020-09-06 18:58:37 INFO  DiscoveryClient-InstanceInfoReplicator-0 com.netflix.discovery.DiscoveryClient DiscoveryClient_GDMS-AUTH/10.162.111.66:GDMS-Auth:8101 - registration status: 204
+2020-09-06 18:58:37 INFO  Thread-23 org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler Shutting down ExecutorService
+2020-09-06 18:58:37 INFO  Thread-23 org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor Shutting down ExecutorService 'applicationTaskExecutor'
+2020-09-06 18:58:37 INFO  Thread-23 org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-09-06 18:58:37 INFO  Thread-23 com.netflix.discovery.DiscoveryClient Shutting down DiscoveryClient ...
+2020-09-06 18:58:40 INFO  Thread-23 com.netflix.discovery.DiscoveryClient Unregistering ...
+2020-09-06 18:58:40 INFO  Thread-23 com.netflix.discovery.DiscoveryClient DiscoveryClient_GDMS-AUTH/10.162.111.66:GDMS-Auth:8101 - deregister  status: 200
+2020-09-06 18:58:40 INFO  Thread-23 com.netflix.discovery.DiscoveryClient Completed shut down of DiscoveryClient
+2020-09-06 18:58:40 INFO  Thread-23 com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown initiated...
+2020-09-06 18:58:40 INFO  Thread-23 com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown completed.
+2020-09-06 18:58:47 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$2cd9ddd1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-06 18:58:48 INFO  main org.graduationdesign.gdmsauth.GdmsAuthApplication No active profile set, falling back to default profiles: default
+2020-09-06 18:58:48 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-06 18:58:48 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-09-06 18:58:48 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 44ms. Found 1 repository interfaces.
+2020-09-06 18:58:48 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-06 18:58:48 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-09-06 18:58:48 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 7ms. Found 1 repository interfaces.
+2020-09-06 18:58:49 INFO  main org.springframework.cloud.context.scope.GenericScope BeanFactory id=fd07ab3f-ee32-3cf8-84db-bbc17d619013
+2020-09-06 18:58:49 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$10bfdad4] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-06 18:58:49 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$2cd9ddd1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-06 18:58:49 INFO  main org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat initialized with port(s): 8101 (http)
+2020-09-06 18:58:49 INFO  main org.apache.coyote.http11.Http11NioProtocol Initializing ProtocolHandler ["http-nio-8101"]
+2020-09-06 18:58:49 INFO  main org.apache.catalina.core.StandardService Starting service [Tomcat]
+2020-09-06 18:58:49 INFO  main org.apache.catalina.core.StandardEngine Starting Servlet engine: [Apache Tomcat/9.0.21]
+2020-09-06 18:58:49 INFO  main org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring embedded WebApplicationContext
+2020-09-06 18:58:49 INFO  main org.springframework.web.context.ContextLoader Root WebApplicationContext: initialization completed in 1633 ms
+2020-09-06 18:58:49 INFO  main com.netflix.config.sources.URLConfigurationSource To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-09-06 18:58:49 INFO  main com.netflix.config.DynamicPropertyFactory DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@682abca7
+2020-09-06 18:58:50 INFO  main org.springframework.boot.actuate.endpoint.web.ServletEndpointRegistrar Registered '/actuator/jolokia' to jolokia-actuator-endpoint
+2020-09-06 18:58:50 INFO  main com.zaxxer.hikari.HikariDataSource HikariPool-1 - Starting...
+2020-09-06 18:58:50 INFO  main com.zaxxer.hikari.HikariDataSource HikariPool-1 - Start completed.
+2020-09-06 18:58:50 INFO  main org.hibernate.jpa.internal.util.LogHelper HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2020-09-06 18:58:50 INFO  main org.hibernate.Version HHH000412: Hibernate Core {5.3.10.Final}
+2020-09-06 18:58:50 INFO  main org.hibernate.cfg.Environment HHH000206: hibernate.properties not found
+2020-09-06 18:58:50 INFO  main org.hibernate.annotations.common.Version HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2020-09-06 18:58:50 INFO  main org.hibernate.dialect.Dialect HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-09-06 18:58:51 INFO  main org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-09-06 18:58:52 INFO  main org.springframework.security.web.DefaultSecurityFilterChain Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/oauth/token'], Ant [pattern='/oauth/token_key'], Ant [pattern='/oauth/check_token']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@434d001d, org.springframework.security.web.context.SecurityContextPersistenceFilter@5059d398, org.springframework.security.web.header.HeaderWriterFilter@77b22b05, org.springframework.security.web.authentication.logout.LogoutFilter@4cded2cd, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@2ee095c9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@434ee422, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@76d828ff, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@36453773, org.springframework.security.web.session.SessionManagementFilter@45abbd24, org.springframework.security.web.access.ExceptionTranslationFilter@5d68be4f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7adff6cb]
+2020-09-06 18:58:52 INFO  main org.springframework.security.web.DefaultSecurityFilterChain Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/oauth/**']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@44618fe6, org.springframework.security.web.context.SecurityContextPersistenceFilter@62de20d3, org.springframework.security.web.header.HeaderWriterFilter@6c56fff, org.springframework.security.web.authentication.logout.LogoutFilter@6f976c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6109d880, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4c9ef9c9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2b15ba1a, org.springframework.security.web.session.SessionManagementFilter@3dee3a6c, org.springframework.security.web.access.ExceptionTranslationFilter@28d56028, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4f2d8175]
+2020-09-06 18:58:52 INFO  main org.springframework.security.web.DefaultSecurityFilterChain Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/**']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7131d668, org.springframework.security.web.context.SecurityContextPersistenceFilter@3bf26810, org.springframework.security.web.header.HeaderWriterFilter@2dd08ff1, org.springframework.security.web.authentication.logout.LogoutFilter@719bb60d, org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationProcessingFilter@147375b3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@19213a74, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@30a791a6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@46a97805, org.springframework.security.web.session.SessionManagementFilter@37dec463, org.springframework.security.web.access.ExceptionTranslationFilter@5454be, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3abadb65]
+2020-09-06 18:58:52 INFO  main com.netflix.config.sources.URLConfigurationSource To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-09-06 18:58:52 INFO  main org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-06 18:58:52 INFO  main org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler Initializing ExecutorService
+2020-09-06 18:58:52 INFO  main org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver Exposing 20 endpoint(s) beneath base path '/actuator'
+2020-09-06 18:58:53 INFO  main org.springframework.cloud.netflix.eureka.InstanceInfoFactory Setting initial instance status as: STARTING
+2020-09-06 18:58:53 INFO  main com.netflix.discovery.DiscoveryClient Initializing Eureka in region us-east-1
+2020-09-06 18:58:53 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using JSON encoding codec LegacyJacksonJson
+2020-09-06 18:58:53 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using JSON decoding codec LegacyJacksonJson
+2020-09-06 18:58:53 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using XML encoding codec XStreamXml
+2020-09-06 18:58:53 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using XML decoding codec XStreamXml
+2020-09-06 18:58:53 INFO  main com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2020-09-06 18:58:53 INFO  main com.netflix.discovery.DiscoveryClient Disable delta property : false
+2020-09-06 18:58:53 INFO  main com.netflix.discovery.DiscoveryClient Single vip registry refresh property : null
+2020-09-06 18:58:53 INFO  main com.netflix.discovery.DiscoveryClient Force full registry fetch : false
+2020-09-06 18:58:53 INFO  main com.netflix.discovery.DiscoveryClient Application is null : false
+2020-09-06 18:58:53 INFO  main com.netflix.discovery.DiscoveryClient Registered Applications size is zero : true
+2020-09-06 18:58:53 INFO  main com.netflix.discovery.DiscoveryClient Application version is -1: true
+2020-09-06 18:58:53 INFO  main com.netflix.discovery.DiscoveryClient Getting all instance registry info from the eureka server
+2020-09-06 18:58:53 INFO  main com.netflix.discovery.DiscoveryClient The response status is 200
+2020-09-06 18:58:53 INFO  main com.netflix.discovery.DiscoveryClient Starting heartbeat executor: renew interval is: 20
+2020-09-06 18:58:53 INFO  main com.netflix.discovery.InstanceInfoReplicator InstanceInfoReplicator onDemand update allowed rate per min is 4
+2020-09-06 18:58:53 INFO  main com.netflix.discovery.DiscoveryClient Discovery Client initialized at timestamp 1599389933653 with initial instances count: 2
+2020-09-06 18:58:53 INFO  main org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry Registering application GDMS-AUTH with eureka with status UP
+2020-09-06 18:58:53 INFO  main com.netflix.discovery.DiscoveryClient Saw local status change event StatusChangeEvent [timestamp=1599389933659, current=UP, previous=STARTING]
+2020-09-06 18:58:53 INFO  DiscoveryClient-InstanceInfoReplicator-0 com.netflix.discovery.DiscoveryClient DiscoveryClient_GDMS-AUTH/10.162.111.66:GDMS-Auth:8101: registering service...
+2020-09-06 18:58:53 INFO  main org.apache.coyote.http11.Http11NioProtocol Starting ProtocolHandler ["http-nio-8101"]
+2020-09-06 18:58:53 INFO  DiscoveryClient-InstanceInfoReplicator-0 com.netflix.discovery.DiscoveryClient DiscoveryClient_GDMS-AUTH/10.162.111.66:GDMS-Auth:8101 - registration status: 204
+2020-09-06 18:58:53 INFO  main org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat started on port(s): 8101 (http) with context path ''
+2020-09-06 18:58:53 INFO  main org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration Updating port to 8101
+2020-09-06 18:58:53 INFO  main org.graduationdesign.gdmsauth.GdmsAuthApplication Started GdmsAuthApplication in 7.037 seconds (JVM running for 7.72)
+2020-09-06 18:58:53 INFO  RMI TCP Connection(3)-127.0.0.1 org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-06 18:58:53 INFO  RMI TCP Connection(3)-127.0.0.1 org.springframework.web.servlet.DispatcherServlet Initializing Servlet 'dispatcherServlet'
+2020-09-06 18:58:53 INFO  RMI TCP Connection(3)-127.0.0.1 org.springframework.web.servlet.DispatcherServlet Completed initialization in 8 ms
+2020-09-06 19:00:49 INFO  http-nio-8101-exec-1 org.hibernate.hql.internal.QueryTranslatorFactoryInitiator HHH000397: Using ASTQueryTranslatorFactory
+2020-09-06 19:02:41 INFO  Thread-19 org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry Unregistering application GDMS-AUTH with eureka with status DOWN
+2020-09-06 19:02:41 INFO  DiscoveryClient-InstanceInfoReplicator-0 com.netflix.discovery.DiscoveryClient DiscoveryClient_GDMS-AUTH/10.162.111.66:GDMS-Auth:8101: registering service...
+2020-09-06 19:02:41 INFO  DiscoveryClient-InstanceInfoReplicator-0 com.netflix.discovery.DiscoveryClient DiscoveryClient_GDMS-AUTH/10.162.111.66:GDMS-Auth:8101 - registration status: 204
+2020-09-06 19:02:41 INFO  Thread-19 org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler Shutting down ExecutorService
+2020-09-06 19:02:41 INFO  Thread-19 org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor Shutting down ExecutorService 'applicationTaskExecutor'
+2020-09-06 19:02:41 INFO  Thread-19 org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-09-06 19:02:41 INFO  Thread-19 com.netflix.discovery.DiscoveryClient Shutting down DiscoveryClient ...
+2020-09-06 19:02:44 INFO  Thread-19 com.netflix.discovery.DiscoveryClient Unregistering ...
+2020-09-06 19:02:44 INFO  Thread-19 com.netflix.discovery.DiscoveryClient DiscoveryClient_GDMS-AUTH/10.162.111.66:GDMS-Auth:8101 - deregister  status: 200
+2020-09-06 19:02:44 INFO  Thread-19 com.netflix.discovery.DiscoveryClient Completed shut down of DiscoveryClient
+2020-09-06 19:02:44 INFO  Thread-19 com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown initiated...
+2020-09-06 19:02:44 INFO  Thread-19 com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown completed.
+2020-09-06 19:02:55 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$e4b17b1b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-06 19:02:55 INFO  main org.graduationdesign.gdmsauth.GdmsAuthApplication No active profile set, falling back to default profiles: default
+2020-09-06 19:02:56 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-06 19:02:56 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-09-06 19:02:56 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 58ms. Found 1 repository interfaces.
+2020-09-06 19:02:56 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-06 19:02:56 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-09-06 19:02:56 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 12ms. Found 1 repository interfaces.
+2020-09-06 19:02:56 INFO  main org.springframework.cloud.context.scope.GenericScope BeanFactory id=796c94d7-49d2-3bdb-9dd3-c106bac71206
+2020-09-06 19:02:56 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$c897781e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-06 19:02:56 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$e4b17b1b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-06 19:02:56 INFO  main org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat initialized with port(s): 8101 (http)
+2020-09-06 19:02:57 INFO  main org.apache.coyote.http11.Http11NioProtocol Initializing ProtocolHandler ["http-nio-8101"]
+2020-09-06 19:02:57 INFO  main org.apache.catalina.core.StandardService Starting service [Tomcat]
+2020-09-06 19:02:57 INFO  main org.apache.catalina.core.StandardEngine Starting Servlet engine: [Apache Tomcat/9.0.21]
+2020-09-06 19:02:57 INFO  main org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring embedded WebApplicationContext
+2020-09-06 19:02:57 INFO  main org.springframework.web.context.ContextLoader Root WebApplicationContext: initialization completed in 1872 ms
+2020-09-06 19:02:57 INFO  main com.netflix.config.sources.URLConfigurationSource To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-09-06 19:02:57 INFO  main com.netflix.config.DynamicPropertyFactory DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@5d3ff859
+2020-09-06 19:02:57 INFO  main org.springframework.boot.actuate.endpoint.web.ServletEndpointRegistrar Registered '/actuator/jolokia' to jolokia-actuator-endpoint
+2020-09-06 19:02:57 INFO  main com.zaxxer.hikari.HikariDataSource HikariPool-1 - Starting...
+2020-09-06 19:02:58 INFO  main com.zaxxer.hikari.HikariDataSource HikariPool-1 - Start completed.
+2020-09-06 19:02:58 INFO  main org.hibernate.jpa.internal.util.LogHelper HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2020-09-06 19:02:58 INFO  main org.hibernate.Version HHH000412: Hibernate Core {5.3.10.Final}
+2020-09-06 19:02:58 INFO  main org.hibernate.cfg.Environment HHH000206: hibernate.properties not found
+2020-09-06 19:02:58 INFO  main org.hibernate.annotations.common.Version HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2020-09-06 19:02:58 INFO  main org.hibernate.dialect.Dialect HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-09-06 19:02:58 INFO  main org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-09-06 19:02:59 INFO  main org.springframework.security.web.DefaultSecurityFilterChain Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/oauth/token'], Ant [pattern='/oauth/token_key'], Ant [pattern='/oauth/check_token']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@719bb60d, org.springframework.security.web.context.SecurityContextPersistenceFilter@58a7a58d, org.springframework.security.web.header.HeaderWriterFilter@12e40e98, org.springframework.security.web.authentication.logout.LogoutFilter@1de6dc80, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@5454be, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1c9975a8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@63d66761, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5981f2c6, org.springframework.security.web.session.SessionManagementFilter@405223e4, org.springframework.security.web.access.ExceptionTranslationFilter@21bf308, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@44618fe6]
+2020-09-06 19:02:59 INFO  main org.springframework.security.web.DefaultSecurityFilterChain Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/oauth/**']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@66456506, org.springframework.security.web.context.SecurityContextPersistenceFilter@59b1edab, org.springframework.security.web.header.HeaderWriterFilter@79424f25, org.springframework.security.web.authentication.logout.LogoutFilter@2b1a1a37, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3855b27e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5305f936, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@69944a90, org.springframework.security.web.session.SessionManagementFilter@5fd4e67f, org.springframework.security.web.access.ExceptionTranslationFilter@70cd122, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@119f072c]
+2020-09-06 19:02:59 INFO  main org.springframework.security.web.DefaultSecurityFilterChain Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/**']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4247093b, org.springframework.security.web.context.SecurityContextPersistenceFilter@54e18a46, org.springframework.security.web.header.HeaderWriterFilter@7816454d, org.springframework.security.web.authentication.logout.LogoutFilter@335896bd, org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationProcessingFilter@62c47480, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1293f8d7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@58e5fbe5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7074da1d, org.springframework.security.web.session.SessionManagementFilter@67d180e4, org.springframework.security.web.access.ExceptionTranslationFilter@7096d451, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3c6b300a]
+2020-09-06 19:02:59 INFO  main com.netflix.config.sources.URLConfigurationSource To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-09-06 19:02:59 INFO  main org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-06 19:03:00 INFO  main org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler Initializing ExecutorService
+2020-09-06 19:03:00 INFO  main org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver Exposing 20 endpoint(s) beneath base path '/actuator'
+2020-09-06 19:03:00 INFO  main org.springframework.cloud.netflix.eureka.InstanceInfoFactory Setting initial instance status as: STARTING
+2020-09-06 19:03:00 INFO  main com.netflix.discovery.DiscoveryClient Initializing Eureka in region us-east-1
+2020-09-06 19:03:00 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using JSON encoding codec LegacyJacksonJson
+2020-09-06 19:03:00 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using JSON decoding codec LegacyJacksonJson
+2020-09-06 19:03:00 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using XML encoding codec XStreamXml
+2020-09-06 19:03:00 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using XML decoding codec XStreamXml
+2020-09-06 19:03:00 INFO  main com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2020-09-06 19:03:00 INFO  main com.netflix.discovery.DiscoveryClient Disable delta property : false
+2020-09-06 19:03:00 INFO  main com.netflix.discovery.DiscoveryClient Single vip registry refresh property : null
+2020-09-06 19:03:00 INFO  main com.netflix.discovery.DiscoveryClient Force full registry fetch : false
+2020-09-06 19:03:00 INFO  main com.netflix.discovery.DiscoveryClient Application is null : false
+2020-09-06 19:03:00 INFO  main com.netflix.discovery.DiscoveryClient Registered Applications size is zero : true
+2020-09-06 19:03:00 INFO  main com.netflix.discovery.DiscoveryClient Application version is -1: true
+2020-09-06 19:03:00 INFO  main com.netflix.discovery.DiscoveryClient Getting all instance registry info from the eureka server
+2020-09-06 19:03:01 INFO  main com.netflix.discovery.DiscoveryClient The response status is 200
+2020-09-06 19:03:01 INFO  main com.netflix.discovery.DiscoveryClient Starting heartbeat executor: renew interval is: 20
+2020-09-06 19:03:01 INFO  main com.netflix.discovery.InstanceInfoReplicator InstanceInfoReplicator onDemand update allowed rate per min is 4
+2020-09-06 19:03:01 INFO  main com.netflix.discovery.DiscoveryClient Discovery Client initialized at timestamp 1599390181051 with initial instances count: 2
+2020-09-06 19:03:01 INFO  main org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry Registering application GDMS-AUTH with eureka with status UP
+2020-09-06 19:03:01 INFO  main com.netflix.discovery.DiscoveryClient Saw local status change event StatusChangeEvent [timestamp=1599390181057, current=UP, previous=STARTING]
+2020-09-06 19:03:01 INFO  DiscoveryClient-InstanceInfoReplicator-0 com.netflix.discovery.DiscoveryClient DiscoveryClient_GDMS-AUTH/10.162.111.66:GDMS-Auth:8101: registering service...
+2020-09-06 19:03:01 INFO  main org.apache.coyote.http11.Http11NioProtocol Starting ProtocolHandler ["http-nio-8101"]
+2020-09-06 19:03:01 INFO  DiscoveryClient-InstanceInfoReplicator-0 com.netflix.discovery.DiscoveryClient DiscoveryClient_GDMS-AUTH/10.162.111.66:GDMS-Auth:8101 - registration status: 204
+2020-09-06 19:03:01 INFO  main org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat started on port(s): 8101 (http) with context path ''
+2020-09-06 19:03:01 INFO  main org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration Updating port to 8101
+2020-09-06 19:03:01 INFO  main org.graduationdesign.gdmsauth.GdmsAuthApplication Started GdmsAuthApplication in 7.423 seconds (JVM running for 8.211)
+2020-09-06 19:03:01 INFO  RMI TCP Connection(4)-127.0.0.1 org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-06 19:03:01 INFO  RMI TCP Connection(4)-127.0.0.1 org.springframework.web.servlet.DispatcherServlet Initializing Servlet 'dispatcherServlet'
+2020-09-06 19:03:01 INFO  RMI TCP Connection(4)-127.0.0.1 org.springframework.web.servlet.DispatcherServlet Completed initialization in 15 ms
+2020-09-06 19:03:57 INFO  http-nio-8101-exec-1 org.hibernate.hql.internal.QueryTranslatorFactoryInitiator HHH000397: Using ASTQueryTranslatorFactory
+2020-09-06 19:04:32 INFO  Thread-20 org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry Unregistering application GDMS-AUTH with eureka with status DOWN
+2020-09-06 19:04:32 INFO  DiscoveryClient-InstanceInfoReplicator-0 com.netflix.discovery.DiscoveryClient DiscoveryClient_GDMS-AUTH/10.162.111.66:GDMS-Auth:8101: registering service...
+2020-09-06 19:04:32 INFO  Thread-20 org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler Shutting down ExecutorService
+2020-09-06 19:04:32 INFO  Thread-20 org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor Shutting down ExecutorService 'applicationTaskExecutor'
+2020-09-06 19:04:32 INFO  Thread-20 org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-09-06 19:04:32 INFO  Thread-20 com.netflix.discovery.DiscoveryClient Shutting down DiscoveryClient ...
+2020-09-06 19:04:32 INFO  Thread-20 com.netflix.discovery.DiscoveryClient Unregistering ...
+2020-09-06 19:04:32 INFO  Thread-20 org.apache.http.impl.client.DefaultHttpClient I/O exception (org.apache.http.NoHttpResponseException) caught when processing request to {}->http://localhost:8001: The target server failed to respond
+2020-09-06 19:04:32 INFO  Thread-20 org.apache.http.impl.client.DefaultHttpClient Retrying request to {}->http://localhost:8001
+2020-09-06 19:04:34 INFO  Thread-20 org.apache.http.impl.client.DefaultHttpClient I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:8001: Connection reset
+2020-09-06 19:04:34 INFO  Thread-20 org.apache.http.impl.client.DefaultHttpClient Retrying request to {}->http://localhost:8001
+2020-09-06 19:04:34 INFO  Thread-20 com.netflix.discovery.DiscoveryClient Completed shut down of DiscoveryClient
+2020-09-06 19:04:34 INFO  Thread-20 com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown initiated...
+2020-09-06 19:04:34 INFO  Thread-20 com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown completed.
+2020-09-06 19:27:15 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$53d6468d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-06 19:27:16 INFO  main org.graduationdesign.gdmsauth.GdmsAuthApplication No active profile set, falling back to default profiles: default
+2020-09-06 19:27:17 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-06 19:27:17 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-09-06 19:27:17 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 79ms. Found 1 repository interfaces.
+2020-09-06 19:27:17 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-06 19:27:17 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-09-06 19:27:17 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 20ms. Found 1 repository interfaces.
+2020-09-06 19:27:17 INFO  main org.springframework.cloud.context.scope.GenericScope BeanFactory id=796c94d7-49d2-3bdb-9dd3-c106bac71206
+2020-09-06 19:27:17 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$37bc4390] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-06 19:27:17 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$53d6468d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-06 19:27:17 INFO  main org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat initialized with port(s): 8101 (http)
+2020-09-06 19:27:17 INFO  main org.apache.coyote.http11.Http11NioProtocol Initializing ProtocolHandler ["http-nio-8101"]
+2020-09-06 19:27:17 INFO  main org.apache.catalina.core.StandardService Starting service [Tomcat]
+2020-09-06 19:27:17 INFO  main org.apache.catalina.core.StandardEngine Starting Servlet engine: [Apache Tomcat/9.0.21]
+2020-09-06 19:27:17 INFO  main org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring embedded WebApplicationContext
+2020-09-06 19:27:17 INFO  main org.springframework.web.context.ContextLoader Root WebApplicationContext: initialization completed in 1731 ms
+2020-09-06 19:27:18 INFO  main com.netflix.config.sources.URLConfigurationSource To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-09-06 19:27:18 INFO  main com.netflix.config.DynamicPropertyFactory DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@682abca7
+2020-09-06 19:27:18 INFO  main org.springframework.boot.actuate.endpoint.web.ServletEndpointRegistrar Registered '/actuator/jolokia' to jolokia-actuator-endpoint
+2020-09-06 19:27:18 INFO  main com.zaxxer.hikari.HikariDataSource HikariPool-1 - Starting...
+2020-09-06 19:27:19 INFO  main com.zaxxer.hikari.HikariDataSource HikariPool-1 - Start completed.
+2020-09-06 19:27:19 INFO  main org.hibernate.jpa.internal.util.LogHelper HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2020-09-06 19:27:19 INFO  main org.hibernate.Version HHH000412: Hibernate Core {5.3.10.Final}
+2020-09-06 19:27:19 INFO  main org.hibernate.cfg.Environment HHH000206: hibernate.properties not found
+2020-09-06 19:27:19 INFO  main org.hibernate.annotations.common.Version HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2020-09-06 19:27:20 INFO  main org.hibernate.dialect.Dialect HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-09-06 19:27:20 INFO  main org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-09-06 19:27:22 INFO  main org.springframework.security.web.DefaultSecurityFilterChain Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/oauth/token'], Ant [pattern='/oauth/token_key'], Ant [pattern='/oauth/check_token']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6f976c, org.springframework.security.web.context.SecurityContextPersistenceFilter@72d0196d, org.springframework.security.web.header.HeaderWriterFilter@5b1420f9, org.springframework.security.web.authentication.logout.LogoutFilter@58a7a58d, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@28d56028, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4067634b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@12e40e98, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1324e70a, org.springframework.security.web.session.SessionManagementFilter@76d828ff, org.springframework.security.web.access.ExceptionTranslationFilter@1e32037d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@77fb1002]
+2020-09-06 19:27:22 INFO  main org.springframework.security.web.DefaultSecurityFilterChain Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/oauth/**']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@37dec463, org.springframework.security.web.context.SecurityContextPersistenceFilter@123c48d0, org.springframework.security.web.header.HeaderWriterFilter@796fe2b5, org.springframework.security.web.authentication.logout.LogoutFilter@1f72fbd1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@14fff5e7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1203d787, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3bf26810, org.springframework.security.web.session.SessionManagementFilter@5a6af2c4, org.springframework.security.web.access.ExceptionTranslationFilter@2b15ba1a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2dd08ff1]
+2020-09-06 19:27:22 INFO  main org.springframework.security.web.DefaultSecurityFilterChain Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/**']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6b33892a, org.springframework.security.web.context.SecurityContextPersistenceFilter@59b1edab, org.springframework.security.web.header.HeaderWriterFilter@79424f25, org.springframework.security.web.authentication.logout.LogoutFilter@2b1a1a37, org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationProcessingFilter@78e97d4d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3855b27e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5305f936, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@666b91db, org.springframework.security.web.session.SessionManagementFilter@5fd4e67f, org.springframework.security.web.access.ExceptionTranslationFilter@70cd122, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@335896bd]
+2020-09-06 19:27:22 INFO  main com.netflix.config.sources.URLConfigurationSource To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-09-06 19:27:22 INFO  main org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-06 19:27:22 INFO  main org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler Initializing ExecutorService
+2020-09-06 19:27:22 INFO  main org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver Exposing 20 endpoint(s) beneath base path '/actuator'
+2020-09-06 19:27:23 INFO  main org.springframework.cloud.netflix.eureka.InstanceInfoFactory Setting initial instance status as: STARTING
+2020-09-06 19:27:23 INFO  main com.netflix.discovery.DiscoveryClient Initializing Eureka in region us-east-1
+2020-09-06 19:27:23 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using JSON encoding codec LegacyJacksonJson
+2020-09-06 19:27:23 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using JSON decoding codec LegacyJacksonJson
+2020-09-06 19:27:23 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using XML encoding codec XStreamXml
+2020-09-06 19:27:23 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using XML decoding codec XStreamXml
+2020-09-06 19:27:23 INFO  main com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2020-09-06 19:27:23 INFO  main com.netflix.discovery.DiscoveryClient Disable delta property : false
+2020-09-06 19:27:23 INFO  main com.netflix.discovery.DiscoveryClient Single vip registry refresh property : null
+2020-09-06 19:27:23 INFO  main com.netflix.discovery.DiscoveryClient Force full registry fetch : false
+2020-09-06 19:27:23 INFO  main com.netflix.discovery.DiscoveryClient Application is null : false
+2020-09-06 19:27:23 INFO  main com.netflix.discovery.DiscoveryClient Registered Applications size is zero : true
+2020-09-06 19:27:23 INFO  main com.netflix.discovery.DiscoveryClient Application version is -1: true
+2020-09-06 19:27:23 INFO  main com.netflix.discovery.DiscoveryClient Getting all instance registry info from the eureka server
+2020-09-06 19:27:24 INFO  main com.netflix.discovery.DiscoveryClient The response status is 200
+2020-09-06 19:27:24 INFO  main com.netflix.discovery.DiscoveryClient Starting heartbeat executor: renew interval is: 20
+2020-09-06 19:27:24 INFO  main com.netflix.discovery.InstanceInfoReplicator InstanceInfoReplicator onDemand update allowed rate per min is 4
+2020-09-06 19:27:24 INFO  main com.netflix.discovery.DiscoveryClient Discovery Client initialized at timestamp 1599391644016 with initial instances count: 0
+2020-09-06 19:27:24 INFO  main org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry Registering application GDMS-AUTH with eureka with status UP
+2020-09-06 19:27:24 INFO  main com.netflix.discovery.DiscoveryClient Saw local status change event StatusChangeEvent [timestamp=1599391644019, current=UP, previous=STARTING]
+2020-09-06 19:27:24 INFO  DiscoveryClient-InstanceInfoReplicator-0 com.netflix.discovery.DiscoveryClient DiscoveryClient_GDMS-AUTH/10.162.111.66:GDMS-Auth:8101: registering service...
+2020-09-06 19:27:24 INFO  main org.apache.coyote.http11.Http11NioProtocol Starting ProtocolHandler ["http-nio-8101"]
+2020-09-06 19:27:24 INFO  main org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat started on port(s): 8101 (http) with context path ''
+2020-09-06 19:27:24 INFO  main org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration Updating port to 8101
+2020-09-06 19:27:24 INFO  main org.graduationdesign.gdmsauth.GdmsAuthApplication Started GdmsAuthApplication in 9.451 seconds (JVM running for 10.183)
+2020-09-06 19:27:24 INFO  DiscoveryClient-InstanceInfoReplicator-0 com.netflix.discovery.DiscoveryClient DiscoveryClient_GDMS-AUTH/10.162.111.66:GDMS-Auth:8101 - registration status: 204
+2020-09-06 19:27:24 INFO  RMI TCP Connection(5)-127.0.0.1 org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-06 19:27:24 INFO  RMI TCP Connection(5)-127.0.0.1 org.springframework.web.servlet.DispatcherServlet Initializing Servlet 'dispatcherServlet'
+2020-09-06 19:27:24 INFO  RMI TCP Connection(5)-127.0.0.1 org.springframework.web.servlet.DispatcherServlet Completed initialization in 8 ms
+2020-09-06 19:27:54 INFO  DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Disable delta property : false
+2020-09-06 19:27:54 INFO  DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Single vip registry refresh property : null
+2020-09-06 19:27:54 INFO  DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Force full registry fetch : false
+2020-09-06 19:27:54 INFO  DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Application is null : false
+2020-09-06 19:27:54 INFO  DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Registered Applications size is zero : true
+2020-09-06 19:27:54 INFO  DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Application version is -1: false
+2020-09-06 19:27:54 INFO  DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Getting all instance registry info from the eureka server
+2020-09-06 19:27:54 INFO  DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient The response status is 200
+2020-09-06 19:32:23 INFO  AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2020-09-06 19:34:34 INFO  Thread-24 org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry Unregistering application GDMS-AUTH with eureka with status DOWN
+2020-09-06 19:34:34 INFO  DiscoveryClient-InstanceInfoReplicator-0 com.netflix.discovery.DiscoveryClient DiscoveryClient_GDMS-AUTH/10.162.111.66:GDMS-Auth:8101: registering service...
+2020-09-06 19:34:34 INFO  DiscoveryClient-InstanceInfoReplicator-0 org.apache.http.impl.client.DefaultHttpClient I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:8001: Broken pipe (Write failed)
+2020-09-06 19:34:34 INFO  DiscoveryClient-InstanceInfoReplicator-0 org.apache.http.impl.client.DefaultHttpClient Retrying request to {}->http://localhost:8001
+2020-09-06 19:34:34 INFO  Thread-24 org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler Shutting down ExecutorService
+2020-09-06 19:34:34 INFO  Thread-24 org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor Shutting down ExecutorService 'applicationTaskExecutor'
+2020-09-06 19:34:34 INFO  DiscoveryClient-InstanceInfoReplicator-0 org.apache.http.impl.client.DefaultHttpClient I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:8001: Broken pipe (Write failed)
+2020-09-06 19:34:34 INFO  DiscoveryClient-InstanceInfoReplicator-0 org.apache.http.impl.client.DefaultHttpClient Retrying request to {}->http://localhost:8001
+2020-09-06 19:34:34 INFO  Thread-24 org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-09-06 19:34:34 INFO  Thread-24 com.netflix.discovery.DiscoveryClient Shutting down DiscoveryClient ...
+2020-09-06 19:34:37 INFO  Thread-24 com.netflix.discovery.DiscoveryClient Unregistering ...
+2020-09-06 19:34:37 INFO  Thread-24 com.netflix.discovery.DiscoveryClient Completed shut down of DiscoveryClient
+2020-09-06 19:34:37 INFO  Thread-24 com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown initiated...
+2020-09-06 19:34:37 INFO  Thread-24 com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown completed.
