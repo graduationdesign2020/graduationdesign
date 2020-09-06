@@ -94,19 +94,29 @@ gdms
 - 获取自身回复内容
 - 发送回复
 
+### 流程模块
+> 教师
+- 设置某阶段的截止日期
+- 查看设置的截止日期
+- 查看所负责学生各流程是/否提交
+- 查看所负责学生各流程分数
+
+> 学生
+- 查看各流程截止日期
+- 查看自身各流程是/否提交
+- 查看自身各流程分数
+- 在距离截止日期24h时，收到消息提醒
+
 ### 搜索模块
 -查询含有关键字的全部校内通知/院内通知/教师消息
 
-### 定时模块
-> 教师
-- 设置某阶段的截止日期
-> 学生
-- 在距离截止日期24h时，收到消息提醒
 
 ## 数据库概览
 > 共16张表，其中NoSQL表4张，存储通知/消息内容等非格式化数据；SQL表12张，存储格式化信息
 - MySQL
+![ImageText](https://github.com/graduationdesign2020/graduationdesign/blob/master/picture/1599426444(1).png)
 - MongoDB
+![ImageText](https://github.com/graduationdesign2020/graduationdesign/blob/master/picture/1599426498(1).png)
 
 ## 测试结果
 ### Unit Test
