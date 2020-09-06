@@ -13,6 +13,7 @@
         <module name="gdms-monitor-admin" />
         <module name="gdms-server-notice" />
         <module name="gdms-server-search" />
+        <module name="gdms-server-core" />
         <module name="gdms-register" />
       </profile>
     </annotationProcessing>
@@ -24,6 +25,7 @@
       <module name="gdms-gateway" options="-parameters" />
       <module name="gdms-monitor-admin" options="-parameters" />
       <module name="gdms-register" options="-parameters" />
+      <module name="gdms-server-core" options="-parameters" />
       <module name="gdms-server-notice" options="-parameters" />
       <module name="gdms-server-search" options="-parameters" />
     </option>

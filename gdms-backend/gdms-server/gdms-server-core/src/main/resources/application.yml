@@ -1,5 +1,5 @@
 server:
-  port: 8202
+  port: 8203
 
 spring:
   application:
@@ -54,4 +54,3 @@ management:
   endpoint:
     health:
       show-details: ALWAYS
-
