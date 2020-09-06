@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/gdms-auth/gdms-auth.iml" filepath="$PROJECT_DIR$/gdms-auth/gdms-auth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/gdms-backend.iml" filepath="$PROJECT_DIR$/.idea/gdms-backend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gdms-cloud/gdms-cloud.iml" filepath="$PROJECT_DIR$/gdms-cloud/gdms-cloud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gdms-common/gdms-common.iml" filepath="$PROJECT_DIR$/gdms-common/gdms-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gdms-gateway/gdms-gateway.iml" filepath="$PROJECT_DIR$/gdms-gateway/gdms-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gdms-monitor/gdms-monitor.iml" filepath="$PROJECT_DIR$/gdms-monitor/gdms-monitor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gdms-monitor/gdms-monitor-admin/gdms-monitor-admin.iml" filepath="$PROJECT_DIR$/gdms-monitor/gdms-monitor-admin/gdms-monitor-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gdms-register/gdms-register.iml" filepath="$PROJECT_DIR$/gdms-register/gdms-register.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gdms-server/gdms-server.iml" filepath="$PROJECT_DIR$/gdms-server/gdms-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gdms-server/gdms-server-search/gdms-server-search.iml" filepath="$PROJECT_DIR$/gdms-server/gdms-server-search/gdms-server-search.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gdms-sever/gdms-server-search/gdms-server-search (1).iml" filepath="$PROJECT_DIR$/gdms-sever/gdms-server-search/gdms-server-search (1).iml" />
+    </modules>
+  </component>
+</project>
