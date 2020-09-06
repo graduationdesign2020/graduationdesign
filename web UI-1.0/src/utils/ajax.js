@@ -4,7 +4,7 @@ export const ajax = (url, data, callback) => {
         body: JSON.stringify(data),
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer eyJ0eXBlIjoiSldUIiwiYWxnIjoiSFMyNTYifQ.eyJpc3MiOiJTbmFpbENsaW1iIiwiaWF0IjoxNTk3ODM5MTUwLCJzdWIiOiJhZG1pbiIsImV4cCI6MTU5ODQ0Mzk1MH0.7Hk5i0xUGM-aqrdCde9CiIf9qriBE8OcDm-iLii3bMk'
+            'Authorization': localStorage.getItem("Authorization")
         }
     })
         .then((response) => {
@@ -20,7 +20,7 @@ export const ajax = (url, data, callback) => {
 }
 
 export const login = (data, callback) => {
-    fetch("http://localhost:8888/adminlogin", {
+    fetch("http://10.162.186.199:8888/adminlogin", {
         method: "POST",
         body: JSON.stringify(data),
         headers: {

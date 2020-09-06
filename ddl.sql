@@ -60,7 +60,7 @@ CREATE TABLE teachermessage(
 -- 2:专业管理人
 CREATE TABLE wechatusers 
 (
-	wechat_id 	varchar(20),
+	wechat_id 	varchar(50),
     id 			varchar(50) NOT NULL,
     auth 		enum('ROLE_TEACHER','ROLE_STUDENT','ROLE_ADMIN'),
     PRIMARY KEY (wechat_id)

@@ -1,6 +1,6 @@
 const urlhead = "http://localhost:8888"
 const searchurl = "http://localhost:8889"
-const noticeurl = "http://localhost:8890"
+const noticeurl = "http://localhost:8887"
 
 export const PostRequest = (url, postdata, callback, failcallback = (res) => {}) => {
   Request(urlhead, url, postdata, callback)

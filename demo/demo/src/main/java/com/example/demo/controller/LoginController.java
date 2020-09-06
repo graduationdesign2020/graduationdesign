@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.example.demo.entity.Student;
 import com.example.demo.utils.HttpClient;
@@ -10,16 +11,23 @@ import com.example.demo.utils.ReturnInfo;
 import com.example.demo.constant.*;
 import com.example.demo.utils.UserInfo;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import org.apache.http.client.methods.HttpPost;
+
 import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
 @RestController
@@ -85,71 +93,17 @@ public class LoginController {
 
     @RequestMapping(path = "/adminlogin")
     public JSONObject adminLogin(@RequestBody Map<String, String> params) {
-//        String id = params.get("id");
-//        String openid = params.get("openid");
-//        JSONObject obj = new JSONObject();
-//        obj.put("id", "admin");
-//        obj.put("openid", "admin");
-//        String result = "";
-//        try {
-//            URL url = new URL("http://localhost:8888/login");
-//            // 建立http连接
-//            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-//            // 设置允许输出
-//            conn.setDoOutput(true);
-//
-//            conn.setDoInput(true);
-//
-//            // 设置不用缓存
-//            conn.setUseCaches(false);
-//            // 设置传递方式
-//            conn.setRequestMethod("POST");
-//            // 设置文件字符集:
-//            conn.setRequestProperty("Charset", "UTF-8");
-//
-//            // 设置文件类型:
-//            conn.setRequestProperty("contentType", "application/json");
-//
-//
-//            // 开始连接请求
-//            conn.connect();
-//            OutputStream out = conn.getOutputStream();
-//            // 写入请求的字符串
-//            out.write((obj.toString()).getBytes());
-//            out.flush();
-//            out.close();
-//
-//            System.out.println(conn.getResponseCode());
-//            // 请求返回的状态
-//            //if (conn.getResponseCode() == 200) {
-//                System.out.println("连接成功");
-//                // 请求返回的数据
-//                InputStream in = conn.getInputStream();
-//                String a = null;
-//                try {
-//                    byte[] data1 = new byte[in.available()];
-//                    in.read(data1);
-//                    // 转成字符串
-//                    a = new String(data1);
-//                    System.out.println(a);
-//                } catch (Exception e1) {
-//                    e1.printStackTrace();
-//                }
-//            //} else {
-//                System.out.println("no++");
-//            //}
-//
-//        } catch (Exception e) {
-//
-//        }
-        String id = params.get("id");
-        String openid = params.get("openid");
-        JSONObject result = new JSONObject();
-        if (id.equals("admin") && openid.equals("admin")) {
-            result.put("code", 200);
+        JSONObject res = new JSONObject();
+        JSONObject data = new JSONObject();
+        data.put("id", params.get("id"));
+        data.put("openid", params.get("openid"));
+        try {
+            res = HttpClient.doPost("http://10.162.186.199:8888/login", data);
         }
-        else result.put("code", 400);
-        return result;
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return res;
     }
 }
 

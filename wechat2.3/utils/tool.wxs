@@ -1,5 +1,7 @@
 var sub = function(val) {
-  if (val.length == 0 || val == undefined) {
+  if (val == undefined)
+    return
+  if (val.length == 0) {
     return;
   }
   if (val.length > 20) {
