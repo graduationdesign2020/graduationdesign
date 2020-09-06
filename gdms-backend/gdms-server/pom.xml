@@ -17,6 +17,9 @@
 
     <modules>
         <module>gdms-server-search</module>
+        <module>gdms-server-notice</module>
+        <module>gdms-server-core</module>
+        <module>gdms-server-test</module>
     </modules>
 
     <dependencies>

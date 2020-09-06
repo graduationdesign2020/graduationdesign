@@ -3,9 +3,13 @@ package org.graduationdesign.gdmsservernotice.configure;
 import org.apache.commons.lang.StringUtils;
 import org.graduationdesign.gdmsservernotice.properties.GdmsServerSystemProperties;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 
+@Configuration
+@EnableResourceServer
 public class GdmsServerNoticeResourceSeverConfigure extends ResourceServerConfigurerAdapter {
     @Autowired
     private GdmsServerSystemProperties properties;

@@ -8,8 +8,8 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 @EnableDiscoveryClient
-@EnableGdmsServerProtect
 @SpringBootApplication
+@EnableGdmsServerProtect
 public class GdmsServerNoticeApplication {
 
     public static void main(String[] args) {

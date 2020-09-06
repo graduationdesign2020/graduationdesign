@@ -10,6 +10,7 @@
         <module name="gdms-auth" />
         <module name="gdms-common" />
         <module name="gdms-gateway" />
+        <module name="gdms-server-test" />
         <module name="gdms-monitor-admin" />
         <module name="gdms-server-notice" />
         <module name="gdms-server-search" />
@@ -28,6 +29,7 @@
       <module name="gdms-server-core" options="-parameters" />
       <module name="gdms-server-notice" options="-parameters" />
       <module name="gdms-server-search" options="-parameters" />
+      <module name="gdms-server-test" options="-parameters" />
     </option>
   </component>
 </project>
