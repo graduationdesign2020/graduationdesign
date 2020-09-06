@@ -8,7 +8,7 @@
  ## 项目介绍
 `gdms`基于微信的生态，利用小程序管理毕业设计信息处理全过程，包括选导师、开题、中期检查、答辩、论文定稿、归档等环节；期间还涉及各种通知的发送。院系教务管理人员则通过网页获取院系学生毕设流程信息。目的是让学生、导师及教学管理人员有通畅的消息传递、交流以及数据统计分析功能
 ## 系统架构图
-![Image text](https://github.com/graduationdesign2020/graduationdesign/blob/master/picture/architecture.PNG)
+![Image text](https://github.com/graduationdesign2020/graduationdesign/raw/master/picture/architecture.PNG)
 ## 组织结构 
 ``` lua
 gdms
@@ -110,5 +110,5 @@ gdms
 
 ## 测试结果
 ### Unit Test
-![Image text](https://github.com/graduationdesign2020/graduationdesign/blob/master/picture/unittest.png)
+![Image text](https://github.com/graduationdesign2020/graduationdesign/raw/master/picture/unittest.png)
 
