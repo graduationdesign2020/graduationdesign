@@ -650,7 +650,7 @@ Caused by: java.lang.NullPointerException: null
 	at java.lang.reflect.Method.invoke(Method.java:498)
 	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
 	... 22 common frames omitted
-2020-09-07 06:02:55 ERROR main org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter 
+2020-09-07 06:02:55 ERROR main org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter
 
 ***************************
 APPLICATION FAILED TO START
@@ -658,7 +658,7 @@ APPLICATION FAILED TO START
 
 Description:
 
-Field properties in org.graduatiedesign.gdmsservercore.configure.GdmsServerSearchResourceServerConfigure required a bean of type 'org.graduationdesign.gdmsserversearch.properties.GdmsServerSystemProperties' that could not be found.
+Field properties in GdmsServerSearchResourceServerConfigure required a bean of type 'org.graduationdesign.gdmsserversearch.properties.GdmsServerSystemProperties' that could not be found.
 
 The injection point has the following annotations:
 	- @org.springframework.beans.factory.annotation.Autowired(required=true)
@@ -669,7 +669,7 @@ Action:
 Consider defining a bean of type 'org.graduationdesign.gdmsserversearch.properties.GdmsServerSystemProperties' in your configuration.
 
 2020-09-07 06:05:42 ERROR main org.springframework.boot.SpringApplication Application run failed
-org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [org.graduatiedesign.gdmsservercore.GdmsServerCoreApplication]; nested exception is java.io.FileNotFoundException: class path resource [gdms-server-search.properties] cannot be opened because it does not exist
+org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [GdmsServerCoreApplication]; nested exception is java.io.FileNotFoundException: class path resource [gdms-server-search.properties] cannot be opened because it does not exist
 	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:181)
 	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:315)
 	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:232)
@@ -683,7 +683,7 @@ org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse 
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:311)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1213)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1202)
-	at org.graduatiedesign.gdmsservercore.GdmsServerCoreApplication.main(GdmsServerCoreApplication.java:18)
+	at GdmsServerCoreApplication.main(GdmsServerCoreApplication.java:18)
 Caused by: java.io.FileNotFoundException: class path resource [gdms-server-search.properties] cannot be opened because it does not exist
 	at org.springframework.core.io.ClassPathResource.getInputStream(ClassPathResource.java:180)
 	at org.springframework.core.io.support.EncodedResource.getInputStream(EncodedResource.java:159)
@@ -724,7 +724,7 @@ org.springframework.beans.factory.BeanCreationException: Error creating bean wit
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:311)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1213)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1202)
-	at org.graduatiedesign.gdmsservercore.GdmsServerCoreApplication.main(GdmsServerCoreApplication.java:18)
+	at GdmsServerCoreApplication.main(GdmsServerCoreApplication.java:18)
 Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [javax.servlet.Filter]: Factory method 'springSecurityFilterChain' threw exception; nested exception is java.lang.NullPointerException
 	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185)
 	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:622)
@@ -733,7 +733,7 @@ Caused by: java.lang.NullPointerException: null
 	at org.springframework.security.config.annotation.web.AbstractRequestMatcherRegistry$RequestMatchers.antMatchers(AbstractRequestMatcherRegistry.java:261)
 	at org.springframework.security.config.annotation.web.AbstractRequestMatcherRegistry$RequestMatchers.antMatchers(AbstractRequestMatcherRegistry.java:277)
 	at org.springframework.security.config.annotation.web.AbstractRequestMatcherRegistry.antMatchers(AbstractRequestMatcherRegistry.java:115)
-	at org.graduatiedesign.gdmsservercore.configure.GdmsServerSearchResourceServerConfigure.configure(GdmsServerSearchResourceServerConfigure.java:26)
+	at GdmsServerSearchResourceServerConfigure.configure(GdmsServerSearchResourceServerConfigure.java:26)
 	at org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfiguration.configure(ResourceServerConfiguration.java:154)
 	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter.getHttp(WebSecurityConfigurerAdapter.java:231)
 	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter.init(WebSecurityConfigurerAdapter.java:322)

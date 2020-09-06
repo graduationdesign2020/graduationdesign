@@ -27,8 +27,8 @@ public class GdmsWebConfigure {
 
     private ApiInfo apiInfo() {
         return new ApiInfo(
-                "GDMS-Server-Search API",
-                "GDMS-Server-Search API.",
+                "GDMS-Server-Notice API",
+                "GDMS-Server-Notice API.",
                 "1.0",
                 null,
                 new Contact("GDMS", "https://github.com/graduationdesign2020/graduationdesign", "riken01@sjtu.edu.cn"),
