@@ -44,8 +44,8 @@ public class MessageService {
 //            System.out.println(source);
             Message message=new Message();
             message.setTitle((String) source.get("title"));
-            message.setType((int) source.get("type"));
-            message.setId((int) source.get("id"));
+            message.setType(((Double) source.get("type")).intValue());
+            message.setId(((Double) source.get("id")).intValue());
             message.setContent((String) source.get("content"));
             list.add(message);
         }
