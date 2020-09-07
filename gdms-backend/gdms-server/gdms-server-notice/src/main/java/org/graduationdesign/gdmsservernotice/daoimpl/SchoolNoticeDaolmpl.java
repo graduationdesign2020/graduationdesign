@@ -28,7 +28,7 @@ public class SchoolNoticeDaolmpl implements SchoolNoticeDao {
         Optional<SchoolNotice> schoolNotice= schoolNoticeRepository.getById(id);
         if(schoolNotice.isPresent()) {
             SchoolNotice schoolNotice1=schoolNotice.get();
-            Optional<SchoolNoticeContent> schoolNoticeContent = Optional.ofNullable(schoolNoticeContentRepository.findById(id));
+            Optional<SchoolNoticeContent> schoolNoticeContent = Optional.ofNullable(schoolNoticeContentRepository.findById(id*10));
             if (schoolNoticeContent.isPresent()) {
                 SchoolNoticeContent s = schoolNoticeContent.get();
                 schoolNotice1.setContent(s.getContent());
