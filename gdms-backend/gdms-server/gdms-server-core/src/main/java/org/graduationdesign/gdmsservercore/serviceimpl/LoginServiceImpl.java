@@ -72,7 +72,7 @@ public class LoginServiceImpl implements LoginService {
         }
         if (flag) {
             Users users = new Users();
-            users.setWechat_id(wechat_id);
+            users.setWechat(wechat_id);
             users.setId(id);
             users.setAuth(auth);
             usersDao.saveUsers(users);

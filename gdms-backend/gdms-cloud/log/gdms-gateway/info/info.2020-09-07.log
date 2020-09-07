@@ -3915,3 +3915,1085 @@ java.lang.IllegalStateException: Shutdown in progress
 2020-09-07 07:22:27 INFO  Thread-16 org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler Shutting down ExecutorService
 2020-09-07 07:22:27 INFO  Thread-16 org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor Shutting down ExecutorService 'applicationTaskExecutor'
 2020-09-07 07:22:27 INFO  Thread-16 com.netflix.discovery.DiscoveryClient Shutting down DiscoveryClient ...
+2020-09-07 16:55:42 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$ba071140] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-07 16:55:42 INFO  main org.graduationdesign.gdmsgateway.GdmsGatewayApplication No active profile set, falling back to default profiles: default
+2020-09-07 16:55:43 INFO  main org.springframework.cloud.context.scope.GenericScope BeanFactory id=41731082-0927-3e06-86eb-8767d1888bbe
+2020-09-07 16:55:43 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$ba071140] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-07 16:55:43 INFO  main org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat initialized with port(s): 8301 (http)
+2020-09-07 16:55:43 INFO  main org.apache.coyote.http11.Http11NioProtocol Initializing ProtocolHandler ["http-nio-8301"]
+2020-09-07 16:55:44 INFO  main org.apache.catalina.core.StandardService Starting service [Tomcat]
+2020-09-07 16:55:44 INFO  main org.apache.catalina.core.StandardEngine Starting Servlet engine: [Apache Tomcat/9.0.21]
+2020-09-07 16:55:44 INFO  main org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring embedded WebApplicationContext
+2020-09-07 16:55:44 INFO  main org.springframework.web.context.ContextLoader Root WebApplicationContext: initialization completed in 1538 ms
+2020-09-07 16:55:44 INFO  main com.netflix.config.sources.URLConfigurationSource To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-09-07 16:55:44 INFO  main com.netflix.config.DynamicPropertyFactory DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@4a92c6a9
+2020-09-07 16:55:44 INFO  main org.springframework.boot.actuate.endpoint.web.ServletEndpointRegistrar Registered '/actuator/jolokia' to jolokia-actuator-endpoint
+2020-09-07 16:55:44 INFO  main org.springframework.boot.actuate.endpoint.web.ServletEndpointRegistrar Registered '/actuator/hystrix.stream' to hystrix.stream-actuator-endpoint
+2020-09-07 16:55:44 INFO  main org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration 
+
+Using generated security password: 9f39a1e2-b882-4f70-aae2-6495cc618a1f
+
+2020-09-07 16:55:44 INFO  main org.springframework.security.web.DefaultSecurityFilterChain Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5f726750, org.springframework.security.web.context.SecurityContextPersistenceFilter@71664560, org.springframework.security.web.header.HeaderWriterFilter@7fe07361, org.springframework.security.web.authentication.logout.LogoutFilter@51c65a43, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@39da5e49, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5e9bbd9d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4e80a001, org.springframework.security.web.session.SessionManagementFilter@30c19bff, org.springframework.security.web.access.ExceptionTranslationFilter@4b56b031]
+2020-09-07 16:55:44 INFO  main com.netflix.config.sources.URLConfigurationSource To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-09-07 16:55:45 INFO  main org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-07 16:55:45 INFO  main org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler Initializing ExecutorService
+2020-09-07 16:55:45 INFO  main org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver Exposing 24 endpoint(s) beneath base path '/actuator'
+2020-09-07 16:55:45 INFO  main org.springframework.cloud.netflix.zuul.ZuulFilterInitializer Starting filter initializer
+2020-09-07 16:55:45 INFO  main org.springframework.cloud.netflix.eureka.InstanceInfoFactory Setting initial instance status as: STARTING
+2020-09-07 16:55:45 INFO  main com.netflix.discovery.DiscoveryClient Initializing Eureka in region us-east-1
+2020-09-07 16:55:45 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using JSON encoding codec LegacyJacksonJson
+2020-09-07 16:55:45 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using JSON decoding codec LegacyJacksonJson
+2020-09-07 16:55:45 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using XML encoding codec XStreamXml
+2020-09-07 16:55:45 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using XML decoding codec XStreamXml
+2020-09-07 16:55:46 INFO  main com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2020-09-07 16:55:46 INFO  main com.netflix.discovery.DiscoveryClient Disable delta property : false
+2020-09-07 16:55:46 INFO  main com.netflix.discovery.DiscoveryClient Single vip registry refresh property : null
+2020-09-07 16:55:46 INFO  main com.netflix.discovery.DiscoveryClient Force full registry fetch : false
+2020-09-07 16:55:46 INFO  main com.netflix.discovery.DiscoveryClient Application is null : false
+2020-09-07 16:55:46 INFO  main com.netflix.discovery.DiscoveryClient Registered Applications size is zero : true
+2020-09-07 16:55:46 INFO  main com.netflix.discovery.DiscoveryClient Application version is -1: true
+2020-09-07 16:55:46 INFO  main com.netflix.discovery.DiscoveryClient Getting all instance registry info from the eureka server
+2020-09-07 16:55:46 INFO  main com.netflix.discovery.DiscoveryClient The response status is 200
+2020-09-07 16:55:46 INFO  main com.netflix.discovery.DiscoveryClient Starting heartbeat executor: renew interval is: 20
+2020-09-07 16:55:46 INFO  main com.netflix.discovery.InstanceInfoReplicator InstanceInfoReplicator onDemand update allowed rate per min is 4
+2020-09-07 16:55:46 INFO  main com.netflix.discovery.DiscoveryClient Discovery Client initialized at timestamp 1599468946889 with initial instances count: 4
+2020-09-07 16:55:46 INFO  main org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry Registering application GDMS-GATEWAY with eureka with status UP
+2020-09-07 16:55:46 INFO  main com.netflix.discovery.DiscoveryClient Saw local status change event StatusChangeEvent [timestamp=1599468946892, current=UP, previous=STARTING]
+2020-09-07 16:55:46 INFO  DiscoveryClient-InstanceInfoReplicator-0 com.netflix.discovery.DiscoveryClient DiscoveryClient_GDMS-GATEWAY/10.162.111.66:GDMS-Gateway:8301: registering service...
+2020-09-07 16:55:46 INFO  main org.apache.coyote.http11.Http11NioProtocol Starting ProtocolHandler ["http-nio-8301"]
+2020-09-07 16:55:46 INFO  main org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat started on port(s): 8301 (http) with context path ''
+2020-09-07 16:55:46 INFO  main org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration Updating port to 8301
+2020-09-07 16:55:46 INFO  main org.graduationdesign.gdmsgateway.GdmsGatewayApplication Started GdmsGatewayApplication in 5.689 seconds (JVM running for 6.316)
+2020-09-07 16:55:47 INFO  main com.netflix.config.ChainedDynamicProperty Flipping property: GDMS-Auth.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2020-09-07 16:55:47 INFO  main com.netflix.util.concurrent.ShutdownEnabledTimer Shutdown hook installed for: NFLoadBalancer-PingTimer-GDMS-Auth
+2020-09-07 16:55:47 INFO  DiscoveryClient-InstanceInfoReplicator-0 com.netflix.discovery.DiscoveryClient DiscoveryClient_GDMS-GATEWAY/10.162.111.66:GDMS-Gateway:8301 - registration status: 204
+2020-09-07 16:55:47 INFO  main com.netflix.loadbalancer.BaseLoadBalancer Client: GDMS-Auth instantiated a LoadBalancer: DynamicServerListLoadBalancer:{NFLoadBalancer:name=GDMS-Auth,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:null
+2020-09-07 16:55:47 INFO  main com.netflix.loadbalancer.DynamicServerListLoadBalancer Using serverListUpdater PollingServerListUpdater
+2020-09-07 16:55:47 INFO  main com.netflix.config.ChainedDynamicProperty Flipping property: GDMS-Auth.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2020-09-07 16:55:47 INFO  main com.netflix.loadbalancer.DynamicServerListLoadBalancer DynamicServerListLoadBalancer for client GDMS-Auth initialized: DynamicServerListLoadBalancer:{NFLoadBalancer:name=GDMS-Auth,current list of Servers=[5463301d5e23:8101],Load balancer stats=Zone stats: {defaultzone=[Zone:defaultzone;	Instance count:1;	Active connections count: 0;	Circuit breaker tripped count: 0;	Active connections per server: 0.0;]
+},Server stats: [[Server:5463301d5e23:8101;	Zone:defaultZone;	Total Requests:0;	Successive connection failure:0;	Total blackout seconds:0;	Last connection made:Thu Jan 01 08:00:00 CST 1970;	First connection made: Thu Jan 01 08:00:00 CST 1970;	Active Connections:0;	total failure count in last (1000) msecs:0;	average resp time:0.0;	90 percentile resp time:0.0;	95 percentile resp time:0.0;	min resp time:0.0;	max resp time:0.0;	stddev resp time:0.0]
+]}ServerList:org.springframework.cloud.netflix.ribbon.eureka.DomainExtractingServerList@3e8afc2d
+2020-09-07 16:55:47 INFO  main com.netflix.config.ChainedDynamicProperty Flipping property: GDMS-Server-Search.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2020-09-07 16:55:47 INFO  main com.netflix.util.concurrent.ShutdownEnabledTimer Shutdown hook installed for: NFLoadBalancer-PingTimer-GDMS-Server-Search
+2020-09-07 16:55:47 INFO  main com.netflix.loadbalancer.BaseLoadBalancer Client: GDMS-Server-Search instantiated a LoadBalancer: DynamicServerListLoadBalancer:{NFLoadBalancer:name=GDMS-Server-Search,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:null
+2020-09-07 16:55:47 INFO  main com.netflix.loadbalancer.DynamicServerListLoadBalancer Using serverListUpdater PollingServerListUpdater
+2020-09-07 16:55:47 INFO  main com.netflix.loadbalancer.DynamicServerListLoadBalancer DynamicServerListLoadBalancer for client GDMS-Server-Search initialized: DynamicServerListLoadBalancer:{NFLoadBalancer:name=GDMS-Server-Search,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:org.springframework.cloud.netflix.ribbon.eureka.DomainExtractingServerList@7157413e
+2020-09-07 16:55:47 INFO  main com.netflix.config.ChainedDynamicProperty Flipping property: GDMS-Server-Notice.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2020-09-07 16:55:47 INFO  main com.netflix.util.concurrent.ShutdownEnabledTimer Shutdown hook installed for: NFLoadBalancer-PingTimer-GDMS-Server-Notice
+2020-09-07 16:55:47 INFO  main com.netflix.loadbalancer.BaseLoadBalancer Client: GDMS-Server-Notice instantiated a LoadBalancer: DynamicServerListLoadBalancer:{NFLoadBalancer:name=GDMS-Server-Notice,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:null
+2020-09-07 16:55:47 INFO  main com.netflix.loadbalancer.DynamicServerListLoadBalancer Using serverListUpdater PollingServerListUpdater
+2020-09-07 16:55:47 INFO  main com.netflix.config.ChainedDynamicProperty Flipping property: GDMS-Server-Notice.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2020-09-07 16:55:47 INFO  main com.netflix.loadbalancer.DynamicServerListLoadBalancer DynamicServerListLoadBalancer for client GDMS-Server-Notice initialized: DynamicServerListLoadBalancer:{NFLoadBalancer:name=GDMS-Server-Notice,current list of Servers=[e40c1477a196:8202],Load balancer stats=Zone stats: {defaultzone=[Zone:defaultzone;	Instance count:1;	Active connections count: 0;	Circuit breaker tripped count: 0;	Active connections per server: 0.0;]
+},Server stats: [[Server:e40c1477a196:8202;	Zone:defaultZone;	Total Requests:0;	Successive connection failure:0;	Total blackout seconds:0;	Last connection made:Thu Jan 01 08:00:00 CST 1970;	First connection made: Thu Jan 01 08:00:00 CST 1970;	Active Connections:0;	total failure count in last (1000) msecs:0;	average resp time:0.0;	90 percentile resp time:0.0;	95 percentile resp time:0.0;	min resp time:0.0;	max resp time:0.0;	stddev resp time:0.0]
+]}ServerList:org.springframework.cloud.netflix.ribbon.eureka.DomainExtractingServerList@7438c3d5
+2020-09-07 16:55:47 INFO  main com.netflix.config.ChainedDynamicProperty Flipping property: GDMS-Server-Core.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2020-09-07 16:55:47 INFO  main com.netflix.util.concurrent.ShutdownEnabledTimer Shutdown hook installed for: NFLoadBalancer-PingTimer-GDMS-Server-Core
+2020-09-07 16:55:47 INFO  main com.netflix.loadbalancer.BaseLoadBalancer Client: GDMS-Server-Core instantiated a LoadBalancer: DynamicServerListLoadBalancer:{NFLoadBalancer:name=GDMS-Server-Core,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:null
+2020-09-07 16:55:47 INFO  main com.netflix.loadbalancer.DynamicServerListLoadBalancer Using serverListUpdater PollingServerListUpdater
+2020-09-07 16:55:47 INFO  main com.netflix.config.ChainedDynamicProperty Flipping property: GDMS-Server-Core.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2020-09-07 16:55:47 INFO  main com.netflix.loadbalancer.DynamicServerListLoadBalancer DynamicServerListLoadBalancer for client GDMS-Server-Core initialized: DynamicServerListLoadBalancer:{NFLoadBalancer:name=GDMS-Server-Core,current list of Servers=[c43eadb77d10:8203],Load balancer stats=Zone stats: {defaultzone=[Zone:defaultzone;	Instance count:1;	Active connections count: 0;	Circuit breaker tripped count: 0;	Active connections per server: 0.0;]
+},Server stats: [[Server:c43eadb77d10:8203;	Zone:defaultZone;	Total Requests:0;	Successive connection failure:0;	Total blackout seconds:0;	Last connection made:Thu Jan 01 08:00:00 CST 1970;	First connection made: Thu Jan 01 08:00:00 CST 1970;	Active Connections:0;	total failure count in last (1000) msecs:0;	average resp time:0.0;	90 percentile resp time:0.0;	95 percentile resp time:0.0;	min resp time:0.0;	max resp time:0.0;	stddev resp time:0.0]
+]}ServerList:org.springframework.cloud.netflix.ribbon.eureka.DomainExtractingServerList@7bc8ffbc
+2020-09-07 16:55:47 INFO  RMI TCP Connection(3)-127.0.0.1 org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-07 16:55:47 INFO  RMI TCP Connection(3)-127.0.0.1 org.springframework.web.servlet.DispatcherServlet Initializing Servlet 'dispatcherServlet'
+2020-09-07 16:55:47 INFO  RMI TCP Connection(3)-127.0.0.1 org.springframework.web.servlet.DispatcherServlet Completed initialization in 16 ms
+2020-09-07 16:55:48 INFO  registrationTask1 de.codecentric.boot.admin.client.registration.ApplicationRegistrator Application registered itself as 9764121bfc22
+2020-09-07 16:55:48 INFO  PollingServerListUpdater-0 com.netflix.config.ChainedDynamicProperty Flipping property: GDMS-Auth.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2020-09-07 16:55:48 INFO  PollingServerListUpdater-0 com.netflix.config.ChainedDynamicProperty Flipping property: GDMS-Server-Notice.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2020-09-07 16:55:48 INFO  PollingServerListUpdater-1 com.netflix.config.ChainedDynamicProperty Flipping property: GDMS-Server-Core.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2020-09-07 16:56:10 INFO  Thread-26 com.netflix.loadbalancer.PollingServerListUpdater Shutting down the Executor Pool for PollingServerListUpdater
+2020-09-07 16:56:10 INFO  Thread-22 org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry Unregistering application GDMS-GATEWAY with eureka with status DOWN
+2020-09-07 16:56:10 INFO  DiscoveryClient-InstanceInfoReplicator-0 com.netflix.discovery.DiscoveryClient DiscoveryClient_GDMS-GATEWAY/10.162.111.66:GDMS-Gateway:8301: registering service...
+2020-09-07 16:56:10 INFO  Thread-22 org.springframework.cloud.netflix.zuul.ZuulFilterInitializer Stopping filter initializer
+2020-09-07 16:56:10 INFO  Thread-22 com.netflix.util.concurrent.ShutdownEnabledTimer Shutdown hook removed for: NFLoadBalancer-PingTimer-GDMS-Auth
+2020-09-07 16:56:10 INFO  Thread-22 com.netflix.util.concurrent.ShutdownEnabledTimer Exception caught (might be ok if at shutdown)
+java.lang.IllegalStateException: Shutdown in progress
+	at java.lang.ApplicationShutdownHooks.remove(ApplicationShutdownHooks.java:82)
+	at java.lang.Runtime.removeShutdownHook(Runtime.java:239)
+	at com.netflix.util.concurrent.ShutdownEnabledTimer.cancel(ShutdownEnabledTimer.java:70)
+	at com.netflix.loadbalancer.BaseLoadBalancer.cancelPingTask(BaseLoadBalancer.java:632)
+	at com.netflix.loadbalancer.BaseLoadBalancer.shutdown(BaseLoadBalancer.java:883)
+	at com.netflix.loadbalancer.DynamicServerListLoadBalancer.shutdown(DynamicServerListLoadBalancer.java:285)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.invokeCustomDestroyMethod(DisposableBeanAdapter.java:339)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:273)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:571)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:543)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1036)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:504)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1029)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1057)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1026)
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:975)
+	at org.springframework.cloud.context.named.NamedContextFactory.destroy(NamedContextFactory.java:92)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:258)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:571)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:543)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1036)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:504)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1029)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1057)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1026)
+	at org.springframework.context.support.AbstractApplicationContext$1.run(AbstractApplicationContext.java:945)
+2020-09-07 16:56:10 INFO  Thread-22 com.netflix.util.concurrent.ShutdownEnabledTimer Shutdown hook removed for: NFLoadBalancer-PingTimer-GDMS-Server-Notice
+2020-09-07 16:56:10 INFO  Thread-22 com.netflix.util.concurrent.ShutdownEnabledTimer Exception caught (might be ok if at shutdown)
+java.lang.IllegalStateException: Shutdown in progress
+	at java.lang.ApplicationShutdownHooks.remove(ApplicationShutdownHooks.java:82)
+	at java.lang.Runtime.removeShutdownHook(Runtime.java:239)
+	at com.netflix.util.concurrent.ShutdownEnabledTimer.cancel(ShutdownEnabledTimer.java:70)
+	at com.netflix.loadbalancer.BaseLoadBalancer.cancelPingTask(BaseLoadBalancer.java:632)
+	at com.netflix.loadbalancer.BaseLoadBalancer.shutdown(BaseLoadBalancer.java:883)
+	at com.netflix.loadbalancer.DynamicServerListLoadBalancer.shutdown(DynamicServerListLoadBalancer.java:285)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.invokeCustomDestroyMethod(DisposableBeanAdapter.java:339)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:273)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:571)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:543)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1036)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:504)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1029)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1057)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1026)
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:975)
+	at org.springframework.cloud.context.named.NamedContextFactory.destroy(NamedContextFactory.java:92)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:258)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:571)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:543)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1036)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:504)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1029)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1057)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1026)
+	at org.springframework.context.support.AbstractApplicationContext$1.run(AbstractApplicationContext.java:945)
+2020-09-07 16:56:10 INFO  Thread-22 com.netflix.util.concurrent.ShutdownEnabledTimer Shutdown hook removed for: NFLoadBalancer-PingTimer-GDMS-Server-Search
+2020-09-07 16:56:10 INFO  Thread-22 com.netflix.util.concurrent.ShutdownEnabledTimer Exception caught (might be ok if at shutdown)
+java.lang.IllegalStateException: Shutdown in progress
+	at java.lang.ApplicationShutdownHooks.remove(ApplicationShutdownHooks.java:82)
+	at java.lang.Runtime.removeShutdownHook(Runtime.java:239)
+	at com.netflix.util.concurrent.ShutdownEnabledTimer.cancel(ShutdownEnabledTimer.java:70)
+	at com.netflix.loadbalancer.BaseLoadBalancer.cancelPingTask(BaseLoadBalancer.java:632)
+	at com.netflix.loadbalancer.BaseLoadBalancer.shutdown(BaseLoadBalancer.java:883)
+	at com.netflix.loadbalancer.DynamicServerListLoadBalancer.shutdown(DynamicServerListLoadBalancer.java:285)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.invokeCustomDestroyMethod(DisposableBeanAdapter.java:339)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:273)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:571)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:543)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1036)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:504)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1029)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1057)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1026)
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:975)
+	at org.springframework.cloud.context.named.NamedContextFactory.destroy(NamedContextFactory.java:92)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:258)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:571)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:543)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1036)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:504)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1029)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1057)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1026)
+	at org.springframework.context.support.AbstractApplicationContext$1.run(AbstractApplicationContext.java:945)
+2020-09-07 16:56:10 INFO  Thread-22 com.netflix.util.concurrent.ShutdownEnabledTimer Shutdown hook removed for: NFLoadBalancer-PingTimer-GDMS-Server-Core
+2020-09-07 16:56:10 INFO  Thread-22 com.netflix.util.concurrent.ShutdownEnabledTimer Exception caught (might be ok if at shutdown)
+java.lang.IllegalStateException: Shutdown in progress
+	at java.lang.ApplicationShutdownHooks.remove(ApplicationShutdownHooks.java:82)
+	at java.lang.Runtime.removeShutdownHook(Runtime.java:239)
+	at com.netflix.util.concurrent.ShutdownEnabledTimer.cancel(ShutdownEnabledTimer.java:70)
+	at com.netflix.loadbalancer.BaseLoadBalancer.cancelPingTask(BaseLoadBalancer.java:632)
+	at com.netflix.loadbalancer.BaseLoadBalancer.shutdown(BaseLoadBalancer.java:883)
+	at com.netflix.loadbalancer.DynamicServerListLoadBalancer.shutdown(DynamicServerListLoadBalancer.java:285)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.invokeCustomDestroyMethod(DisposableBeanAdapter.java:339)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:273)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:571)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:543)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1036)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:504)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1029)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1057)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1026)
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:975)
+	at org.springframework.cloud.context.named.NamedContextFactory.destroy(NamedContextFactory.java:92)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:258)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:571)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:543)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1036)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:504)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1029)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1057)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1026)
+	at org.springframework.context.support.AbstractApplicationContext$1.run(AbstractApplicationContext.java:945)
+2020-09-07 16:56:10 INFO  Thread-22 org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler Shutting down ExecutorService
+2020-09-07 16:56:10 INFO  Thread-22 org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor Shutting down ExecutorService 'applicationTaskExecutor'
+2020-09-07 16:56:10 INFO  Thread-22 com.netflix.discovery.DiscoveryClient Shutting down DiscoveryClient ...
+2020-09-07 16:56:11 INFO  DiscoveryClient-InstanceInfoReplicator-0 com.netflix.discovery.DiscoveryClient DiscoveryClient_GDMS-GATEWAY/10.162.111.66:GDMS-Gateway:8301 - registration status: 204
+2020-09-07 16:56:11 INFO  Thread-22 com.netflix.discovery.DiscoveryClient Unregistering ...
+2020-09-07 16:56:11 INFO  Thread-22 com.netflix.discovery.DiscoveryClient DiscoveryClient_GDMS-GATEWAY/10.162.111.66:GDMS-Gateway:8301 - deregister  status: 200
+2020-09-07 16:56:11 INFO  Thread-22 com.netflix.discovery.DiscoveryClient Completed shut down of DiscoveryClient
+2020-09-07 17:01:15 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$d5df90db] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-07 17:01:15 INFO  main org.graduationdesign.gdmsgateway.GdmsGatewayApplication No active profile set, falling back to default profiles: default
+2020-09-07 17:01:16 INFO  main org.springframework.cloud.context.scope.GenericScope BeanFactory id=41731082-0927-3e06-86eb-8767d1888bbe
+2020-09-07 17:01:16 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$d5df90db] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-07 17:01:16 INFO  main org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat initialized with port(s): 8301 (http)
+2020-09-07 17:01:17 INFO  main org.apache.coyote.http11.Http11NioProtocol Initializing ProtocolHandler ["http-nio-8301"]
+2020-09-07 17:01:17 INFO  main org.apache.catalina.core.StandardService Starting service [Tomcat]
+2020-09-07 17:01:17 INFO  main org.apache.catalina.core.StandardEngine Starting Servlet engine: [Apache Tomcat/9.0.21]
+2020-09-07 17:01:17 INFO  main org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring embedded WebApplicationContext
+2020-09-07 17:01:17 INFO  main org.springframework.web.context.ContextLoader Root WebApplicationContext: initialization completed in 1704 ms
+2020-09-07 17:01:17 INFO  main com.netflix.config.sources.URLConfigurationSource To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-09-07 17:01:17 INFO  main com.netflix.config.DynamicPropertyFactory DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@6e03db1f
+2020-09-07 17:01:17 INFO  main org.springframework.boot.actuate.endpoint.web.ServletEndpointRegistrar Registered '/actuator/jolokia' to jolokia-actuator-endpoint
+2020-09-07 17:01:17 INFO  main org.springframework.boot.actuate.endpoint.web.ServletEndpointRegistrar Registered '/actuator/hystrix.stream' to hystrix.stream-actuator-endpoint
+2020-09-07 17:01:18 INFO  main org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration 
+
+Using generated security password: cbd1abb8-4eda-4c7b-8464-e6c14eb58852
+
+2020-09-07 17:01:18 INFO  main org.springframework.security.web.DefaultSecurityFilterChain Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@902fdbe, org.springframework.security.web.context.SecurityContextPersistenceFilter@77724cbe, org.springframework.security.web.header.HeaderWriterFilter@656a3d6b, org.springframework.security.web.authentication.logout.LogoutFilter@18a096b5, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@570ba13, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@359066bc, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@796d33eb, org.springframework.security.web.session.SessionManagementFilter@3f8dfe74, org.springframework.security.web.access.ExceptionTranslationFilter@3a7c678b]
+2020-09-07 17:01:18 INFO  main com.netflix.config.sources.URLConfigurationSource To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-09-07 17:01:18 INFO  main org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-07 17:01:19 INFO  main org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler Initializing ExecutorService
+2020-09-07 17:01:19 INFO  main org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver Exposing 24 endpoint(s) beneath base path '/actuator'
+2020-09-07 17:01:19 INFO  main org.springframework.cloud.netflix.zuul.ZuulFilterInitializer Starting filter initializer
+2020-09-07 17:01:19 INFO  main org.springframework.cloud.netflix.eureka.InstanceInfoFactory Setting initial instance status as: STARTING
+2020-09-07 17:01:19 INFO  main com.netflix.discovery.DiscoveryClient Initializing Eureka in region us-east-1
+2020-09-07 17:01:19 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using JSON encoding codec LegacyJacksonJson
+2020-09-07 17:01:19 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using JSON decoding codec LegacyJacksonJson
+2020-09-07 17:01:19 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using XML encoding codec XStreamXml
+2020-09-07 17:01:19 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using XML decoding codec XStreamXml
+2020-09-07 17:01:19 INFO  main com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2020-09-07 17:01:20 INFO  main com.netflix.discovery.DiscoveryClient Disable delta property : false
+2020-09-07 17:01:20 INFO  main com.netflix.discovery.DiscoveryClient Single vip registry refresh property : null
+2020-09-07 17:01:20 INFO  main com.netflix.discovery.DiscoveryClient Force full registry fetch : false
+2020-09-07 17:01:20 INFO  main com.netflix.discovery.DiscoveryClient Application is null : false
+2020-09-07 17:01:20 INFO  main com.netflix.discovery.DiscoveryClient Registered Applications size is zero : true
+2020-09-07 17:01:20 INFO  main com.netflix.discovery.DiscoveryClient Application version is -1: true
+2020-09-07 17:01:20 INFO  main com.netflix.discovery.DiscoveryClient Getting all instance registry info from the eureka server
+2020-09-07 17:01:20 INFO  main com.netflix.discovery.DiscoveryClient The response status is 200
+2020-09-07 17:01:20 INFO  main com.netflix.discovery.DiscoveryClient Starting heartbeat executor: renew interval is: 20
+2020-09-07 17:01:20 INFO  main com.netflix.discovery.InstanceInfoReplicator InstanceInfoReplicator onDemand update allowed rate per min is 4
+2020-09-07 17:01:20 INFO  main com.netflix.discovery.DiscoveryClient Discovery Client initialized at timestamp 1599469280842 with initial instances count: 4
+2020-09-07 17:01:20 INFO  main org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry Registering application GDMS-GATEWAY with eureka with status UP
+2020-09-07 17:01:20 INFO  main com.netflix.discovery.DiscoveryClient Saw local status change event StatusChangeEvent [timestamp=1599469280847, current=UP, previous=STARTING]
+2020-09-07 17:01:20 INFO  DiscoveryClient-InstanceInfoReplicator-0 com.netflix.discovery.DiscoveryClient DiscoveryClient_GDMS-GATEWAY/10.162.111.66:GDMS-Gateway:8301: registering service...
+2020-09-07 17:01:20 INFO  main org.apache.coyote.http11.Http11NioProtocol Starting ProtocolHandler ["http-nio-8301"]
+2020-09-07 17:01:20 INFO  main org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat started on port(s): 8301 (http) with context path ''
+2020-09-07 17:01:20 INFO  main org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration Updating port to 8301
+2020-09-07 17:01:20 INFO  main org.graduationdesign.gdmsgateway.GdmsGatewayApplication Started GdmsGatewayApplication in 7.058 seconds (JVM running for 8.13)
+2020-09-07 17:01:21 INFO  main com.netflix.config.ChainedDynamicProperty Flipping property: GDMS-Auth.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2020-09-07 17:01:21 INFO  main com.netflix.util.concurrent.ShutdownEnabledTimer Shutdown hook installed for: NFLoadBalancer-PingTimer-GDMS-Auth
+2020-09-07 17:01:21 INFO  main com.netflix.loadbalancer.BaseLoadBalancer Client: GDMS-Auth instantiated a LoadBalancer: DynamicServerListLoadBalancer:{NFLoadBalancer:name=GDMS-Auth,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:null
+2020-09-07 17:01:21 INFO  main com.netflix.loadbalancer.DynamicServerListLoadBalancer Using serverListUpdater PollingServerListUpdater
+2020-09-07 17:01:21 INFO  main com.netflix.config.ChainedDynamicProperty Flipping property: GDMS-Auth.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2020-09-07 17:01:21 INFO  main com.netflix.loadbalancer.DynamicServerListLoadBalancer DynamicServerListLoadBalancer for client GDMS-Auth initialized: DynamicServerListLoadBalancer:{NFLoadBalancer:name=GDMS-Auth,current list of Servers=[5463301d5e23:8101],Load balancer stats=Zone stats: {defaultzone=[Zone:defaultzone;	Instance count:1;	Active connections count: 0;	Circuit breaker tripped count: 0;	Active connections per server: 0.0;]
+},Server stats: [[Server:5463301d5e23:8101;	Zone:defaultZone;	Total Requests:0;	Successive connection failure:0;	Total blackout seconds:0;	Last connection made:Thu Jan 01 08:00:00 CST 1970;	First connection made: Thu Jan 01 08:00:00 CST 1970;	Active Connections:0;	total failure count in last (1000) msecs:0;	average resp time:0.0;	90 percentile resp time:0.0;	95 percentile resp time:0.0;	min resp time:0.0;	max resp time:0.0;	stddev resp time:0.0]
+]}ServerList:org.springframework.cloud.netflix.ribbon.eureka.DomainExtractingServerList@41d877bb
+2020-09-07 17:01:21 INFO  DiscoveryClient-InstanceInfoReplicator-0 com.netflix.discovery.DiscoveryClient DiscoveryClient_GDMS-GATEWAY/10.162.111.66:GDMS-Gateway:8301 - registration status: 204
+2020-09-07 17:01:21 INFO  RMI TCP Connection(10)-127.0.0.1 org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-07 17:01:21 INFO  RMI TCP Connection(10)-127.0.0.1 org.springframework.web.servlet.DispatcherServlet Initializing Servlet 'dispatcherServlet'
+2020-09-07 17:01:21 INFO  RMI TCP Connection(10)-127.0.0.1 org.springframework.web.servlet.DispatcherServlet Completed initialization in 9 ms
+2020-09-07 17:01:21 INFO  main com.netflix.config.ChainedDynamicProperty Flipping property: GDMS-Server-Search.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2020-09-07 17:01:21 INFO  main com.netflix.util.concurrent.ShutdownEnabledTimer Shutdown hook installed for: NFLoadBalancer-PingTimer-GDMS-Server-Search
+2020-09-07 17:01:21 INFO  main com.netflix.loadbalancer.BaseLoadBalancer Client: GDMS-Server-Search instantiated a LoadBalancer: DynamicServerListLoadBalancer:{NFLoadBalancer:name=GDMS-Server-Search,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:null
+2020-09-07 17:01:21 INFO  main com.netflix.loadbalancer.DynamicServerListLoadBalancer Using serverListUpdater PollingServerListUpdater
+2020-09-07 17:01:21 INFO  main com.netflix.loadbalancer.DynamicServerListLoadBalancer DynamicServerListLoadBalancer for client GDMS-Server-Search initialized: DynamicServerListLoadBalancer:{NFLoadBalancer:name=GDMS-Server-Search,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:org.springframework.cloud.netflix.ribbon.eureka.DomainExtractingServerList@2bc2e022
+2020-09-07 17:01:21 INFO  main com.netflix.config.ChainedDynamicProperty Flipping property: GDMS-Server-Notice.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2020-09-07 17:01:21 INFO  main com.netflix.util.concurrent.ShutdownEnabledTimer Shutdown hook installed for: NFLoadBalancer-PingTimer-GDMS-Server-Notice
+2020-09-07 17:01:21 INFO  main com.netflix.loadbalancer.BaseLoadBalancer Client: GDMS-Server-Notice instantiated a LoadBalancer: DynamicServerListLoadBalancer:{NFLoadBalancer:name=GDMS-Server-Notice,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:null
+2020-09-07 17:01:21 INFO  main com.netflix.loadbalancer.DynamicServerListLoadBalancer Using serverListUpdater PollingServerListUpdater
+2020-09-07 17:01:21 INFO  main com.netflix.config.ChainedDynamicProperty Flipping property: GDMS-Server-Notice.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2020-09-07 17:01:21 INFO  main com.netflix.loadbalancer.DynamicServerListLoadBalancer DynamicServerListLoadBalancer for client GDMS-Server-Notice initialized: DynamicServerListLoadBalancer:{NFLoadBalancer:name=GDMS-Server-Notice,current list of Servers=[e40c1477a196:8202],Load balancer stats=Zone stats: {defaultzone=[Zone:defaultzone;	Instance count:1;	Active connections count: 0;	Circuit breaker tripped count: 0;	Active connections per server: 0.0;]
+},Server stats: [[Server:e40c1477a196:8202;	Zone:defaultZone;	Total Requests:0;	Successive connection failure:0;	Total blackout seconds:0;	Last connection made:Thu Jan 01 08:00:00 CST 1970;	First connection made: Thu Jan 01 08:00:00 CST 1970;	Active Connections:0;	total failure count in last (1000) msecs:0;	average resp time:0.0;	90 percentile resp time:0.0;	95 percentile resp time:0.0;	min resp time:0.0;	max resp time:0.0;	stddev resp time:0.0]
+]}ServerList:org.springframework.cloud.netflix.ribbon.eureka.DomainExtractingServerList@cef885d
+2020-09-07 17:01:21 INFO  main com.netflix.config.ChainedDynamicProperty Flipping property: GDMS-Server-Core.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2020-09-07 17:01:21 INFO  main com.netflix.util.concurrent.ShutdownEnabledTimer Shutdown hook installed for: NFLoadBalancer-PingTimer-GDMS-Server-Core
+2020-09-07 17:01:21 INFO  main com.netflix.loadbalancer.BaseLoadBalancer Client: GDMS-Server-Core instantiated a LoadBalancer: DynamicServerListLoadBalancer:{NFLoadBalancer:name=GDMS-Server-Core,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:null
+2020-09-07 17:01:21 INFO  main com.netflix.loadbalancer.DynamicServerListLoadBalancer Using serverListUpdater PollingServerListUpdater
+2020-09-07 17:01:21 INFO  main com.netflix.config.ChainedDynamicProperty Flipping property: GDMS-Server-Core.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2020-09-07 17:01:21 INFO  main com.netflix.loadbalancer.DynamicServerListLoadBalancer DynamicServerListLoadBalancer for client GDMS-Server-Core initialized: DynamicServerListLoadBalancer:{NFLoadBalancer:name=GDMS-Server-Core,current list of Servers=[c43eadb77d10:8203],Load balancer stats=Zone stats: {defaultzone=[Zone:defaultzone;	Instance count:1;	Active connections count: 0;	Circuit breaker tripped count: 0;	Active connections per server: 0.0;]
+},Server stats: [[Server:c43eadb77d10:8203;	Zone:defaultZone;	Total Requests:0;	Successive connection failure:0;	Total blackout seconds:0;	Last connection made:Thu Jan 01 08:00:00 CST 1970;	First connection made: Thu Jan 01 08:00:00 CST 1970;	Active Connections:0;	total failure count in last (1000) msecs:0;	average resp time:0.0;	90 percentile resp time:0.0;	95 percentile resp time:0.0;	min resp time:0.0;	max resp time:0.0;	stddev resp time:0.0]
+]}ServerList:org.springframework.cloud.netflix.ribbon.eureka.DomainExtractingServerList@4af84a76
+2020-09-07 17:01:22 INFO  registrationTask1 de.codecentric.boot.admin.client.registration.ApplicationRegistrator Application registered itself as 9764121bfc22
+2020-09-07 17:01:22 INFO  PollingServerListUpdater-0 com.netflix.config.ChainedDynamicProperty Flipping property: GDMS-Auth.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2020-09-07 17:01:22 INFO  PollingServerListUpdater-0 com.netflix.config.ChainedDynamicProperty Flipping property: GDMS-Server-Notice.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2020-09-07 17:01:22 INFO  PollingServerListUpdater-1 com.netflix.config.ChainedDynamicProperty Flipping property: GDMS-Server-Core.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2020-09-07 17:06:20 INFO  AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2020-09-07 17:08:31 INFO  http-nio-8301-exec-2 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/notice/getThreeSchoolNotices，HTTP Method：POST，request IP：10.162.72.148，ServerId：GDMS-Server-Notice
+2020-09-07 17:08:31 INFO  http-nio-8301-exec-3 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/core/getTeacherMessages，HTTP Method：POST，request IP：10.162.72.148，ServerId：GDMS-Server-Core
+2020-09-07 17:08:31 INFO  http-nio-8301-exec-1 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/notice/getThreeDepartmentNotices，HTTP Method：POST，request IP：10.162.72.148，ServerId：GDMS-Server-Notice
+2020-09-07 17:08:46 INFO  http-nio-8301-exec-4 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/core/register，HTTP Method：POST，request IP：10.162.72.148，ServerId：GDMS-Server-Core
+2020-09-07 17:10:52 INFO  http-nio-8301-exec-6 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/notice/getThreeSchoolNotices，HTTP Method：POST，request IP：10.162.72.148，ServerId：GDMS-Server-Notice
+2020-09-07 17:10:52 INFO  http-nio-8301-exec-5 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/notice/getThreeDepartmentNotices，HTTP Method：POST，request IP：10.162.72.148，ServerId：GDMS-Server-Notice
+2020-09-07 17:10:52 INFO  http-nio-8301-exec-7 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/core/getTeacherMessages，HTTP Method：POST，request IP：10.162.72.148，ServerId：GDMS-Server-Core
+2020-09-07 17:10:53 INFO  http-nio-8301-exec-8 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/core/getOpenid，HTTP Method：POST，request IP：10.162.72.148，ServerId：GDMS-Server-Core
+2020-09-07 17:11:18 INFO  http-nio-8301-exec-9 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/notice/getThreeSchoolNotices，HTTP Method：POST，request IP：10.162.72.148，ServerId：GDMS-Server-Notice
+2020-09-07 17:11:18 INFO  http-nio-8301-exec-10 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/core/getTeacherMessages，HTTP Method：POST，request IP：10.162.72.148，ServerId：GDMS-Server-Core
+2020-09-07 17:11:19 INFO  http-nio-8301-exec-2 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/core/getOpenid，HTTP Method：POST，request IP：10.162.72.148，ServerId：GDMS-Server-Core
+2020-09-07 17:11:20 INFO  AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2020-09-07 17:11:30 INFO  http-nio-8301-exec-3 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/notice/getThreeDepartmentNotices，HTTP Method：POST，request IP：10.162.72.148，ServerId：GDMS-Server-Notice
+2020-09-07 17:12:14 INFO  Thread-29 com.netflix.loadbalancer.PollingServerListUpdater Shutting down the Executor Pool for PollingServerListUpdater
+2020-09-07 17:12:14 INFO  Thread-25 org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry Unregistering application GDMS-GATEWAY with eureka with status DOWN
+2020-09-07 17:12:14 INFO  DiscoveryClient-InstanceInfoReplicator-0 com.netflix.discovery.DiscoveryClient DiscoveryClient_GDMS-GATEWAY/10.162.111.66:GDMS-Gateway:8301: registering service...
+2020-09-07 17:12:14 INFO  Thread-25 org.springframework.cloud.netflix.zuul.ZuulFilterInitializer Stopping filter initializer
+2020-09-07 17:12:14 INFO  Thread-25 com.netflix.util.concurrent.ShutdownEnabledTimer Shutdown hook removed for: NFLoadBalancer-PingTimer-GDMS-Auth
+2020-09-07 17:12:14 INFO  Thread-25 com.netflix.util.concurrent.ShutdownEnabledTimer Exception caught (might be ok if at shutdown)
+java.lang.IllegalStateException: Shutdown in progress
+	at java.lang.ApplicationShutdownHooks.remove(ApplicationShutdownHooks.java:82)
+	at java.lang.Runtime.removeShutdownHook(Runtime.java:239)
+	at com.netflix.util.concurrent.ShutdownEnabledTimer.cancel(ShutdownEnabledTimer.java:70)
+	at com.netflix.loadbalancer.BaseLoadBalancer.cancelPingTask(BaseLoadBalancer.java:632)
+	at com.netflix.loadbalancer.BaseLoadBalancer.shutdown(BaseLoadBalancer.java:883)
+	at com.netflix.loadbalancer.DynamicServerListLoadBalancer.shutdown(DynamicServerListLoadBalancer.java:285)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.invokeCustomDestroyMethod(DisposableBeanAdapter.java:339)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:273)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:571)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:543)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1036)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:504)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1029)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1057)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1026)
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:975)
+	at org.springframework.cloud.context.named.NamedContextFactory.destroy(NamedContextFactory.java:92)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:258)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:571)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:543)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1036)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:504)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1029)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1057)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1026)
+	at org.springframework.context.support.AbstractApplicationContext$1.run(AbstractApplicationContext.java:945)
+2020-09-07 17:12:14 INFO  Thread-25 com.netflix.util.concurrent.ShutdownEnabledTimer Shutdown hook removed for: NFLoadBalancer-PingTimer-GDMS-Server-Notice
+2020-09-07 17:12:14 INFO  Thread-25 com.netflix.util.concurrent.ShutdownEnabledTimer Exception caught (might be ok if at shutdown)
+java.lang.IllegalStateException: Shutdown in progress
+	at java.lang.ApplicationShutdownHooks.remove(ApplicationShutdownHooks.java:82)
+	at java.lang.Runtime.removeShutdownHook(Runtime.java:239)
+	at com.netflix.util.concurrent.ShutdownEnabledTimer.cancel(ShutdownEnabledTimer.java:70)
+	at com.netflix.loadbalancer.BaseLoadBalancer.cancelPingTask(BaseLoadBalancer.java:632)
+	at com.netflix.loadbalancer.BaseLoadBalancer.shutdown(BaseLoadBalancer.java:883)
+	at com.netflix.loadbalancer.DynamicServerListLoadBalancer.shutdown(DynamicServerListLoadBalancer.java:285)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.invokeCustomDestroyMethod(DisposableBeanAdapter.java:339)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:273)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:571)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:543)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1036)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:504)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1029)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1057)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1026)
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:975)
+	at org.springframework.cloud.context.named.NamedContextFactory.destroy(NamedContextFactory.java:92)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:258)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:571)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:543)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1036)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:504)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1029)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1057)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1026)
+	at org.springframework.context.support.AbstractApplicationContext$1.run(AbstractApplicationContext.java:945)
+2020-09-07 17:12:14 INFO  Thread-25 com.netflix.util.concurrent.ShutdownEnabledTimer Shutdown hook removed for: NFLoadBalancer-PingTimer-GDMS-Server-Search
+2020-09-07 17:12:14 INFO  Thread-25 com.netflix.util.concurrent.ShutdownEnabledTimer Exception caught (might be ok if at shutdown)
+java.lang.IllegalStateException: Shutdown in progress
+	at java.lang.ApplicationShutdownHooks.remove(ApplicationShutdownHooks.java:82)
+	at java.lang.Runtime.removeShutdownHook(Runtime.java:239)
+	at com.netflix.util.concurrent.ShutdownEnabledTimer.cancel(ShutdownEnabledTimer.java:70)
+	at com.netflix.loadbalancer.BaseLoadBalancer.cancelPingTask(BaseLoadBalancer.java:632)
+	at com.netflix.loadbalancer.BaseLoadBalancer.shutdown(BaseLoadBalancer.java:883)
+	at com.netflix.loadbalancer.DynamicServerListLoadBalancer.shutdown(DynamicServerListLoadBalancer.java:285)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.invokeCustomDestroyMethod(DisposableBeanAdapter.java:339)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:273)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:571)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:543)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1036)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:504)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1029)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1057)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1026)
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:975)
+	at org.springframework.cloud.context.named.NamedContextFactory.destroy(NamedContextFactory.java:92)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:258)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:571)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:543)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1036)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:504)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1029)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1057)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1026)
+	at org.springframework.context.support.AbstractApplicationContext$1.run(AbstractApplicationContext.java:945)
+2020-09-07 17:12:14 INFO  Thread-25 com.netflix.util.concurrent.ShutdownEnabledTimer Shutdown hook removed for: NFLoadBalancer-PingTimer-GDMS-Server-Core
+2020-09-07 17:12:14 INFO  Thread-25 com.netflix.util.concurrent.ShutdownEnabledTimer Exception caught (might be ok if at shutdown)
+java.lang.IllegalStateException: Shutdown in progress
+	at java.lang.ApplicationShutdownHooks.remove(ApplicationShutdownHooks.java:82)
+	at java.lang.Runtime.removeShutdownHook(Runtime.java:239)
+	at com.netflix.util.concurrent.ShutdownEnabledTimer.cancel(ShutdownEnabledTimer.java:70)
+	at com.netflix.loadbalancer.BaseLoadBalancer.cancelPingTask(BaseLoadBalancer.java:632)
+	at com.netflix.loadbalancer.BaseLoadBalancer.shutdown(BaseLoadBalancer.java:883)
+	at com.netflix.loadbalancer.DynamicServerListLoadBalancer.shutdown(DynamicServerListLoadBalancer.java:285)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.invokeCustomDestroyMethod(DisposableBeanAdapter.java:339)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:273)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:571)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:543)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1036)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:504)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1029)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1057)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1026)
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:975)
+	at org.springframework.cloud.context.named.NamedContextFactory.destroy(NamedContextFactory.java:92)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:258)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:571)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:543)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1036)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:504)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1029)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1057)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1026)
+	at org.springframework.context.support.AbstractApplicationContext$1.run(AbstractApplicationContext.java:945)
+2020-09-07 17:12:14 INFO  Thread-25 org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler Shutting down ExecutorService
+2020-09-07 17:12:14 INFO  Thread-25 org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor Shutting down ExecutorService 'applicationTaskExecutor'
+2020-09-07 17:12:14 INFO  Thread-25 com.netflix.discovery.DiscoveryClient Shutting down DiscoveryClient ...
+2020-09-07 17:12:14 INFO  DiscoveryClient-InstanceInfoReplicator-0 com.netflix.discovery.DiscoveryClient DiscoveryClient_GDMS-GATEWAY/10.162.111.66:GDMS-Gateway:8301 - registration status: 204
+2020-09-07 17:12:14 INFO  Thread-25 com.netflix.discovery.DiscoveryClient Unregistering ...
+2020-09-07 17:12:14 INFO  Thread-25 com.netflix.discovery.DiscoveryClient DiscoveryClient_GDMS-GATEWAY/10.162.111.66:GDMS-Gateway:8301 - deregister  status: 200
+2020-09-07 17:12:14 INFO  Thread-25 com.netflix.discovery.DiscoveryClient Completed shut down of DiscoveryClient
+2020-09-07 17:12:22 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$ea6b0aef] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-07 17:12:22 INFO  main org.graduationdesign.gdmsgateway.GdmsGatewayApplication No active profile set, falling back to default profiles: default
+2020-09-07 17:12:23 INFO  main org.springframework.cloud.context.scope.GenericScope BeanFactory id=41731082-0927-3e06-86eb-8767d1888bbe
+2020-09-07 17:12:23 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$ea6b0aef] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-07 17:12:23 INFO  main org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat initialized with port(s): 8301 (http)
+2020-09-07 17:12:23 INFO  main org.apache.coyote.http11.Http11NioProtocol Initializing ProtocolHandler ["http-nio-8301"]
+2020-09-07 17:12:23 INFO  main org.apache.catalina.core.StandardService Starting service [Tomcat]
+2020-09-07 17:12:23 INFO  main org.apache.catalina.core.StandardEngine Starting Servlet engine: [Apache Tomcat/9.0.21]
+2020-09-07 17:12:23 INFO  main org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring embedded WebApplicationContext
+2020-09-07 17:12:23 INFO  main org.springframework.web.context.ContextLoader Root WebApplicationContext: initialization completed in 1433 ms
+2020-09-07 17:12:23 INFO  main com.netflix.config.sources.URLConfigurationSource To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-09-07 17:12:24 INFO  main com.netflix.config.DynamicPropertyFactory DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@21263314
+2020-09-07 17:12:24 INFO  main org.springframework.boot.actuate.endpoint.web.ServletEndpointRegistrar Registered '/actuator/jolokia' to jolokia-actuator-endpoint
+2020-09-07 17:12:24 INFO  main org.springframework.boot.actuate.endpoint.web.ServletEndpointRegistrar Registered '/actuator/hystrix.stream' to hystrix.stream-actuator-endpoint
+2020-09-07 17:12:24 INFO  main org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration 
+
+Using generated security password: 8a949d06-d43d-464b-96bc-405c433d9355
+
+2020-09-07 17:12:24 INFO  main org.springframework.security.web.DefaultSecurityFilterChain Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2b6c7012, org.springframework.security.web.context.SecurityContextPersistenceFilter@4e375bba, org.springframework.security.web.header.HeaderWriterFilter@aa61e4e, org.springframework.security.web.authentication.logout.LogoutFilter@40bf4386, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@71664560, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@477021ee, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@31acfd4e, org.springframework.security.web.session.SessionManagementFilter@3d2f3dcb, org.springframework.security.web.access.ExceptionTranslationFilter@6dca31eb]
+2020-09-07 17:12:24 INFO  main com.netflix.config.sources.URLConfigurationSource To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-09-07 17:12:24 INFO  main org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-07 17:12:25 INFO  main org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler Initializing ExecutorService
+2020-09-07 17:12:25 INFO  main org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver Exposing 24 endpoint(s) beneath base path '/actuator'
+2020-09-07 17:12:25 INFO  main org.springframework.cloud.netflix.zuul.ZuulFilterInitializer Starting filter initializer
+2020-09-07 17:12:25 INFO  main org.springframework.cloud.netflix.eureka.InstanceInfoFactory Setting initial instance status as: STARTING
+2020-09-07 17:12:25 INFO  main com.netflix.discovery.DiscoveryClient Initializing Eureka in region us-east-1
+2020-09-07 17:12:25 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using JSON encoding codec LegacyJacksonJson
+2020-09-07 17:12:25 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using JSON decoding codec LegacyJacksonJson
+2020-09-07 17:12:25 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using XML encoding codec XStreamXml
+2020-09-07 17:12:25 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using XML decoding codec XStreamXml
+2020-09-07 17:12:25 INFO  main com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2020-09-07 17:12:25 INFO  main com.netflix.discovery.DiscoveryClient Disable delta property : false
+2020-09-07 17:12:25 INFO  main com.netflix.discovery.DiscoveryClient Single vip registry refresh property : null
+2020-09-07 17:12:25 INFO  main com.netflix.discovery.DiscoveryClient Force full registry fetch : false
+2020-09-07 17:12:25 INFO  main com.netflix.discovery.DiscoveryClient Application is null : false
+2020-09-07 17:12:25 INFO  main com.netflix.discovery.DiscoveryClient Registered Applications size is zero : true
+2020-09-07 17:12:25 INFO  main com.netflix.discovery.DiscoveryClient Application version is -1: true
+2020-09-07 17:12:25 INFO  main com.netflix.discovery.DiscoveryClient Getting all instance registry info from the eureka server
+2020-09-07 17:12:26 INFO  main com.netflix.discovery.DiscoveryClient The response status is 200
+2020-09-07 17:12:26 INFO  main com.netflix.discovery.DiscoveryClient Starting heartbeat executor: renew interval is: 20
+2020-09-07 17:12:26 INFO  main com.netflix.discovery.InstanceInfoReplicator InstanceInfoReplicator onDemand update allowed rate per min is 4
+2020-09-07 17:12:26 INFO  main com.netflix.discovery.DiscoveryClient Discovery Client initialized at timestamp 1599469946621 with initial instances count: 8
+2020-09-07 17:12:26 INFO  main org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry Registering application GDMS-GATEWAY with eureka with status UP
+2020-09-07 17:12:26 INFO  main com.netflix.discovery.DiscoveryClient Saw local status change event StatusChangeEvent [timestamp=1599469946624, current=UP, previous=STARTING]
+2020-09-07 17:12:26 INFO  DiscoveryClient-InstanceInfoReplicator-0 com.netflix.discovery.DiscoveryClient DiscoveryClient_GDMS-GATEWAY/10.162.111.66:GDMS-Gateway:8301: registering service...
+2020-09-07 17:12:26 INFO  main org.apache.coyote.http11.Http11NioProtocol Starting ProtocolHandler ["http-nio-8301"]
+2020-09-07 17:12:26 INFO  main org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat started on port(s): 8301 (http) with context path ''
+2020-09-07 17:12:26 INFO  main org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration Updating port to 8301
+2020-09-07 17:12:26 INFO  main org.graduationdesign.gdmsgateway.GdmsGatewayApplication Started GdmsGatewayApplication in 5.375 seconds (JVM running for 6.001)
+2020-09-07 17:12:26 INFO  main com.netflix.config.ChainedDynamicProperty Flipping property: GDMS-Auth.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2020-09-07 17:12:26 INFO  main com.netflix.util.concurrent.ShutdownEnabledTimer Shutdown hook installed for: NFLoadBalancer-PingTimer-GDMS-Auth
+2020-09-07 17:12:26 INFO  main com.netflix.loadbalancer.BaseLoadBalancer Client: GDMS-Auth instantiated a LoadBalancer: DynamicServerListLoadBalancer:{NFLoadBalancer:name=GDMS-Auth,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:null
+2020-09-07 17:12:26 INFO  main com.netflix.loadbalancer.DynamicServerListLoadBalancer Using serverListUpdater PollingServerListUpdater
+2020-09-07 17:12:26 INFO  main com.netflix.config.ChainedDynamicProperty Flipping property: GDMS-Auth.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2020-09-07 17:12:26 INFO  main com.netflix.loadbalancer.DynamicServerListLoadBalancer DynamicServerListLoadBalancer for client GDMS-Auth initialized: DynamicServerListLoadBalancer:{NFLoadBalancer:name=GDMS-Auth,current list of Servers=[5463301d5e23:8101, 10.162.111.66:8101],Load balancer stats=Zone stats: {defaultzone=[Zone:defaultzone;	Instance count:2;	Active connections count: 0;	Circuit breaker tripped count: 0;	Active connections per server: 0.0;]
+},Server stats: [[Server:5463301d5e23:8101;	Zone:defaultZone;	Total Requests:0;	Successive connection failure:0;	Total blackout seconds:0;	Last connection made:Thu Jan 01 08:00:00 CST 1970;	First connection made: Thu Jan 01 08:00:00 CST 1970;	Active Connections:0;	total failure count in last (1000) msecs:0;	average resp time:0.0;	90 percentile resp time:0.0;	95 percentile resp time:0.0;	min resp time:0.0;	max resp time:0.0;	stddev resp time:0.0]
+, [Server:10.162.111.66:8101;	Zone:defaultZone;	Total Requests:0;	Successive connection failure:0;	Total blackout seconds:0;	Last connection made:Thu Jan 01 08:00:00 CST 1970;	First connection made: Thu Jan 01 08:00:00 CST 1970;	Active Connections:0;	total failure count in last (1000) msecs:0;	average resp time:0.0;	90 percentile resp time:0.0;	95 percentile resp time:0.0;	min resp time:0.0;	max resp time:0.0;	stddev resp time:0.0]
+]}ServerList:org.springframework.cloud.netflix.ribbon.eureka.DomainExtractingServerList@58583a2d
+2020-09-07 17:12:26 INFO  main com.netflix.config.ChainedDynamicProperty Flipping property: GDMS-Server-Search.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2020-09-07 17:12:26 INFO  main com.netflix.util.concurrent.ShutdownEnabledTimer Shutdown hook installed for: NFLoadBalancer-PingTimer-GDMS-Server-Search
+2020-09-07 17:12:26 INFO  main com.netflix.loadbalancer.BaseLoadBalancer Client: GDMS-Server-Search instantiated a LoadBalancer: DynamicServerListLoadBalancer:{NFLoadBalancer:name=GDMS-Server-Search,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:null
+2020-09-07 17:12:26 INFO  main com.netflix.loadbalancer.DynamicServerListLoadBalancer Using serverListUpdater PollingServerListUpdater
+2020-09-07 17:12:26 INFO  main com.netflix.loadbalancer.DynamicServerListLoadBalancer DynamicServerListLoadBalancer for client GDMS-Server-Search initialized: DynamicServerListLoadBalancer:{NFLoadBalancer:name=GDMS-Server-Search,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:org.springframework.cloud.netflix.ribbon.eureka.DomainExtractingServerList@627d35ff
+2020-09-07 17:12:26 INFO  DiscoveryClient-InstanceInfoReplicator-0 com.netflix.discovery.DiscoveryClient DiscoveryClient_GDMS-GATEWAY/10.162.111.66:GDMS-Gateway:8301 - registration status: 204
+2020-09-07 17:12:26 INFO  main com.netflix.config.ChainedDynamicProperty Flipping property: GDMS-Server-Notice.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2020-09-07 17:12:26 INFO  main com.netflix.util.concurrent.ShutdownEnabledTimer Shutdown hook installed for: NFLoadBalancer-PingTimer-GDMS-Server-Notice
+2020-09-07 17:12:26 INFO  main com.netflix.loadbalancer.BaseLoadBalancer Client: GDMS-Server-Notice instantiated a LoadBalancer: DynamicServerListLoadBalancer:{NFLoadBalancer:name=GDMS-Server-Notice,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:null
+2020-09-07 17:12:26 INFO  main com.netflix.loadbalancer.DynamicServerListLoadBalancer Using serverListUpdater PollingServerListUpdater
+2020-09-07 17:12:26 INFO  main com.netflix.config.ChainedDynamicProperty Flipping property: GDMS-Server-Notice.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2020-09-07 17:12:26 INFO  main com.netflix.loadbalancer.DynamicServerListLoadBalancer DynamicServerListLoadBalancer for client GDMS-Server-Notice initialized: DynamicServerListLoadBalancer:{NFLoadBalancer:name=GDMS-Server-Notice,current list of Servers=[e40c1477a196:8202, 10.162.111.66:8202],Load balancer stats=Zone stats: {defaultzone=[Zone:defaultzone;	Instance count:2;	Active connections count: 0;	Circuit breaker tripped count: 0;	Active connections per server: 0.0;]
+},Server stats: [[Server:10.162.111.66:8202;	Zone:defaultZone;	Total Requests:0;	Successive connection failure:0;	Total blackout seconds:0;	Last connection made:Thu Jan 01 08:00:00 CST 1970;	First connection made: Thu Jan 01 08:00:00 CST 1970;	Active Connections:0;	total failure count in last (1000) msecs:0;	average resp time:0.0;	90 percentile resp time:0.0;	95 percentile resp time:0.0;	min resp time:0.0;	max resp time:0.0;	stddev resp time:0.0]
+, [Server:e40c1477a196:8202;	Zone:defaultZone;	Total Requests:0;	Successive connection failure:0;	Total blackout seconds:0;	Last connection made:Thu Jan 01 08:00:00 CST 1970;	First connection made: Thu Jan 01 08:00:00 CST 1970;	Active Connections:0;	total failure count in last (1000) msecs:0;	average resp time:0.0;	90 percentile resp time:0.0;	95 percentile resp time:0.0;	min resp time:0.0;	max resp time:0.0;	stddev resp time:0.0]
+]}ServerList:org.springframework.cloud.netflix.ribbon.eureka.DomainExtractingServerList@7438c3d5
+2020-09-07 17:12:26 INFO  RMI TCP Connection(2)-127.0.0.1 org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-07 17:12:26 INFO  RMI TCP Connection(2)-127.0.0.1 org.springframework.web.servlet.DispatcherServlet Initializing Servlet 'dispatcherServlet'
+2020-09-07 17:12:26 INFO  RMI TCP Connection(2)-127.0.0.1 org.springframework.web.servlet.DispatcherServlet Completed initialization in 8 ms
+2020-09-07 17:12:27 INFO  main com.netflix.config.ChainedDynamicProperty Flipping property: GDMS-Server-Core.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2020-09-07 17:12:27 INFO  main com.netflix.util.concurrent.ShutdownEnabledTimer Shutdown hook installed for: NFLoadBalancer-PingTimer-GDMS-Server-Core
+2020-09-07 17:12:27 INFO  main com.netflix.loadbalancer.BaseLoadBalancer Client: GDMS-Server-Core instantiated a LoadBalancer: DynamicServerListLoadBalancer:{NFLoadBalancer:name=GDMS-Server-Core,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:null
+2020-09-07 17:12:27 INFO  main com.netflix.loadbalancer.DynamicServerListLoadBalancer Using serverListUpdater PollingServerListUpdater
+2020-09-07 17:12:27 INFO  main com.netflix.config.ChainedDynamicProperty Flipping property: GDMS-Server-Core.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2020-09-07 17:12:27 INFO  main com.netflix.loadbalancer.DynamicServerListLoadBalancer DynamicServerListLoadBalancer for client GDMS-Server-Core initialized: DynamicServerListLoadBalancer:{NFLoadBalancer:name=GDMS-Server-Core,current list of Servers=[10.162.111.66:8203, c43eadb77d10:8203],Load balancer stats=Zone stats: {defaultzone=[Zone:defaultzone;	Instance count:2;	Active connections count: 0;	Circuit breaker tripped count: 0;	Active connections per server: 0.0;]
+},Server stats: [[Server:c43eadb77d10:8203;	Zone:defaultZone;	Total Requests:0;	Successive connection failure:0;	Total blackout seconds:0;	Last connection made:Thu Jan 01 08:00:00 CST 1970;	First connection made: Thu Jan 01 08:00:00 CST 1970;	Active Connections:0;	total failure count in last (1000) msecs:0;	average resp time:0.0;	90 percentile resp time:0.0;	95 percentile resp time:0.0;	min resp time:0.0;	max resp time:0.0;	stddev resp time:0.0]
+, [Server:10.162.111.66:8203;	Zone:defaultZone;	Total Requests:0;	Successive connection failure:0;	Total blackout seconds:0;	Last connection made:Thu Jan 01 08:00:00 CST 1970;	First connection made: Thu Jan 01 08:00:00 CST 1970;	Active Connections:0;	total failure count in last (1000) msecs:0;	average resp time:0.0;	90 percentile resp time:0.0;	95 percentile resp time:0.0;	min resp time:0.0;	max resp time:0.0;	stddev resp time:0.0]
+]}ServerList:org.springframework.cloud.netflix.ribbon.eureka.DomainExtractingServerList@120d13ae
+2020-09-07 17:12:27 INFO  registrationTask1 de.codecentric.boot.admin.client.registration.ApplicationRegistrator Application registered itself as 9764121bfc22
+2020-09-07 17:12:27 INFO  PollingServerListUpdater-0 com.netflix.config.ChainedDynamicProperty Flipping property: GDMS-Auth.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2020-09-07 17:12:27 INFO  PollingServerListUpdater-0 com.netflix.config.ChainedDynamicProperty Flipping property: GDMS-Server-Notice.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2020-09-07 17:12:28 INFO  PollingServerListUpdater-1 com.netflix.config.ChainedDynamicProperty Flipping property: GDMS-Server-Core.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2020-09-07 17:12:41 INFO  http-nio-8301-exec-3 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/core/getTeacherMessages，HTTP Method：POST，request IP：10.162.72.148，ServerId：GDMS-Server-Core
+2020-09-07 17:12:41 INFO  http-nio-8301-exec-1 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/notice/getThreeSchoolNotices，HTTP Method：POST，request IP：10.162.72.148，ServerId：GDMS-Server-Notice
+2020-09-07 17:12:41 INFO  http-nio-8301-exec-2 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/notice/getThreeDepartmentNotices，HTTP Method：POST，request IP：10.162.72.148，ServerId：GDMS-Server-Notice
+2020-09-07 17:12:41 INFO  http-nio-8301-exec-4 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/core/getOpenid，HTTP Method：POST，request IP：10.162.72.148，ServerId：GDMS-Server-Core
+2020-09-07 17:13:07 INFO  http-nio-8301-exec-5 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/core/register，HTTP Method：POST，request IP：10.162.72.148，ServerId：GDMS-Server-Core
+2020-09-07 17:17:23 INFO  Thread-25 com.netflix.loadbalancer.PollingServerListUpdater Shutting down the Executor Pool for PollingServerListUpdater
+2020-09-07 17:17:23 INFO  Thread-21 org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry Unregistering application GDMS-GATEWAY with eureka with status DOWN
+2020-09-07 17:17:23 INFO  DiscoveryClient-InstanceInfoReplicator-0 com.netflix.discovery.DiscoveryClient DiscoveryClient_GDMS-GATEWAY/10.162.111.66:GDMS-Gateway:8301: registering service...
+2020-09-07 17:17:23 INFO  Thread-21 org.springframework.cloud.netflix.zuul.ZuulFilterInitializer Stopping filter initializer
+2020-09-07 17:17:23 INFO  Thread-21 com.netflix.util.concurrent.ShutdownEnabledTimer Shutdown hook removed for: NFLoadBalancer-PingTimer-GDMS-Auth
+2020-09-07 17:17:23 INFO  Thread-21 com.netflix.util.concurrent.ShutdownEnabledTimer Exception caught (might be ok if at shutdown)
+java.lang.IllegalStateException: Shutdown in progress
+	at java.lang.ApplicationShutdownHooks.remove(ApplicationShutdownHooks.java:82)
+	at java.lang.Runtime.removeShutdownHook(Runtime.java:239)
+	at com.netflix.util.concurrent.ShutdownEnabledTimer.cancel(ShutdownEnabledTimer.java:70)
+	at com.netflix.loadbalancer.BaseLoadBalancer.cancelPingTask(BaseLoadBalancer.java:632)
+	at com.netflix.loadbalancer.BaseLoadBalancer.shutdown(BaseLoadBalancer.java:883)
+	at com.netflix.loadbalancer.DynamicServerListLoadBalancer.shutdown(DynamicServerListLoadBalancer.java:285)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.invokeCustomDestroyMethod(DisposableBeanAdapter.java:339)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:273)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:571)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:543)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1036)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:504)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1029)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1057)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1026)
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:975)
+	at org.springframework.cloud.context.named.NamedContextFactory.destroy(NamedContextFactory.java:92)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:258)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:571)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:543)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1036)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:504)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1029)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1057)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1026)
+	at org.springframework.context.support.AbstractApplicationContext$1.run(AbstractApplicationContext.java:945)
+2020-09-07 17:17:23 INFO  Thread-21 com.netflix.util.concurrent.ShutdownEnabledTimer Shutdown hook removed for: NFLoadBalancer-PingTimer-GDMS-Server-Notice
+2020-09-07 17:17:23 INFO  Thread-21 com.netflix.util.concurrent.ShutdownEnabledTimer Exception caught (might be ok if at shutdown)
+java.lang.IllegalStateException: Shutdown in progress
+	at java.lang.ApplicationShutdownHooks.remove(ApplicationShutdownHooks.java:82)
+	at java.lang.Runtime.removeShutdownHook(Runtime.java:239)
+	at com.netflix.util.concurrent.ShutdownEnabledTimer.cancel(ShutdownEnabledTimer.java:70)
+	at com.netflix.loadbalancer.BaseLoadBalancer.cancelPingTask(BaseLoadBalancer.java:632)
+	at com.netflix.loadbalancer.BaseLoadBalancer.shutdown(BaseLoadBalancer.java:883)
+	at com.netflix.loadbalancer.DynamicServerListLoadBalancer.shutdown(DynamicServerListLoadBalancer.java:285)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.invokeCustomDestroyMethod(DisposableBeanAdapter.java:339)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:273)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:571)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:543)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1036)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:504)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1029)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1057)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1026)
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:975)
+	at org.springframework.cloud.context.named.NamedContextFactory.destroy(NamedContextFactory.java:92)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:258)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:571)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:543)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1036)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:504)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1029)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1057)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1026)
+	at org.springframework.context.support.AbstractApplicationContext$1.run(AbstractApplicationContext.java:945)
+2020-09-07 17:17:23 INFO  Thread-21 com.netflix.util.concurrent.ShutdownEnabledTimer Shutdown hook removed for: NFLoadBalancer-PingTimer-GDMS-Server-Search
+2020-09-07 17:17:23 INFO  Thread-21 com.netflix.util.concurrent.ShutdownEnabledTimer Exception caught (might be ok if at shutdown)
+java.lang.IllegalStateException: Shutdown in progress
+	at java.lang.ApplicationShutdownHooks.remove(ApplicationShutdownHooks.java:82)
+	at java.lang.Runtime.removeShutdownHook(Runtime.java:239)
+	at com.netflix.util.concurrent.ShutdownEnabledTimer.cancel(ShutdownEnabledTimer.java:70)
+	at com.netflix.loadbalancer.BaseLoadBalancer.cancelPingTask(BaseLoadBalancer.java:632)
+	at com.netflix.loadbalancer.BaseLoadBalancer.shutdown(BaseLoadBalancer.java:883)
+	at com.netflix.loadbalancer.DynamicServerListLoadBalancer.shutdown(DynamicServerListLoadBalancer.java:285)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.invokeCustomDestroyMethod(DisposableBeanAdapter.java:339)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:273)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:571)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:543)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1036)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:504)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1029)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1057)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1026)
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:975)
+	at org.springframework.cloud.context.named.NamedContextFactory.destroy(NamedContextFactory.java:92)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:258)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:571)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:543)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1036)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:504)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1029)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1057)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1026)
+	at org.springframework.context.support.AbstractApplicationContext$1.run(AbstractApplicationContext.java:945)
+2020-09-07 17:17:23 INFO  Thread-21 com.netflix.util.concurrent.ShutdownEnabledTimer Shutdown hook removed for: NFLoadBalancer-PingTimer-GDMS-Server-Core
+2020-09-07 17:17:23 INFO  Thread-21 com.netflix.util.concurrent.ShutdownEnabledTimer Exception caught (might be ok if at shutdown)
+java.lang.IllegalStateException: Shutdown in progress
+	at java.lang.ApplicationShutdownHooks.remove(ApplicationShutdownHooks.java:82)
+	at java.lang.Runtime.removeShutdownHook(Runtime.java:239)
+	at com.netflix.util.concurrent.ShutdownEnabledTimer.cancel(ShutdownEnabledTimer.java:70)
+	at com.netflix.loadbalancer.BaseLoadBalancer.cancelPingTask(BaseLoadBalancer.java:632)
+	at com.netflix.loadbalancer.BaseLoadBalancer.shutdown(BaseLoadBalancer.java:883)
+	at com.netflix.loadbalancer.DynamicServerListLoadBalancer.shutdown(DynamicServerListLoadBalancer.java:285)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.invokeCustomDestroyMethod(DisposableBeanAdapter.java:339)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:273)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:571)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:543)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1036)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:504)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1029)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1057)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1026)
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:975)
+	at org.springframework.cloud.context.named.NamedContextFactory.destroy(NamedContextFactory.java:92)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:258)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:571)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:543)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1036)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:504)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1029)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1057)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1026)
+	at org.springframework.context.support.AbstractApplicationContext$1.run(AbstractApplicationContext.java:945)
+2020-09-07 17:17:23 INFO  Thread-21 org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler Shutting down ExecutorService
+2020-09-07 17:17:23 INFO  Thread-21 org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor Shutting down ExecutorService 'applicationTaskExecutor'
+2020-09-07 17:17:23 INFO  Thread-21 com.netflix.discovery.DiscoveryClient Shutting down DiscoveryClient ...
+2020-09-07 17:17:24 INFO  DiscoveryClient-InstanceInfoReplicator-0 com.netflix.discovery.DiscoveryClient DiscoveryClient_GDMS-GATEWAY/10.162.111.66:GDMS-Gateway:8301 - registration status: 204
+2020-09-07 17:17:24 INFO  Thread-21 com.netflix.discovery.DiscoveryClient Unregistering ...
+2020-09-07 17:17:24 INFO  Thread-21 com.netflix.discovery.DiscoveryClient DiscoveryClient_GDMS-GATEWAY/10.162.111.66:GDMS-Gateway:8301 - deregister  status: 200
+2020-09-07 17:17:24 INFO  Thread-21 com.netflix.discovery.DiscoveryClient Completed shut down of DiscoveryClient
+2020-09-07 17:17:30 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$f5f88884] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-07 17:17:30 INFO  main org.graduationdesign.gdmsgateway.GdmsGatewayApplication No active profile set, falling back to default profiles: default
+2020-09-07 17:17:31 INFO  main org.springframework.cloud.context.scope.GenericScope BeanFactory id=41731082-0927-3e06-86eb-8767d1888bbe
+2020-09-07 17:17:31 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$f5f88884] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-07 17:17:31 INFO  main org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat initialized with port(s): 8301 (http)
+2020-09-07 17:17:31 INFO  main org.apache.coyote.http11.Http11NioProtocol Initializing ProtocolHandler ["http-nio-8301"]
+2020-09-07 17:17:31 INFO  main org.apache.catalina.core.StandardService Starting service [Tomcat]
+2020-09-07 17:17:31 INFO  main org.apache.catalina.core.StandardEngine Starting Servlet engine: [Apache Tomcat/9.0.21]
+2020-09-07 17:17:32 INFO  main org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring embedded WebApplicationContext
+2020-09-07 17:17:32 INFO  main org.springframework.web.context.ContextLoader Root WebApplicationContext: initialization completed in 1501 ms
+2020-09-07 17:17:32 INFO  main com.netflix.config.sources.URLConfigurationSource To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-09-07 17:17:32 INFO  main com.netflix.config.DynamicPropertyFactory DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@1c067c0d
+2020-09-07 17:17:32 INFO  main org.springframework.boot.actuate.endpoint.web.ServletEndpointRegistrar Registered '/actuator/jolokia' to jolokia-actuator-endpoint
+2020-09-07 17:17:32 INFO  main org.springframework.boot.actuate.endpoint.web.ServletEndpointRegistrar Registered '/actuator/hystrix.stream' to hystrix.stream-actuator-endpoint
+2020-09-07 17:17:32 INFO  main org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration 
+
+Using generated security password: 700e2517-38c6-47c4-9197-b019a71b5838
+
+2020-09-07 17:17:32 INFO  main org.springframework.security.web.DefaultSecurityFilterChain Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6c33da7a, org.springframework.security.web.context.SecurityContextPersistenceFilter@5e7abaf7, org.springframework.security.web.header.HeaderWriterFilter@51a16adf, org.springframework.security.web.authentication.logout.LogoutFilter@261de205, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@63bfdbcb, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@230a73f2, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@69aabcb0, org.springframework.security.web.session.SessionManagementFilter@2be818da, org.springframework.security.web.access.ExceptionTranslationFilter@61e86192]
+2020-09-07 17:17:32 INFO  main com.netflix.config.sources.URLConfigurationSource To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-09-07 17:17:32 INFO  main org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-07 17:17:33 INFO  main org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler Initializing ExecutorService
+2020-09-07 17:17:33 INFO  main org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver Exposing 24 endpoint(s) beneath base path '/actuator'
+2020-09-07 17:17:33 INFO  main org.springframework.cloud.netflix.zuul.ZuulFilterInitializer Starting filter initializer
+2020-09-07 17:17:33 INFO  main org.springframework.cloud.netflix.eureka.InstanceInfoFactory Setting initial instance status as: STARTING
+2020-09-07 17:17:33 INFO  main com.netflix.discovery.DiscoveryClient Initializing Eureka in region us-east-1
+2020-09-07 17:17:33 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using JSON encoding codec LegacyJacksonJson
+2020-09-07 17:17:33 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using JSON decoding codec LegacyJacksonJson
+2020-09-07 17:17:33 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using XML encoding codec XStreamXml
+2020-09-07 17:17:33 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using XML decoding codec XStreamXml
+2020-09-07 17:17:33 INFO  main com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2020-09-07 17:17:33 INFO  main com.netflix.discovery.DiscoveryClient Disable delta property : false
+2020-09-07 17:17:33 INFO  main com.netflix.discovery.DiscoveryClient Single vip registry refresh property : null
+2020-09-07 17:17:33 INFO  main com.netflix.discovery.DiscoveryClient Force full registry fetch : false
+2020-09-07 17:17:33 INFO  main com.netflix.discovery.DiscoveryClient Application is null : false
+2020-09-07 17:17:33 INFO  main com.netflix.discovery.DiscoveryClient Registered Applications size is zero : true
+2020-09-07 17:17:33 INFO  main com.netflix.discovery.DiscoveryClient Application version is -1: true
+2020-09-07 17:17:33 INFO  main com.netflix.discovery.DiscoveryClient Getting all instance registry info from the eureka server
+2020-09-07 17:17:34 INFO  main com.netflix.discovery.DiscoveryClient The response status is 200
+2020-09-07 17:17:34 INFO  main com.netflix.discovery.DiscoveryClient Starting heartbeat executor: renew interval is: 20
+2020-09-07 17:17:34 INFO  main com.netflix.discovery.InstanceInfoReplicator InstanceInfoReplicator onDemand update allowed rate per min is 4
+2020-09-07 17:17:34 INFO  main com.netflix.discovery.DiscoveryClient Discovery Client initialized at timestamp 1599470254748 with initial instances count: 7
+2020-09-07 17:17:34 INFO  main org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry Registering application GDMS-GATEWAY with eureka with status UP
+2020-09-07 17:17:34 INFO  main com.netflix.discovery.DiscoveryClient Saw local status change event StatusChangeEvent [timestamp=1599470254752, current=UP, previous=STARTING]
+2020-09-07 17:17:34 INFO  DiscoveryClient-InstanceInfoReplicator-0 com.netflix.discovery.DiscoveryClient DiscoveryClient_GDMS-GATEWAY/10.162.111.66:GDMS-Gateway:8301: registering service...
+2020-09-07 17:17:34 INFO  main org.apache.coyote.http11.Http11NioProtocol Starting ProtocolHandler ["http-nio-8301"]
+2020-09-07 17:17:34 INFO  main org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat started on port(s): 8301 (http) with context path ''
+2020-09-07 17:17:34 INFO  main org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration Updating port to 8301
+2020-09-07 17:17:34 INFO  main org.graduationdesign.gdmsgateway.GdmsGatewayApplication Started GdmsGatewayApplication in 5.416 seconds (JVM running for 6.083)
+2020-09-07 17:17:34 INFO  main com.netflix.config.ChainedDynamicProperty Flipping property: GDMS-Auth.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2020-09-07 17:17:34 INFO  main com.netflix.util.concurrent.ShutdownEnabledTimer Shutdown hook installed for: NFLoadBalancer-PingTimer-GDMS-Auth
+2020-09-07 17:17:34 INFO  main com.netflix.loadbalancer.BaseLoadBalancer Client: GDMS-Auth instantiated a LoadBalancer: DynamicServerListLoadBalancer:{NFLoadBalancer:name=GDMS-Auth,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:null
+2020-09-07 17:17:34 INFO  main com.netflix.loadbalancer.DynamicServerListLoadBalancer Using serverListUpdater PollingServerListUpdater
+2020-09-07 17:17:34 INFO  main com.netflix.config.ChainedDynamicProperty Flipping property: GDMS-Auth.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2020-09-07 17:17:34 INFO  main com.netflix.loadbalancer.DynamicServerListLoadBalancer DynamicServerListLoadBalancer for client GDMS-Auth initialized: DynamicServerListLoadBalancer:{NFLoadBalancer:name=GDMS-Auth,current list of Servers=[5463301d5e23:8101, 10.162.111.66:8101],Load balancer stats=Zone stats: {defaultzone=[Zone:defaultzone;	Instance count:2;	Active connections count: 0;	Circuit breaker tripped count: 0;	Active connections per server: 0.0;]
+},Server stats: [[Server:5463301d5e23:8101;	Zone:defaultZone;	Total Requests:0;	Successive connection failure:0;	Total blackout seconds:0;	Last connection made:Thu Jan 01 08:00:00 CST 1970;	First connection made: Thu Jan 01 08:00:00 CST 1970;	Active Connections:0;	total failure count in last (1000) msecs:0;	average resp time:0.0;	90 percentile resp time:0.0;	95 percentile resp time:0.0;	min resp time:0.0;	max resp time:0.0;	stddev resp time:0.0]
+, [Server:10.162.111.66:8101;	Zone:defaultZone;	Total Requests:0;	Successive connection failure:0;	Total blackout seconds:0;	Last connection made:Thu Jan 01 08:00:00 CST 1970;	First connection made: Thu Jan 01 08:00:00 CST 1970;	Active Connections:0;	total failure count in last (1000) msecs:0;	average resp time:0.0;	90 percentile resp time:0.0;	95 percentile resp time:0.0;	min resp time:0.0;	max resp time:0.0;	stddev resp time:0.0]
+]}ServerList:org.springframework.cloud.netflix.ribbon.eureka.DomainExtractingServerList@1ff81b0d
+2020-09-07 17:17:35 INFO  RMI TCP Connection(2)-127.0.0.1 org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-07 17:17:35 INFO  RMI TCP Connection(2)-127.0.0.1 org.springframework.web.servlet.DispatcherServlet Initializing Servlet 'dispatcherServlet'
+2020-09-07 17:17:35 INFO  DiscoveryClient-InstanceInfoReplicator-0 com.netflix.discovery.DiscoveryClient DiscoveryClient_GDMS-GATEWAY/10.162.111.66:GDMS-Gateway:8301 - registration status: 204
+2020-09-07 17:17:35 INFO  RMI TCP Connection(2)-127.0.0.1 org.springframework.web.servlet.DispatcherServlet Completed initialization in 15 ms
+2020-09-07 17:17:35 INFO  main com.netflix.config.ChainedDynamicProperty Flipping property: GDMS-Server-Search.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2020-09-07 17:17:35 INFO  main com.netflix.util.concurrent.ShutdownEnabledTimer Shutdown hook installed for: NFLoadBalancer-PingTimer-GDMS-Server-Search
+2020-09-07 17:17:35 INFO  main com.netflix.loadbalancer.BaseLoadBalancer Client: GDMS-Server-Search instantiated a LoadBalancer: DynamicServerListLoadBalancer:{NFLoadBalancer:name=GDMS-Server-Search,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:null
+2020-09-07 17:17:35 INFO  main com.netflix.loadbalancer.DynamicServerListLoadBalancer Using serverListUpdater PollingServerListUpdater
+2020-09-07 17:17:35 INFO  main com.netflix.loadbalancer.DynamicServerListLoadBalancer DynamicServerListLoadBalancer for client GDMS-Server-Search initialized: DynamicServerListLoadBalancer:{NFLoadBalancer:name=GDMS-Server-Search,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:org.springframework.cloud.netflix.ribbon.eureka.DomainExtractingServerList@3cf70afa
+2020-09-07 17:17:35 INFO  main com.netflix.config.ChainedDynamicProperty Flipping property: GDMS-Server-Notice.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2020-09-07 17:17:35 INFO  main com.netflix.util.concurrent.ShutdownEnabledTimer Shutdown hook installed for: NFLoadBalancer-PingTimer-GDMS-Server-Notice
+2020-09-07 17:17:35 INFO  main com.netflix.loadbalancer.BaseLoadBalancer Client: GDMS-Server-Notice instantiated a LoadBalancer: DynamicServerListLoadBalancer:{NFLoadBalancer:name=GDMS-Server-Notice,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:null
+2020-09-07 17:17:35 INFO  main com.netflix.loadbalancer.DynamicServerListLoadBalancer Using serverListUpdater PollingServerListUpdater
+2020-09-07 17:17:35 INFO  main com.netflix.config.ChainedDynamicProperty Flipping property: GDMS-Server-Notice.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2020-09-07 17:17:35 INFO  main com.netflix.loadbalancer.DynamicServerListLoadBalancer DynamicServerListLoadBalancer for client GDMS-Server-Notice initialized: DynamicServerListLoadBalancer:{NFLoadBalancer:name=GDMS-Server-Notice,current list of Servers=[10.162.111.66:8202, e40c1477a196:8202],Load balancer stats=Zone stats: {defaultzone=[Zone:defaultzone;	Instance count:2;	Active connections count: 0;	Circuit breaker tripped count: 0;	Active connections per server: 0.0;]
+},Server stats: [[Server:e40c1477a196:8202;	Zone:defaultZone;	Total Requests:0;	Successive connection failure:0;	Total blackout seconds:0;	Last connection made:Thu Jan 01 08:00:00 CST 1970;	First connection made: Thu Jan 01 08:00:00 CST 1970;	Active Connections:0;	total failure count in last (1000) msecs:0;	average resp time:0.0;	90 percentile resp time:0.0;	95 percentile resp time:0.0;	min resp time:0.0;	max resp time:0.0;	stddev resp time:0.0]
+, [Server:10.162.111.66:8202;	Zone:defaultZone;	Total Requests:0;	Successive connection failure:0;	Total blackout seconds:0;	Last connection made:Thu Jan 01 08:00:00 CST 1970;	First connection made: Thu Jan 01 08:00:00 CST 1970;	Active Connections:0;	total failure count in last (1000) msecs:0;	average resp time:0.0;	90 percentile resp time:0.0;	95 percentile resp time:0.0;	min resp time:0.0;	max resp time:0.0;	stddev resp time:0.0]
+]}ServerList:org.springframework.cloud.netflix.ribbon.eureka.DomainExtractingServerList@2c2e5e72
+2020-09-07 17:17:35 INFO  main com.netflix.config.ChainedDynamicProperty Flipping property: GDMS-Server-Core.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2020-09-07 17:17:35 INFO  main com.netflix.util.concurrent.ShutdownEnabledTimer Shutdown hook installed for: NFLoadBalancer-PingTimer-GDMS-Server-Core
+2020-09-07 17:17:35 INFO  main com.netflix.loadbalancer.BaseLoadBalancer Client: GDMS-Server-Core instantiated a LoadBalancer: DynamicServerListLoadBalancer:{NFLoadBalancer:name=GDMS-Server-Core,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:null
+2020-09-07 17:17:35 INFO  main com.netflix.loadbalancer.DynamicServerListLoadBalancer Using serverListUpdater PollingServerListUpdater
+2020-09-07 17:17:35 INFO  main com.netflix.config.ChainedDynamicProperty Flipping property: GDMS-Server-Core.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2020-09-07 17:17:35 INFO  main com.netflix.loadbalancer.DynamicServerListLoadBalancer DynamicServerListLoadBalancer for client GDMS-Server-Core initialized: DynamicServerListLoadBalancer:{NFLoadBalancer:name=GDMS-Server-Core,current list of Servers=[10.162.111.66:8203, c43eadb77d10:8203],Load balancer stats=Zone stats: {defaultzone=[Zone:defaultzone;	Instance count:2;	Active connections count: 0;	Circuit breaker tripped count: 0;	Active connections per server: 0.0;]
+},Server stats: [[Server:c43eadb77d10:8203;	Zone:defaultZone;	Total Requests:0;	Successive connection failure:0;	Total blackout seconds:0;	Last connection made:Thu Jan 01 08:00:00 CST 1970;	First connection made: Thu Jan 01 08:00:00 CST 1970;	Active Connections:0;	total failure count in last (1000) msecs:0;	average resp time:0.0;	90 percentile resp time:0.0;	95 percentile resp time:0.0;	min resp time:0.0;	max resp time:0.0;	stddev resp time:0.0]
+, [Server:10.162.111.66:8203;	Zone:defaultZone;	Total Requests:0;	Successive connection failure:0;	Total blackout seconds:0;	Last connection made:Thu Jan 01 08:00:00 CST 1970;	First connection made: Thu Jan 01 08:00:00 CST 1970;	Active Connections:0;	total failure count in last (1000) msecs:0;	average resp time:0.0;	90 percentile resp time:0.0;	95 percentile resp time:0.0;	min resp time:0.0;	max resp time:0.0;	stddev resp time:0.0]
+]}ServerList:org.springframework.cloud.netflix.ribbon.eureka.DomainExtractingServerList@2586e878
+2020-09-07 17:17:35 INFO  PollingServerListUpdater-0 com.netflix.config.ChainedDynamicProperty Flipping property: GDMS-Auth.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2020-09-07 17:17:36 INFO  PollingServerListUpdater-0 com.netflix.config.ChainedDynamicProperty Flipping property: GDMS-Server-Notice.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2020-09-07 17:17:36 INFO  PollingServerListUpdater-1 com.netflix.config.ChainedDynamicProperty Flipping property: GDMS-Server-Core.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2020-09-07 17:17:37 INFO  registrationTask1 de.codecentric.boot.admin.client.registration.ApplicationRegistrator Application registered itself as 9764121bfc22
+2020-09-07 17:17:58 INFO  http-nio-8301-exec-2 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/notice/getThreeDepartmentNotices，HTTP Method：POST，request IP：10.162.72.148，ServerId：GDMS-Server-Notice
+2020-09-07 17:17:58 INFO  http-nio-8301-exec-4 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/core/getOpenid，HTTP Method：POST，request IP：10.162.72.148，ServerId：GDMS-Server-Core
+2020-09-07 17:17:58 INFO  http-nio-8301-exec-1 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/notice/getThreeSchoolNotices，HTTP Method：POST，request IP：10.162.72.148，ServerId：GDMS-Server-Notice
+2020-09-07 17:17:58 INFO  http-nio-8301-exec-3 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/core/getTeacherMessages，HTTP Method：POST，request IP：10.162.72.148，ServerId：GDMS-Server-Core
+2020-09-07 17:18:13 INFO  http-nio-8301-exec-5 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/core/register，HTTP Method：POST，request IP：10.162.72.148，ServerId：GDMS-Server-Core
+2020-09-07 17:21:27 INFO  http-nio-8301-exec-6 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/core/teacherGetStudents，HTTP Method：GET，request IP：0:0:0:0:0:0:0:1，ServerId：GDMS-Server-Core
+2020-09-07 17:21:38 INFO  http-nio-8301-exec-8 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/core/register，HTTP Method：GET，request IP：0:0:0:0:0:0:0:1，ServerId：GDMS-Server-Core
+2020-09-07 17:22:34 INFO  AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2020-09-07 17:27:41 INFO  http-nio-8301-exec-1 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/core/getTeacherMessages，HTTP Method：POST，request IP：111.186.50.7，ServerId：GDMS-Server-Core
+2020-09-07 17:27:41 INFO  http-nio-8301-exec-10 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/notice/getThreeSchoolNotices，HTTP Method：POST，request IP：111.186.50.7，ServerId：GDMS-Server-Notice
+2020-09-07 17:27:41 INFO  http-nio-8301-exec-9 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/notice/getThreeDepartmentNotices，HTTP Method：POST，request IP：111.186.50.7，ServerId：GDMS-Server-Notice
+2020-09-07 17:27:41 INFO  http-nio-8301-exec-3 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/core/getOpenid，HTTP Method：POST，request IP：111.186.50.7，ServerId：GDMS-Server-Core
+2020-09-07 17:27:42 INFO  AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2020-09-07 17:28:47 INFO  http-nio-8301-exec-2 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/core/register，HTTP Method：GET，request IP：0:0:0:0:0:0:0:1，ServerId：GDMS-Server-Core
+2020-09-07 17:28:56 INFO  http-nio-8301-exec-7 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/core/register，HTTP Method：POST，request IP：111.186.50.7，ServerId：GDMS-Server-Core
+2020-09-07 17:32:43 INFO  AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2020-09-07 17:34:33 INFO  http-nio-8301-exec-6 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/notice/getThreeSchoolNotices，HTTP Method：POST，request IP：111.186.50.7，ServerId：GDMS-Server-Notice
+2020-09-07 17:34:33 INFO  http-nio-8301-exec-8 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/notice/getThreeDepartmentNotices，HTTP Method：POST，request IP：111.186.50.7，ServerId：GDMS-Server-Notice
+2020-09-07 17:34:33 INFO  http-nio-8301-exec-10 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/core/getTeacherMessages，HTTP Method：POST，request IP：111.186.50.7，ServerId：GDMS-Server-Core
+2020-09-07 17:34:33 INFO  http-nio-8301-exec-1 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/core/getOpenid，HTTP Method：POST，request IP：111.186.50.7，ServerId：GDMS-Server-Core
+2020-09-07 17:35:06 INFO  http-nio-8301-exec-9 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/core/getTeacherMessage，HTTP Method：GET，request IP：0:0:0:0:0:0:0:1，ServerId：GDMS-Server-Core
+2020-09-07 17:35:11 INFO  http-nio-8301-exec-5 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/core/getTeacherMessage，HTTP Method：GET，request IP：0:0:0:0:0:0:0:1，ServerId：GDMS-Server-Core
+2020-09-07 17:35:20 INFO  http-nio-8301-exec-2 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/core/register，HTTP Method：GET，request IP：0:0:0:0:0:0:0:1，ServerId：GDMS-Server-Core
+2020-09-07 17:35:30 INFO  http-nio-8301-exec-10 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/core/register，HTTP Method：GET，request IP：0:0:0:0:0:0:0:1，ServerId：GDMS-Server-Core
+2020-09-07 17:35:34 INFO  http-nio-8301-exec-3 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/core/register，HTTP Method：GET，request IP：0:0:0:0:0:0:0:1，ServerId：GDMS-Server-Core
+2020-09-07 17:35:44 INFO  http-nio-8301-exec-9 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/core/register，HTTP Method：POST，request IP：111.186.50.7，ServerId：GDMS-Server-Core
+2020-09-07 17:36:00 INFO  http-nio-8301-exec-5 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/core/register，HTTP Method：GET，request IP：0:0:0:0:0:0:0:1，ServerId：GDMS-Server-Core
+2020-09-07 17:36:01 INFO  http-nio-8301-exec-2 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/notice/getThreeSchoolNotices，HTTP Method：POST，request IP：111.186.50.7，ServerId：GDMS-Server-Notice
+2020-09-07 17:36:01 INFO  http-nio-8301-exec-7 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/notice/getThreeDepartmentNotices，HTTP Method：POST，request IP：111.186.50.7，ServerId：GDMS-Server-Notice
+2020-09-07 17:36:01 INFO  http-nio-8301-exec-10 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/core/getTeacherMessages，HTTP Method：POST，request IP：111.186.50.7，ServerId：GDMS-Server-Core
+2020-09-07 17:36:01 INFO  http-nio-8301-exec-8 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/core/getOpenid，HTTP Method：POST，request IP：111.186.50.7，ServerId：GDMS-Server-Core
+2020-09-07 17:36:01 INFO  http-nio-8301-exec-6 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/core/register，HTTP Method：GET，request IP：0:0:0:0:0:0:0:1，ServerId：GDMS-Server-Core
+2020-09-07 17:36:07 INFO  http-nio-8301-exec-9 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/core/register，HTTP Method：GET，request IP：0:0:0:0:0:0:0:1，ServerId：GDMS-Server-Core
+2020-09-07 17:36:15 INFO  http-nio-8301-exec-4 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/core/register，HTTP Method：POST，request IP：111.186.50.7，ServerId：GDMS-Server-Core
+2020-09-07 17:36:18 INFO  http-nio-8301-exec-2 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/core/register，HTTP Method：GET，request IP：0:0:0:0:0:0:0:1，ServerId：GDMS-Server-Core
+2020-09-07 17:36:19 INFO  http-nio-8301-exec-1 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/core/register，HTTP Method：GET，request IP：0:0:0:0:0:0:0:1，ServerId：GDMS-Server-Core
+2020-09-07 17:36:20 INFO  http-nio-8301-exec-6 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/core/register，HTTP Method：GET，request IP：0:0:0:0:0:0:0:1，ServerId：GDMS-Server-Core
+2020-09-07 17:36:44 INFO  http-nio-8301-exec-10 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/notice/getThreeSchoolNotices，HTTP Method：POST，request IP：111.186.50.7，ServerId：GDMS-Server-Notice
+2020-09-07 17:36:44 INFO  http-nio-8301-exec-3 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/notice/getThreeDepartmentNotices，HTTP Method：POST，request IP：111.186.50.7，ServerId：GDMS-Server-Notice
+2020-09-07 17:36:44 INFO  http-nio-8301-exec-9 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/core/getTeacherMessages，HTTP Method：POST，request IP：111.186.50.7，ServerId：GDMS-Server-Core
+2020-09-07 17:36:44 INFO  http-nio-8301-exec-4 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/core/getOpenid，HTTP Method：POST，request IP：111.186.50.7，ServerId：GDMS-Server-Core
+2020-09-07 17:36:57 INFO  Thread-25 com.netflix.loadbalancer.PollingServerListUpdater Shutting down the Executor Pool for PollingServerListUpdater
+2020-09-07 17:36:57 INFO  Thread-21 org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry Unregistering application GDMS-GATEWAY with eureka with status DOWN
+2020-09-07 17:36:57 INFO  DiscoveryClient-InstanceInfoReplicator-0 com.netflix.discovery.DiscoveryClient DiscoveryClient_GDMS-GATEWAY/10.162.111.66:GDMS-Gateway:8301: registering service...
+2020-09-07 17:36:57 INFO  Thread-21 org.springframework.cloud.netflix.zuul.ZuulFilterInitializer Stopping filter initializer
+2020-09-07 17:36:57 INFO  Thread-21 com.netflix.util.concurrent.ShutdownEnabledTimer Shutdown hook removed for: NFLoadBalancer-PingTimer-GDMS-Auth
+2020-09-07 17:36:57 INFO  Thread-21 com.netflix.util.concurrent.ShutdownEnabledTimer Exception caught (might be ok if at shutdown)
+java.lang.IllegalStateException: Shutdown in progress
+	at java.lang.ApplicationShutdownHooks.remove(ApplicationShutdownHooks.java:82)
+	at java.lang.Runtime.removeShutdownHook(Runtime.java:239)
+	at com.netflix.util.concurrent.ShutdownEnabledTimer.cancel(ShutdownEnabledTimer.java:70)
+	at com.netflix.loadbalancer.BaseLoadBalancer.cancelPingTask(BaseLoadBalancer.java:632)
+	at com.netflix.loadbalancer.BaseLoadBalancer.shutdown(BaseLoadBalancer.java:883)
+	at com.netflix.loadbalancer.DynamicServerListLoadBalancer.shutdown(DynamicServerListLoadBalancer.java:285)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.invokeCustomDestroyMethod(DisposableBeanAdapter.java:339)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:273)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:571)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:543)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1036)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:504)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1029)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1057)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1026)
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:975)
+	at org.springframework.cloud.context.named.NamedContextFactory.destroy(NamedContextFactory.java:92)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:258)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:571)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:543)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1036)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:504)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1029)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1057)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1026)
+	at org.springframework.context.support.AbstractApplicationContext$1.run(AbstractApplicationContext.java:945)
+2020-09-07 17:36:57 INFO  Thread-21 com.netflix.util.concurrent.ShutdownEnabledTimer Shutdown hook removed for: NFLoadBalancer-PingTimer-GDMS-Server-Notice
+2020-09-07 17:36:57 INFO  Thread-21 com.netflix.util.concurrent.ShutdownEnabledTimer Exception caught (might be ok if at shutdown)
+java.lang.IllegalStateException: Shutdown in progress
+	at java.lang.ApplicationShutdownHooks.remove(ApplicationShutdownHooks.java:82)
+	at java.lang.Runtime.removeShutdownHook(Runtime.java:239)
+	at com.netflix.util.concurrent.ShutdownEnabledTimer.cancel(ShutdownEnabledTimer.java:70)
+	at com.netflix.loadbalancer.BaseLoadBalancer.cancelPingTask(BaseLoadBalancer.java:632)
+	at com.netflix.loadbalancer.BaseLoadBalancer.shutdown(BaseLoadBalancer.java:883)
+	at com.netflix.loadbalancer.DynamicServerListLoadBalancer.shutdown(DynamicServerListLoadBalancer.java:285)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.invokeCustomDestroyMethod(DisposableBeanAdapter.java:339)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:273)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:571)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:543)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1036)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:504)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1029)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1057)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1026)
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:975)
+	at org.springframework.cloud.context.named.NamedContextFactory.destroy(NamedContextFactory.java:92)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:258)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:571)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:543)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1036)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:504)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1029)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1057)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1026)
+	at org.springframework.context.support.AbstractApplicationContext$1.run(AbstractApplicationContext.java:945)
+2020-09-07 17:36:57 INFO  Thread-21 com.netflix.util.concurrent.ShutdownEnabledTimer Shutdown hook removed for: NFLoadBalancer-PingTimer-GDMS-Server-Search
+2020-09-07 17:36:57 INFO  Thread-21 com.netflix.util.concurrent.ShutdownEnabledTimer Exception caught (might be ok if at shutdown)
+java.lang.IllegalStateException: Shutdown in progress
+	at java.lang.ApplicationShutdownHooks.remove(ApplicationShutdownHooks.java:82)
+	at java.lang.Runtime.removeShutdownHook(Runtime.java:239)
+	at com.netflix.util.concurrent.ShutdownEnabledTimer.cancel(ShutdownEnabledTimer.java:70)
+	at com.netflix.loadbalancer.BaseLoadBalancer.cancelPingTask(BaseLoadBalancer.java:632)
+	at com.netflix.loadbalancer.BaseLoadBalancer.shutdown(BaseLoadBalancer.java:883)
+	at com.netflix.loadbalancer.DynamicServerListLoadBalancer.shutdown(DynamicServerListLoadBalancer.java:285)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.invokeCustomDestroyMethod(DisposableBeanAdapter.java:339)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:273)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:571)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:543)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1036)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:504)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1029)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1057)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1026)
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:975)
+	at org.springframework.cloud.context.named.NamedContextFactory.destroy(NamedContextFactory.java:92)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:258)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:571)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:543)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1036)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:504)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1029)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1057)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1026)
+	at org.springframework.context.support.AbstractApplicationContext$1.run(AbstractApplicationContext.java:945)
+2020-09-07 17:36:57 INFO  Thread-21 com.netflix.util.concurrent.ShutdownEnabledTimer Shutdown hook removed for: NFLoadBalancer-PingTimer-GDMS-Server-Core
+2020-09-07 17:36:57 INFO  Thread-21 com.netflix.util.concurrent.ShutdownEnabledTimer Exception caught (might be ok if at shutdown)
+java.lang.IllegalStateException: Shutdown in progress
+	at java.lang.ApplicationShutdownHooks.remove(ApplicationShutdownHooks.java:82)
+	at java.lang.Runtime.removeShutdownHook(Runtime.java:239)
+	at com.netflix.util.concurrent.ShutdownEnabledTimer.cancel(ShutdownEnabledTimer.java:70)
+	at com.netflix.loadbalancer.BaseLoadBalancer.cancelPingTask(BaseLoadBalancer.java:632)
+	at com.netflix.loadbalancer.BaseLoadBalancer.shutdown(BaseLoadBalancer.java:883)
+	at com.netflix.loadbalancer.DynamicServerListLoadBalancer.shutdown(DynamicServerListLoadBalancer.java:285)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.invokeCustomDestroyMethod(DisposableBeanAdapter.java:339)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:273)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:571)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:543)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1036)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:504)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1029)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1057)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1026)
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:975)
+	at org.springframework.cloud.context.named.NamedContextFactory.destroy(NamedContextFactory.java:92)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:258)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:571)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:543)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1036)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:504)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1029)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1057)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1026)
+	at org.springframework.context.support.AbstractApplicationContext$1.run(AbstractApplicationContext.java:945)
+2020-09-07 17:36:57 INFO  Thread-21 org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler Shutting down ExecutorService
+2020-09-07 17:36:57 INFO  Thread-21 org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor Shutting down ExecutorService 'applicationTaskExecutor'
+2020-09-07 17:36:57 INFO  Thread-21 com.netflix.discovery.DiscoveryClient Shutting down DiscoveryClient ...
+2020-09-07 17:36:57 INFO  DiscoveryClient-InstanceInfoReplicator-0 com.netflix.discovery.DiscoveryClient DiscoveryClient_GDMS-GATEWAY/10.162.111.66:GDMS-Gateway:8301 - registration status: 204
+2020-09-07 17:36:57 INFO  Thread-21 com.netflix.discovery.DiscoveryClient Unregistering ...
+2020-09-07 17:36:58 INFO  Thread-21 com.netflix.discovery.DiscoveryClient DiscoveryClient_GDMS-GATEWAY/10.162.111.66:GDMS-Gateway:8301 - deregister  status: 200
+2020-09-07 17:36:58 INFO  Thread-21 com.netflix.discovery.DiscoveryClient Completed shut down of DiscoveryClient
+2020-09-07 17:37:05 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$31db090a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-07 17:37:06 INFO  main org.graduationdesign.gdmsgateway.GdmsGatewayApplication No active profile set, falling back to default profiles: default
+2020-09-07 17:37:07 INFO  main org.springframework.cloud.context.scope.GenericScope BeanFactory id=41731082-0927-3e06-86eb-8767d1888bbe
+2020-09-07 17:37:07 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$31db090a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-07 17:37:07 INFO  main org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat initialized with port(s): 8301 (http)
+2020-09-07 17:37:07 INFO  main org.apache.coyote.http11.Http11NioProtocol Initializing ProtocolHandler ["http-nio-8301"]
+2020-09-07 17:37:07 INFO  main org.apache.catalina.core.StandardService Starting service [Tomcat]
+2020-09-07 17:37:07 INFO  main org.apache.catalina.core.StandardEngine Starting Servlet engine: [Apache Tomcat/9.0.21]
+2020-09-07 17:37:08 INFO  main org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring embedded WebApplicationContext
+2020-09-07 17:37:08 INFO  main org.springframework.web.context.ContextLoader Root WebApplicationContext: initialization completed in 2030 ms
+2020-09-07 17:37:08 INFO  main com.netflix.config.sources.URLConfigurationSource To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-09-07 17:37:08 INFO  main com.netflix.config.DynamicPropertyFactory DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@54e12f4c
+2020-09-07 17:37:08 INFO  main org.springframework.boot.actuate.endpoint.web.ServletEndpointRegistrar Registered '/actuator/jolokia' to jolokia-actuator-endpoint
+2020-09-07 17:37:08 INFO  main org.springframework.boot.actuate.endpoint.web.ServletEndpointRegistrar Registered '/actuator/hystrix.stream' to hystrix.stream-actuator-endpoint
+2020-09-07 17:37:08 INFO  main org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration 
+
+Using generated security password: 9d3e8e51-44ae-460b-9b9a-6431b0bcf5a1
+
+2020-09-07 17:37:08 INFO  main org.springframework.security.web.DefaultSecurityFilterChain Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@40bf4386, org.springframework.security.web.context.SecurityContextPersistenceFilter@108e9837, org.springframework.security.web.header.HeaderWriterFilter@6dca31eb, org.springframework.security.web.authentication.logout.LogoutFilter@2de6f1bc, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1cbc5693, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2443abd6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@14d25b6e, org.springframework.security.web.session.SessionManagementFilter@4ef4f627, org.springframework.security.web.access.ExceptionTranslationFilter@22825e1e]
+2020-09-07 17:37:08 INFO  main com.netflix.config.sources.URLConfigurationSource To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-09-07 17:37:09 INFO  main org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-07 17:37:09 INFO  main org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler Initializing ExecutorService
+2020-09-07 17:37:09 INFO  main org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver Exposing 24 endpoint(s) beneath base path '/actuator'
+2020-09-07 17:37:09 INFO  main org.springframework.cloud.netflix.zuul.ZuulFilterInitializer Starting filter initializer
+2020-09-07 17:37:09 INFO  main org.springframework.cloud.netflix.eureka.InstanceInfoFactory Setting initial instance status as: STARTING
+2020-09-07 17:37:09 INFO  main com.netflix.discovery.DiscoveryClient Initializing Eureka in region us-east-1
+2020-09-07 17:37:09 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using JSON encoding codec LegacyJacksonJson
+2020-09-07 17:37:09 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using JSON decoding codec LegacyJacksonJson
+2020-09-07 17:37:09 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using XML encoding codec XStreamXml
+2020-09-07 17:37:09 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using XML decoding codec XStreamXml
+2020-09-07 17:37:10 INFO  main com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2020-09-07 17:37:10 INFO  main com.netflix.discovery.DiscoveryClient Disable delta property : false
+2020-09-07 17:37:10 INFO  main com.netflix.discovery.DiscoveryClient Single vip registry refresh property : null
+2020-09-07 17:37:10 INFO  main com.netflix.discovery.DiscoveryClient Force full registry fetch : false
+2020-09-07 17:37:10 INFO  main com.netflix.discovery.DiscoveryClient Application is null : false
+2020-09-07 17:37:10 INFO  main com.netflix.discovery.DiscoveryClient Registered Applications size is zero : true
+2020-09-07 17:37:10 INFO  main com.netflix.discovery.DiscoveryClient Application version is -1: true
+2020-09-07 17:37:10 INFO  main com.netflix.discovery.DiscoveryClient Getting all instance registry info from the eureka server
+2020-09-07 17:37:10 INFO  main com.netflix.discovery.DiscoveryClient The response status is 200
+2020-09-07 17:37:10 INFO  main com.netflix.discovery.DiscoveryClient Starting heartbeat executor: renew interval is: 20
+2020-09-07 17:37:10 INFO  main com.netflix.discovery.InstanceInfoReplicator InstanceInfoReplicator onDemand update allowed rate per min is 4
+2020-09-07 17:37:10 INFO  main com.netflix.discovery.DiscoveryClient Discovery Client initialized at timestamp 1599471430898 with initial instances count: 7
+2020-09-07 17:37:10 INFO  main org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry Registering application GDMS-GATEWAY with eureka with status UP
+2020-09-07 17:37:10 INFO  main com.netflix.discovery.DiscoveryClient Saw local status change event StatusChangeEvent [timestamp=1599471430903, current=UP, previous=STARTING]
+2020-09-07 17:37:10 INFO  DiscoveryClient-InstanceInfoReplicator-0 com.netflix.discovery.DiscoveryClient DiscoveryClient_GDMS-GATEWAY/10.162.111.66:GDMS-Gateway:8301: registering service...
+2020-09-07 17:37:10 INFO  main org.apache.coyote.http11.Http11NioProtocol Starting ProtocolHandler ["http-nio-8301"]
+2020-09-07 17:37:10 INFO  main org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat started on port(s): 8301 (http) with context path ''
+2020-09-07 17:37:10 INFO  main org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration Updating port to 8301
+2020-09-07 17:37:10 INFO  main org.graduationdesign.gdmsgateway.GdmsGatewayApplication Started GdmsGatewayApplication in 6.691 seconds (JVM running for 7.725)
+2020-09-07 17:37:11 INFO  main com.netflix.config.ChainedDynamicProperty Flipping property: GDMS-Auth.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2020-09-07 17:37:11 INFO  main com.netflix.util.concurrent.ShutdownEnabledTimer Shutdown hook installed for: NFLoadBalancer-PingTimer-GDMS-Auth
+2020-09-07 17:37:11 INFO  main com.netflix.loadbalancer.BaseLoadBalancer Client: GDMS-Auth instantiated a LoadBalancer: DynamicServerListLoadBalancer:{NFLoadBalancer:name=GDMS-Auth,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:null
+2020-09-07 17:37:11 INFO  main com.netflix.loadbalancer.DynamicServerListLoadBalancer Using serverListUpdater PollingServerListUpdater
+2020-09-07 17:37:11 INFO  main com.netflix.config.ChainedDynamicProperty Flipping property: GDMS-Auth.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2020-09-07 17:37:11 INFO  main com.netflix.loadbalancer.DynamicServerListLoadBalancer DynamicServerListLoadBalancer for client GDMS-Auth initialized: DynamicServerListLoadBalancer:{NFLoadBalancer:name=GDMS-Auth,current list of Servers=[3031818631ed:8101, 10.162.111.66:8101],Load balancer stats=Zone stats: {defaultzone=[Zone:defaultzone;	Instance count:2;	Active connections count: 0;	Circuit breaker tripped count: 0;	Active connections per server: 0.0;]
+},Server stats: [[Server:10.162.111.66:8101;	Zone:defaultZone;	Total Requests:0;	Successive connection failure:0;	Total blackout seconds:0;	Last connection made:Thu Jan 01 08:00:00 CST 1970;	First connection made: Thu Jan 01 08:00:00 CST 1970;	Active Connections:0;	total failure count in last (1000) msecs:0;	average resp time:0.0;	90 percentile resp time:0.0;	95 percentile resp time:0.0;	min resp time:0.0;	max resp time:0.0;	stddev resp time:0.0]
+, [Server:3031818631ed:8101;	Zone:defaultZone;	Total Requests:0;	Successive connection failure:0;	Total blackout seconds:0;	Last connection made:Thu Jan 01 08:00:00 CST 1970;	First connection made: Thu Jan 01 08:00:00 CST 1970;	Active Connections:0;	total failure count in last (1000) msecs:0;	average resp time:0.0;	90 percentile resp time:0.0;	95 percentile resp time:0.0;	min resp time:0.0;	max resp time:0.0;	stddev resp time:0.0]
+]}ServerList:org.springframework.cloud.netflix.ribbon.eureka.DomainExtractingServerList@6b289535
+2020-09-07 17:37:11 INFO  DiscoveryClient-InstanceInfoReplicator-0 com.netflix.discovery.DiscoveryClient DiscoveryClient_GDMS-GATEWAY/10.162.111.66:GDMS-Gateway:8301 - registration status: 204
+2020-09-07 17:37:11 INFO  main com.netflix.config.ChainedDynamicProperty Flipping property: GDMS-Server-Search.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2020-09-07 17:37:11 INFO  main com.netflix.util.concurrent.ShutdownEnabledTimer Shutdown hook installed for: NFLoadBalancer-PingTimer-GDMS-Server-Search
+2020-09-07 17:37:11 INFO  main com.netflix.loadbalancer.BaseLoadBalancer Client: GDMS-Server-Search instantiated a LoadBalancer: DynamicServerListLoadBalancer:{NFLoadBalancer:name=GDMS-Server-Search,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:null
+2020-09-07 17:37:11 INFO  main com.netflix.loadbalancer.DynamicServerListLoadBalancer Using serverListUpdater PollingServerListUpdater
+2020-09-07 17:37:11 INFO  main com.netflix.loadbalancer.DynamicServerListLoadBalancer DynamicServerListLoadBalancer for client GDMS-Server-Search initialized: DynamicServerListLoadBalancer:{NFLoadBalancer:name=GDMS-Server-Search,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:org.springframework.cloud.netflix.ribbon.eureka.DomainExtractingServerList@7d5a0b14
+2020-09-07 17:37:11 INFO  main com.netflix.config.ChainedDynamicProperty Flipping property: GDMS-Server-Notice.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2020-09-07 17:37:11 INFO  main com.netflix.util.concurrent.ShutdownEnabledTimer Shutdown hook installed for: NFLoadBalancer-PingTimer-GDMS-Server-Notice
+2020-09-07 17:37:11 INFO  main com.netflix.loadbalancer.BaseLoadBalancer Client: GDMS-Server-Notice instantiated a LoadBalancer: DynamicServerListLoadBalancer:{NFLoadBalancer:name=GDMS-Server-Notice,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:null
+2020-09-07 17:37:11 INFO  main com.netflix.loadbalancer.DynamicServerListLoadBalancer Using serverListUpdater PollingServerListUpdater
+2020-09-07 17:37:11 INFO  main com.netflix.config.ChainedDynamicProperty Flipping property: GDMS-Server-Notice.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2020-09-07 17:37:11 INFO  main com.netflix.loadbalancer.DynamicServerListLoadBalancer DynamicServerListLoadBalancer for client GDMS-Server-Notice initialized: DynamicServerListLoadBalancer:{NFLoadBalancer:name=GDMS-Server-Notice,current list of Servers=[10.162.111.66:8202, 673a9e589152:8202],Load balancer stats=Zone stats: {defaultzone=[Zone:defaultzone;	Instance count:2;	Active connections count: 0;	Circuit breaker tripped count: 0;	Active connections per server: 0.0;]
+},Server stats: [[Server:673a9e589152:8202;	Zone:defaultZone;	Total Requests:0;	Successive connection failure:0;	Total blackout seconds:0;	Last connection made:Thu Jan 01 08:00:00 CST 1970;	First connection made: Thu Jan 01 08:00:00 CST 1970;	Active Connections:0;	total failure count in last (1000) msecs:0;	average resp time:0.0;	90 percentile resp time:0.0;	95 percentile resp time:0.0;	min resp time:0.0;	max resp time:0.0;	stddev resp time:0.0]
+, [Server:10.162.111.66:8202;	Zone:defaultZone;	Total Requests:0;	Successive connection failure:0;	Total blackout seconds:0;	Last connection made:Thu Jan 01 08:00:00 CST 1970;	First connection made: Thu Jan 01 08:00:00 CST 1970;	Active Connections:0;	total failure count in last (1000) msecs:0;	average resp time:0.0;	90 percentile resp time:0.0;	95 percentile resp time:0.0;	min resp time:0.0;	max resp time:0.0;	stddev resp time:0.0]
+]}ServerList:org.springframework.cloud.netflix.ribbon.eureka.DomainExtractingServerList@776e7dfb
+2020-09-07 17:37:11 INFO  RMI TCP Connection(2)-127.0.0.1 org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-07 17:37:11 INFO  RMI TCP Connection(2)-127.0.0.1 org.springframework.web.servlet.DispatcherServlet Initializing Servlet 'dispatcherServlet'
+2020-09-07 17:37:11 INFO  RMI TCP Connection(2)-127.0.0.1 org.springframework.web.servlet.DispatcherServlet Completed initialization in 10 ms
+2020-09-07 17:37:11 INFO  main com.netflix.config.ChainedDynamicProperty Flipping property: GDMS-Server-Core.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2020-09-07 17:37:11 INFO  main com.netflix.util.concurrent.ShutdownEnabledTimer Shutdown hook installed for: NFLoadBalancer-PingTimer-GDMS-Server-Core
+2020-09-07 17:37:11 INFO  main com.netflix.loadbalancer.BaseLoadBalancer Client: GDMS-Server-Core instantiated a LoadBalancer: DynamicServerListLoadBalancer:{NFLoadBalancer:name=GDMS-Server-Core,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:null
+2020-09-07 17:37:11 INFO  main com.netflix.loadbalancer.DynamicServerListLoadBalancer Using serverListUpdater PollingServerListUpdater
+2020-09-07 17:37:11 INFO  main com.netflix.config.ChainedDynamicProperty Flipping property: GDMS-Server-Core.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2020-09-07 17:37:11 INFO  main com.netflix.loadbalancer.DynamicServerListLoadBalancer DynamicServerListLoadBalancer for client GDMS-Server-Core initialized: DynamicServerListLoadBalancer:{NFLoadBalancer:name=GDMS-Server-Core,current list of Servers=[10.162.111.66:8203, c05fa7880aa2:8203],Load balancer stats=Zone stats: {defaultzone=[Zone:defaultzone;	Instance count:2;	Active connections count: 0;	Circuit breaker tripped count: 0;	Active connections per server: 0.0;]
+},Server stats: [[Server:10.162.111.66:8203;	Zone:defaultZone;	Total Requests:0;	Successive connection failure:0;	Total blackout seconds:0;	Last connection made:Thu Jan 01 08:00:00 CST 1970;	First connection made: Thu Jan 01 08:00:00 CST 1970;	Active Connections:0;	total failure count in last (1000) msecs:0;	average resp time:0.0;	90 percentile resp time:0.0;	95 percentile resp time:0.0;	min resp time:0.0;	max resp time:0.0;	stddev resp time:0.0]
+, [Server:c05fa7880aa2:8203;	Zone:defaultZone;	Total Requests:0;	Successive connection failure:0;	Total blackout seconds:0;	Last connection made:Thu Jan 01 08:00:00 CST 1970;	First connection made: Thu Jan 01 08:00:00 CST 1970;	Active Connections:0;	total failure count in last (1000) msecs:0;	average resp time:0.0;	90 percentile resp time:0.0;	95 percentile resp time:0.0;	min resp time:0.0;	max resp time:0.0;	stddev resp time:0.0]
+]}ServerList:org.springframework.cloud.netflix.ribbon.eureka.DomainExtractingServerList@780546f8
+2020-09-07 17:37:12 INFO  registrationTask1 de.codecentric.boot.admin.client.registration.ApplicationRegistrator Application registered itself as 9764121bfc22
+2020-09-07 17:37:12 INFO  PollingServerListUpdater-0 com.netflix.config.ChainedDynamicProperty Flipping property: GDMS-Auth.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2020-09-07 17:37:12 INFO  PollingServerListUpdater-0 com.netflix.config.ChainedDynamicProperty Flipping property: GDMS-Server-Notice.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2020-09-07 17:37:12 INFO  PollingServerListUpdater-1 com.netflix.config.ChainedDynamicProperty Flipping property: GDMS-Server-Core.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2020-09-07 17:40:28 INFO  http-nio-8301-exec-1 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/core/register，HTTP Method：GET，request IP：0:0:0:0:0:0:0:1，ServerId：GDMS-Server-Core
+2020-09-07 17:40:31 INFO  http-nio-8301-exec-3 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/core/register，HTTP Method：GET，request IP：0:0:0:0:0:0:0:1，ServerId：GDMS-Server-Core
+2020-09-07 17:41:35 INFO  http-nio-8301-exec-5 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/core/register，HTTP Method：POST，request IP：111.186.50.7，ServerId：GDMS-Server-Core
+2020-09-07 17:42:10 INFO  AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2020-09-07 17:47:10 INFO  AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2020-09-07 17:52:10 INFO  AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2020-09-07 17:53:51 INFO  http-nio-8301-exec-6 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/notice/getThreeSchoolNotices，HTTP Method：POST，request IP：111.186.50.7，ServerId：GDMS-Server-Notice
+2020-09-07 17:53:51 INFO  http-nio-8301-exec-7 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/notice/getThreeDepartmentNotices，HTTP Method：POST，request IP：111.186.50.7，ServerId：GDMS-Server-Notice
+2020-09-07 17:53:51 INFO  http-nio-8301-exec-8 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/core/getTeacherMessages，HTTP Method：POST，request IP：111.186.50.7，ServerId：GDMS-Server-Core
+2020-09-07 17:53:51 INFO  http-nio-8301-exec-9 org.graduationdesign.gdmsgateway.filter.GdmsGatewayRequestFilter request URI：/core/getOpenid，HTTP Method：POST，request IP：111.186.50.7，ServerId：GDMS-Server-Core
+2020-09-07 17:57:10 INFO  AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration

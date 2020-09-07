@@ -44,6 +44,11 @@
         </filter>
     </appender>
 
+    <appender name="logstash" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+        <destination>54.234.98.178:4560</destination>
+        <encoder charset="UTF-8" class="net.logstash.logback.encoder.LogstashEncoder"/>
+    </appender>
+
     <root level="debug">
         <appender-ref ref="console" />
     </root>
@@ -51,5 +56,6 @@
     <root level="info">
         <appender-ref ref="file_info" />
         <appender-ref ref="file_error" />
+        <appender-ref ref="logstash" />
     </root>
 </configuration>

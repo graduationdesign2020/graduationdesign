@@ -43,10 +43,6 @@ zuul:
       path: /core/**
       serviceId: GDMS-Server-Core
       sensitiveHeaders: "*"
-    test:
-      path: /test/**
-      serviceId: GDMS-Server-Test
-      sensitiveHeaders: "*"
   retryable: true
   ignored-services: "*"
   ribbon:
