@@ -16,7 +16,7 @@ public class MessageController {
     private MessageService messageService;
 
     @RequestMapping("/search")
-    public  List<Message> searchPage(@RequestBody Map<String,String> params) throws IOException {
+    public List<Message> searchPage(@RequestBody Map<String,String> params) throws IOException {
         String department= params.get("dept");
         String id=params.get("id");
         String keywords=params.get("keywords");
