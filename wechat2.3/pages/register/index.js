@@ -42,9 +42,9 @@ Page({
       }
       var that = this
       wx.request({
-        url: 'http://54.234.98.178:8301/register',
+        url: 'http://54.234.98.178:8301/core/register',
         data:{
-          name: this.data.name, 
+          name: this.data.name,
           id: this.data.id, 
           auth: this.handleAuth(), 
           openid: app.globalData.openid

@@ -154,7 +154,7 @@ class MonitorPipeline(object):
                         self.connect.commit()
                         self.cursor.execute("""select last_insert_id() from deptnotice""")
                         result = self.cursor.fetchone()
-                        self.coll_dept.insert_one({"_id": result[0], "content": item['content'], "title": item['title'],
+                        self.coll_dept.insert_one({"_id": result[0]*10+1, "content": item['content'], "title": item['title'],
                                                    "department": '电子信息与电气工程学院', "type": 1})
                     except:
                         self.connect.rollback()
@@ -173,7 +173,7 @@ class MonitorPipeline(object):
                         self.connect.commit()
                         self.cursor.execute("""select last_insert_id() from schoolnotice""")
                         result = self.cursor.fetchone()
-                        self.coll_school.insert_one({"_id": result[0], "content": item['content'],
+                        self.coll_school.insert_one({"_id": result[0]*10, "content": item['content'],
                                                      "title": item['title'], "type": 0})
                     except:
                         self.connect.rollback()
