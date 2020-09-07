@@ -18,7 +18,7 @@ App({
         this.globalData.code = code
         var that = this
         wx.request({
-          url: 'http://localhost:8888/getOpenid',
+          url: 'http://54.234.98.178:8301/core/getOpenid',
           data: {
             code: res.code
           },
