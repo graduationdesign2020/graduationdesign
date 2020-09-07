@@ -8,13 +8,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="gdms-auth" />
-        <module name="gdms-common" />
+        <module name="gdms-server-notice" />
+        <module name="gdms-register" />
         <module name="gdms-gateway" />
         <module name="gdms-monitor-admin" />
-        <module name="gdms-server-notice" />
+        <module name="gdms-common" />
         <module name="gdms-server-search" />
         <module name="gdms-server-core" />
-        <module name="gdms-register" />
+        <module name="gdms-server-test" />
       </profile>
     </annotationProcessing>
   </component>
@@ -28,6 +29,7 @@
       <module name="gdms-server-core" options="-parameters" />
       <module name="gdms-server-notice" options="-parameters" />
       <module name="gdms-server-search" options="-parameters" />
+      <module name="gdms-server-test" options="-parameters" />
     </option>
   </component>
 </project>

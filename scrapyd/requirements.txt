@@ -6,3 +6,4 @@ scrapyd-client
 scrapydweb
 six
 w3lib
+requests

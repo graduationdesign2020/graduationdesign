@@ -67,8 +67,8 @@ gdms
                       
 ## 功能概览
 ### 爬虫模块
-- 定时爬取消息
-- 检测变化，发出信息
+- 定时爬取项目信息与通知公告
+- 检测到项目信息变化与新的通知公告，发送消息提醒
 ### 登陆模块
 - 用学/工号和姓名注册用户
 - 微信小程序自动登录
@@ -117,6 +117,8 @@ gdms
 
 ## 数据库概览
 > 共16张表，其中NoSQL表4张，存储通知/消息内容等非格式化数据；SQL表12张，存储格式化信息
+
+![ImageText](https://github.com/graduationdesign2020/graduationdesign/blob/master/picture/mysql.png)
 - MySQL
 
 ![ImageText](https://github.com/graduationdesign2020/graduationdesign/blob/master/picture/1599426444(1).png)

@@ -2,60 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b16bd2bc-a62f-4b91-ba8d-ffaa875d8c38" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/bysj/bysj/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bysj/bysj/items.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bysj/bysj/middlewares.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bysj/bysj/pipelines.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bysj/bysj/settings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bysj/bysj/spiders/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bysj/bysj/spiders/grade.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bysj/bysj/spiders/notice.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bysj/bysj/spiders/state.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bysj/bysj/spiders/student.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bysj/bysj_2020-09-06T18_18_27.egg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bysj/project.egg-info/PKG-INFO" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bysj/project.egg-info/SOURCES.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bysj/project.egg-info/dependency_links.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bysj/project.egg-info/entry_points.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bysj/project.egg-info/top_level.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bysj/scrapyd-deploy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bysj/setup.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dbs/bysj.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eggs/bysj/2020-09-06T18_18_27.egg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scrapyd.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../performancetest/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../performancetest/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../performancetest/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../performancetest/.idea/performancetest.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../performancetest/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../performancetest/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../performancetest/bysj/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../performancetest/bysj/.idea/bysj.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../performancetest/bysj/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../performancetest/bysj/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../performancetest/bysj/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../performancetest/bysj/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../performancetest/bysj/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../performancetest/bysj/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../performancetest/bysj/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../performancetest/bysj/bysj/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/bysj/build/lib/bysj/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../performancetest/bysj/bysj/items.py" beforeDir="false" afterPath="$PROJECT_DIR$/bysj/build/lib/bysj/items.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../performancetest/bysj/bysj/middlewares.py" beforeDir="false" afterPath="$PROJECT_DIR$/bysj/build/lib/bysj/middlewares.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../performancetest/bysj/bysj/pipelines.py" beforeDir="false" afterPath="$PROJECT_DIR$/bysj/build/lib/bysj/pipelines.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../performancetest/bysj/bysj/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/bysj/build/lib/bysj/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../performancetest/bysj/bysj/spiders/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/bysj/build/lib/bysj/spiders/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../performancetest/bysj/bysj/spiders/grade.py" beforeDir="false" afterPath="$PROJECT_DIR$/bysj/build/lib/bysj/spiders/grade.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../performancetest/bysj/bysj/spiders/notice.py" beforeDir="false" afterPath="$PROJECT_DIR$/bysj/build/lib/bysj/spiders/notice.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../performancetest/bysj/bysj/spiders/state.py" beforeDir="false" afterPath="$PROJECT_DIR$/bysj/build/lib/bysj/spiders/state.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../performancetest/bysj/bysj/spiders/student.py" beforeDir="false" afterPath="$PROJECT_DIR$/bysj/build/lib/bysj/spiders/student.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../performancetest/bysj/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../performancetest/bysj/requirements.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../performancetest/bysj/scrapy.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/bysj/scrapy.cfg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/stats.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bysj/bysj/pipelines.py" beforeDir="false" afterPath="$PROJECT_DIR$/bysj/bysj/pipelines.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/monitor/monitor/pipelines.py" beforeDir="false" afterPath="$PROJECT_DIR$/monitor/monitor/pipelines.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scrapydweb_settings_v10.py" beforeDir="false" afterPath="$PROJECT_DIR$/scrapydweb_settings_v10.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wechat2.3/project.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/../wechat2.3/project.config.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,6 +101,9 @@
       <workItem from="1597974157027" duration="164000" />
       <workItem from="1597974510182" duration="2011000" />
       <workItem from="1599385279628" duration="23545000" />
+      <workItem from="1599421265076" duration="271000" />
+      <workItem from="1599429773822" duration="983000" />
+      <workItem from="1599430775105" duration="1972000" />
     </task>
     <servers />
   </component>

@@ -8,7 +8,7 @@
         <version>1.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
-    <groupId>org.graduatiedesign</groupId>
+    <groupId>org.graduationdesign</groupId>
     <artifactId>gdms-server-core</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>GDMS-Server-Core</name>
