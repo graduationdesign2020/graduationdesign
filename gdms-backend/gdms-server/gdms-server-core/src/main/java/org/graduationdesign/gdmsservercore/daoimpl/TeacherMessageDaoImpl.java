@@ -23,7 +23,7 @@ public class TeacherMessageDaoImpl implements TeacherMessageDao {
         Optional<TeacherMessage> teacherMessage=teacherMessageRepository.getById(id);
         if(teacherMessage.isPresent()) {
             TeacherMessage t = teacherMessage.get();
-            Optional<TeacherMessageContent> teacherMessageContent = teacherMessageContentRepository.findById(id);
+            Optional<TeacherMessageContent> teacherMessageContent = teacherMessageContentRepository.findById(id*10+2);
             if (teacherMessageContent.isPresent()) {
                 TeacherMessageContent s = teacherMessageContent.get();
                 t.setTeacherMessageContent(s);
@@ -49,13 +49,13 @@ public class TeacherMessageDaoImpl implements TeacherMessageDao {
     public void sentTeacherMessage(TeacherMessage teacherMessage){
         teacherMessageRepository.save(teacherMessage);
         TeacherMessageContent teacherMessageContent=teacherMessage.getTeacherMessageContent();
-        teacherMessageContent.setId(teacherMessage.getId());
+        teacherMessageContent.setId(teacherMessage.getId()*10+2);
         teacherMessageContentRepository.save(teacherMessageContent);
     }
 
     @Override
     public List<String> getKeysById(int id){
-        Optional<TeacherMessageContent> teacherMessageContent=teacherMessageContentRepository.findById(id);
+        Optional<TeacherMessageContent> teacherMessageContent=teacherMessageContentRepository.findById(id*10+2);
         if(teacherMessageContent.isPresent()){
             TeacherMessageContent t=teacherMessageContent.get();
             return t.getKeys();
