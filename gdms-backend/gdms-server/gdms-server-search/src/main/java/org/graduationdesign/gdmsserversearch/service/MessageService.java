@@ -41,11 +41,12 @@ public class MessageService {
         for(Map record:hitList){
 //            System.out.println(record.getClass());
             Map<String,Object> source= (Map<String,Object>)record.get("_source");
+            int message_id= Integer.parseInt((String) record.get("_id"));
 //            System.out.println(source);
             Message message=new Message();
             message.setTitle((String) source.get("title"));
             message.setType(((Double) source.get("type")).intValue());
-            message.setId(((Double) source.get("id")).intValue());
+            message.setId(message_id);
             message.setContent((String) source.get("content"));
             list.add(message);
         }
