@@ -1,9 +1,10 @@
-const urlhead = "http://localhost:8888"
-const searchurl = "http://localhost:8889"
-const noticeurl = "http://localhost:8887"
+const urlhead = "http://54.234.98.178:8301"
+const searchurl = urlhead+"/search"
+const noticeurl = urlhead+"/notice"
+const normalurl = urlhead+"/core"
 
 export const PostRequest = (url, postdata, callback, failcallback = (res) => {}) => {
-  Request(urlhead, url, postdata, callback)
+  Request(normalurl, url, postdata, callback)
 }
 
 export const SearchRequest = (url, postdata, callback, failcallback = (res) => {}) => {
@@ -20,10 +21,16 @@ export const Request = (head, url, postdata, callback, failcallback = (res)=>{})
     wx.request({
       url: head+url,
       data: postdata,
-      header: {"Authorization": wx.getStorageSync('jwt')},
+      header: {"Authorization":"Bearer "+wx.getStorageSync('jwt'),
+      'Content-Type': "application/json"
+    },
       success(res) {
         switch(res.statusCode){
+          case 200:
+            callback(res.data)
+            break
           case 401:
+          case 403:
             var pages = getCurrentPages()
 	          var currentPage = pages[pages.length - 1]
             var url =  currentPage.route 
@@ -36,12 +43,8 @@ export const Request = (head, url, postdata, callback, failcallback = (res)=>{})
               })
             }
             break
-          case 403:
-            failcallback(res)
-            break
-          case 200:
-            callback(res.data)
-            break
+          default:
+            failcallback()
         }
       },
       fail(res){
@@ -55,23 +58,4 @@ export const Request = (head, url, postdata, callback, failcallback = (res)=>{})
       url: '/pages/inputId/inputId',
     })
   }
-}
-
-export const PostRequestWithoutJwt = (url, postdata, callback, failcallback = (res)=>{}) => {
-  wx.request({
-    url: urlhead+url,
-    data: postdata,
-    method: "POST",
-    success(res){
-      if(res.statusCode == 200){
-        callback(res.data)
-      }
-      else{
-        failcallback(res)
-      }
-    },
-    fail(res){
-      failcallback(res)
-    }
-  })
 }

@@ -9,7 +9,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    id: "",
     notice: {title: '学生信息收集', id: 1, time: '07-01', content: '请在输入框中输入指定信息blablablabla............................'},
     reply: false,
     unReply: false,
@@ -43,9 +42,6 @@ Page({
       reply: 2,
       unReply: 2
     },
-    msg: "",
-    dialog: false,
-    waitshow: false,
   },
 
   /**
@@ -53,7 +49,6 @@ Page({
    */
   onLoad: function(options) {
     var that = this;
-    this.setData({id: options.id})
     PostRequest('/teacherGetTeacherMessage', {id: options.id}, that.setNotice);
     PostRequest('/getTeacherMessageReply', {id: options.id}, that.setReplyInfo);
   },
@@ -64,55 +59,6 @@ Page({
 
   setReplyInfo: function(data){
     this.setData({ReplyInfo: data});
-  },
-
-  getExcel: function(){
-    var that = this;
-    if(!this.data.id){
-      return;
-    }
-    this.setData({
-      waitshow: true,
-    })
-    PostRequest("/getExcel", {id: this.data.id}, (data) => {
-      if(data.msg == "SUCCESS"){
-        wx.downloadFile({
-          url: data.url,
-          success: function (res) {
-            const filePath = res.tempFilePath
-            wx.openDocument({
-              filePath: filePath,
-              showMenu: true,
-              fileType: 'xlsx',
-              complete: function (res) {
-                that.setData({
-                  waitshow: false,
-                  dialog: true,
-                  msg: "加载成功"
-                })
-              }
-            })
-          },
-          fail: function (res) {
-            that.setData({
-              waitshow: false,
-              dialog: true,
-              msg: "加载失败"
-            })
-          }
-        })
-      }else{
-        this.setData({
-          waitshow: false,
-          dialog: true,
-          msg: "加载失败"
-        })
-      }
-    })
-  },
-
-  confirm: function(event) {
-    this.setData({msg: null, dialog: false});
   },
 
   onChange(event) {

@@ -1,6 +1,6 @@
 // pages/inputId/inputId.js
 
-const { PostRequest, PostRequestWithoutJwt } = require("../../utils/ajax")
+const { PostRequest } = require("../../utils/ajax")
 
 const app = getApp()
 
@@ -46,15 +46,11 @@ Page({
     }
     var that = this
     wx.request({
-      url: 'http://localhost:8888/login',
+      url: 'http://54.234.98.178:8301/auth/oauth/token?grant_type=password&username='+this.data.id+'&password='+app.globalData.openid,
       method: "POST",
-      data: {
-        id: this.data.id,
-        openid: app.globalData.openid
-      },
       success(res){
         if(res.statusCode == 200){
-          wx.setStorageSync('jwt', res.header['Authorization'])
+          wx.setStorageSync('jwt', res.data.access_token)
           PostRequest('/getAuth', {}, (data)=>{
           wx.setStorageSync('auth', data)
           })

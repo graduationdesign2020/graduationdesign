@@ -42,7 +42,7 @@ Page({
       }
       var that = this
       wx.request({
-        url: 'http://localhost:8888/register',
+        url: 'http://54.234.98.178:8301/register',
         data:{
           name: this.data.name, 
           id: this.data.id, 
@@ -63,12 +63,8 @@ Page({
       console.log("register") 
       console.log(wx.getStorageSync('auth')) 
       wx.request({
-        url: 'http://localhost:8888/login',
+        url: 'http://54.234.98.178:8301/auth/oauth/token?grant_type=password&username='+this.data.id+'&password='+app.globalData.openid,
         method: "POST",
-        data: {
-          id: this.data.id,
-          openid: app.globalData.openid
-        },
         success(res){
           if(res.statusCode == 200){
             wx.setStorageSync('jwt', res.header['Authorization'])
