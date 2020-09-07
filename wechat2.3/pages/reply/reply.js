@@ -24,6 +24,7 @@ Page({
   },
   
   setNotice: function(data){
+    console.log(data)
     this.setData({notice: data, reply: data.reply});
   },
 

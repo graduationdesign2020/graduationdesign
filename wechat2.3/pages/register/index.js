@@ -65,9 +65,10 @@ Page({
       wx.request({
         url: 'http://54.234.98.178:8301/auth/oauth/token?grant_type=password&username='+this.data.id+'&password='+app.globalData.openid,
         method: "POST",
+        header: {"Authorization": "Basic d2VjaGF0bWluaWFwcDpnZG1zbWluaXByb2dyYW0="},
         success(res){
           if(res.statusCode == 200){
-            wx.setStorageSync('jwt', res.header['Authorization'])
+            wx.setStorageSync('jwt', res.data.access_token)
             that.setData({msg: "注册成功", dialog: true, show: false});
           }
           else{

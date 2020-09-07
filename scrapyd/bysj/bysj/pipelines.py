@@ -160,61 +160,122 @@ class BYSJPipeline(object):
 
         if item["item_type"] == 'state':
             sql = "INSERT INTO teacher (id, name, department, major) SELECT %s, %s, %s, %s FROM DUAL WHERE NOT EXISTS ( SELECT * FROM teacher WHERE id = %s)"
-            insert_user = """insert into wechatusers(wechat, password, id, auth, enabled) SELECT %s, %s, %s %s, %s FROM DUAL WHERE NOT EXISTS ( SELECT * FROM wechatusers WHERE id = %s)"""
-            try:
-                # 执行sql语句
-                self.cursor.execute(sql, (
-                    item['teacher_id'] + 'a', item['teacher_name'], "电子信息与电气工程学院", "软件工程", item['teacher_id'] + 'a'))
-                self.cursor.execute(sql, (
-                    item['teacher_id'] + 'b', item['teacher_name'], "电子信息与电气工程学院", "IEEE", item['teacher_id'] + 'b'))
-                self.cursor.execute(sql, (
-                    item['teacher_id'] + 'c', item['teacher_name'], "电子信息与电气工程学院", "测控技术与仪器", item['teacher_id'] + 'c'))
-                self.cursor.execute(sql, (
-                    item['teacher_id'] + 'd', item['teacher_name'], "电子信息与电气工程学院", "电气工程", item['teacher_id'] + 'd'))
-                self.cursor.execute(sql, (
-                    item['teacher_id'] + 'e', item['teacher_name'], "电子信息与电气工程学院", "自动化", item['teacher_id'] + 'e'))
-                self.cursor.execute(sql, (
-                    item['teacher_id'] + 'f', item['teacher_name'], "电子信息与电气工程学院", "计算机科学与工程",
-                    item['teacher_id'] + 'f'))
-                self.cursor.execute(sql, (
-                    item['teacher_id'] + 'g', item['teacher_name'], "电子信息与电气工程学院", "电子工程", item['teacher_id'] + 'g'))
-                self.cursor.execute(sql, (
-                    item['teacher_id'] + 'h', item['teacher_name'], "电子信息与电气工程学院", "信息工程", item['teacher_id'] + 'h'))
-                self.cursor.execute(sql, (
-                    item['teacher_id'] + 'i', item['teacher_name'], "电子信息与电气工程学院", "信息安全", item['teacher_id'] + 'i'))
-                self.cursor.execute(sql, (
-                    item['teacher_id'] + 'j', item['teacher_name'], "电子信息与电气工程学院", "微电子", item['teacher_id'] + 'j'))
-                self.cursor.execute(sql, (
-                    item['teacher_id'] + 'k', item['teacher_name'], "电子信息与电气工程学院", "电气信息", item['teacher_id'] + 'k'))
-                self.cursor.execute(sql, (
-                    item['teacher_id'] + 'l', item['teacher_name'], "电子信息与电气工程学院", "人工智能", item['teacher_id'] + 'l'))
-                self.cursor.execute(insert_user, (
-                    item['teacher_id'] + 'a', item['teacher_id'] + 'a', item['teacher_id'] + 'a', 'ROLE_TEACHER', 1, item['teacher_id'] + 'a'))
-                self.cursor.execute(insert_user, (
-                    item['teacher_id'] + 'b', item['teacher_id'] + 'b', item['teacher_id'] + 'b', 'ROLE_TEACHER', 1, item['teacher_id'] + 'b'))
-                self.cursor.execute(insert_user, (
-                    item['teacher_id'] + 'c', item['teacher_id'] + 'c', item['teacher_id'] + 'c', 'ROLE_TEACHER', 1, item['teacher_id'] + 'c'))
-                self.cursor.execute(insert_user, (
-                    item['teacher_id'] + 'd', item['teacher_id'] + 'd', item['teacher_id'] + 'd', 'ROLE_TEACHER', 1, item['teacher_id'] + 'd'))
-                self.cursor.execute(insert_user, (
-                    item['teacher_id'] + 'e', item['teacher_id'] + 'e', item['teacher_id'] + 'e', 'ROLE_TEACHER', 1, item['teacher_id'] + 'e'))
-                self.cursor.execute(insert_user, (
-                    item['teacher_id'] + 'f', item['teacher_id'] + 'f', item['teacher_id'] + 'f', 'ROLE_TEACHER', 1, item['teacher_id'] + 'f'))
-                self.cursor.execute(insert_user, (
-                    item['teacher_id'] + 'g', item['teacher_id'] + 'g', item['teacher_id'] + 'g', 'ROLE_TEACHER', 1, item['teacher_id'] + 'g'))
-                self.cursor.execute(insert_user, (
-                    item['teacher_id'] + 'h', item['teacher_id'] + 'h', item['teacher_id'] + 'h', 'ROLE_TEACHER', 1, item['teacher_id'] + 'h'))
-                self.cursor.execute(insert_user, (
-                    item['teacher_id'] + 'i', item['teacher_id'] + 'i', item['teacher_id'] + 'i', 'ROLE_TEACHER', 1, item['teacher_id'] + 'i'))
-                self.cursor.execute(insert_user, (
-                    item['teacher_id'] + 'j', item['teacher_id'] + 'j', item['teacher_id'] + 'j', 'ROLE_TEACHER', 1, item['teacher_id'] + 'j'))
-                self.cursor.execute(insert_user, (
-                    item['teacher_id'] + 'k', item['teacher_id'] + 'k', item['teacher_id'] + 'k', 'ROLE_TEACHER', 1, item['teacher_id'] + 'k'))
-                self.cursor.execute(insert_user, (
-                    item['teacher_id'] + 'l', item['teacher_id'] + 'l', item['teacher_id'] + 'l', 'ROLE_TEACHER', 1, item['teacher_id'] + 'l'))
-                self.connect.commit()
-            except:
-                self.connect.rollback()
+            insert_user = """insert into wechatusers(wechat, password, id, auth, enabled) SELECT %s, %s, %s, %s, %s FROM DUAL WHERE NOT EXISTS ( SELECT * FROM wechatusers WHERE id = %s)"""
+            self.cursor.execute(sql, (
+                item['teacher_id'] + 'a', item['teacher_name'], "电子信息与电气工程学院", "软件工程", item['teacher_id'] + 'a'))
+            self.cursor.execute(sql, (
+                item['teacher_id'] + 'b', item['teacher_name'], "电子信息与电气工程学院", "IEEE", item['teacher_id'] + 'b'))
+            self.cursor.execute(sql, (
+                item['teacher_id'] + 'c', item['teacher_name'], "电子信息与电气工程学院", "测控技术与仪器", item['teacher_id'] + 'c'))
+            self.cursor.execute(sql, (
+                item['teacher_id'] + 'd', item['teacher_name'], "电子信息与电气工程学院", "电气工程", item['teacher_id'] + 'd'))
+            self.cursor.execute(sql, (
+                item['teacher_id'] + 'e', item['teacher_name'], "电子信息与电气工程学院", "自动化", item['teacher_id'] + 'e'))
+            self.cursor.execute(sql, (
+                item['teacher_id'] + 'f', item['teacher_name'], "电子信息与电气工程学院", "计算机科学与工程",
+                item['teacher_id'] + 'f'))
+            self.cursor.execute(sql, (
+                item['teacher_id'] + 'g', item['teacher_name'], "电子信息与电气工程学院", "电子工程", item['teacher_id'] + 'g'))
+            self.cursor.execute(sql, (
+                item['teacher_id'] + 'h', item['teacher_name'], "电子信息与电气工程学院", "信息工程", item['teacher_id'] + 'h'))
+            self.cursor.execute(sql, (
+                item['teacher_id'] + 'i', item['teacher_name'], "电子信息与电气工程学院", "信息安全", item['teacher_id'] + 'i'))
+            self.cursor.execute(sql, (
+                item['teacher_id'] + 'j', item['teacher_name'], "电子信息与电气工程学院", "微电子", item['teacher_id'] + 'j'))
+            self.cursor.execute(sql, (
+                item['teacher_id'] + 'k', item['teacher_name'], "电子信息与电气工程学院", "电气信息", item['teacher_id'] + 'k'))
+            self.cursor.execute(sql, (
+                item['teacher_id'] + 'l', item['teacher_name'], "电子信息与电气工程学院", "人工智能", item['teacher_id'] + 'l'))
+            self.cursor.execute(insert_user, (
+                item['teacher_id'] + 'a', item['teacher_id'] + 'a', item['teacher_id'] + 'a', 'ROLE_TEACHER', 1,
+                item['teacher_id'] + 'a'))
+            self.cursor.execute(insert_user, (
+                item['teacher_id'] + 'b', item['teacher_id'] + 'b', item['teacher_id'] + 'b', 'ROLE_TEACHER', 1,
+                item['teacher_id'] + 'b'))
+            self.cursor.execute(insert_user, (
+                item['teacher_id'] + 'c', item['teacher_id'] + 'c', item['teacher_id'] + 'c', 'ROLE_TEACHER', 1,
+                item['teacher_id'] + 'c'))
+            self.cursor.execute(insert_user, (
+                item['teacher_id'] + 'd', item['teacher_id'] + 'd', item['teacher_id'] + 'd', 'ROLE_TEACHER', 1,
+                item['teacher_id'] + 'd'))
+            self.cursor.execute(insert_user, (
+                item['teacher_id'] + 'e', item['teacher_id'] + 'e', item['teacher_id'] + 'e', 'ROLE_TEACHER', 1,
+                item['teacher_id'] + 'e'))
+            self.cursor.execute(insert_user, (
+                item['teacher_id'] + 'f', item['teacher_id'] + 'f', item['teacher_id'] + 'f', 'ROLE_TEACHER', 1,
+                item['teacher_id'] + 'f'))
+            self.cursor.execute(insert_user, (
+                item['teacher_id'] + 'g', item['teacher_id'] + 'g', item['teacher_id'] + 'g', 'ROLE_TEACHER', 1,
+                item['teacher_id'] + 'g'))
+            self.cursor.execute(insert_user, (
+                item['teacher_id'] + 'h', item['teacher_id'] + 'h', item['teacher_id'] + 'h', 'ROLE_TEACHER', 1,
+                item['teacher_id'] + 'h'))
+            self.cursor.execute(insert_user, (
+                item['teacher_id'] + 'i', item['teacher_id'] + 'i', item['teacher_id'] + 'i', 'ROLE_TEACHER', 1,
+                item['teacher_id'] + 'i'))
+            self.cursor.execute(insert_user, (
+                item['teacher_id'] + 'j', item['teacher_id'] + 'j', item['teacher_id'] + 'j', 'ROLE_TEACHER', 1,
+                item['teacher_id'] + 'j'))
+            self.cursor.execute(insert_user, (
+                item['teacher_id'] + 'k', item['teacher_id'] + 'k', item['teacher_id'] + 'k', 'ROLE_TEACHER', 1,
+                item['teacher_id'] + 'k'))
+            self.cursor.execute(insert_user, (
+                item['teacher_id'] + 'l', item['teacher_id'] + 'l', item['teacher_id'] + 'l', 'ROLE_TEACHER', 1,
+                item['teacher_id'] + 'l'))
+            # try:
+            #     # 执行sql语句
+            #     self.cursor.execute(sql, (
+            #         item['teacher_id'] + 'a', item['teacher_name'], "电子信息与电气工程学院", "软件工程", item['teacher_id'] + 'a'))
+            #     self.cursor.execute(sql, (
+            #         item['teacher_id'] + 'b', item['teacher_name'], "电子信息与电气工程学院", "IEEE", item['teacher_id'] + 'b'))
+            #     self.cursor.execute(sql, (
+            #         item['teacher_id'] + 'c', item['teacher_name'], "电子信息与电气工程学院", "测控技术与仪器", item['teacher_id'] + 'c'))
+            #     self.cursor.execute(sql, (
+            #         item['teacher_id'] + 'd', item['teacher_name'], "电子信息与电气工程学院", "电气工程", item['teacher_id'] + 'd'))
+            #     self.cursor.execute(sql, (
+            #         item['teacher_id'] + 'e', item['teacher_name'], "电子信息与电气工程学院", "自动化", item['teacher_id'] + 'e'))
+            #     self.cursor.execute(sql, (
+            #         item['teacher_id'] + 'f', item['teacher_name'], "电子信息与电气工程学院", "计算机科学与工程",
+            #         item['teacher_id'] + 'f'))
+            #     self.cursor.execute(sql, (
+            #         item['teacher_id'] + 'g', item['teacher_name'], "电子信息与电气工程学院", "电子工程", item['teacher_id'] + 'g'))
+            #     self.cursor.execute(sql, (
+            #         item['teacher_id'] + 'h', item['teacher_name'], "电子信息与电气工程学院", "信息工程", item['teacher_id'] + 'h'))
+            #     self.cursor.execute(sql, (
+            #         item['teacher_id'] + 'i', item['teacher_name'], "电子信息与电气工程学院", "信息安全", item['teacher_id'] + 'i'))
+            #     self.cursor.execute(sql, (
+            #         item['teacher_id'] + 'j', item['teacher_name'], "电子信息与电气工程学院", "微电子", item['teacher_id'] + 'j'))
+            #     self.cursor.execute(sql, (
+            #         item['teacher_id'] + 'k', item['teacher_name'], "电子信息与电气工程学院", "电气信息", item['teacher_id'] + 'k'))
+            #     self.cursor.execute(sql, (
+            #         item['teacher_id'] + 'l', item['teacher_name'], "电子信息与电气工程学院", "人工智能", item['teacher_id'] + 'l'))
+            #     self.cursor.execute(insert_user, (
+            #         item['teacher_id'] + 'a', item['teacher_id'] + 'a', item['teacher_id'] + 'a', 'ROLE_TEACHER', 1, item['teacher_id'] + 'a'))
+            #     self.cursor.execute(insert_user, (
+            #         item['teacher_id'] + 'b', item['teacher_id'] + 'b', item['teacher_id'] + 'b', 'ROLE_TEACHER', 1, item['teacher_id'] + 'b'))
+            #     self.cursor.execute(insert_user, (
+            #         item['teacher_id'] + 'c', item['teacher_id'] + 'c', item['teacher_id'] + 'c', 'ROLE_TEACHER', 1, item['teacher_id'] + 'c'))
+            #     self.cursor.execute(insert_user, (
+            #         item['teacher_id'] + 'd', item['teacher_id'] + 'd', item['teacher_id'] + 'd', 'ROLE_TEACHER', 1, item['teacher_id'] + 'd'))
+            #     self.cursor.execute(insert_user, (
+            #         item['teacher_id'] + 'e', item['teacher_id'] + 'e', item['teacher_id'] + 'e', 'ROLE_TEACHER', 1, item['teacher_id'] + 'e'))
+            #     self.cursor.execute(insert_user, (
+            #         item['teacher_id'] + 'f', item['teacher_id'] + 'f', item['teacher_id'] + 'f', 'ROLE_TEACHER', 1, item['teacher_id'] + 'f'))
+            #     self.cursor.execute(insert_user, (
+            #         item['teacher_id'] + 'g', item['teacher_id'] + 'g', item['teacher_id'] + 'g', 'ROLE_TEACHER', 1, item['teacher_id'] + 'g'))
+            #     self.cursor.execute(insert_user, (
+            #         item['teacher_id'] + 'h', item['teacher_id'] + 'h', item['teacher_id'] + 'h', 'ROLE_TEACHER', 1, item['teacher_id'] + 'h'))
+            #     self.cursor.execute(insert_user, (
+            #         item['teacher_id'] + 'i', item['teacher_id'] + 'i', item['teacher_id'] + 'i', 'ROLE_TEACHER', 1, item['teacher_id'] + 'i'))
+            #     self.cursor.execute(insert_user, (
+            #         item['teacher_id'] + 'j', item['teacher_id'] + 'j', item['teacher_id'] + 'j', 'ROLE_TEACHER', 1, item['teacher_id'] + 'j'))
+            #     self.cursor.execute(insert_user, (
+            #         item['teacher_id'] + 'k', item['teacher_id'] + 'k', item['teacher_id'] + 'k', 'ROLE_TEACHER', 1, item['teacher_id'] + 'k'))
+            #     self.cursor.execute(insert_user, (
+            #         item['teacher_id'] + 'l', item['teacher_id'] + 'l', item['teacher_id'] + 'l', 'ROLE_TEACHER', 1, item['teacher_id'] + 'l'))
+            #     self.connect.commit()
+            # except:
+            #     self.connect.rollback()
 
             sql = "INSERT INTO project(id, project_name, teacher_id) SELECT %s, %s, %s FROM DUAL WHERE NOT EXISTS ( SELECT * FROM project WHERE id = %s)"
 

@@ -27,6 +27,7 @@ Page({
     console.log("home") 
     console.log(wx.getStorageSync('auth')) 
     this.setData({auth: wx.getStorageSync('auth')})
+    console.log(wx.getStorageSync('jwt'))
     console.log(this.data.auth)
     var that = this
     if(this.data.auth === ''){

@@ -4,9 +4,10 @@
     <list default="true" id="b16bd2bc-a62f-4b91-ba8d-ffaa875d8c38" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bysj/bysj/pipelines.py" beforeDir="false" afterPath="$PROJECT_DIR$/bysj/bysj/pipelines.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/monitor/monitor/pipelines.py" beforeDir="false" afterPath="$PROJECT_DIR$/monitor/monitor/pipelines.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wechat2.3/project.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/../wechat2.3/project.config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wechat2.3/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/../wechat2.3/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wechat2.3/pages/inputId/inputId.js" beforeDir="false" afterPath="$PROJECT_DIR$/../wechat2.3/pages/inputId/inputId.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wechat2.3/pages/register/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../wechat2.3/pages/register/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wechat2.3/utils/ajax.js" beforeDir="false" afterPath="$PROJECT_DIR$/../wechat2.3/utils/ajax.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,6 +105,9 @@
       <workItem from="1599429773822" duration="983000" />
       <workItem from="1599430775105" duration="1972000" />
       <workItem from="1599461134040" duration="5078000" />
+      <workItem from="1599470725544" duration="632000" />
+      <workItem from="1599474446942" duration="181000" />
+      <workItem from="1599475532852" duration="1979000" />
     </task>
     <servers />
   </component>

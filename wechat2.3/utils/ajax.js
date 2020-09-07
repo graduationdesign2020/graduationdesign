@@ -23,13 +23,14 @@ export const Request = (head, url, postdata, callback, failcallback = (res)=>{})
       data: postdata,
       header: {"Authorization":"Bearer "+wx.getStorageSync('jwt'),
       'Content-Type': "application/json"
-    },
+      },
       success(res) {
         switch(res.statusCode){
           case 200:
             callback(res.data)
             break
           case 401:
+          case 500:
           case 403:
             var pages = getCurrentPages()
 	          var currentPage = pages[pages.length - 1]
