@@ -26,7 +26,7 @@ class BYSJPipeline(object):
             return
         if item["item_type"] == 'student':
             insert_student = """insert into student(id, name, major, department) SELECT %s, %s, %s, %s FROM DUAL WHERE NOT EXISTS ( SELECT * FROM student WHERE id = %s)"""
-            insert_user = """insert into wechatusers(wechat_id, id, auth) SELECT %s, %s, %s FROM DUAL WHERE NOT EXISTS ( SELECT * FROM wechatusers WHERE wechat_id = %s)"""
+            insert_user = """insert into wechatusers(wechat, password, id, auth, enabled) SELECT %s, %s, %s, %s, %s FROM DUAL WHERE NOT EXISTS ( SELECT * FROM wechatusers WHERE id = %s)"""
 
             try:
                 self.cursor.execute(insert_student, (
@@ -56,41 +56,41 @@ class BYSJPipeline(object):
                 self.cursor.execute(insert_student, (
                 str(int(item['id']) + 311218425679), '学生', '人工智能', '电子信息与电气工程学院', str(int(item['id']) + 311218425679)))
                 self.cursor.execute(insert_user, (
-                    str(int(item['id']) + 300218425679), str(int(item['id']) + 300218425679), 'ROLE_STUDENT',
-                    str(int(item['id']) + 300218425679)))
+                    str(int(item['id']) + 300218425679), str(int(item['id']) + 300218425679), str(int(item['id']) + 300218425679),
+                    'ROLE_STUDENT', 1, str(int(item['id']) + 300218425679)))
                 self.cursor.execute(insert_user, (
-                    str(int(item['id']) + 301218425679), str(int(item['id']) + 301218425679), 'ROLE_STUDENT',
-                    str(int(item['id']) + 301218425679)))
+                    str(int(item['id']) + 301218425679), str(int(item['id']) + 301218425679), str(int(item['id']) + 301218425679),
+                    'ROLE_STUDENT', 1, str(int(item['id']) + 301218425679)))
                 self.cursor.execute(insert_user, (
-                    str(int(item['id']) + 302218425679), str(int(item['id']) + 302218425679), 'ROLE_STUDENT',
-                    str(int(item['id']) + 302218425679)))
+                    str(int(item['id']) + 302218425679), str(int(item['id']) + 302218425679), str(int(item['id']) + 302218425679),
+                    'ROLE_STUDENT', 1, str(int(item['id']) + 302218425679)))
                 self.cursor.execute(insert_user, (
-                    str(int(item['id']) + 303218425679), str(int(item['id']) + 303218425679), 'ROLE_STUDENT',
-                    str(int(item['id']) + 303218425679)))
+                    str(int(item['id']) + 303218425679), str(int(item['id']) + 303218425679), str(int(item['id']) + 303218425679),
+                    'ROLE_STUDENT', 1, str(int(item['id']) + 303218425679)))
                 self.cursor.execute(insert_user, (
-                    str(int(item['id']) + 304218425679), str(int(item['id']) + 304218425679), 'ROLE_STUDENT',
-                    str(int(item['id']) + 304218425679)))
+                    str(int(item['id']) + 304218425679), str(int(item['id']) + 304218425679), str(int(item['id']) + 304218425679),
+                    'ROLE_STUDENT', 1, str(int(item['id']) + 304218425679)))
                 self.cursor.execute(insert_user, (
-                    str(int(item['id']) + 305218425679), str(int(item['id']) + 305218425679), 'ROLE_STUDENT',
-                    str(int(item['id']) + 305218425679)))
+                    str(int(item['id']) + 305218425679), str(int(item['id']) + 305218425679), str(int(item['id']) + 305218425679),
+                    'ROLE_STUDENT', 1, str(int(item['id']) + 305218425679)))
                 self.cursor.execute(insert_user, (
-                    str(int(item['id']) + 306218425679), str(int(item['id']) + 306218425679), 'ROLE_STUDENT',
-                    str(int(item['id']) + 306218425679)))
+                    str(int(item['id']) + 306218425679), str(int(item['id']) + 306218425679), str(int(item['id']) + 306218425679),
+                    'ROLE_STUDENT', 1, str(int(item['id']) + 306218425679)))
                 self.cursor.execute(insert_user, (
-                    str(int(item['id']) + 307218425679), str(int(item['id']) + 307218425679), 'ROLE_STUDENT',
-                    str(int(item['id']) + 307218425679)))
+                    str(int(item['id']) + 307218425679), str(int(item['id']) + 307218425679), str(int(item['id']) + 307218425679),
+                    'ROLE_STUDENT', 1, str(int(item['id']) + 307218425679)))
                 self.cursor.execute(insert_user, (
-                    str(int(item['id']) + 308218425679), str(int(item['id']) + 308218425679), 'ROLE_STUDENT',
-                    str(int(item['id']) + 308218425679)))
+                    str(int(item['id']) + 308218425679), str(int(item['id']) + 308218425679), str(int(item['id']) + 308218425679),
+                    'ROLE_STUDENT', 1, str(int(item['id']) + 308218425679)))
                 self.cursor.execute(insert_user, (
-                    str(int(item['id']) + 309218425679), str(int(item['id']) + 309218425679), 'ROLE_STUDENT',
-                    str(int(item['id']) + 309218425679)))
+                    str(int(item['id']) + 309218425679), str(int(item['id']) + 309218425679), str(int(item['id']) + 309218425679),
+                    'ROLE_STUDENT', 1, str(int(item['id']) + 309218425679)))
                 self.cursor.execute(insert_user, (
-                    str(int(item['id']) + 310218425679), str(int(item['id']) + 310218425679), 'ROLE_STUDENT',
-                    str(int(item['id']) + 310218425679)))
+                    str(int(item['id']) + 310218425679), str(int(item['id']) + 310218425679), str(int(item['id']) + 310218425679),
+                    'ROLE_STUDENT', 1, str(int(item['id']) + 310218425679)))
                 self.cursor.execute(insert_user, (
-                    str(int(item['id']) + 311218425679), str(int(item['id']) + 311218425679), 'ROLE_STUDENT',
-                    str(int(item['id']) + 311218425679)))
+                    str(int(item['id']) + 311218425679), str(int(item['id']) + 311218425679), str(int(item['id']) + 311218425679),
+                    'ROLE_STUDENT', 1, str(int(item['id']) + 311218425679)))
                 self.connect.commit()
             except:
                 self.connect.rollback()
@@ -160,7 +160,7 @@ class BYSJPipeline(object):
 
         if item["item_type"] == 'state':
             sql = "INSERT INTO teacher (id, name, department, major) SELECT %s, %s, %s, %s FROM DUAL WHERE NOT EXISTS ( SELECT * FROM teacher WHERE id = %s)"
-            insert_user = """insert into wechatusers(wechat_id, id, auth) SELECT %s, %s, %s FROM DUAL WHERE NOT EXISTS ( SELECT * FROM wechatusers WHERE wechat_id = %s)"""
+            insert_user = """insert into wechatusers(wechat, password, id, auth, enabled) SELECT %s, %s, %s %s, %s FROM DUAL WHERE NOT EXISTS ( SELECT * FROM wechatusers WHERE id = %s)"""
             try:
                 # 执行sql语句
                 self.cursor.execute(sql, (
@@ -189,29 +189,29 @@ class BYSJPipeline(object):
                 self.cursor.execute(sql, (
                     item['teacher_id'] + 'l', item['teacher_name'], "电子信息与电气工程学院", "人工智能", item['teacher_id'] + 'l'))
                 self.cursor.execute(insert_user, (
-                    item['teacher_id'] + 'a', item['teacher_id'] + 'a', 'ROLE_TEACHER', item['teacher_id'] + 'a'))
+                    item['teacher_id'] + 'a', item['teacher_id'] + 'a', item['teacher_id'] + 'a', 'ROLE_TEACHER', 1, item['teacher_id'] + 'a'))
                 self.cursor.execute(insert_user, (
-                    item['teacher_id'] + 'b', item['teacher_id'] + 'b', 'ROLE_TEACHER', item['teacher_id'] + 'b'))
+                    item['teacher_id'] + 'b', item['teacher_id'] + 'b', item['teacher_id'] + 'b', 'ROLE_TEACHER', 1, item['teacher_id'] + 'b'))
                 self.cursor.execute(insert_user, (
-                    item['teacher_id'] + 'c', item['teacher_id'] + 'c', 'ROLE_TEACHER', item['teacher_id'] + 'c'))
+                    item['teacher_id'] + 'c', item['teacher_id'] + 'c', item['teacher_id'] + 'c', 'ROLE_TEACHER', 1, item['teacher_id'] + 'c'))
                 self.cursor.execute(insert_user, (
-                    item['teacher_id'] + 'd', item['teacher_id'] + 'd', 'ROLE_TEACHER', item['teacher_id'] + 'd'))
+                    item['teacher_id'] + 'd', item['teacher_id'] + 'd', item['teacher_id'] + 'd', 'ROLE_TEACHER', 1, item['teacher_id'] + 'd'))
                 self.cursor.execute(insert_user, (
-                    item['teacher_id'] + 'e', item['teacher_id'] + 'e', 'ROLE_TEACHER', item['teacher_id'] + 'e'))
+                    item['teacher_id'] + 'e', item['teacher_id'] + 'e', item['teacher_id'] + 'e', 'ROLE_TEACHER', 1, item['teacher_id'] + 'e'))
                 self.cursor.execute(insert_user, (
-                    item['teacher_id'] + 'f', item['teacher_id'] + 'f', 'ROLE_TEACHER', item['teacher_id'] + 'f'))
+                    item['teacher_id'] + 'f', item['teacher_id'] + 'f', item['teacher_id'] + 'f', 'ROLE_TEACHER', 1, item['teacher_id'] + 'f'))
                 self.cursor.execute(insert_user, (
-                    item['teacher_id'] + 'g', item['teacher_id'] + 'g', 'ROLE_TEACHER', item['teacher_id'] + 'g'))
+                    item['teacher_id'] + 'g', item['teacher_id'] + 'g', item['teacher_id'] + 'g', 'ROLE_TEACHER', 1, item['teacher_id'] + 'g'))
                 self.cursor.execute(insert_user, (
-                    item['teacher_id'] + 'h', item['teacher_id'] + 'h', 'ROLE_TEACHER', item['teacher_id'] + 'h'))
+                    item['teacher_id'] + 'h', item['teacher_id'] + 'h', item['teacher_id'] + 'h', 'ROLE_TEACHER', 1, item['teacher_id'] + 'h'))
                 self.cursor.execute(insert_user, (
-                    item['teacher_id'] + 'i', item['teacher_id'] + 'i', 'ROLE_TEACHER', item['teacher_id'] + 'i'))
+                    item['teacher_id'] + 'i', item['teacher_id'] + 'i', item['teacher_id'] + 'i', 'ROLE_TEACHER', 1, item['teacher_id'] + 'i'))
                 self.cursor.execute(insert_user, (
-                    item['teacher_id'] + 'j', item['teacher_id'] + 'j', 'ROLE_TEACHER', item['teacher_id'] + 'j'))
+                    item['teacher_id'] + 'j', item['teacher_id'] + 'j', item['teacher_id'] + 'j', 'ROLE_TEACHER', 1, item['teacher_id'] + 'j'))
                 self.cursor.execute(insert_user, (
-                    item['teacher_id'] + 'k', item['teacher_id'] + 'k', 'ROLE_TEACHER', item['teacher_id'] + 'k'))
+                    item['teacher_id'] + 'k', item['teacher_id'] + 'k', item['teacher_id'] + 'k', 'ROLE_TEACHER', 1, item['teacher_id'] + 'k'))
                 self.cursor.execute(insert_user, (
-                    item['teacher_id'] + 'l', item['teacher_id'] + 'l', 'ROLE_TEACHER', item['teacher_id'] + 'l'))
+                    item['teacher_id'] + 'l', item['teacher_id'] + 'l', item['teacher_id'] + 'l', 'ROLE_TEACHER', 1, item['teacher_id'] + 'l'))
                 self.connect.commit()
             except:
                 self.connect.rollback()
@@ -316,7 +316,7 @@ class BYSJPipeline(object):
                     self.connect.commit()
                     self.cursor.execute("""select last_insert_id() from deptnotice""")
                     result = self.cursor.fetchone()
-                    self.coll_dept.insert_one({"_id": result[0], "content": item['content'], "title": item['title'],
+                    self.coll_dept.insert_one({"_id": result[0]*10+1, "content": item['content'], "title": item['title'],
                                                "department": '电子信息与电气工程学院', "type": 1})
                 except:
                     self.connect.rollback()
@@ -331,7 +331,7 @@ class BYSJPipeline(object):
                     self.connect.commit()
                     self.cursor.execute("""select last_insert_id() from schoolnotice""")
                     result = self.cursor.fetchone()
-                    self.coll_school.insert_one({"_id": result[0], "content": item['content'], "title": item['title'],
+                    self.coll_school.insert_one({"_id": result[0]*10, "content": item['content'], "title": item['title'],
                                                  "type": 0})
                 except:
                     self.connect.rollback()

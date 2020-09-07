@@ -56,7 +56,7 @@ def send_message(teacher_id, title, content):
         connect.commit()
 
         coll_message.insert_one(
-            {"_id": result[0], "content": content, "title": title, "type": 2, "students": student_id})
+            {"_id": result[0]*10+2, "content": content, "title": title, "type": 2, "students": student_id})
     except:
         connect.rollback()
 
@@ -85,7 +85,7 @@ def send_reply_message(teacher_id, title, content, keys):
         connect.commit()
 
         coll_message.insert_one(
-            {"_id": result[0], "content": content, "title": title, "type": 2, "students": student_id, "keys": keys})
+            {"_id": result[0]*10+2, "content": content, "title": title, "type": 2, "students": student_id, "keys": keys})
     except:
         connect.rollback()
 
