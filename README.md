@@ -44,7 +44,6 @@ gdms
 | Lombok                 | 简化对象封装工具     | https://github.com/rzwitserloot/lombok               |
 | Jenkins                | 自动化部署工具       | https://github.com/jenkinsci/jenkins                 |
 
-### 前端技术
 
 | 技术       | 说明                  | 官网                           |
 | ---------- | --------------------- | ------------------------------ |
@@ -126,6 +125,11 @@ gdms
 
 ![ImageText](https://github.com/graduationdesign2020/graduationdesign/blob/master/picture/1599426498(1).png)
 
+## 优化
+### 数据库
+- 添加索引
+
+![Image text](https://github.com/graduationdesign2020/graduationdesign/blob/master/picture/index.PNG)
 ## 测试结果
 ### Unit Test
 ![Image text](https://github.com/graduationdesign2020/graduationdesign/raw/master/picture/unittest.png)
