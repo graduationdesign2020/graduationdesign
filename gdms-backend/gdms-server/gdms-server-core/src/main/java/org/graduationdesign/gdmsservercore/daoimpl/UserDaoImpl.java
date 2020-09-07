@@ -1,26 +1,26 @@
 package org.graduationdesign.gdmsservercore.daoimpl;
 
-import org.graduationdesign.gdmsservercore.dao.UsersDao;
-import org.graduationdesign.gdmsservercore.entity.Users;
-import org.graduationdesign.gdmsservercore.repository.UsersRepository;
+import org.graduationdesign.gdmsservercore.dao.UserDao;
+import org.graduationdesign.gdmsservercore.entity.User;
+import org.graduationdesign.gdmsservercore.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
 @Repository
-public class UsersDaoImpl implements UsersDao {
+public class UserDaoImpl implements UserDao {
     @Autowired
-    private UsersRepository usersRepository;
+    private UserRepository usersRepository;
 
 
     @Override
-    public Optional<Users> getUserByWechat_id(String wechat_id){
-        return usersRepository.getByWechat_id(wechat_id);
+    public Optional<User> getUserByWechat(String wechat_id){
+        return usersRepository.getByWechat(wechat_id);
     }
 
     @Override
-    public Users saveUsers(Users users){
+    public User saveUsers(User users){
         return usersRepository.save(users);
     }
 
@@ -31,12 +31,12 @@ public class UsersDaoImpl implements UsersDao {
     }
 
     @Override
-    public Optional<Users> getByIdAndAuth(String id,String auth){
+    public Optional<User> getByIdAndAuth(String id,String auth){
         return usersRepository.getByIdAndAuth(id, auth);
     }
 
     @Override
-    public Optional<Users> getById(String id){
+    public Optional<User> getById(String id){
         return usersRepository.findDistinctById(id);
     }
 }

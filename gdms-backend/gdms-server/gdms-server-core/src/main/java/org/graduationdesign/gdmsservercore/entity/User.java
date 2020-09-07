@@ -16,9 +16,11 @@ import javax.persistence.Table;
 @JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,
         property = "id")
-public class Users {
+public class User {
     @Id
-    private String wechat_id;
     private String id;
+    private String wechat;
     private String auth;
+    private String password;
+    private boolean enabled;
 }
