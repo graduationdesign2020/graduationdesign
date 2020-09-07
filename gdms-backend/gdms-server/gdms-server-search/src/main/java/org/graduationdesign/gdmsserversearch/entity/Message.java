@@ -10,8 +10,8 @@ import org.springframework.stereotype.Component;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Message {
-    private double id;
-    private double type;
+    private int id;
+    private int type;
     private String title;
     private String content;
 }
