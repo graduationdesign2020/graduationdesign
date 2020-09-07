@@ -9,7 +9,7 @@ import javax.transaction.Transactional;
 import java.util.Optional;
 
 public interface UsersRepository extends JpaRepository<Users,String> {
-    @Query("from Users where wechat_id=:id")
+    @Query("from Users where wechat=:id")
     Optional<Users> getByWechat_id(String id);
 
     @Query("from Users where id=:id and auth=:auth")

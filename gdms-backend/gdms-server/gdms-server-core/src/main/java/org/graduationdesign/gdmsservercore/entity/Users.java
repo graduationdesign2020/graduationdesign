@@ -18,7 +18,8 @@ import javax.persistence.Table;
         property = "id")
 public class Users {
     @Id
-    private String wechat_id;
     private String id;
+    private String wechat;
     private String auth;
+    private String password;
 }

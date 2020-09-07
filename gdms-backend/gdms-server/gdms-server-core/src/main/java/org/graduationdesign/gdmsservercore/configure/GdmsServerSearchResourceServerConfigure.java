@@ -24,6 +24,7 @@ public class GdmsServerSearchResourceServerConfigure extends ResourceServerConfi
                 .authorizeRequests()
                 .antMatchers("/actuator/**").permitAll()
                 .antMatchers(anonUrls).permitAll()
+                .antMatchers("/register", "/getOpenid").permitAll()
                 .antMatchers("/**").authenticated();
     }
 }

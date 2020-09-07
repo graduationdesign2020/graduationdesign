@@ -19,7 +19,6 @@
         <module>gdms-server-search</module>
         <module>gdms-server-notice</module>
         <module>gdms-server-core</module>
-        <module>gdms-server-test</module>
     </modules>
 
     <dependencies>
@@ -27,6 +26,11 @@
             <groupId>org.graduationdesign</groupId>
             <artifactId>gdms-common</artifactId>
             <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>net.logstash.logback</groupId>
+            <artifactId>logstash-logback-encoder</artifactId>
+            <version>6.1</version>
         </dependency>
     </dependencies>
 
