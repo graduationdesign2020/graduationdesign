@@ -29,7 +29,7 @@ public class DeptNoticeDaoImpl implements DeptNoticeDao {
         Optional<DeptNotice> schoolNotice= deptNoticeRepository.getById(id);
         if(schoolNotice.isPresent()) {
             DeptNotice schoolNotice1=schoolNotice.get();
-            Optional<DeptNoticeContent> schoolNoticeContent = Optional.ofNullable(deptNoticeContentRepository.findById(id*10));
+            Optional<DeptNoticeContent> schoolNoticeContent = Optional.ofNullable(deptNoticeContentRepository.findById(id*10+1));
             if (schoolNoticeContent.isPresent()) {
                 DeptNoticeContent s = schoolNoticeContent.get();
                 schoolNotice1.setContent(s.getContent());
