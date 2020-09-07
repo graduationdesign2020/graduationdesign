@@ -13,7 +13,7 @@ spring:
   boot:
     admin:
       client:
-        url: http://54.234.98.178:8401
+        url: http://localhost:8401
         username: gdms
         password: gdmsadmin
 

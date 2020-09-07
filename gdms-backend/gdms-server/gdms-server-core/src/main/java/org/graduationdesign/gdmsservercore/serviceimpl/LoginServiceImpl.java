@@ -2,12 +2,12 @@ package org.graduationdesign.gdmsservercore.serviceimpl;
 
 import org.graduationdesign.gdmsservercore.dao.StudentDao;
 import org.graduationdesign.gdmsservercore.dao.TeacherDao;
-import org.graduationdesign.gdmsservercore.dao.UsersDao;
+import org.graduationdesign.gdmsservercore.dao.UserDao;
 import org.graduationdesign.gdmsservercore.dao.ProjectDao;
 import org.graduationdesign.gdmsservercore.entity.Project;
 import org.graduationdesign.gdmsservercore.entity.Student;
 import org.graduationdesign.gdmsservercore.entity.Teacher;
-import org.graduationdesign.gdmsservercore.entity.Users;
+import org.graduationdesign.gdmsservercore.entity.User;
 import org.graduationdesign.gdmsservercore.service.LoginService;
 import org.graduationdesign.gdmsservercore.utils.ReturnInfo;
 import org.graduationdesign.gdmsservercore.utils.UserInfo;
@@ -19,7 +19,7 @@ import static org.graduationdesign.gdmsservercore.constant.ReturnMsg.*;
 @Service
 public class LoginServiceImpl implements LoginService {
     @Autowired
-    private UsersDao usersDao;
+    private UserDao usersDao;
     @Autowired
     private TeacherDao teacherDao;
     @Autowired
@@ -31,12 +31,12 @@ public class LoginServiceImpl implements LoginService {
     public ReturnInfo register(String wechat_id, String id, String name, String auth){
         ReturnInfo returnInfo=new ReturnInfo();
         UserInfo userInfo=new UserInfo();
-        Optional<Users> u= usersDao.getUserByWechat_id(wechat_id);
+        Optional<User> u= usersDao.getUserByWechat(wechat_id);
         if(u.isPresent()) {
             returnInfo.setMsg(registerMsg2);
             return returnInfo;
         }
-        Optional<Users> testUser= usersDao.getByIdAndAuth(id,auth);
+        Optional<User> testUser= usersDao.getByIdAndAuth(id,auth);
         if(testUser.isPresent()) {
             returnInfo.setMsg(registerMsg2);
             return returnInfo;
@@ -57,6 +57,7 @@ public class LoginServiceImpl implements LoginService {
             System.out.print(name);
             Student student = studentDao.getStudentByIdAndName(id, name);
             if (student != null) {
+                System.out.print("student not null");
                 userInfo.setId(id);
                 userInfo.setName(student.getName());
                 userInfo.setDept(student.getDepartment());
@@ -71,10 +72,11 @@ public class LoginServiceImpl implements LoginService {
             }
         }
         if (flag) {
-            Users users = new Users();
+            User users = new User();
             users.setWechat(wechat_id);
             users.setId(id);
             users.setAuth(auth);
+            users.setEnabled(true);
             usersDao.saveUsers(users);
             returnInfo.setMsg(Msg1);
             returnInfo.setUserData(userInfo);

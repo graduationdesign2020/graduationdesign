@@ -691,3 +691,333 @@
 2020-09-07 17:57:01 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 1ms
 2020-09-07 17:58:01 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 3ms
 2020-09-07 17:59:01 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 1ms
+2020-09-07 18:00:01 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 4ms
+2020-09-07 18:01:01 INFO  ReplicaAwareInstanceRegistry - RenewalThresholdUpdater com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl Current renewal threshold is : 1
+2020-09-07 18:01:01 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 1ms
+2020-09-07 18:02:01 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 3ms
+2020-09-07 18:03:01 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 4ms
+2020-09-07 18:04:01 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 2ms
+2020-09-07 18:05:01 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 4ms
+2020-09-07 18:06:01 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 3ms
+2020-09-07 18:07:01 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 5ms
+2020-09-07 18:08:01 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 1ms
+2020-09-07 18:09:01 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 0ms
+2020-09-07 18:09:17 INFO  Thread-24 org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry Unregistering application GDMS-REGISTER with eureka with status DOWN
+2020-09-07 18:09:17 INFO  Thread-24 com.netflix.eureka.DefaultEurekaServerContext Shutting down ...
+2020-09-07 18:09:18 INFO  Thread-24 com.netflix.eureka.DefaultEurekaServerContext Shut down
+2020-09-07 18:09:18 INFO  Thread-24 org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler Shutting down ExecutorService
+2020-09-07 18:09:18 INFO  Thread-24 org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor Shutting down ExecutorService 'applicationTaskExecutor'
+2020-09-07 18:09:18 INFO  Thread-24 com.netflix.discovery.DiscoveryClient Shutting down DiscoveryClient ...
+2020-09-07 18:09:18 INFO  Thread-24 com.netflix.discovery.DiscoveryClient Completed shut down of DiscoveryClient
+2020-09-07 18:22:34 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$8aa4078] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-07 18:22:34 INFO  main org.graduationdesign.gdmsregister.GdmsRegisterApplication No active profile set, falling back to default profiles: default
+2020-09-07 18:22:36 INFO  main org.springframework.cloud.context.scope.GenericScope BeanFactory id=427fdd6f-ed38-34db-a985-a9c8a2068d2b
+2020-09-07 18:22:36 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$8aa4078] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-07 18:22:36 INFO  main org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat initialized with port(s): 8001 (http)
+2020-09-07 18:22:36 INFO  main org.apache.coyote.http11.Http11NioProtocol Initializing ProtocolHandler ["http-nio-8001"]
+2020-09-07 18:22:36 INFO  main org.apache.catalina.core.StandardService Starting service [Tomcat]
+2020-09-07 18:22:36 INFO  main org.apache.catalina.core.StandardEngine Starting Servlet engine: [Apache Tomcat/9.0.21]
+2020-09-07 18:22:36 INFO  main org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/register] Initializing Spring embedded WebApplicationContext
+2020-09-07 18:22:36 INFO  main org.springframework.web.context.ContextLoader Root WebApplicationContext: initialization completed in 1918 ms
+2020-09-07 18:22:36 INFO  main com.netflix.config.sources.URLConfigurationSource To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-09-07 18:22:36 INFO  main com.netflix.config.DynamicPropertyFactory DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@7e446d92
+2020-09-07 18:22:37 INFO  main org.springframework.boot.actuate.endpoint.web.ServletEndpointRegistrar Registered '/actuator/jolokia' to jolokia-actuator-endpoint
+2020-09-07 18:22:37 INFO  main com.sun.jersey.server.impl.application.WebApplicationImpl Initiating Jersey application, version 'Jersey: 1.19.1 03/11/2016 02:08 PM'
+2020-09-07 18:22:37 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using JSON encoding codec LegacyJacksonJson
+2020-09-07 18:22:37 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using JSON decoding codec LegacyJacksonJson
+2020-09-07 18:22:37 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using XML encoding codec XStreamXml
+2020-09-07 18:22:37 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using XML decoding codec XStreamXml
+2020-09-07 18:22:38 INFO  main org.springframework.security.web.DefaultSecurityFilterChain Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6bcdd6e4, org.springframework.security.web.context.SecurityContextPersistenceFilter@7c4b5ceb, org.springframework.security.web.header.HeaderWriterFilter@23b1aa9, org.springframework.security.web.csrf.CsrfFilter@2dd0a0d0, org.springframework.security.web.authentication.logout.LogoutFilter@7282af25, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@504497fa, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@781dbe44, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@1192c925, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@52aa7742, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@e26a3df, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@28989415, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@615b5480, org.springframework.security.web.session.SessionManagementFilter@4e8598d9, org.springframework.security.web.access.ExceptionTranslationFilter@402b4f81, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5844a2d1]
+2020-09-07 18:22:38 INFO  main com.netflix.config.sources.URLConfigurationSource To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-09-07 18:22:38 INFO  main org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-07 18:22:38 INFO  main org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler Initializing ExecutorService
+2020-09-07 18:22:39 INFO  main org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver Exposing 20 endpoint(s) beneath base path '/actuator'
+2020-09-07 18:22:39 INFO  main org.springframework.cloud.netflix.eureka.InstanceInfoFactory Setting initial instance status as: STARTING
+2020-09-07 18:22:39 INFO  main com.netflix.discovery.DiscoveryClient Initializing Eureka in region us-east-1
+2020-09-07 18:22:39 INFO  main com.netflix.discovery.DiscoveryClient Client configured to neither register nor query for data.
+2020-09-07 18:22:39 INFO  main com.netflix.discovery.DiscoveryClient Discovery Client initialized at timestamp 1599474159265 with initial instances count: 0
+2020-09-07 18:22:39 INFO  main com.netflix.eureka.DefaultEurekaServerContext Initializing ...
+2020-09-07 18:22:39 INFO  main com.netflix.eureka.registry.AbstractInstanceRegistry Finished initializing remote region registries. All known remote regions: []
+2020-09-07 18:22:39 INFO  main com.netflix.eureka.DefaultEurekaServerContext Initialized
+2020-09-07 18:22:39 INFO  main org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry Registering application GDMS-REGISTER with eureka with status UP
+2020-09-07 18:22:39 INFO  Thread-22 org.springframework.cloud.netflix.eureka.server.EurekaServerBootstrap Setting the eureka configuration..
+2020-09-07 18:22:39 INFO  Thread-22 org.springframework.cloud.netflix.eureka.server.EurekaServerBootstrap Eureka data center value eureka.datacenter is not set, defaulting to default
+2020-09-07 18:22:39 INFO  Thread-22 org.springframework.cloud.netflix.eureka.server.EurekaServerBootstrap Eureka environment value eureka.environment is not set, defaulting to test
+2020-09-07 18:22:39 INFO  main org.apache.coyote.http11.Http11NioProtocol Starting ProtocolHandler ["http-nio-8001"]
+2020-09-07 18:22:39 INFO  Thread-22 org.springframework.cloud.netflix.eureka.server.EurekaServerBootstrap isAws returned false
+2020-09-07 18:22:39 INFO  Thread-22 org.springframework.cloud.netflix.eureka.server.EurekaServerBootstrap Initialized server context
+2020-09-07 18:22:39 INFO  Thread-22 com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl Got 1 instances from neighboring DS node
+2020-09-07 18:22:39 INFO  Thread-22 com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl Renew threshold is: 1
+2020-09-07 18:22:39 INFO  Thread-22 com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl Changing status to UP
+2020-09-07 18:22:39 INFO  Thread-22 org.springframework.cloud.netflix.eureka.server.EurekaServerInitializerConfiguration Started Eureka Server
+2020-09-07 18:22:39 INFO  main org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat started on port(s): 8001 (http) with context path '/register'
+2020-09-07 18:22:39 INFO  main org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration Updating port to 8001
+2020-09-07 18:22:39 INFO  main org.graduationdesign.gdmsregister.GdmsRegisterApplication Started GdmsRegisterApplication in 5.799 seconds (JVM running for 6.655)
+2020-09-07 18:22:39 INFO  RMI TCP Connection(4)-127.0.0.1 org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/register] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-07 18:22:39 INFO  RMI TCP Connection(4)-127.0.0.1 org.springframework.web.servlet.DispatcherServlet Initializing Servlet 'dispatcherServlet'
+2020-09-07 18:22:39 INFO  RMI TCP Connection(4)-127.0.0.1 org.springframework.web.servlet.DispatcherServlet Completed initialization in 9 ms
+2020-09-07 18:23:18 INFO  http-nio-8001-exec-2 com.netflix.eureka.registry.AbstractInstanceRegistry Registered instance GDMS-AUTH/10.162.111.66:GDMS-Auth:8101 with status UP (replication=false)
+2020-09-07 18:23:39 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 0ms
+2020-09-07 18:23:47 INFO  http-nio-8001-exec-5 com.netflix.eureka.registry.AbstractInstanceRegistry Registered instance GDMS-SERVER-CORE/10.162.111.66:GDMS-Server-Core:8203 with status UP (replication=false)
+2020-09-07 18:24:12 INFO  http-nio-8001-exec-10 com.netflix.eureka.registry.AbstractInstanceRegistry Registered instance GDMS-SERVER-NOTICE/10.162.111.66:GDMS-Server-Notice:8202 with status UP (replication=false)
+2020-09-07 18:24:39 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 1ms
+2020-09-07 18:25:39 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 2ms
+2020-09-07 18:26:39 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 1ms
+2020-09-07 18:27:39 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 3ms
+2020-09-07 18:28:39 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 1ms
+2020-09-07 18:29:39 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 3ms
+2020-09-07 18:30:39 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 3ms
+2020-09-07 18:31:39 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 3ms
+2020-09-07 18:32:39 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 2ms
+2020-09-07 18:33:39 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 5ms
+2020-09-07 18:34:39 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 4ms
+2020-09-07 18:35:39 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 0ms
+2020-09-07 18:36:39 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 5ms
+2020-09-07 18:39:17 INFO  ReplicaAwareInstanceRegistry - RenewalThresholdUpdater com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl Current renewal threshold is : 6
+2020-09-07 18:39:17 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 6ms
+2020-09-07 18:40:17 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 0ms
+2020-09-07 18:40:24 INFO  http-nio-8001-exec-7 com.netflix.eureka.registry.AbstractInstanceRegistry Registered instance GDMS-GATEWAY/10.162.111.66:GDMS-Gateway:8301 with status UP (replication=false)
+2020-09-07 18:41:17 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 5ms
+2020-09-07 18:42:17 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 0ms
+2020-09-07 18:43:01 INFO  http-nio-8001-exec-8 com.netflix.eureka.registry.AbstractInstanceRegistry Registered instance GDMS-SERVER-CORE/10.162.111.66:GDMS-Server-Core:8203 with status DOWN (replication=false)
+2020-09-07 18:43:04 INFO  http-nio-8001-exec-10 com.netflix.eureka.registry.AbstractInstanceRegistry Cancelled instance GDMS-SERVER-CORE/10.162.111.66:GDMS-Server-Core:8203 (replication=false)
+2020-09-07 18:43:17 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 1ms
+2020-09-07 18:43:26 INFO  http-nio-8001-exec-4 com.netflix.eureka.registry.AbstractInstanceRegistry Registered instance GDMS-SERVER-CORE/10.162.111.66:GDMS-Server-Core:8203 with status UP (replication=false)
+2020-09-07 18:43:59 INFO  http-nio-8001-exec-7 com.netflix.eureka.registry.AbstractInstanceRegistry Registered instance GDMS-SERVER-CORE/10.162.111.66:GDMS-Server-Core:8203 with status DOWN (replication=false)
+2020-09-07 18:44:02 INFO  http-nio-8001-exec-5 com.netflix.eureka.registry.AbstractInstanceRegistry Cancelled instance GDMS-SERVER-CORE/10.162.111.66:GDMS-Server-Core:8203 (replication=false)
+2020-09-07 18:44:17 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 1ms
+2020-09-07 18:44:21 INFO  http-nio-8001-exec-1 com.netflix.eureka.registry.AbstractInstanceRegistry Registered instance GDMS-SERVER-CORE/10.162.111.66:GDMS-Server-Core:8203 with status UP (replication=false)
+2020-09-07 18:45:17 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 0ms
+2020-09-07 18:45:49 INFO  Thread-24 org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry Unregistering application GDMS-REGISTER with eureka with status DOWN
+2020-09-07 18:45:49 INFO  Thread-24 com.netflix.eureka.DefaultEurekaServerContext Shutting down ...
+2020-09-07 18:45:49 INFO  Thread-24 com.netflix.eureka.DefaultEurekaServerContext Shut down
+2020-09-07 18:45:49 INFO  Thread-24 org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler Shutting down ExecutorService
+2020-09-07 18:45:49 INFO  Thread-24 org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor Shutting down ExecutorService 'applicationTaskExecutor'
+2020-09-07 18:45:49 INFO  Thread-24 com.netflix.discovery.DiscoveryClient Shutting down DiscoveryClient ...
+2020-09-07 18:45:49 INFO  Thread-24 com.netflix.discovery.DiscoveryClient Completed shut down of DiscoveryClient
+2020-09-07 18:45:49 INFO  http-nio-8001-exec-7 com.netflix.eureka.registry.AbstractInstanceRegistry Registered instance GDMS-GATEWAY/10.162.111.66:GDMS-Gateway:8301 with status DOWN (replication=false)
+2020-09-07 18:46:18 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$55e352dc] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-07 18:46:19 INFO  main org.graduationdesign.gdmsregister.GdmsRegisterApplication No active profile set, falling back to default profiles: default
+2020-09-07 18:46:20 INFO  main org.springframework.cloud.context.scope.GenericScope BeanFactory id=427fdd6f-ed38-34db-a985-a9c8a2068d2b
+2020-09-07 18:46:20 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$55e352dc] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-07 18:46:20 INFO  main org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat initialized with port(s): 8001 (http)
+2020-09-07 18:46:20 INFO  main org.apache.coyote.http11.Http11NioProtocol Initializing ProtocolHandler ["http-nio-8001"]
+2020-09-07 18:46:20 INFO  main org.apache.catalina.core.StandardService Starting service [Tomcat]
+2020-09-07 18:46:20 INFO  main org.apache.catalina.core.StandardEngine Starting Servlet engine: [Apache Tomcat/9.0.21]
+2020-09-07 18:46:20 INFO  main org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/register] Initializing Spring embedded WebApplicationContext
+2020-09-07 18:46:20 INFO  main org.springframework.web.context.ContextLoader Root WebApplicationContext: initialization completed in 1249 ms
+2020-09-07 18:46:20 INFO  main com.netflix.config.sources.URLConfigurationSource To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-09-07 18:46:20 INFO  main com.netflix.config.DynamicPropertyFactory DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@55d58825
+2020-09-07 18:46:21 INFO  main org.springframework.boot.actuate.endpoint.web.ServletEndpointRegistrar Registered '/actuator/jolokia' to jolokia-actuator-endpoint
+2020-09-07 18:46:21 INFO  main com.sun.jersey.server.impl.application.WebApplicationImpl Initiating Jersey application, version 'Jersey: 1.19.1 03/11/2016 02:08 PM'
+2020-09-07 18:46:21 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using JSON encoding codec LegacyJacksonJson
+2020-09-07 18:46:21 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using JSON decoding codec LegacyJacksonJson
+2020-09-07 18:46:21 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using XML encoding codec XStreamXml
+2020-09-07 18:46:21 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using XML decoding codec XStreamXml
+2020-09-07 18:46:21 INFO  main org.springframework.security.web.DefaultSecurityFilterChain Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6c9a3661, org.springframework.security.web.context.SecurityContextPersistenceFilter@1216eb3f, org.springframework.security.web.header.HeaderWriterFilter@69b3886f, org.springframework.security.web.csrf.CsrfFilter@5ebbde60, org.springframework.security.web.authentication.logout.LogoutFilter@7f12094d, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@611c3eae, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@6bf570c, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@727986ad, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@4e4395c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@482ba4b1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@54895681, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1600a8a2, org.springframework.security.web.session.SessionManagementFilter@44faa4f2, org.springframework.security.web.access.ExceptionTranslationFilter@2ad7bd26, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@591f6f83]
+2020-09-07 18:46:21 INFO  main com.netflix.config.sources.URLConfigurationSource To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-09-07 18:46:21 INFO  main org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-07 18:46:22 INFO  main org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler Initializing ExecutorService
+2020-09-07 18:46:22 INFO  main org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver Exposing 20 endpoint(s) beneath base path '/actuator'
+2020-09-07 18:46:22 INFO  main org.springframework.cloud.netflix.eureka.InstanceInfoFactory Setting initial instance status as: STARTING
+2020-09-07 18:46:22 INFO  main com.netflix.discovery.DiscoveryClient Initializing Eureka in region us-east-1
+2020-09-07 18:46:22 INFO  main com.netflix.discovery.DiscoveryClient Client configured to neither register nor query for data.
+2020-09-07 18:46:22 INFO  main com.netflix.discovery.DiscoveryClient Discovery Client initialized at timestamp 1599475582360 with initial instances count: 0
+2020-09-07 18:46:22 INFO  main com.netflix.eureka.DefaultEurekaServerContext Initializing ...
+2020-09-07 18:46:22 INFO  main com.netflix.eureka.registry.AbstractInstanceRegistry Finished initializing remote region registries. All known remote regions: []
+2020-09-07 18:46:22 INFO  main com.netflix.eureka.DefaultEurekaServerContext Initialized
+2020-09-07 18:46:22 INFO  main org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry Registering application GDMS-REGISTER with eureka with status UP
+2020-09-07 18:46:22 INFO  Thread-20 org.springframework.cloud.netflix.eureka.server.EurekaServerBootstrap Setting the eureka configuration..
+2020-09-07 18:46:22 INFO  Thread-20 org.springframework.cloud.netflix.eureka.server.EurekaServerBootstrap Eureka data center value eureka.datacenter is not set, defaulting to default
+2020-09-07 18:46:22 INFO  Thread-20 org.springframework.cloud.netflix.eureka.server.EurekaServerBootstrap Eureka environment value eureka.environment is not set, defaulting to test
+2020-09-07 18:46:22 INFO  main org.apache.coyote.http11.Http11NioProtocol Starting ProtocolHandler ["http-nio-8001"]
+2020-09-07 18:46:22 INFO  Thread-20 org.springframework.cloud.netflix.eureka.server.EurekaServerBootstrap isAws returned false
+2020-09-07 18:46:22 INFO  Thread-20 org.springframework.cloud.netflix.eureka.server.EurekaServerBootstrap Initialized server context
+2020-09-07 18:46:22 INFO  Thread-20 com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl Got 1 instances from neighboring DS node
+2020-09-07 18:46:22 INFO  Thread-20 com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl Renew threshold is: 1
+2020-09-07 18:46:22 INFO  Thread-20 com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl Changing status to UP
+2020-09-07 18:46:22 INFO  Thread-20 org.springframework.cloud.netflix.eureka.server.EurekaServerInitializerConfiguration Started Eureka Server
+2020-09-07 18:46:22 INFO  main org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat started on port(s): 8001 (http) with context path '/register'
+2020-09-07 18:46:22 INFO  main org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration Updating port to 8001
+2020-09-07 18:46:22 INFO  main org.graduationdesign.gdmsregister.GdmsRegisterApplication Started GdmsRegisterApplication in 4.836 seconds (JVM running for 5.674)
+2020-09-07 18:46:22 INFO  RMI TCP Connection(1)-127.0.0.1 org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/register] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-07 18:46:22 INFO  RMI TCP Connection(1)-127.0.0.1 org.springframework.web.servlet.DispatcherServlet Initializing Servlet 'dispatcherServlet'
+2020-09-07 18:46:22 INFO  RMI TCP Connection(1)-127.0.0.1 org.springframework.web.servlet.DispatcherServlet Completed initialization in 19 ms
+2020-09-07 18:46:49 INFO  http-nio-8001-exec-2 com.netflix.eureka.registry.AbstractInstanceRegistry Registered instance GDMS-GATEWAY/10.162.111.66:GDMS-Gateway:8301 with status UP (replication=false)
+2020-09-07 18:47:14 INFO  http-nio-8001-exec-3 com.netflix.eureka.registry.AbstractInstanceRegistry Registered instance GDMS-AUTH/10.162.111.66:GDMS-Auth:8101 with status UP (replication=false)
+2020-09-07 18:47:22 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 0ms
+2020-09-07 18:47:35 INFO  http-nio-8001-exec-4 com.netflix.eureka.registry.AbstractInstanceRegistry Registered instance GDMS-SERVER-CORE/10.162.111.66:GDMS-Server-Core:8203 with status UP (replication=false)
+2020-09-07 18:48:22 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 5ms
+2020-09-07 18:49:22 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 3ms
+2020-09-07 18:49:40 INFO  http-nio-8001-exec-4 com.netflix.eureka.registry.AbstractInstanceRegistry Registered instance GDMS-SERVER-NOTICE/10.162.111.66:GDMS-Server-Notice:8202 with status UP (replication=false)
+2020-09-07 18:50:22 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 5ms
+2020-09-07 18:51:22 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 1ms
+2020-09-07 18:52:22 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 14ms
+2020-09-07 18:53:22 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 2ms
+2020-09-07 18:54:22 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 0ms
+2020-09-07 18:55:22 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 3ms
+2020-09-07 18:56:22 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 4ms
+2020-09-07 18:57:22 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 2ms
+2020-09-07 18:58:22 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 2ms
+2020-09-07 18:59:22 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 6ms
+2020-09-07 19:00:22 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 2ms
+2020-09-07 19:01:22 INFO  ReplicaAwareInstanceRegistry - RenewalThresholdUpdater com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl Current renewal threshold is : 8
+2020-09-07 19:01:22 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 4ms
+2020-09-07 19:01:48 INFO  http-nio-8001-exec-5 com.netflix.eureka.registry.AbstractInstanceRegistry Registered instance GDMS-SERVER-CORE/10.162.111.66:GDMS-Server-Core:8203 with status DOWN (replication=false)
+2020-09-07 19:01:51 INFO  http-nio-8001-exec-9 com.netflix.eureka.registry.AbstractInstanceRegistry Cancelled instance GDMS-SERVER-CORE/10.162.111.66:GDMS-Server-Core:8203 (replication=false)
+2020-09-07 19:02:18 INFO  http-nio-8001-exec-6 com.netflix.eureka.registry.AbstractInstanceRegistry Registered instance GDMS-SERVER-CORE/10.162.111.66:GDMS-Server-Core:8203 with status UP (replication=false)
+2020-09-07 19:02:22 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 0ms
+2020-09-07 19:03:22 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 2ms
+2020-09-07 19:03:30 INFO  http-nio-8001-exec-1 com.netflix.eureka.registry.AbstractInstanceRegistry Registered instance GDMS-SERVER-CORE/10.162.111.66:GDMS-Server-Core:8203 with status DOWN (replication=false)
+2020-09-07 19:03:33 INFO  http-nio-8001-exec-3 com.netflix.eureka.registry.AbstractInstanceRegistry Cancelled instance GDMS-SERVER-CORE/10.162.111.66:GDMS-Server-Core:8203 (replication=false)
+2020-09-07 19:03:34 INFO  Thread-22 org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry Unregistering application GDMS-REGISTER with eureka with status DOWN
+2020-09-07 19:03:34 INFO  Thread-22 com.netflix.eureka.DefaultEurekaServerContext Shutting down ...
+2020-09-07 19:03:34 INFO  Thread-22 com.netflix.eureka.DefaultEurekaServerContext Shut down
+2020-09-07 19:03:34 INFO  Thread-22 org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler Shutting down ExecutorService
+2020-09-07 19:03:34 INFO  Thread-22 org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor Shutting down ExecutorService 'applicationTaskExecutor'
+2020-09-07 19:03:34 INFO  Thread-22 com.netflix.discovery.DiscoveryClient Shutting down DiscoveryClient ...
+2020-09-07 19:03:34 INFO  Thread-22 com.netflix.discovery.DiscoveryClient Completed shut down of DiscoveryClient
+2020-09-07 19:03:49 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$3ee17fca] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-07 19:03:50 INFO  main org.graduationdesign.gdmsregister.GdmsRegisterApplication No active profile set, falling back to default profiles: default
+2020-09-07 19:03:50 INFO  main org.springframework.cloud.context.scope.GenericScope BeanFactory id=427fdd6f-ed38-34db-a985-a9c8a2068d2b
+2020-09-07 19:03:50 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$3ee17fca] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-07 19:03:51 INFO  main org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat initialized with port(s): 8001 (http)
+2020-09-07 19:03:51 INFO  main org.apache.coyote.http11.Http11NioProtocol Initializing ProtocolHandler ["http-nio-8001"]
+2020-09-07 19:03:51 INFO  main org.apache.catalina.core.StandardService Starting service [Tomcat]
+2020-09-07 19:03:51 INFO  main org.apache.catalina.core.StandardEngine Starting Servlet engine: [Apache Tomcat/9.0.21]
+2020-09-07 19:03:51 INFO  main org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/register] Initializing Spring embedded WebApplicationContext
+2020-09-07 19:03:51 INFO  main org.springframework.web.context.ContextLoader Root WebApplicationContext: initialization completed in 1132 ms
+2020-09-07 19:03:51 INFO  main com.netflix.config.sources.URLConfigurationSource To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-09-07 19:03:51 INFO  main com.netflix.config.DynamicPropertyFactory DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@46aa712c
+2020-09-07 19:03:51 INFO  main org.springframework.boot.actuate.endpoint.web.ServletEndpointRegistrar Registered '/actuator/jolokia' to jolokia-actuator-endpoint
+2020-09-07 19:03:51 INFO  main com.sun.jersey.server.impl.application.WebApplicationImpl Initiating Jersey application, version 'Jersey: 1.19.1 03/11/2016 02:08 PM'
+2020-09-07 19:03:51 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using JSON encoding codec LegacyJacksonJson
+2020-09-07 19:03:51 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using JSON decoding codec LegacyJacksonJson
+2020-09-07 19:03:51 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using XML encoding codec XStreamXml
+2020-09-07 19:03:51 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using XML decoding codec XStreamXml
+2020-09-07 19:03:52 INFO  main org.springframework.security.web.DefaultSecurityFilterChain Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1491cd6c, org.springframework.security.web.context.SecurityContextPersistenceFilter@5514579e, org.springframework.security.web.header.HeaderWriterFilter@76a6f045, org.springframework.security.web.csrf.CsrfFilter@5c82031b, org.springframework.security.web.authentication.logout.LogoutFilter@2a8f8555, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@72b2c5ed, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@12567179, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@423f8a73, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@6b25ef1c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3af236d0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@200d1a3d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1aedf08d, org.springframework.security.web.session.SessionManagementFilter@4bcdd11, org.springframework.security.web.access.ExceptionTranslationFilter@307af381, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@13e00016]
+2020-09-07 19:03:52 INFO  main com.netflix.config.sources.URLConfigurationSource To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-09-07 19:03:52 INFO  main org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-07 19:03:52 INFO  main org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler Initializing ExecutorService
+2020-09-07 19:03:52 INFO  main org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver Exposing 20 endpoint(s) beneath base path '/actuator'
+2020-09-07 19:03:52 INFO  main org.springframework.cloud.netflix.eureka.InstanceInfoFactory Setting initial instance status as: STARTING
+2020-09-07 19:03:52 INFO  main com.netflix.discovery.DiscoveryClient Initializing Eureka in region us-east-1
+2020-09-07 19:03:52 INFO  main com.netflix.discovery.DiscoveryClient Client configured to neither register nor query for data.
+2020-09-07 19:03:52 INFO  main com.netflix.discovery.DiscoveryClient Discovery Client initialized at timestamp 1599476632978 with initial instances count: 0
+2020-09-07 19:03:53 INFO  main com.netflix.eureka.DefaultEurekaServerContext Initializing ...
+2020-09-07 19:03:53 INFO  main com.netflix.eureka.registry.AbstractInstanceRegistry Finished initializing remote region registries. All known remote regions: []
+2020-09-07 19:03:53 INFO  main com.netflix.eureka.DefaultEurekaServerContext Initialized
+2020-09-07 19:03:53 INFO  main org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry Registering application GDMS-REGISTER with eureka with status UP
+2020-09-07 19:03:53 INFO  Thread-20 org.springframework.cloud.netflix.eureka.server.EurekaServerBootstrap Setting the eureka configuration..
+2020-09-07 19:03:53 INFO  Thread-20 org.springframework.cloud.netflix.eureka.server.EurekaServerBootstrap Eureka data center value eureka.datacenter is not set, defaulting to default
+2020-09-07 19:03:53 INFO  Thread-20 org.springframework.cloud.netflix.eureka.server.EurekaServerBootstrap Eureka environment value eureka.environment is not set, defaulting to test
+2020-09-07 19:03:53 INFO  Thread-20 org.springframework.cloud.netflix.eureka.server.EurekaServerBootstrap isAws returned false
+2020-09-07 19:03:53 INFO  Thread-20 org.springframework.cloud.netflix.eureka.server.EurekaServerBootstrap Initialized server context
+2020-09-07 19:03:53 INFO  Thread-20 com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl Got 1 instances from neighboring DS node
+2020-09-07 19:03:53 INFO  Thread-20 com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl Renew threshold is: 1
+2020-09-07 19:03:53 INFO  Thread-20 com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl Changing status to UP
+2020-09-07 19:03:53 INFO  main org.apache.coyote.http11.Http11NioProtocol Starting ProtocolHandler ["http-nio-8001"]
+2020-09-07 19:03:53 INFO  Thread-20 org.springframework.cloud.netflix.eureka.server.EurekaServerInitializerConfiguration Started Eureka Server
+2020-09-07 19:03:53 INFO  main org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat started on port(s): 8001 (http) with context path '/register'
+2020-09-07 19:03:53 INFO  main org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration Updating port to 8001
+2020-09-07 19:03:53 INFO  main org.graduationdesign.gdmsregister.GdmsRegisterApplication Started GdmsRegisterApplication in 4.691 seconds (JVM running for 5.562)
+2020-09-07 19:03:53 INFO  RMI TCP Connection(1)-127.0.0.1 org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/register] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-07 19:03:53 INFO  RMI TCP Connection(1)-127.0.0.1 org.springframework.web.servlet.DispatcherServlet Initializing Servlet 'dispatcherServlet'
+2020-09-07 19:03:53 INFO  RMI TCP Connection(1)-127.0.0.1 org.springframework.web.servlet.DispatcherServlet Completed initialization in 7 ms
+2020-09-07 19:03:55 INFO  http-nio-8001-exec-4 com.netflix.eureka.registry.AbstractInstanceRegistry Registered instance GDMS-AUTH/10.162.111.66:GDMS-Auth:8101 with status UP (replication=false)
+2020-09-07 19:03:58 INFO  http-nio-8001-exec-6 com.netflix.eureka.registry.AbstractInstanceRegistry Registered instance GDMS-SERVER-CORE/10.162.111.66:GDMS-Server-Core:8203 with status UP (replication=false)
+2020-09-07 19:04:00 INFO  http-nio-8001-exec-9 com.netflix.eureka.registry.AbstractInstanceRegistry Registered instance GDMS-SERVER-NOTICE/10.162.111.66:GDMS-Server-Notice:8202 with status UP (replication=false)
+2020-09-07 19:04:09 INFO  http-nio-8001-exec-4 com.netflix.eureka.registry.AbstractInstanceRegistry Registered instance GDMS-GATEWAY/10.162.111.66:GDMS-Gateway:8301 with status UP (replication=false)
+2020-09-07 19:04:53 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 0ms
+2020-09-07 19:05:53 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 4ms
+2020-09-07 19:06:53 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 1ms
+2020-09-07 19:07:53 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 3ms
+2020-09-07 19:08:25 INFO  Thread-22 org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry Unregistering application GDMS-REGISTER with eureka with status DOWN
+2020-09-07 19:08:25 INFO  Thread-22 com.netflix.eureka.DefaultEurekaServerContext Shutting down ...
+2020-09-07 19:08:25 INFO  Thread-22 com.netflix.eureka.DefaultEurekaServerContext Shut down
+2020-09-07 19:08:25 INFO  Thread-22 org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler Shutting down ExecutorService
+2020-09-07 19:08:25 INFO  Thread-22 org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor Shutting down ExecutorService 'applicationTaskExecutor'
+2020-09-07 19:08:25 INFO  Thread-22 com.netflix.discovery.DiscoveryClient Shutting down DiscoveryClient ...
+2020-09-07 19:08:25 INFO  Thread-22 com.netflix.discovery.DiscoveryClient Completed shut down of DiscoveryClient
+2020-09-07 19:08:31 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$118ca32a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-07 19:08:31 INFO  main org.graduationdesign.gdmsregister.GdmsRegisterApplication No active profile set, falling back to default profiles: default
+2020-09-07 19:08:32 INFO  main org.springframework.cloud.context.scope.GenericScope BeanFactory id=427fdd6f-ed38-34db-a985-a9c8a2068d2b
+2020-09-07 19:08:32 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$118ca32a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-07 19:08:32 INFO  main org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat initialized with port(s): 8001 (http)
+2020-09-07 19:08:32 INFO  main org.apache.coyote.http11.Http11NioProtocol Initializing ProtocolHandler ["http-nio-8001"]
+2020-09-07 19:08:32 INFO  main org.apache.catalina.core.StandardService Starting service [Tomcat]
+2020-09-07 19:08:32 INFO  main org.apache.catalina.core.StandardEngine Starting Servlet engine: [Apache Tomcat/9.0.21]
+2020-09-07 19:08:33 INFO  main org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/register] Initializing Spring embedded WebApplicationContext
+2020-09-07 19:08:33 INFO  main org.springframework.web.context.ContextLoader Root WebApplicationContext: initialization completed in 1049 ms
+2020-09-07 19:08:33 INFO  main com.netflix.config.sources.URLConfigurationSource To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-09-07 19:08:33 INFO  main com.netflix.config.DynamicPropertyFactory DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@1c8f6a90
+2020-09-07 19:08:33 INFO  main org.springframework.boot.actuate.endpoint.web.ServletEndpointRegistrar Registered '/actuator/jolokia' to jolokia-actuator-endpoint
+2020-09-07 19:08:33 INFO  main com.sun.jersey.server.impl.application.WebApplicationImpl Initiating Jersey application, version 'Jersey: 1.19.1 03/11/2016 02:08 PM'
+2020-09-07 19:08:33 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using JSON encoding codec LegacyJacksonJson
+2020-09-07 19:08:33 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using JSON decoding codec LegacyJacksonJson
+2020-09-07 19:08:34 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using XML encoding codec XStreamXml
+2020-09-07 19:08:34 INFO  main com.netflix.discovery.provider.DiscoveryJerseyProvider Using XML decoding codec XStreamXml
+2020-09-07 19:08:34 INFO  main org.springframework.security.web.DefaultSecurityFilterChain Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@446b64b3, org.springframework.security.web.context.SecurityContextPersistenceFilter@6615237, org.springframework.security.web.header.HeaderWriterFilter@591f6f83, org.springframework.security.web.csrf.CsrfFilter@733f1395, org.springframework.security.web.authentication.logout.LogoutFilter@68c34db2, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@36551e97, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@6c9a3661, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@35ac9ebd, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@26d0ece6, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4bf4680c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@72b2c5ed, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@56c0a61e, org.springframework.security.web.session.SessionManagementFilter@55421b8d, org.springframework.security.web.access.ExceptionTranslationFilter@150d6eaf, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5da6b13d]
+2020-09-07 19:08:34 INFO  main com.netflix.config.sources.URLConfigurationSource To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-09-07 19:08:34 INFO  main org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-07 19:08:35 INFO  main org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler Initializing ExecutorService
+2020-09-07 19:08:35 INFO  main org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver Exposing 20 endpoint(s) beneath base path '/actuator'
+2020-09-07 19:08:35 INFO  main org.springframework.cloud.netflix.eureka.InstanceInfoFactory Setting initial instance status as: STARTING
+2020-09-07 19:08:35 INFO  main com.netflix.discovery.DiscoveryClient Initializing Eureka in region us-east-1
+2020-09-07 19:08:35 INFO  main com.netflix.discovery.DiscoveryClient Client configured to neither register nor query for data.
+2020-09-07 19:08:35 INFO  main com.netflix.discovery.DiscoveryClient Discovery Client initialized at timestamp 1599476915249 with initial instances count: 0
+2020-09-07 19:08:35 INFO  main com.netflix.eureka.DefaultEurekaServerContext Initializing ...
+2020-09-07 19:08:35 INFO  main com.netflix.eureka.registry.AbstractInstanceRegistry Finished initializing remote region registries. All known remote regions: []
+2020-09-07 19:08:35 INFO  main com.netflix.eureka.DefaultEurekaServerContext Initialized
+2020-09-07 19:08:35 INFO  main org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry Registering application GDMS-REGISTER with eureka with status UP
+2020-09-07 19:08:35 INFO  Thread-18 org.springframework.cloud.netflix.eureka.server.EurekaServerBootstrap Setting the eureka configuration..
+2020-09-07 19:08:35 INFO  Thread-18 org.springframework.cloud.netflix.eureka.server.EurekaServerBootstrap Eureka data center value eureka.datacenter is not set, defaulting to default
+2020-09-07 19:08:35 INFO  Thread-18 org.springframework.cloud.netflix.eureka.server.EurekaServerBootstrap Eureka environment value eureka.environment is not set, defaulting to test
+2020-09-07 19:08:35 INFO  Thread-18 org.springframework.cloud.netflix.eureka.server.EurekaServerBootstrap isAws returned false
+2020-09-07 19:08:35 INFO  Thread-18 org.springframework.cloud.netflix.eureka.server.EurekaServerBootstrap Initialized server context
+2020-09-07 19:08:35 INFO  Thread-18 com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl Got 1 instances from neighboring DS node
+2020-09-07 19:08:35 INFO  Thread-18 com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl Renew threshold is: 1
+2020-09-07 19:08:35 INFO  Thread-18 com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl Changing status to UP
+2020-09-07 19:08:35 INFO  main org.apache.coyote.http11.Http11NioProtocol Starting ProtocolHandler ["http-nio-8001"]
+2020-09-07 19:08:35 INFO  Thread-18 org.springframework.cloud.netflix.eureka.server.EurekaServerInitializerConfiguration Started Eureka Server
+2020-09-07 19:08:35 INFO  main org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat started on port(s): 8001 (http) with context path '/register'
+2020-09-07 19:08:35 INFO  main org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration Updating port to 8001
+2020-09-07 19:08:35 INFO  main org.graduationdesign.gdmsregister.GdmsRegisterApplication Started GdmsRegisterApplication in 4.212 seconds (JVM running for 4.837)
+2020-09-07 19:08:35 INFO  http-nio-8001-exec-1 org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/register] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-07 19:08:35 INFO  http-nio-8001-exec-1 org.springframework.web.servlet.DispatcherServlet Initializing Servlet 'dispatcherServlet'
+2020-09-07 19:08:35 INFO  http-nio-8001-exec-1 org.springframework.web.servlet.DispatcherServlet Completed initialization in 7 ms
+2020-09-07 19:08:36 INFO  http-nio-8001-exec-2 com.netflix.eureka.registry.AbstractInstanceRegistry Registered instance GDMS-AUTH/10.162.111.66:GDMS-Auth:8101 with status UP (replication=false)
+2020-09-07 19:08:38 INFO  http-nio-8001-exec-6 com.netflix.eureka.registry.AbstractInstanceRegistry Registered instance GDMS-SERVER-CORE/10.162.111.66:GDMS-Server-Core:8203 with status UP (replication=false)
+2020-09-07 19:08:40 INFO  http-nio-8001-exec-1 com.netflix.eureka.registry.AbstractInstanceRegistry Registered instance GDMS-SERVER-NOTICE/10.162.111.66:GDMS-Server-Notice:8202 with status UP (replication=false)
+2020-09-07 19:08:49 INFO  http-nio-8001-exec-8 com.netflix.eureka.registry.AbstractInstanceRegistry Registered instance GDMS-GATEWAY/10.162.111.66:GDMS-Gateway:8301 with status UP (replication=false)
+2020-09-07 19:09:02 INFO  http-nio-8001-exec-8 com.netflix.eureka.registry.AbstractInstanceRegistry Registered instance GDMS-SERVER-CORE/10.162.111.66:GDMS-Server-Core:8203 with status DOWN (replication=false)
+2020-09-07 19:09:05 INFO  http-nio-8001-exec-10 com.netflix.eureka.registry.AbstractInstanceRegistry Cancelled instance GDMS-SERVER-CORE/10.162.111.66:GDMS-Server-Core:8203 (replication=false)
+2020-09-07 19:09:23 INFO  http-nio-8001-exec-4 com.netflix.eureka.registry.AbstractInstanceRegistry Registered instance GDMS-SERVER-CORE/10.162.111.66:GDMS-Server-Core:8203 with status UP (replication=false)
+2020-09-07 19:09:35 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 0ms
+2020-09-07 19:10:35 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 0ms
+2020-09-07 19:11:35 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 0ms
+2020-09-07 19:12:35 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 2ms
+2020-09-07 19:13:35 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 1ms
+2020-09-07 19:14:35 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 3ms
+2020-09-07 19:15:35 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 4ms
+2020-09-07 19:16:35 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 1ms
+2020-09-07 19:17:35 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 78ms
+2020-09-07 19:18:35 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 0ms
+2020-09-07 19:19:35 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 1ms
+2020-09-07 19:20:35 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 1ms
+2020-09-07 19:21:35 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 3ms
+2020-09-07 19:22:35 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 3ms
+2020-09-07 19:23:35 INFO  ReplicaAwareInstanceRegistry - RenewalThresholdUpdater com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl Current renewal threshold is : 8
+2020-09-07 19:23:35 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 0ms
+2020-09-07 19:24:35 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 5ms
+2020-09-07 19:25:35 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 1ms
+2020-09-07 19:26:35 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 4ms
+2020-09-07 19:27:35 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 4ms
+2020-09-07 19:28:35 INFO  Eureka-EvictionTimer com.netflix.eureka.registry.AbstractInstanceRegistry Running the evict task with compensationTime 2ms
+2020-09-07 19:29:33 INFO  Thread-21 org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry Unregistering application GDMS-REGISTER with eureka with status DOWN
+2020-09-07 19:29:33 INFO  Thread-21 com.netflix.eureka.DefaultEurekaServerContext Shutting down ...
+2020-09-07 19:29:33 INFO  Thread-21 com.netflix.eureka.DefaultEurekaServerContext Shut down
+2020-09-07 19:29:33 INFO  Thread-21 org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler Shutting down ExecutorService
+2020-09-07 19:29:33 INFO  Thread-21 org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor Shutting down ExecutorService 'applicationTaskExecutor'
+2020-09-07 19:29:33 INFO  Thread-21 com.netflix.discovery.DiscoveryClient Shutting down DiscoveryClient ...
+2020-09-07 19:29:33 INFO  Thread-21 com.netflix.discovery.DiscoveryClient Completed shut down of DiscoveryClient
