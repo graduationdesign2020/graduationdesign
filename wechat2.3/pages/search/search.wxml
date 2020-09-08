@@ -12,8 +12,8 @@
   <view>
     <block wx:for="{{searchMessages}}" wx:for-item="list">
       <block wx:for="{{list}}" wx:for-item="item" wx:key="id">
-        <wux-card bindtap="detail" data-id="{{item.id}}" data-type="{{item.type}}" title="{{item.title}}">
-            <view slot = "body">{{tools.sub(item.content)}}</view>
+        <wux-card bindtap="detail" data-id="{{item._id}}" data-type="{{item._source.type}}" title="{{item._source.title}}">
+            <view slot = "body">{{tools.sub(item._source.content)}}</view>
             <!-- <view slot="footer">{{item.time}}</view> -->
           </wux-card>
       </block>

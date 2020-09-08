@@ -1,5 +1,5 @@
 const urlhead = "http://54.234.98.178:8301"
-const searchurl = urlhead+"/search"
+const searchurl = "http://54.234.98.178:9200/gdms"
 const noticeurl = urlhead+"/notice"
 const normalurl = urlhead+"/core"
 
@@ -30,7 +30,7 @@ export const Request = (head, url, postdata, callback, failcallback = (res)=>{})
             callback(res.data)
             break
           case 401:
-          case 500:
+          // case 500:
           case 403:
             var pages = getCurrentPages()
 	          var currentPage = pages[pages.length - 1]

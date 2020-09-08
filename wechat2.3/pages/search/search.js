@@ -11,6 +11,7 @@ Page({
     auth: wx.getStorageSync('auth'),
     userData: {},
     searchValue: '',
+    query:'',
     currentPage: 1,
     searchMessages: [{id: 1,type:1, title: '参数的传递', content: '啊擦都洞的佛v觉得覅v哦地方v哦v地方v那地方v你吧v官方撒吃撒地产市场的食不果腹DVD是'}]
   },
@@ -62,18 +63,18 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-    var page = this.data.currentPage + 1
-    var data = {dept: this.data.userData.dept, id: this.data.userData.id, keywords: this.data.searchValue, pageNo: page, pageSize: 6}
-    var that = this
-    console.log("reach bottom")
-    SearchRequest('/search', data, (res)=>{
-      console.log(res)
-      that.setData({
-        ["searchMessages["+page+"]"]: res, currentPage: page
-      })
-    })
-  },
+  onReachBottom: function () {
+        var page = this.data.currentPage + 1
+        getQuery(page);
+        var that = this
+        console.log("reach bottom")
+        SearchRequest('/_search', that.data.query, (res)=>{
+          console.log(res)
+          that.setData({
+            ["searchMessages["+page+"]"]: res.hits.hits, currentPage: page
+          })
+        })
+      },
 
   /**
    * 用户点击右上角分享
@@ -82,17 +83,21 @@ Page({
 
   },
 
-  onSearch: function () {
-    var data = {dept: this.data.userData.dept, id: this.data.userData.id, keywords: this.data.searchValue, pageNo: 0, pageSize: 6}
-    var that = this
-    SearchRequest('/search', data, (res)=> {
-      console.log("init", res)
-      that.setData({
-        ["searchMessages["+ 0 +"]"]: res, 
-        currentPage: 0
-      })
-    })
-  },
+  onSearch: function () {
+        this.getQuery(0);
+        var that = this
+        SearchRequest('/_search', that.data.query, (res)=> {
+          console.log("init", res)
+          that.setData({
+            ["searchMessages["+ 0 +"]"]: res.hits.hits, 
+            currentPage: 0
+          })
+        })
+      },
+      getQuery: function(page){
+      var that = this
+          that.setData("query","{\"size\":"+6+",\"from\":"+6*page+",\"query\": {\"bool\": {\"must\":[{\"bool\":{\"should\": [{\"match\": {\"title\":\""+this.data.searchValue+"\"}},{\"match\":{\"content\": \""+this.data.searchValue+"\"}}]}},{\"bool\":{\"should\":[{ \"term\": {\"type\": 0}},{\"bool\":{\"must\": [{\"term\": {\"type\": 1}},{\"match\": {\"department\":\""+this.data.userData.dept+"\"}}]}},{\"bool\":{\"must\": [{\"term\": {\"type\": 2}},{\"match\": {\"student\":\""+this.data.userData.id+"\"}}]}}]}}]}}}")
+        },
 
   detail: function(e) {
     console.log(e.currentTarget.dataset)
